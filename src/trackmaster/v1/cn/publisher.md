@@ -27,7 +27,7 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
       "client_id": "***",
       "client_secret": "***",
       "grant_type": "password",
-      "email": "your@email.com",
+      "email": "yourmailaddress@email.com",
       "password": "***"
     }
 
