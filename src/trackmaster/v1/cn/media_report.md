@@ -86,7 +86,7 @@ title: 媒体报告
 **响应**
 
     Status: 204 No Content
-    Link: <http://{{site.track_api_host}}/medias/1308/campaigns/10256/daily_reports>; rel="campaigns"
+    Location: http://{{site.track_api_host}}/medias/1308/campaigns/10256/daily_reports
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -103,7 +103,7 @@ title: 媒体报告
 **响应**
 
     Status: 204 No Content
-    Link: <http://{{site.track_api_host}}/medias/1308/campaigns/10256/reports>; rel="campaigns"
+    Location: http://{{site.track_api_host}}/medias/1308/campaigns/10256/reports
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
