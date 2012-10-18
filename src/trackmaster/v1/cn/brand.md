@@ -3,6 +3,7 @@ weight: 5
 layout: default
 category: trackmaster
 subcategory: agency
+language: cn
 title: 品牌
 ---
 

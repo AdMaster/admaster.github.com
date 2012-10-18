@@ -47,13 +47,13 @@
         <ul>
         {% for weight in (1..30) %}
           {% for p in site.pages %}{% if p.url contains page.category %}
+          {% if p.url contains page.language %}
             {% if p.weight == weight %}{% unless p.subcategory %}
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a {% if p.url == page.url %}class="active"{% endif %} href="/doc{{ p.url }}">
-                  {{ p.title }}
-                </a></h3>
+                  <a {% if p.url == page.url %}class="active"{% endif %} href="/doc{{ p.url }}">{{ p.title }}</a>
+                </h3>
                 <ul class="js-guides">
                   {% for i in site.pages %}{% if p.url contains i.subcategory %}
                   <li style=""><a href="/doc{{i.url}}">{{ i.title }}</a></li>
@@ -61,18 +61,27 @@
                 </ul>
               </li>
             {% endunless %}{% endif %}
+          {% endif %}
           {% endif %}{% endfor %}
         {% endfor %}
        </ul>
       </div> <!-- /sidebar-module -->
+
+      <div class="sidebar-module">
+        <p>
+          <a href="/doc/{{page.category}}/v1/cn/index.html">中文 (中国)</a>
+          <a href="/doc/{{page.category}}/v1/en/index.html">English</a>
+        </p>
+      </div>
+
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->
 
     <div id="footer" >
        <div class="lower_footer">
-        <div class="footer_inner clearfix">              
-          <div id="legal"> 
+        <div class="footer_inner clearfix">
+          <div id="legal">
               <!--<ul id="legal_links">
                 <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
                 <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>

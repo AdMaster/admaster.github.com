@@ -2,6 +2,7 @@
 weight: 5
 layout: default
 category: openmaster
+language: cn
 title: 接口定义 - 通用说明
 ---
 

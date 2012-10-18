@@ -3,6 +3,7 @@ weight: 6
 layout: default
 category: trackmaster
 subcategory: agency
+language: cn
 title: 频道
 ---
 
