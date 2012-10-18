@@ -90,7 +90,7 @@ The `access_token` you received as a response to Step One.
 
     access_token=***
     start_time Optional Date - Beginning date to retrieve data in format YYYY-MM-DD. Example:2012-08-01，listing campaigns which beginning time earlier than  `start_time`.
-    end_time Optional Date - Final date to retrieve data in format YYYY-MM-DD. Example:2012-08-02，listing campaigns which final time later than  `end_time`
+    end_time Optional Date - Final date to retrieve data in format YYYY-MM-DD. Example:2012-08-02，listing campaigns which final time later than  `end_time`.
     sort Optional String - The order to retrieve the results.
     direction Optional String - The direction to retrieve the results.
 
@@ -113,5 +113,6 @@ The `access_token` you received as a response to Step One.
 
 ## More information
 
-[media report](/doc/trackmaster/v1/cn/media_report.html)
+[Media Report](/doc/trackmaster/v1/cn/media_report.html)
+
 [Protocal and Requests Instructions](/doc/openmaster/v1/cn/verbs.html)
