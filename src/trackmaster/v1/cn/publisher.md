@@ -12,7 +12,7 @@ title: 媒体
 {:toc}
 
 
-TrackMaster™ 所有API的访问都是通过 HTTP 执行的，所有被发送和接受的的数据都是 JSON。
+TrackMaster™ 所有API的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。
 
 TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。
 
