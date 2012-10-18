@@ -2,6 +2,7 @@
 weight: 3
 layout: default
 category: openmaster
+language: cn
 title: OAuth 认证
 ---
 

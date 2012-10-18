@@ -2,6 +2,7 @@
 layout: default
 category: openmaster
 weight: 1
+language: cn
 title: OpenMaster文档首页
 ---
 

@@ -2,6 +2,7 @@
 weight: 14
 layout: default
 category: trackmaster
+language: cn
 title: 代理
 ---
 

@@ -2,6 +2,7 @@
 weight: 14
 layout: default
 category: trackmaster
+language: cn
 title: 媒体
 ---
 
@@ -104,7 +105,7 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 
 
 
-## 详情参见
+**详情参见**
 
 [媒体报告](/doc/trackmaster/v1/cn/media_report.html)
 [协议及请求说明](/doc/openmaster/v1/cn/verbs.html)
