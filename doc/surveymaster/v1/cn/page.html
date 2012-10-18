@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>SurveyMaster首页 - surveymaster - AdMaster API 文档中心</title>
+  <title>页相关 - surveymaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -39,7 +39,68 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="surveymaster">SurveyMaster首页</h1>
+        <ul id="markdown-toc">
+  <li><a href="#section">1. 创建页</a></li>
+  <li><a href="#section-1">2. 获取指定页详情</a></li>
+  <li><a href="#section-2">3. 修改指定页</a></li>
+</ul>
+
+<h2 id="section">1. 创建页</h2>
+
+<pre><code>POST /surveys/:survey_id/pages
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201 Created
+Location: http://api.surveymaster.com.cn/surveys/123/pages
+</code></pre>
+
+<pre class="prettyprint"><code>{
+  "id" : 1,
+  "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
+  "survey_id" : 112,    /* 问卷ID */
+  "order_num" : 1,   /* 显示顺序 */
+  "is_deleted" : "no"
+}
+</code></pre>
+
+<h2 id="section-1">2. 获取指定页详情</h2>
+
+<pre><code>GET /surveys/pages/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "id" : 1,
+    "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
+    "survey_id" : 112,
+    "order_num" : 1,   /* 显示顺序 */
+    "is_deleted" : "no"
+}
+</code></pre>
+
+<h2 id="section-2">3. 修改指定页</h2>
+
+<pre><code>PATCH /surveys/pages/:id
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+    "order_num" : 1,   /* 显示顺序 */
+    "is_deleted" : "no"
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+</code></pre>
 
       </div>
 
