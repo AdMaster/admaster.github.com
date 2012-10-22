@@ -18,7 +18,7 @@ TrackMaster is the leading online advertising measurement tool in China.
 
 The following diagram shows the main objects in the API:
 
-![Trackmaster Architecture](/doc/trackmaster/v1/en/trackmaster.png "API Architecture")  
+![Trackmaster Architecture](/doc/trackmaster/v1/cn/trackmaster.png "API Architecture")  
 　　
 
 **Network**  
