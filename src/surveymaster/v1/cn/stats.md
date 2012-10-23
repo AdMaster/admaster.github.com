@@ -3,6 +3,7 @@ weight: 9
 layout: default
 category: surveymaster
 title: 统计相关接口
+language: cn
 ---
 
 * TOC

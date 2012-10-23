@@ -3,6 +3,7 @@ weight: 5
 layout: default
 category: surveymaster
 title: 渠道相关接口
+language: cn
 ---
 
 * TOC

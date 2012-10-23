@@ -3,6 +3,7 @@ weight: 7
 layout: default
 category: surveymaster
 title: 前置逻辑相关接口
+language: cn
 ---
 
 * TOC

@@ -3,6 +3,7 @@ weight: 2
 layout: default
 category: surveymaster
 title: 问卷相关
+language: cn
 ---
 
 * TOC
