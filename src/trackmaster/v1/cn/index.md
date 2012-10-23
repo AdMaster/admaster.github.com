@@ -2,6 +2,7 @@
 weight: 1
 layout: default
 category: trackmaster
+language: cn
 title: TrackMaster™ 文档首页
 ---
 

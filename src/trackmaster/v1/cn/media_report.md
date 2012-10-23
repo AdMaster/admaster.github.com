@@ -3,6 +3,7 @@ weight: 13
 layout: default
 category: trackmaster
 subcategory: publisher
+language: cn
 title: 媒体报告
 ---
 

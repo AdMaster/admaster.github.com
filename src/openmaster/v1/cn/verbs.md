@@ -2,6 +2,7 @@
 weight: 4
 layout: default
 category: openmaster
+language: cn
 title: 协议及请求方式
 ---
 
