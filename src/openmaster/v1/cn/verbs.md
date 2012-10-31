@@ -15,7 +15,7 @@ title: 协议及请求方式
 
 ## 架构
 
-所有API的访问都是通过 HTTP 执行的，所有被发送和接受的的数据都是 JSON。
+所有API的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。
 
     $ curl -i https://track.admasterapi.com
 
