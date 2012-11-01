@@ -116,6 +116,4 @@ The `access_token` you received as a response to `Getting the access_token`.
 
 [TrackMaster Index](/doc/trackmaster/v1/en/index.html)
 
-[Media Report](/doc/trackmaster/v1/en/media_report.html)
-
 [Protocal and Requests Instructions](/doc/openmaster/v1/en/verbs.html)
