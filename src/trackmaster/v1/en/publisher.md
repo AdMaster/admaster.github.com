@@ -45,7 +45,7 @@ Before your application can access a TrackMaster API, it must obtain an access t
 
 
 
-Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of `expires_in`. When this is the case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens. 
+Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of `expires_in`. In this case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens. 
 
 **Parameters**
 
