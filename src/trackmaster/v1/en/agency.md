@@ -195,7 +195,7 @@ List campaigns for the specified advertiser in authorized network.
       }
     ]
 
-## Getting the campaign report ##
+## Get the campaign report ##
 
 [Campaign Report](/doc/trackmaster/v1/en/campaign_report.html)
  

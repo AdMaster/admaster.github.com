@@ -20,7 +20,7 @@ TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization
 All developers need to register their application before getting started. A registered OAuth application is assigned a unique `client_id` and `client_secret`. The client_secret should not be shared.
 
 
-## Getting the access_token
+## Get the access_token
 Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API. 
 
     POST http://open.admaster.com.cn/oauth/access_token
@@ -57,7 +57,7 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
     }
 
 
-## Getting the campaigns list
+## List the campaigns
 
     GET http://track.admasterapi.com/medias/:media_id/campaigns
 
@@ -80,7 +80,7 @@ The `access_token` you received as a response to `Getting the access_token`.
     ]
 
 
-## Getting the media report 
+## Get the media report 
 
     GET http://track.admasterapi.com/medias/:media_id/campaigns/:campaign_id/daily_reports
 
