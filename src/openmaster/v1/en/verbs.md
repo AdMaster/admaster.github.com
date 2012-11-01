@@ -1,7 +1,7 @@
 ---
 weight: 14
 layout: default
-category: trackmaster
+category: openmaster
 language: en
 title: Protocal and Requests Instructions
 ---

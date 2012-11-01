@@ -203,7 +203,7 @@ List campaigns for the specified advertiser in authorized network.
 
 [TrackMaster Index](/doc/openmaster/v1/en/index.html)
 
-[Protocal and Requests Instructions](/doc/openmaster/v1/cn/verbs.html)
+[Protocal and Requests Instructions](/doc/openmaster/v1/en/verbs.html)
 
 
 
