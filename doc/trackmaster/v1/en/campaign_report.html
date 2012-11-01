@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>代理 - trackmaster - AdMaster API 文档中心</title>
+  <title>Campaign Report - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -39,204 +39,150 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">广告代理</h1>
+        <h1 id="campaign-report">Campaign Report</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-2">第一步 获取访问令牌</a></li>
-  <li><a href="#section-3">第二步 获取当前授权用户有权操作的所有工作网络</a></li>
-  <li><a href="#section-4">第三步 获取指定工作网络下所有广告主属性列表</a></li>
-  <li><a href="#section-5">第四步 获取指定工作网络下某个广告主有操作权限的项目列表</a></li>
+  <li><a href="#get-the-authorized-campaign-report">Get the authorized campaign report</a></li>
 </ul>
 
-<p>TrackMaster™ 所有API的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。</p>
+<h2 id="get-the-authorized-campaign-report">Get the authorized campaign report</h2>
 
-<p>TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。在您阅读本文进行开发时，您应当已经取得了您的帐号。如果没有，请至 <a href="http://www.admaster.com.cn">AdMaster 官网</a> 申请帐号。</p>
-
-<p>TrackMaster API 结构与业务逻辑一致，请访问 <a href="http://help.admaster.com.cn/trackmaster/">帮助中心</a> 获取相关业务知识，您也可以从 <a href="/doc/trackmaster/v1/cn/index.html">概述</a> 简单了解。</p>
-
-<h1 id="section-1">开发示例</h1>
-
-<h2 id="section-2">第一步 获取访问令牌</h2>
-
-<pre><code>POST http://open.admaster.com.cn/oauth/access_token
+<pre><code>GET /campaigns/:campaign_id/reports
 </code></pre>
 
-<p><strong>参数</strong></p>
-
-<pre><code>{
-  "client_id": "***",
-  "client_secret": "***",
-  "grant_type": "password",
-  "email": "yourmailaddress@email.com",
-  "password": "***"
-}
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>{
-  "access_token": "7a68b4d65ddd6a6191ef0cbf9cadb06528d92d67",
-  "expires_in": "18000",
-  "refresh_token": "23a89c9944afc0525a25d15d180c6bce03efa331"
-}
-</code></pre>
-
-<p><code>access_token</code>在<code>expires_in</code>秒内有效，超期后请重新访问该接口获取新的访问令牌，携带参数：</p>
-
-<pre><code>{
-  "client_id": "***",
-  "client_secret": "***",
-  "grant_type": "refresh_token",
-  "refresh_token": "***"
-}
-</code></pre>
-
-<h2 id="section-3">第二步 获取当前授权用户有权操作的所有工作网络</h2>
-
-<pre><code>GET /user/networks
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>[
-   {
-    "id": 1,
-    "url": "https://track.admasterapi.com/networks/1",
-    "name": "测试工作网络", //别名
-    "created_at": "2012-09-06T20:39:23Z" //创建时间
-    "account": {
-        "status": "enabled", //`enabled` 可用, `disabled` 禁用, `unactive` 未激活
-        "created_at": "2012-01-10T02:30:59Z", //当前用户加入网络的时间
-        "role": {
-            "id": 1,
-            "name": "高级管理员(super admin)"
-         }
-      }
-   }
-]
-</code></pre>
-
-<h2 id="section-4">第三步 获取指定工作网络下所有广告主属性列表</h2>
-
-<pre><code>GET /networks/:network_id/advertisers
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-    "advertiser_id": 1,
-    "url": "http://track.admasterapi.com/networks/1/advertisers/1",
-    "name": {"zh_cn" =&gt; "腾讯", "en_us" =&gt; "tencent"},   //广告主名称
-    "status": "enabled",
-    "alias": "ibm",
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z"  //创建时间
-  }
-]
-</code></pre>
-
-<h2 id="section-5">第四步 获取指定工作网络下某个广告主有操作权限的项目列表</h2>
-
-<pre><code>GET /networks/:network_id/advertisers/:advertiser_id/campaigns
-</code></pre>
-
-<p><strong>参数</strong></p>
+<p><strong>Parameters</strong></p>
 
 <dl>
-  <dt><code>name</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 项目名称，支持模糊搜索，例如：名称为 “这是一个测试项目” 搜索 “一个”即可找到改项目</dd>
-  <dt><code>network_brand_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 项目所属网络品牌ID</dd>
-  <dt><code>status</code></dt>
-  <dd><em>可选</em> <em>Enum</em> - 项目状态
+  <dt><code>time</code></dt>
+  <dd><em>Required</em> <strong>string</strong> 
 
     <ul>
-      <li><code>all</code> - 所有状态, (<em>默认</em>)</li>
-      <li><code>typing</code> - 拟稿中</li>
-      <li><code>testing</code> - 测试中</li>
-      <li><code>kickoff</code> - 项目初期</li>
-      <li><code>midterm</code> - 项目中期</li>
-      <li><code>teminal</code> - 项目末期</li>
-      <li><code>finished</code> - 已结束</li>
+      <li><code>hourly</code> Get hourly unique data.</li>
+      <li><code>daily</code> Get daily unique data.</li>
+      <li><code>weekly</code> Get weekly unique data.</li>
+      <li><code>monthly</code> Get monthly unique data.</li>
     </ul>
   </dd>
-  <dt><code>start_date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目开始时间，会列出项目开始日期小于等于此设定的项目</dd>
-  <dt><code>end_date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目结束时间，会列出项目结束日期大于等于次设定的项目</dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
+  <dt><code>dims</code></dt>
+  <dd><em>Required</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics.
 
     <ul>
-      <li><code>id</code> - 按照项目ID排序</li>
-      <li><code>network_brand_id</code> - 按照品牌ID排序</li>
-      <li><code>name</code> - 按照项目名称排序</li>
-      <li><code>total_cost</code> - 按照总成本排序</li>
-      <li><code>media_num</code> - 按照媒体数排序</li>
-      <li><code>placement_num</code> - 按照广告位数排序</li>
-      <li><code>start_date</code> - 按照开始日期排序</li>
-      <li><code>end_date</code> - 按照结束日期排序</li>
-      <li><code>est_imp</code> - 按照总预计曝光排序</li>
-      <li><code>est_clk</code> - 按照总预计点击排序</li>
-    </ul>
-  </dd>
-  <dt><code>direction</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式
-
-    <ul>
-      <li><code>asc</code> 升序 (<em>默认</em>)</li>
-      <li><code>desc</code> 降序</li>
+      <li><code>media</code> </li>
+      <li><code>placement</code> </li>
+      <li><code>keyword</code> </li>
+      <li><code>creative</code> </li>
+      <li><code>geo</code> </li>
+      <li><code>time</code> </li>
     </ul>
   </dd>
 </dl>
 
-<p><strong>响应</strong></p>
+<p>When using dimensions in a feed request, be aware of the following constraints:</p>
+
+<ul>
+  <li>You can not send a query comprised only of dimensions: you must combine any requested dimension with at least one metric.</li>
+  <li>Any given dimension can be used with other dimensions or metrics, but only certain dimensions and metrics can be used together to create valid combinations. </li>
+</ul>
+
+<dl>
+  <dt><code>network_media_id</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Network Media ID</dd>
+  <dt><code>placement_id</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Placement ID</dd>
+  <dt><code>keyword_id</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Keyword ID</dd>
+  <dt><code>creative_id</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Creative ID</dd>
+  <dt><code>geo_id</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Geography ID</dd>
+  <dt><code>start_time</code></dt>
+  <dd><em>Optional</em> <strong>hour</strong> - Beginning date to retrieve data in format YYYY-MM-DD. Listing campaigns which beginning time date than  <code>start_date</code>.</dd>
+  <dt><code>end_time</code></dt>
+  <dd><em>Optional</em> <strong>hour</strong> - Final date to retrieve data in format YYYY-MM-DD. Listing campaigns which final data later than  <code>end_data</code>.</dd>
+  <dt><code>sort</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.
+
+    <ul>
+      <li><code>time</code> - Sorting occurs by time.</li>
+      <li><code>imp</code> - Sorting occurs by impression.</li>
+      <li><code>clk</code> - Sorting occurs by click.</li>
+      <li><code>uimp</code> - Sorting occurs by unique impression.</li>
+      <li><code>uclk</code> - Sorting occurs by unique click.</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - The direction to retrieve the results.
+
+    <ul>
+      <li><code>asc</code> Ascend (<em>Default</em>)</li>
+      <li><code>desc</code> Descend</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Response</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/12/advertisers/122/campaigns?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/networks/12/advertisers/122/campaigns?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/campaigns/12/reports?page=10&gt;; rel="last"
 </code></pre>
 
 <pre class="prettyprint"><code>[
   {
-    "id": 1,
-    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/1",
-    "name": "这是一个测试项目",
-    "network_brand_id": 10213,
-    "cost_type": "CNY",
-    "total_cost": 20000000,
-    "start_date": "2012-01-03",
-    "end_date": "2012-06-23",
-    "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1024,
-    "media_num": 8,
-    "placement_num": 258,
-    "est_imp": 9183213,
-    "est_clk": 12334,
-    "status": "typing",
-    "is_online": "yes",
-    "created_at": "2012-09-06T20:39:23Z"
+    "campaign_id": 10185,
+    "network_media_id": 1484,
+    "time": "2012-08-03",
+    "imp": 9,
+    "uimp": 6,
+    "ipuimp": 6,
+    "clk": 3,
+    "uclk": 3,
+    "ipuclk": 2
   }
 ]
 </code></pre>
 
-<h1 id="section-6">其它信息</h1>
+<p><strong>Dimensions Description</strong></p>
 
-<p><a href="/doc/openmaster/v1/cn/index.html">概述</a>
-<a href="/doc/openmaster/v1/cn/verbs.html">协议及请求说明</a></p>
+<table>
+  <tbody>
+    <tr>
+      <td>Field</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>imp</td>
+      <td>integer</td>
+      <td>Impression</td>
+    </tr>
+    <tr>
+      <td>uimp</td>
+      <td>integer</td>
+      <td>Unique Impression</td>
+    </tr>
+    <tr>
+      <td>ipuimp</td>
+      <td>integer</td>
+      <td>Unique Impression IP</td>
+    </tr>
+    <tr>
+      <td>clk</td>
+      <td>integer</td>
+      <td>Click</td>
+    </tr>
+    <tr>
+      <td>uclk</td>
+      <td>integer</td>
+      <td>Unique Click</td>
+    </tr>
+    <tr>
+      <td>ipuclk</td>
+      <td>integer</td>
+      <td>Unique Click IP</td>
+    </tr>
+  </tbody>
+</table>
 
 
       </div>
@@ -247,27 +193,33 @@ X-RateLimit-Remaining: 4999
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -283,9 +235,637 @@ X-RateLimit-Remaining: 4999
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/index.html">TrackMaster™ 文档首页</a>
+                  <a  href="/doc/trackmaster/v1/en/index.html">TrackMaster™ Index</a>
                 </h3>
                 <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/en/agency.html">Agency</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/campaign_report.html">Campaign Report</a></li>
                   
                 </ul>
               </li>
@@ -302,910 +882,50 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/trackmaster/v1/cn/agency.html">代理</a>
+                  <a  href="/doc/trackmaster/v1/en/publisher.html">Media</a>
                 </h3>
                 <ul class="js-guides">
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/advertiser.html">广告主</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/brand.html">品牌</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/campaign.html">项目</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/campaign_report.html">项目报告</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/channel.html">频道</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/code.html">代码</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/creative.html">创意</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/media.html">媒体</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/network.html">工作网络</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/placement.html">广告位</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/spot.html">点位</a></li>
                   
                 </ul>
               </li>
             
           
           
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
@@ -1220,108 +940,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/publisher.html">媒体</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/cn/media_report.html">媒体报告</a></li>
-                  
-                </ul>
-              </li>
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1338,60 +988,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1408,60 +1036,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1478,60 +1084,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1548,60 +1132,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1618,60 +1180,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1688,60 +1228,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1758,60 +1276,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1828,60 +1324,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1898,60 +1372,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -1968,60 +1420,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -2038,60 +1468,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -2108,60 +1516,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -2178,60 +1564,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -2248,60 +1612,38 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
-          
-          
-          
-            
           
           
           
@@ -2318,84 +1660,6 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
           
           
         

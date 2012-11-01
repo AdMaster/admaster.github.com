@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>协议及请求方式 - openmaster - AdMaster API 文档中心</title>
+  <title>Protocal and Requests Instructions - openmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -39,24 +39,24 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">协议及请求方式</h1>
+        <h1 id="protocal-and-requests-instructions">Protocal and Requests Instructions</h1>
 
-<p>本文讲述了组成官方 AdMaster API 的资源信息。本API处于测试状态。可能会有一些重大更改。</p>
+<p>This describes the resources that make up the official Admaster API. </p>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">架构</a></li>
-  <li><a href="#section-2">客户端错误</a></li>
-  <li><a href="#http-">HTTP 谓词</a></li>
-  <li><a href="#section-3">认证</a></li>
-  <li><a href="#section-4">分页</a></li>
-  <li><a href="#section-5">速度限制</a></li>
-  <li><a href="#section-6">跨域资源共享</a></li>
-  <li><a href="#json-p">JSON-P回调(暂未支持)</a></li>
+  <li><a href="#schema">Schema</a></li>
+  <li><a href="#client-errors">Client Errors</a></li>
+  <li><a href="#http-verbs">HTTP Verbs</a></li>
+  <li><a href="#authentication">Authentication</a></li>
+  <li><a href="#pagination">Pagination</a></li>
+  <li><a href="#rate-limitingplanning">Rate Limiting(Planning)</a></li>
+  <li><a href="#cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
+  <li><a href="#json-p-callbacksplanning">JSON-P Callbacks(Planning)</a></li>
 </ul>
 
-<h2 id="section-1">架构</h2>
+<h2 id="schema">Schema</h2>
 
-<p>所有API的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。</p>
+<p>All API access is over HTTP. All data is sent and received as JSON.</p>
 
 <pre><code>$ curl -i https://track.admasterapi.com
 </code></pre>
@@ -74,15 +74,15 @@ X-RateLimit-Remaining: 4999
 Content-Length: 0
 </code></pre>
 
-<p>空白区域作为null而不是被忽略。</p>
+<p>Blank fields are included as <code>null</code> instead of being omitted.</p>
 
-<p>所有的时间戳返回格式是ISO 8601：<code>YYYY-MM-DDTHH:MM:SSZ</code></p>
+<p>All timestamps are returned in ISO 8601 format：<code>YYYY-MM-DDTHH:MM:SSZ</code></p>
 
-<h2 id="section-2">客户端错误</h2>
+<h2 id="client-errors">Client Errors</h2>
 
-<p>调用API客户端的错误有三种可能类型，它们收到的请求主体是：</p>
+<p>There are three possible types of client errors on API calls that receive request bodies:</p>
 
-<p>1.发送无效 JSON将导致400个错误请求响应。</p>
+<p>1.Sending invalid JSON will result in a <code>400 Bad Request</code> response.</p>
 
 <pre><code>HTTP/1.1 400 Bad Request
 Content-Length: 35
@@ -91,7 +91,7 @@ Content-Length: 35
 <pre class="prettyprint"><code>{"message":"Problems parsing JSON"}
 </code></pre>
 
-<p>2.发送错误类型的JSON值将导致400错误请求响应</p>
+<p>2.Sending the wrong type of JSON values will result in a<code> 400 Bad Request</code> response.</p>
 
 <pre><code>HTTP/1.1 400 Bad Request
 Content-Length: 40
@@ -100,7 +100,7 @@ Content-Length: 40
 <pre class="prettyprint"><code>{"message":"Body should be a JSON Hash"}
 </code></pre>
 
-<p>3.发送无效文件将导致422无法处理的实体响应。</p>
+<p>3.Sending invalid fields will result in a <code>422 Unprocessable Entity</code> response.</p>
 
 <pre><code>HTTP/1.1 422 Unprocessable Entity
 Content-Length: 149
@@ -118,75 +118,74 @@ Content-Length: 149
 }
 </code></pre>
 
-<p>所有的错误对象都有资源和字段属性，您的客户端可以说明问题所在。还有一个错误代码让您知道什么是错误区域，下面这些都是可能的验证错误代码：</p>
+<p>All error objects have resource and field properties so that your client can tell what the problem is. There’s also an error code to let you know what is wrong with the field. These are the possible validation error codes:</p>
 
 <ul>
-  <li><code>missing</code> 这意味着资源不存在。</li>
-  <li><code>missing_field</code> 这意味着对资源所需的领域尚未确定。</li>
-  <li><code>invalid</code> 这意味着领域格式不合法。资源文档应该给您提供更专业的信息。</li>
-  <li><code>already_exists</code> 这意味着已经存在和该领域同样值的资源了。这就要求要有独立的key（如：标签名称）</li>
+  <li><code>missing</code> This means a resource does not exist.</li>
+  <li><code>missing_field</code> This means a required field on a resource has not been set.</li>
+  <li><code>invalid</code> This means the formatting of a field is invalid. The documentation for that resource should be able to give you more specific information.</li>
+  <li><code>already_exists</code> This means another resource has the same value as this field. This can happen in resources that must have some unique key (such as Label names).</li>
 </ul>
 
-<p>如果资源有自定义的验证错误，他们将用资源来记录。</p>
+<p>If resources have custom validation errors, they will be documented with the resource.</p>
 
-<h2 id="http-">HTTP 谓词</h2>
+<h2 id="http-verbs">HTTP Verbs</h2>
 
-<p>对于每一个动作，API尽可能的驱使您使用 HTTP 谓词。</p>
+<p>Where possible, Admaster API strives to use appropriate HTTP verbs for each action.</p>
 
-<p><code>HEAD</code> 只获取HTTP的头信息，不管其他资源信息</p>
+<p><code>HEAD</code> Can be issued against any resource to get just the HTTP header info.</p>
 
-<p><code>GET</code> 用于检索资源</p>
+<p><code>GET</code> Used for retrieving resources.</p>
 
-<p><code>POST</code> 用于创建资源、执行自定义动作（如合并，推送）</p>
+<p><code>POST</code> Used for creating resources, or performing custom actions (such as merging a pull request).</p>
 
-<p><code>PATCH</code> 利用部分 JSON 数据更新资源，例如，一个资源有 title 和 body 属性。一个PATCH需求可能是通过接收一个或多个属性进行资源更新。PATCH是一个相对较新的和不常见的HTTP谓词，所以资源端点也接收POST需求。</p>
+<p><code>PATCH</code> Used for updating resources with partial JSON data. For instance, an Issue resource has <code>title</code> and <code>body</code> attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept POST requests.</p>
 
-<p><code>PUT</code> 用于收集或代替资源。PUT需求没有 body 属性，所以要确定设置内容长度为0.</p>
+<p><code>PUT</code> Used for replacing resources or collections. For PUT requests with no <code>body</code> attribute, be sure to set the <code>Content-Length</code> header to zero.</p>
 
-<p><code>DELETE</code> 用于删除资源。</p>
+<p><code>DELETE</code> Used for deleting resources.</p>
 
-<h2 id="section-3">认证</h2>
+<h2 id="authentication">Authentication</h2>
 
-<p>OAuth2 Token (头部发送):</p>
+<p>OAuth2 Token (sent in a header):</p>
 
 <pre><code>$ curl -H "Authorization: token OAUTH-TOKEN" http://track.admasterapi.com
 </code></pre>
 
-<p>OAuth2 Token (作为参数发送):</p>
+<p>OAuth2 Token (sent as a parameter):</p>
 
 <pre><code>$ curl http://track.admasterapi.com/advertisers?access_token=OAUTH-TOKEN
 </code></pre>
 
-<p>在某些地方，对认证的需求将返回 404，而不是403。这是为了防止意外泄漏给未经授权的用户的私人资料。</p>
+<p>Requests that require authentication will return 404, instead of 403, in some places. This is to prevent the accidental leakage of private repositories to unauthorized users.</p>
 
-<h2 id="section-4">分页</h2>
+<h2 id="pagination">Pagination</h2>
 
-<p>默认情况下，多项目请求将会被分页成30项。您可以利用参数<code>?page</code>指定进一步页，您也可以利用参数<code>?per_page</code>自定义页大小到100.</p>
+<p>Requests that return multiple items will be paginated to 30 items by default. You can specify further pages with the <code>?page</code> parameter. For some resources, you can also set a custom page size up to 100 with the <code>?per_page</code> parameter.</p>
 
 <pre><code>$ curl http://track.admasterapi.com/advertisers?page=2&amp;amp;per_page=100
 </code></pre>
 
-<p>分页信息包含在 the link header：</p>
+<p>The pagination info is included in the link header：</p>
 
 <pre class="prettyprint"><code>Link: &lt;http://track.admasterapi.com/advertisers?page=3&amp;per_page=100&gt;; rel=”next”, 
   &lt;http://track.admasterapi.com/advertisers?page=50&amp;per_page=100&gt;; rel=”last”
 </code></pre>
 
-<p>换行仅做显示用。</p>
+<p>Linebreak is included for readability.</p>
 
-<p><code>rel</code> 的可能值有：</p>
+<p>The possible <code>rel</code> values are:</p>
 
 <ul>
-  <li><code>next</code> 立即显示下页结果的URL。</li>
-  <li><code>last</code> 显示上页结果的URL。</li>
-  <li><code>first</code> 显示第一页结果的URL。</li>
-  <li><code>prev</code> 立即显示前页结果的URL。</li>
+  <li><code>next</code> Shows the URL of the immediate next page of results.</li>
+  <li><code>last</code> Shows the URL of the last page of results.</li>
+  <li><code>first</code> Shows the URL of the first page of results.</li>
+  <li><code>prev</code> Shows the URL of the immediate previous page of results.</li>
 </ul>
 
-<h2 id="section-5">速度限制</h2>
+<h2 id="rate-limitingplanning">Rate Limiting(Planning)</h2>
 
-<p>我们以每小时5000限制的API 的请求。这是记录了您的登录，您的OAuth的令牌，或请求的IP。
-您可以检查返回的API请求的HTTP头，查看您当前的状态：</p>
+<p>We limit requests to 5,000 per hour. You can check the returned HTTP headers of any API request to see your current status:</p>
 
 <pre class="prettyprint"><code>$ curl -i https://track.admasterapi.com/users/whatever
 
@@ -196,19 +195,19 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4966
 </code></pre>
 
-<p>你可以联系我们要求进行您应用程序白名单访问，我们更推荐为用户设置OAuth应用。</p>
+<p>Please contact us to request white listed access for your application. We prefer sites that setup OAuth applications for their users.</p>
 
-<h2 id="section-6">跨域资源共享</h2>
+<h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
 
-<p>对于AJAX需求的，API支持跨域资源共享。你可以从HTML5安全指南中阅读CORS W3C working draft, 或者 this intro。</p>
+<p>The API supports Cross Origin Resource Sharing (CORS) for AJAX requests. you can read the CORS W3C working draft from the HTML 5 Security Guide.</p>
 
-<p>下面是一个发自浏览器的示例需求<code>http://some-site.com</code>：</p>
+<p>Here’s a sample request sent from a browser hitting<code>http://some-site.com</code>：</p>
 
 <pre><code>$ curl -i https://track.admasterapi.com -H "Origin: http://some-site.com" 
 HTTP/1.1 302 Found
 </code></pre>
 
-<p>任何一个被接受的域名都是作为OAUTH应用程序注册的。下面是一个示例需求，用于浏览器触及 Calendar About Nothing:</p>
+<p>Any domain that is registered as an OAuth Application is accepted. Here’s a sample request for a browser hitting Calendar About Nothing:</p>
 
 <pre><code>$ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" 
 </code></pre>
@@ -219,7 +218,7 @@ Access-Control-Expose-Headers: Link, X-RateLimit-Limit, X-RateLimit-Remaining, X
 Access-Control-Allow-Credentials: true
 </code></pre>
 
-<p>下面是CORS系统预检请求：</p>
+<p>This is what the CORS preflight request looks like：</p>
 
 <pre><code>$ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS   
 </code></pre>
@@ -233,30 +232,9 @@ Access-Control-Max-Age: 86400
 Access-Control-Allow-Credentials: true
 </code></pre>
 
-<h2 id="json-p">JSON-P回调(暂未支持)</h2>
+<h2 id="json-p-callbacksplanning">JSON-P Callbacks(Planning)</h2>
 
-<p>你可以发送参数<code>?callback</code>到任何GET回调函数以获得JSON函数的结果包裹。浏览器通过跨域方式利用网页嵌入AdMaster 内容就是一种典型的应用。
-响应包括定期API相同的数据输出，加上相关的HTTP头信息。</p>
-
-<pre><code>$ curl https://track.admasterapi.com/advertisers?callback=foo
-</code></pre>
-
-<pre class="prettyprint"><code>foo({
-  "meta": {
-    "status": 200,
-    "X-RateLimit-Limit": "5000",
-    "X-RateLimit-Remaining": "4966",
-    "Link": [ // pagination headers and other links
-      ["https://track.admasterapi.com/advertisers?page=2", {"rel": "next"}]
-    ]
-  },
-  "data": {
-    // the data
-  }
-})
-</code></pre>
-
-<p>你可以写一个javascript处理程序来处理这样的回调：</p>
+<p>You can send a <code>?callback</code>parameter to any GET call to have the results wrapped in a JSON function.The response includes the same data output as the regular API, plus the relevant HTTP Header information.</p>
 
 <pre><code>$ curl https://track.admasterapi.com/advertisers?callback=foo
 </code></pre>
@@ -276,14 +254,34 @@ Access-Control-Allow-Credentials: true
 })
 </code></pre>
 
-<p>头都是相同的字符串值作为HTTP头，有一个例外：link。通过数组<code>[url, options]</code>阵列，link头部预先为您解析。</p>
+<p>You can write a javascript handler to process the callback like this:</p>
 
-<p>所谓的link，如下：</p>
+<pre><code>$ curl https://track.admasterapi.com/advertisers?callback=foo
+</code></pre>
+
+<pre class="prettyprint"><code>foo({
+  "meta": {
+    "status": 200,
+    "X-RateLimit-Limit": "5000",
+    "X-RateLimit-Remaining": "4966",
+    "Link": [ // pagination headers and other links
+      ["https://track.admasterapi.com/advertisers?page=2", {"rel": "next"}]
+    ]
+  },
+  "data": {
+    // the data
+  }
+})
+</code></pre>
+
+<p>All of the headers are the same String value as the HTTP Headers with one notable exception: Link. Link headers are pre-parsed for you and come through as an array of <code>[url, options]</code> tuples.</p>
+
+<p>A link that looks like this:</p>
 
 <pre class="prettyprint"><code>Link: &lt;url1&gt;; rel=”next”, &lt;url2&gt;; rel=”foo”; bar=”baz”
 </code></pre>
 
-<p>…在回调输出中是这样的：</p>
+<p>… will look like this in the Callback output:</p>
 
 <pre class="prettyprint"><code>{
   "Link": [
@@ -312,11 +310,221 @@ Access-Control-Allow-Credentials: true
         
           
           
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
             
           
           
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -324,7 +532,7 @@ Access-Control-Allow-Credentials: true
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/index.html">OpenMaster文档首页</a>
+                  <a class="active" href="/doc/openmaster/v1/en/verbs.html">Protocal and Requests Instructions</a>
                 </h3>
                 <ul class="js-guides">
                   
@@ -333,750 +541,260 @@ Access-Control-Allow-Credentials: true
             
           
           
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/get_started.html">快速入门</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
-            
+          
+          
+          
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/oauth.html">OAuth 认证</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
-            
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/openmaster/v1/cn/verbs.html">协议及请求方式</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
-            
-          
-          
           
           
         
           
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/common.html">接口定义 - 通用说明</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
-            
+          
+          
+          
+          
+          
+          
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
           
           
           
-            
           
           
           
-            
+          
           
           
           
             
-          
-          
-          
-            
-          
-          
           
           
         
           
           
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
           
-        
           
           
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
           
           
           
-        
           
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
             
-          
-          
-          
-            
-          
-          
           
           
         

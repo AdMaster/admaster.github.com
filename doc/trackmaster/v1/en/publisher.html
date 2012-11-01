@@ -42,19 +42,19 @@
         <h1 id="trackmaster-api-for-publishers">TrackMaster API for Publishers</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#step-one--getting-the-accesstoken">Step One  Getting the access_token</a></li>
-  <li><a href="#step-two-getting-the-campaigns-list">Step Two Getting the campaigns list</a></li>
-  <li><a href="#step-three-getting-the-media-report">Step Three Getting the media report</a></li>
+  <li><a href="#getting-the-accesstoken">Getting the access_token</a></li>
+  <li><a href="#getting-the-campaigns-list">Getting the campaigns list</a></li>
+  <li><a href="#getting-the-media-report">Getting the media report</a></li>
   <li><a href="#more-information">More information</a></li>
 </ul>
 
-<p>TrackMaster provides an API for programmatic access to account data. All API access is over HTTPS. All data is sent and received as JSON.</p>
+<p>TrackMaster provides an API for programmatic access to account data. All API access is over HTTP. All data is sent and received as JSON.</p>
 
 <p>TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization.</p>
 
 <p>All developers need to register their application before getting started. A registered OAuth application is assigned a unique <code>client_id</code> and <code>client_secret</code>. The client_secret should not be shared.</p>
 
-<h2 id="step-one--getting-the-accesstoken">Step One  Getting the access_token</h2>
+<h2 id="getting-the-accesstoken">Getting the access_token</h2>
 <p>Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API. </p>
 
 <pre><code>POST http://open.admaster.com.cn/oauth/access_token
@@ -92,14 +92,14 @@
 }
 </code></pre>
 
-<h2 id="step-two-getting-the-campaigns-list">Step Two Getting the campaigns list</h2>
+<h2 id="getting-the-campaigns-list">Getting the campaigns list</h2>
 
 <pre><code>GET http://track.admasterapi.com/medias/:media_id/campaigns
 </code></pre>
 
 <p><strong>Parameters</strong></p>
 
-<p>The <code>access_token</code> you received as a response to Step One.</p>
+<p>The <code>access_token</code> you received as a response to <code>Getting the access_token</code>.</p>
 
 <pre><code>access_token=***
 </code></pre>
@@ -117,7 +117,7 @@
 ]
 </code></pre>
 
-<h2 id="step-three-getting-the-media-report">Step Three Getting the media report</h2>
+<h2 id="getting-the-media-report">Getting the media report</h2>
 
 <pre><code>GET http://track.admasterapi.com/medias/:media_id/campaigns/:campaign_id/daily_reports
 </code></pre>
@@ -151,9 +151,11 @@ direction Optional String - The direction to retrieve the results.
 
 <h2 id="more-information">More information</h2>
 
-<p><a href="/doc/trackmaster/v1/cn/media_report.html">Media Report</a></p>
+<p><a href="/doc/trackmaster/v1/en/index.html">TrackMaster Index</a></p>
 
-<p><a href="/doc/openmaster/v1/cn/verbs.html">Protocal and Requests Instructions</a></p>
+<p><a href="/doc/trackmaster/v1/en/media_report.html">Media Report</a></p>
+
+<p><a href="/doc/openmaster/v1/en/verbs.html">Protocal and Requests Instructions</a></p>
 
       </div>
       
@@ -190,6 +192,10 @@ direction Optional String - The direction to retrieve the results.
           
           
           
+          
+          
+          
+            
           
           
           
@@ -258,46 +264,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -336,46 +302,6 @@ direction Optional String - The direction to retrieve the results.
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           
           
@@ -434,46 +360,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -512,46 +398,6 @@ direction Optional String - The direction to retrieve the results.
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           
           
@@ -610,46 +456,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -698,6 +504,10 @@ direction Optional String - The direction to retrieve the results.
             
           
           
+          
+            
+          
+          
         
           
           
@@ -728,6 +538,250 @@ direction Optional String - The direction to retrieve the results.
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
           
           
           
@@ -783,8 +837,14 @@ direction Optional String - The direction to retrieve the results.
                 </h3>
                 <ul class="js-guides">
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/campaign_report.html">Campaign Report</a></li>
+                  
                 </ul>
               </li>
+            
+          
+          
+          
             
           
           
@@ -850,46 +910,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -928,46 +948,6 @@ direction Optional String - The direction to retrieve the results.
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           
           
@@ -1026,46 +1006,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -1104,46 +1044,6 @@ direction Optional String - The direction to retrieve the results.
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           
           
@@ -1202,46 +1102,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -1280,46 +1140,6 @@ direction Optional String - The direction to retrieve the results.
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           
           
@@ -1378,46 +1198,6 @@ direction Optional String - The direction to retrieve the results.
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -1466,6 +1246,10 @@ direction Optional String - The direction to retrieve the results.
             
           
           
+          
+            
+          
+          
         
           
           
@@ -1496,6 +1280,346 @@ direction Optional String - The direction to retrieve the results.
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
           
           
           
