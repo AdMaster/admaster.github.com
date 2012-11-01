@@ -197,11 +197,11 @@ List campaigns for the specified advertiser in authorized network.
 
 ## Getting the campaign report ##
 
-[Campaign Report](/doc/openmaster/v1/en/campaign_report.html)
+[Campaign Report](/doc/trackmaster/v1/en/campaign_report.html)
  
 # More information #
 
-[TrackMaster Index](/doc/openmaster/v1/en/index.html)
+[TrackMaster Index](/doc/trackmaster/v1/en/index.html)
 
 [Protocal and Requests Instructions](/doc/openmaster/v1/en/verbs.html)
 
