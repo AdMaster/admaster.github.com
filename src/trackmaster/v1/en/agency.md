@@ -12,22 +12,22 @@ title: Agency
 * TOC
 {:toc}
 
-TrackMaster provides an API for programmatic access to account data. All API access is over HTTPS. All data is sent and received as JSON.
+TrackMaster provides an API for programmatic access to account data. All API access is over HTTP. All data is sent and received as JSON.
 
 TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization.
 
 All developers need to register their application before getting started. A registered OAuth application is assigned a unique `client_id` and `client_secret`. The `client_secret` should not be shared.
 
-You must have a TrackMaster account. You can apply for a TrackMaster account here [AdMaster](http://www.admaster.com.cn).
+You must have a TrackMaster account. You can contact us to apply for a TrackMaster account. 
 
 Read [Help Center](http://help.admaster.com.cn/trackmaster/) to learn about business logic.
 
-Read [Index](/doc/trackmaster/v1/cn/index.html) to learn about main objects.
+Read [TrackMaster Index](/doc/trackmaster/v1/en/index.html) to learn about main objects.
 
 
 # Guides #
 
-## Step One  Getting the access_token ##
+## Get an access_token ##
 
     POST http://open.admaster.com.cn/oauth/access_token
 
@@ -61,7 +61,7 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
     }
 
 
-## Step Two Getting the authorized networks data  ##
+## List the authorized networks   ##
 
     GET /user/networks
 
@@ -75,7 +75,7 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
     [
        {
         "id": 1,
-        "url": "https://api.trackmaster.com.cn/networks/1",
+        "url": "https://{{site.track_api_host}}/networks/1",
         "name": "Testing Network", //Alias
         "created_at": "2012-09-06T20:39:23Z" //Creation Time
         "account": {
@@ -89,8 +89,8 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
        }
     ]
 
-##Step Three Getting the advertiser data  ##
-List  advertiser data for the specified network.
+## List the advertisers ##
+List advertisers data for the specified network.
 
     GET /networks/:network_id/advertisers
 
@@ -113,7 +113,7 @@ List  advertiser data for the specified network.
       }
     ]
 
-##Step Four Getting the campaign data ##
+## List the campaigns ##
 
 List campaigns for the specified advertiser in authorized network.
 
@@ -195,10 +195,13 @@ List campaigns for the specified advertiser in authorized network.
       }
     ]
 
+## Getting the campaign report ##
 
+[Campaign Report](/doc/openmaster/v1/en/campaign_report.html)
+ 
 # More information #
 
-[Index](/doc/openmaster/v1/cn/index.html)
+[TrackMaster Index](/doc/openmaster/v1/en/index.html)
 
 [Protocal and Requests Instructions](/doc/openmaster/v1/cn/verbs.html)
 

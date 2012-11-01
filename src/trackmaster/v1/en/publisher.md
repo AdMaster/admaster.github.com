@@ -13,14 +13,14 @@ title: Media
 {:toc}
 
 
-TrackMaster provides an API for programmatic access to account data. All API access is over HTTPS. All data is sent and received as JSON.
+TrackMaster provides an API for programmatic access to account data. All API access is over HTTP. All data is sent and received as JSON.
 
 TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization.
 
 All developers need to register their application before getting started. A registered OAuth application is assigned a unique `client_id` and `client_secret`. The client_secret should not be shared.
 
 
-## Step One  Getting the access_token
+## Getting the access_token
 Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API. 
 
     POST http://open.admaster.com.cn/oauth/access_token
@@ -57,13 +57,13 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
     }
 
 
-## Step Two Getting the campaigns list
+## Getting the campaigns list
 
     GET http://track.admasterapi.com/medias/:media_id/campaigns
 
 **Parameters**
 
-The `access_token` you received as a response to Step One.
+The `access_token` you received as a response to `Getting the access_token`.
 
     access_token=***
 
@@ -80,7 +80,7 @@ The `access_token` you received as a response to Step One.
     ]
 
 
-## Step Three Getting the media report 
+## Getting the media report 
 
     GET http://track.admasterapi.com/medias/:media_id/campaigns/:campaign_id/daily_reports
 
@@ -114,6 +114,6 @@ The `access_token` you received as a response to Step One.
 
 ## More information
 
-[Media Report](/doc/trackmaster/v1/cn/media_report.html)
+[Media Report](/doc/trackmaster/v1/en/media_report.html)
 
 [Protocal and Requests Instructions](/doc/openmaster/v1/cn/verbs.html)
