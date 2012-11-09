@@ -2,7 +2,7 @@
 weight: 3
 layout: default
 category: openmaster
-language: cn
+language: en
 title: OAuth
 ---
 
