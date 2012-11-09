@@ -186,7 +186,7 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
 
 <p><strong>获取数据组合说明</strong>  </p>
 
-<p>不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，可以按时间粒度分开显示，当维度中未选择 time 时，将按时间分组聚合。</p>
+<p>不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。</p>
 
 <table>
   <tbody>
@@ -195,107 +195,140 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>说明</td>
     </tr>
     <tr>
-      <td>daily_campaign</td>
+      <td>time=daily</td>
       <td>粒度为天，项目数据</td>
     </tr>
     <tr>
-      <td>daily_campaign_geo =&gt; time=daily&amp;dims=geo</td>
+      <td>time=daily&amp;dims=geo</td>
       <td>粒度为天，项目分地域数据</td>
     </tr>
     <tr>
-      <td>daily_campaign_media</td>
+      <td>time=daily&amp;dims=media</td>
       <td>粒度为天，项目分媒体数据</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_geo =&gt; time=daily&amp;dims=media,geo</td>
+      <td>time=daily&amp;dims=media,geo</td>
       <td>粒度为天，项目分媒体分地域数据</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_placement</td>
+      <td>time=daily&amp;dims=media,placement</td>
       <td>粒度为天，项目分媒体分广告位数据</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_placement_geo</td>
+      <td>time=daily&amp;dims=media,placement,geo</td>
       <td>粒度为天，项目分媒体分广告位分地域数据</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_placement_keyword</td>
+      <td>time=daily&amp;dims=media,placement,keyword</td>
       <td>粒度为天，项目分媒体分广告位分关键字数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign</td>
+      <td>time=hourly</td>
       <td>粒度为小时，项目数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_creative</td>
+      <td>time=hourly&amp;dims=creative</td>
       <td>粒度为小时，项目分创意数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_geo</td>
+      <td>time=hourly&amp;dims=geo</td>
       <td>粒度为小时，项目分地域数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media</td>
+      <td>time=hourly&amp;dims=media</td>
       <td>粒度为小时，项目分媒体数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_creative</td>
+      <td>time=hourly&amp;dims=media,creative</td>
       <td>粒度为小时，项目分媒体分创意数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_geo</td>
+      <td>time=hourly&amp;dims=media,geo</td>
       <td>粒度为小时，项目分媒体分地域数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement</td>
+      <td>time=hourly&amp;dims=media,placement</td>
       <td>粒度为小时，项目分媒体分广告位数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement_creative</td>
+      <td>time=hourly&amp;dims=media,placement,creative</td>
       <td>粒度为小时，项目分媒体分广告位分创意数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement_geo</td>
+      <td>time=hourly&amp;dims=media,placement,geo</td>
       <td>粒度为小时，项目分媒体分广告位分地域数据</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement_keyword</td>
+      <td>time=hourly&amp;dims=media,placement,keyword</td>
       <td>粒度为小时，项目分媒体分广告位分关键字数据</td>
     </tr>
     <tr>
-      <td>monthly_campaign</td>
+      <td>time=monthly</td>
       <td>粒度为月，项目数据</td>
     </tr>
     <tr>
-      <td>monthly_campaign_media</td>
+      <td>time=monthly&amp;dims=media</td>
       <td>粒度为月，项目分媒体数据</td>
     </tr>
     <tr>
-      <td>monthly_campaign_media_placement</td>
+      <td>time=monthly&amp;dims=media,placement</td>
       <td>粒度为月，项目分媒体分广告位数据</td>
     </tr>
     <tr>
-      <td>monthly_campaign_media_placement_keyword</td>
+      <td>time=monthly&amp;dims=media,placement,keyword</td>
       <td>粒度为月，项目分媒体分广告位分关键字数据</td>
     </tr>
     <tr>
-      <td>weekly_campaign</td>
+      <td>time=weekly</td>
       <td>粒度为周，项目数据</td>
     </tr>
     <tr>
-      <td>weekly_campaign_media</td>
+      <td>time=weekly&amp;dims=media</td>
       <td>粒度为周，项目分媒体数据</td>
     </tr>
     <tr>
-      <td>weekly_campaign_media_placement</td>
+      <td>time=weekly&amp;dims=media,placement</td>
       <td>粒度为周，项目分媒体分广告位数据</td>
     </tr>
     <tr>
-      <td>weekly_campaign_media_placement_keyword</td>
+      <td>time=weekly&amp;dims=media,placement,keyword</td>
       <td>粒度为周，项目分媒体分广告位分关键字数据</td>
     </tr>
   </tbody>
 </table>
+
+<p class="prettyprint"><strong>示例</strong>
+dims=time</p>
+<p>[
+{
+“campaign_id”: 10116,
+“time”: “2012-11-01”,
+“imp”: 3,
+“uimp”: 3,
+“clk”: 7,
+“uclk”: 7,
+“ipuimp”: 3,
+“ipuclk”: 4
+},
+{
+“campaign_id”: 10116,
+“time”: “2012-11-02”,
+…
+]</p>
+
+<p>no dims</p>
+
+<p class="prettyprint">[
+{
+“campaign_id”: 10116,
+“imp”: 28,
+“uimp”: 27,
+“clk”: 72,
+“uclk”: 39,
+“ipuimp”: 27,
+“ipuclk”: 24
+}
+]</p>
 
 
       </div>

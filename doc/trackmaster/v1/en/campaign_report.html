@@ -65,13 +65,17 @@ It is connected with <code>start_time</code> and <code>end_time</code>.
     </ul>
   </dd>
   <dt><code>dims</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time.
-* <code>media</code> 
-* <code>placement</code> 
-* <code>keyword</code> 
-* <code>creative</code> 
-* <code>geo</code> 
-* <code>time</code> </dd>
+  <dd><em>Optional</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time. 
+
+    <ul>
+      <li><code>media</code>    </li>
+      <li><code>placement</code> </li>
+      <li><code>keyword</code> </li>
+      <li><code>creative</code> </li>
+      <li><code>geo</code> </li>
+      <li><code>time</code> </li>
+    </ul>
+  </dd>
 </dl>
 
 <p>When using dimensions in a feed request, be aware of the following constraints:</p>
@@ -254,106 +258,80 @@ Not all combinations can be queried together. Only certain combinations can be u
   <tbody>
     <tr>
       <td>Valid Combinations</td>
-      <td>Description</td>
     </tr>
     <tr>
-      <td>daily_campaign</td>
       <td>time=daily</td>
     </tr>
     <tr>
-      <td>daily_campaign_geo =&gt; time=daily&amp;dims=geo</td>
       <td>time=daily&amp;dims=geo</td>
     </tr>
     <tr>
-      <td>daily_campaign_media</td>
       <td>time=daily&amp;dims=media</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_geo =&gt; time=daily&amp;dims=media,geo</td>
       <td>time=daily&amp;dims=media,geo</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_placement</td>
-      <td>time=daily&amp;dims=campaign,media,placement</td>
+      <td>time=daily&amp;dims=media,placement</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_placement_geo</td>
-      <td>time=daily&amp;dims=campaign,media,placement,geo</td>
+      <td>time=daily&amp;dims=media,placement,geo</td>
     </tr>
     <tr>
-      <td>daily_campaign_media_placement_keyword</td>
-      <td>time=daily&amp;dims=campaign,media,placement,keyword</td>
+      <td>time=daily&amp;dims=media,placement,keyword</td>
     </tr>
     <tr>
-      <td>hourly_campaign</td>
       <td>time=hourly</td>
     </tr>
     <tr>
-      <td>hourly_campaign_creative</td>
       <td>time=hourly&amp;dims=creative</td>
     </tr>
     <tr>
-      <td>hourly_campaign_geo</td>
       <td>time=hourly&amp;dims=geo</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media</td>
       <td>time=hourly&amp;dims=media</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_creative</td>
       <td>time=hourly&amp;dims=media,creative</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_geo</td>
       <td>time=hourly&amp;dims=media,geo</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement</td>
       <td>time=hourly&amp;dims=media,placement</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement_creative</td>
       <td>time=hourly&amp;dims=media,placement,creative</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement_geo</td>
       <td>time=hourly&amp;dims=media,placement,geo</td>
     </tr>
     <tr>
-      <td>hourly_campaign_media_placement_keyword</td>
       <td>time=hourly&amp;dims=media,placement,keyword</td>
     </tr>
     <tr>
-      <td>monthly_campaign</td>
       <td>time=monthly</td>
     </tr>
     <tr>
-      <td>monthly_campaign_media</td>
       <td>time=monthly&amp;dims=media</td>
     </tr>
     <tr>
-      <td>monthly_campaign_media_placement</td>
       <td>time=monthly&amp;dims=media,placement</td>
     </tr>
     <tr>
-      <td>monthly_campaign_media_placement_keyword</td>
       <td>time=monthly&amp;dims=media,placement,keyword</td>
     </tr>
     <tr>
-      <td>weekly_campaign</td>
       <td>time=weekly</td>
     </tr>
     <tr>
-      <td>weekly_campaign_media</td>
       <td>time=weekly&amp;dims=media</td>
     </tr>
     <tr>
-      <td>weekly_campaign_media_placement</td>
       <td>time=weekly&amp;dims=media,placement</td>
     </tr>
     <tr>
-      <td>weekly_campaign_media_placement_keyword</td>
       <td>time=weekly&amp;dims=media,placement,keyword</td>
     </tr>
   </tbody>
