@@ -54,7 +54,8 @@
 
 <dl>
   <dt><code>time</code></dt>
-  <dd><em>Required</em> <strong>string</strong> 
+  <dd><em>Required</em> <strong>string</strong><br />
+It is connected with <code>start_time</code> and <code>end_time</code>.
 
     <ul>
       <li><code>hourly</code> Get hourly unique data.</li>
@@ -64,17 +65,13 @@
     </ul>
   </dd>
   <dt><code>dims</code></dt>
-  <dd><em>Required</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics.
-
-    <ul>
-      <li><code>media</code> </li>
-      <li><code>placement</code> </li>
-      <li><code>keyword</code> </li>
-      <li><code>creative</code> </li>
-      <li><code>geo</code> </li>
-      <li><code>time</code> </li>
-    </ul>
-  </dd>
+  <dd><em>Optional</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time.
+* <code>media</code> 
+* <code>placement</code> 
+* <code>keyword</code> 
+* <code>creative</code> 
+* <code>geo</code> 
+* <code>time</code> </dd>
 </dl>
 
 <p>When using dimensions in a feed request, be aware of the following constraints:</p>
@@ -96,9 +93,75 @@
   <dt><code>geo_id</code></dt>
   <dd><em>Optional</em> <strong>integer</strong> - Geography ID</dd>
   <dt><code>start_time</code></dt>
-  <dd><em>Optional</em> <strong>hour</strong> - Beginning date to retrieve data in format YYYY-MM-DD. Listing campaigns which beginning time date than  <code>start_date</code>.</dd>
+  <dd><em>Optional</em> <strong>hour</strong> - Listing campaigns which beginning time date earlier than <code>start_date</code>. The format of <code>start_time</code> is connected with <code>time</code>.The parament  <code>start_time</code> is formatted according to the ISO 8601 standard.</dd>
+</dl>
+
+<table>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>start_time</td>
+      <td>description</td>
+    </tr>
+    <tr>
+      <td>hourly</td>
+      <td>YYYY-MM-DDThh:mmZ</td>
+      <td>2012-11-06T01:57Z</td>
+    </tr>
+    <tr>
+      <td>daily</td>
+      <td>YYYY-MM-DD</td>
+      <td>2012-11-06</td>
+    </tr>
+    <tr>
+      <td>weekly</td>
+      <td>YYYY-Www</td>
+      <td>2005-W01</td>
+    </tr>
+    <tr>
+      <td>monthly</td>
+      <td>YYYY-MM</td>
+      <td>2005-01</td>
+    </tr>
+  </tbody>
+</table>
+
+<dl>
   <dt><code>end_time</code></dt>
-  <dd><em>Optional</em> <strong>hour</strong> - Final date to retrieve data in format YYYY-MM-DD. Listing campaigns which final data later than  <code>end_data</code>.</dd>
+  <dd><em>Optional</em> <strong>hour</strong> - Listing campaigns which final date later than <code>end_time</code>. The format of <code>end_time</code> is connected with <code>time</code>.The parament <code>end_time</code> is formatted according to the ISO 8601 standard.</dd>
+</dl>
+
+<table>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>end_time</td>
+      <td>description</td>
+    </tr>
+    <tr>
+      <td>hourly</td>
+      <td>YYYY-MM-DDThh:mmZ</td>
+      <td>2012-11-06T01:57Z</td>
+    </tr>
+    <tr>
+      <td>daily</td>
+      <td>YYYY-MM-DD</td>
+      <td>2012-11-06</td>
+    </tr>
+    <tr>
+      <td>weekly</td>
+      <td>YYYY-Www</td>
+      <td>2005-W01</td>
+    </tr>
+    <tr>
+      <td>monthly</td>
+      <td>YYYY-MM</td>
+      <td>2005-01</td>
+    </tr>
+  </tbody>
+</table>
+
+<dl>
   <dt><code>sort</code></dt>
   <dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.
 
@@ -129,15 +192,15 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
 
 <pre class="prettyprint"><code>[
   {
-    "campaign_id": 10185,
-    "network_media_id": 1484,
-    "time": "2012-08-03",
-    "imp": 9,
-    "uimp": 6,
-    "ipuimp": 6,
-    "clk": 3,
-    "uclk": 3,
-    "ipuclk": 2
+    "campaign_id": 10185,//Campaign ID
+    "network_media_id": 1484,//Network Media ID
+    "time": "2012-08-03",//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
+    "imp": 90,//Impression
+    "uimp": 60,//Unique Impression
+    "ipuimp": 56,//Unique Impression IP
+    "clk": 30,//Click
+    "uclk": 23,//Unique Click
+    "ipuclk": 22//Unique Click IP
   }
 ]
 </code></pre>
@@ -184,6 +247,117 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
   </tbody>
 </table>
 
+<p><strong>Valid Combinations Description</strong><br />
+Not all combinations can be queried together. Only certain combinations can be used together to create valid combinations. </p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Valid Combinations</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>daily_campaign</td>
+      <td>time=daily</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_geo =&gt; time=daily&amp;dims=geo</td>
+      <td>time=daily&amp;dims=geo</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media</td>
+      <td>time=daily&amp;dims=media</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_geo =&gt; time=daily&amp;dims=media,geo</td>
+      <td>time=daily&amp;dims=media,geo</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_placement</td>
+      <td>time=daily&amp;dims=campaign,media,placement</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_placement_geo</td>
+      <td>time=daily&amp;dims=campaign,media,placement,geo</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_placement_keyword</td>
+      <td>time=daily&amp;dims=campaign,media,placement,keyword</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign</td>
+      <td>time=hourly</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_creative</td>
+      <td>time=hourly&amp;dims=creative</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_geo</td>
+      <td>time=hourly&amp;dims=geo</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media</td>
+      <td>time=hourly&amp;dims=media</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_creative</td>
+      <td>time=hourly&amp;dims=media,creative</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_geo</td>
+      <td>time=hourly&amp;dims=media,geo</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement</td>
+      <td>time=hourly&amp;dims=media,placement</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement_creative</td>
+      <td>time=hourly&amp;dims=media,placement,creative</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement_geo</td>
+      <td>time=hourly&amp;dims=media,placement,geo</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement_keyword</td>
+      <td>time=hourly&amp;dims=media,placement,keyword</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign</td>
+      <td>time=monthly</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign_media</td>
+      <td>time=monthly&amp;dims=media</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign_media_placement</td>
+      <td>time=monthly&amp;dims=media,placement</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign_media_placement_keyword</td>
+      <td>time=monthly&amp;dims=media,placement,keyword</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign</td>
+      <td>time=weekly</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign_media</td>
+      <td>time=weekly&amp;dims=media</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign_media_placement</td>
+      <td>time=weekly&amp;dims=media,placement</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign_media_placement_keyword</td>
+      <td>time=weekly&amp;dims=media,placement,keyword</td>
+    </tr>
+  </tbody>
+</table>
 
       </div>
       

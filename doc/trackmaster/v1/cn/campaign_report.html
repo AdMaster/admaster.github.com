@@ -54,7 +54,7 @@
 
 <dl>
   <dt><code>time</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 数据时间类型
+  <dd><em>必选</em> <strong>string</strong> - 数据时间类型,与参数 <code>start_time</code> 和 <code>end_time</code> 共同使用。
 
     <ul>
       <li><code>hourly</code> 获取小时数据</li>
@@ -64,7 +64,7 @@
     </ul>
   </dd>
   <dt><code>dims</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 数据聚合维度,多个选项之间用<code>,</code>分开
+  <dd><em>可选</em> <strong>string</strong> - 数据聚合维度,多个选项之间用<code>,</code>分开。
 
     <ul>
       <li><code>media</code> 按媒体维度聚合</li>
@@ -76,21 +76,31 @@
     </ul>
   </dd>
   <dt><code>network_media_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 网络媒体ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 网络媒体 ID</dd>
   <dt><code>placement_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 广告位 ID</dd>
   <dt><code>keyword_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 关键字ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 关键字 ID</dd>
   <dt><code>creative_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
   <dt><code>geo_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 地域ID</dd>
-  <dt><code>start_time</code></dt>
-  <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 地域 ID</dd>
+  <dt><code>start_time</code> </dt>
+  <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目，与参数<code>time</code>一起使用。
+采用国际标准 ISO 8601 的日期和时间显示格式。
+当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
+当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。
+当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01。
+当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</dd>
   <dt><code>end_time</code></dt>
-  <dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目，与参数<code>time</code>一起使用。
+采用国际标准 ISO 8601 的日期和时间显示格式。
+当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
+当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。
+当参数 <code>time</code> 选择 <code>周</code>，例 2005-W01，表示选择 2005 年的第一周。
+当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</dd>
   <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
+  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序，结合参数<code>direction</code>使用。
 
     <ul>
       <li><code>time</code> - 按照时间排序</li>
@@ -101,7 +111,7 @@
     </ul>
   </dd>
   <dt><code>direction</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式
+  <dd><em>可选</em> <strong>string</strong> - 排序方式，结合参数<code>sort</code>使用。
 
     <ul>
       <li><code>asc</code> 升序 (<em>默认</em>)</li>
@@ -119,15 +129,15 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
 
 <pre class="prettyprint"><code>[
   {
-    "campaign_id": 10185,
-    "network_media_id": 1484,
-    "time": "2012-08-03",
-    "imp": 9,
-    "uimp": 6,
-    "ipuimp": 6,
-    "clk": 3,
-    "uclk": 3,
-    "ipuclk": 2
+    "campaign_id": 10185,//项目 ID
+    "network_media_id": 1484,//媒体网络 ID
+    "time": "2012-08-03",//此处 `time` 格式与参数 `start_time`、`end_time` 一致，例如当参数`time`为 daily，则此处时间为从 `start_time` 到 `end_time` 分天时间.
+    "imp": 90,//曝光数
+    "uimp": 60,//独立曝光数
+    "ipuimp": 56,//独立曝光 IP 数
+    "clk": 30,//点击数
+    "uclk": 23,//独立点击数
+    "ipuclk": 27//独立点击 IP 数
   }
 ]
 </code></pre>
@@ -170,6 +180,119 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>ipuclk</td>
       <td>integer</td>
       <td>IP独立点击</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>获取数据组合说明</strong>  </p>
+
+<p>不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，可以按时间粒度分开显示，当维度中未选择 time 时，将按时间分组聚合。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>组合</td>
+      <td>说明</td>
+    </tr>
+    <tr>
+      <td>daily_campaign</td>
+      <td>粒度为天，项目数据</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_geo =&gt; time=daily&amp;dims=geo</td>
+      <td>粒度为天，项目分地域数据</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media</td>
+      <td>粒度为天，项目分媒体数据</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_geo =&gt; time=daily&amp;dims=media,geo</td>
+      <td>粒度为天，项目分媒体分地域数据</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_placement</td>
+      <td>粒度为天，项目分媒体分广告位数据</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_placement_geo</td>
+      <td>粒度为天，项目分媒体分广告位分地域数据</td>
+    </tr>
+    <tr>
+      <td>daily_campaign_media_placement_keyword</td>
+      <td>粒度为天，项目分媒体分广告位分关键字数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign</td>
+      <td>粒度为小时，项目数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_creative</td>
+      <td>粒度为小时，项目分创意数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_geo</td>
+      <td>粒度为小时，项目分地域数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media</td>
+      <td>粒度为小时，项目分媒体数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_creative</td>
+      <td>粒度为小时，项目分媒体分创意数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_geo</td>
+      <td>粒度为小时，项目分媒体分地域数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement</td>
+      <td>粒度为小时，项目分媒体分广告位数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement_creative</td>
+      <td>粒度为小时，项目分媒体分广告位分创意数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement_geo</td>
+      <td>粒度为小时，项目分媒体分广告位分地域数据</td>
+    </tr>
+    <tr>
+      <td>hourly_campaign_media_placement_keyword</td>
+      <td>粒度为小时，项目分媒体分广告位分关键字数据</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign</td>
+      <td>粒度为月，项目数据</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign_media</td>
+      <td>粒度为月，项目分媒体数据</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign_media_placement</td>
+      <td>粒度为月，项目分媒体分广告位数据</td>
+    </tr>
+    <tr>
+      <td>monthly_campaign_media_placement_keyword</td>
+      <td>粒度为月，项目分媒体分广告位分关键字数据</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign</td>
+      <td>粒度为周，项目数据</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign_media</td>
+      <td>粒度为周，项目分媒体数据</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign_media_placement</td>
+      <td>粒度为周，项目分媒体分广告位数据</td>
+    </tr>
+    <tr>
+      <td>weekly_campaign_media_placement_keyword</td>
+      <td>粒度为周，项目分媒体分广告位分关键字数据</td>
     </tr>
   </tbody>
 </table>
