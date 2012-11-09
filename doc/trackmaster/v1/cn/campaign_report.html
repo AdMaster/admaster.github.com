@@ -85,7 +85,7 @@
   <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
   <dt><code>geo_id</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 地域 ID</dd>
-  <dt><code>start_time</code> </dt>
+  <dt><code>start_time</code></dt>
   <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目，与参数<code>time</code>一起使用。
 采用国际标准 ISO 8601 的日期和时间显示格式。
 当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
@@ -184,7 +184,7 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
   </tbody>
 </table>
 
-<p><strong>获取数据组合说明</strong>  </p>
+<p><strong>获取数据组合说明</strong></p>
 
 <p>不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。</p>
 
@@ -297,38 +297,42 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
   </tbody>
 </table>
 
-<p class="prettyprint"><strong>示例</strong>
-dims=time</p>
-<p>[
-{
-“campaign_id”: 10116,
-“time”: “2012-11-01”,
-“imp”: 3,
-“uimp”: 3,
-“clk”: 7,
-“uclk”: 7,
-“ipuimp”: 3,
-“ipuclk”: 4
-},
-{
-“campaign_id”: 10116,
-“time”: “2012-11-02”,
-…
-]</p>
+<p><strong>示例</strong></p>
 
-<p>no dims</p>
+<p>dims=time</p>
 
-<p class="prettyprint">[
-{
-“campaign_id”: 10116,
-“imp”: 28,
-“uimp”: 27,
-“clk”: 72,
-“uclk”: 39,
-“ipuimp”: 27,
-“ipuclk”: 24
-}
-]</p>
+<pre class="prettyprint"><code>[
+    {
+        "campaign_id": 10116,
+        "time": "2012-11-01",
+        "imp": 3,
+        "uimp": 3,
+        "clk": 7,
+        "uclk": 7,
+        "ipuimp": 3,
+        "ipuclk": 4
+    },
+    {
+        "campaign_id": 10116,
+        "time": "2012-11-02",
+    …
+]
+</code></pre>
+
+<p>No dims</p>
+
+<pre class="prettyprint"><code>[
+    {
+        "campaign_id": 10116,
+        "imp": 28,
+        "uimp": 27,
+        "clk": 72,
+        "uclk": 39,
+        "ipuimp": 27,
+        "ipuclk": 24
+    }
+]
+</code></pre>
 
 
       </div>
