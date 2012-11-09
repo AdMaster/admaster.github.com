@@ -42,9 +42,9 @@
         <h1 id="trackmaster-api-for-publishers">TrackMaster API for Publishers</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#getting-the-accesstoken">Getting the access_token</a></li>
-  <li><a href="#getting-the-campaigns-list">Getting the campaigns list</a></li>
-  <li><a href="#getting-the-media-report">Getting the media report</a></li>
+  <li><a href="#get-the-accesstoken">Get the access_token</a></li>
+  <li><a href="#list-the-campaigns">List the campaigns</a></li>
+  <li><a href="#get-the-media-report">Get the media report</a></li>
   <li><a href="#more-information">More information</a></li>
 </ul>
 
@@ -54,7 +54,7 @@
 
 <p>All developers need to register their application before getting started. A registered OAuth application is assigned a unique <code>client_id</code> and <code>client_secret</code>. The client_secret should not be shared.</p>
 
-<h2 id="getting-the-accesstoken">Getting the access_token</h2>
+<h2 id="get-the-accesstoken">Get the access_token</h2>
 <p>Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API. </p>
 
 <pre><code>POST http://open.admaster.com.cn/oauth/access_token
@@ -80,7 +80,7 @@
 }
 </code></pre>
 
-<p>Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of <code>expires_in</code>. When this is the case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens. </p>
+<p>Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of <code>expires_in</code>. In this case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens. </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -92,7 +92,7 @@
 }
 </code></pre>
 
-<h2 id="getting-the-campaigns-list">Getting the campaigns list</h2>
+<h2 id="list-the-campaigns">List the campaigns</h2>
 
 <pre><code>GET http://track.admasterapi.com/medias/:media_id/campaigns
 </code></pre>
@@ -117,7 +117,7 @@
 ]
 </code></pre>
 
-<h2 id="getting-the-media-report">Getting the media report</h2>
+<h2 id="get-the-media-report">Get the media report</h2>
 
 <pre><code>GET http://track.admasterapi.com/medias/:media_id/campaigns/:campaign_id/daily_reports
 </code></pre>
@@ -152,8 +152,6 @@ direction Optional String - The direction to retrieve the results.
 <h2 id="more-information">More information</h2>
 
 <p><a href="/doc/trackmaster/v1/en/index.html">TrackMaster Index</a></p>
-
-<p><a href="/doc/trackmaster/v1/en/media_report.html">Media Report</a></p>
 
 <p><a href="/doc/openmaster/v1/en/verbs.html">Protocal and Requests Instructions</a></p>
 

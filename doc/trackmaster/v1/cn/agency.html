@@ -48,9 +48,12 @@
   <li><a href="#section-5">第四步 获取指定工作网络下某个广告主有操作权限的项目列表</a></li>
 </ul>
 
-<p>TrackMaster™ 所有API的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。</p>
+<p>TrackMaster™ 所有 API 的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。</p>
 
 <p>TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。在您阅读本文进行开发时，您应当已经取得了您的帐号。如果没有，请至 <a href="http://www.admaster.com.cn">AdMaster 官网</a> 申请帐号。</p>
+
+<p>当您已经拥有 TrackMaster 账号并且刚开始准备进行 API 访问，请先至
+<a href="http://dev.admaster.com.cn/doc/openmaster/v1/cn/index.html#clientid--client-secret-key">申请应用</a> 申请获取 ClientID 与 Client Secret Key。</p>
 
 <p>TrackMaster API 结构与业务逻辑一致，请访问 <a href="http://help.admaster.com.cn/trackmaster/">帮助中心</a> 获取相关业务知识，您也可以从 <a href="/doc/trackmaster/v1/cn/index.html">概述</a> 简单了解。</p>
 
@@ -105,16 +108,16 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
    {
-    "id": 1,
-    "url": "https://track.admasterapi.com/networks/1",
+    "id": 11,//网络 ID
+    "url": "https://track.admasterapi.com/networks/11",
     "name": "测试工作网络", //别名
     "created_at": "2012-09-06T20:39:23Z" //创建时间
     "account": {
         "status": "enabled", //`enabled` 可用, `disabled` 禁用, `unactive` 未激活
         "created_at": "2012-01-10T02:30:59Z", //当前用户加入网络的时间
         "role": {
-            "id": 1,
-            "name": "高级管理员(super admin)"
+            "id": 1,//角色 ID
+            "name": "高级管理员(super admin)"//角色名称
          }
       }
    }
@@ -135,12 +138,12 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
   {
-    "advertiser_id": 1,
-    "url": "http://track.admasterapi.com/networks/1/advertisers/1",
+    "advertiser_id": 10933,//广告主 ID
+    "url": "http://track.admasterapi.com/networks/11/advertisers/10933",
     "name": {"zh_cn" =&gt; "腾讯", "en_us" =&gt; "tencent"},   //广告主名称
-    "status": "enabled",
-    "alias": "ibm",
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+    "status": "enabled",//网络下广告主当前状态
+    "alias": "腾讯",//广告主别名
+    "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
     "created_at": "2012-09-06T20:39:23Z"  //创建时间
   }
 ]
@@ -155,7 +158,7 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>name</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 项目名称，支持模糊搜索，例如：名称为 “这是一个测试项目” 搜索 “一个”即可找到改项目</dd>
+  <dd><em>可选</em> <strong>string</strong> - 项目名称，支持模糊搜索，例如：名称为 “这是一个测试项目” 搜索 “一个”即可找到该项目</dd>
   <dt><code>network_brand_id</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 项目所属网络品牌ID</dd>
   <dt><code>status</code></dt>
@@ -163,24 +166,24 @@ X-RateLimit-Remaining: 4999
 
     <ul>
       <li><code>all</code> - 所有状态, (<em>默认</em>)</li>
-      <li><code>typing</code> - 拟稿中</li>
-      <li><code>testing</code> - 测试中</li>
-      <li><code>kickoff</code> - 项目初期</li>
-      <li><code>midterm</code> - 项目中期</li>
-      <li><code>teminal</code> - 项目末期</li>
-      <li><code>finished</code> - 已结束</li>
+      <li><code>typing</code> - 编辑中，当项目的属性、位置列表、点位等数据任意有值时，状态为编辑中。</li>
+      <li><code>testing</code> - 测试中，当项目的监测代码已生成并已导出，且有数据进来，状态为测试中。</li>
+      <li><code>kickoff</code> - 项目初期，项目上线的第一周为项目初期。</li>
+      <li><code>midterm</code> - 项目中期，项目初期之后到项目结束一周前，为项目中期，小于一周的项目没有项目中期。</li>
+      <li><code>teminal</code> - 项目末期，结束日期的前一周，为项目末期。小于一周的项目没有项目末期；大于一周且小于两周的项目没有项目中期，项目末期为开始日期一周后到结束的时间段。</li>
+      <li><code>finished</code> - 已结束，当前时间在结束时间之后的，为已结束状态。</li>
     </ul>
   </dd>
   <dt><code>start_date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目开始时间，会列出项目开始日期小于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>date</strong> - 项目开始时间，会列出项目开始日期小于等于此设定的项目。</dd>
   <dt><code>end_date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目结束时间，会列出项目结束日期大于等于次设定的项目</dd>
+  <dd><em>可选</em> <strong>date</strong> - 项目结束时间，会列出项目结束日期大于等于此设定的项目。</dd>
   <dt><code>sort</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
 
     <ul>
-      <li><code>id</code> - 按照项目ID排序</li>
-      <li><code>network_brand_id</code> - 按照品牌ID排序</li>
+      <li><code>id</code> - 按照项目 ID 排序</li>
+      <li><code>network_brand_id</code> - 按照品牌 ID 排序</li>
       <li><code>name</code> - 按照项目名称排序</li>
       <li><code>total_cost</code> - 按照总成本排序</li>
       <li><code>media_num</code> - 按照媒体数排序</li>
@@ -204,31 +207,31 @@ X-RateLimit-Remaining: 4999
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/12/advertisers/122/campaigns?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/networks/12/advertisers/122/campaigns?page=10&gt;; rel="last"
+Link: &lt;http://track.admasterapi.com/networks/11/advertisers/10774/campaigns?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/networks/11/advertisers/10774/campaigns?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>[
   {
-    "id": 1,
-    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/1",
-    "name": "这是一个测试项目",
-    "network_brand_id": 10213,
+    "id": 10774,//项目 ID
+    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/10774",
+    "name": "这是一个测试项目",//项目名称
+    "network_brand_id": 290,//品牌 ID
     "cost_type": "CNY",
-    "total_cost": 20000000,
-    "start_date": "2012-01-03",
-    "end_date": "2012-06-23",
-    "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1024,
-    "media_num": 8,
-    "placement_num": 258,
-    "est_imp": 9183213,
-    "est_clk": 12334,
-    "status": "typing",
-    "is_online": "yes",
-    "created_at": "2012-09-06T20:39:23Z"
+    "total_cost": 20000000,//总成本
+    "start_date": "2012-01-03",//项目开始时间
+    "end_date": "2012-06-23",//项目结束时间
+    "default_target": "http://www.admaster.com.cn"//项目目标链接地址
+    "survey_id": 1024,//如果关联了 SurveyMaster，则存在 survey_id。
+    "media_num": 8,//项目下媒体数目
+    "placement_num": 258,//项目下广告位数目
+    "est_imp": 9183213,//项目的总预计曝光
+    "est_clk": 12334,//项目的总预计点击
+    "status": "kickoff",//项目当前状态
+    "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间后 7 天内，返回值“yes”
+    "created_at": "2012-09-06T20:39:23Z"//项目创建时间
   }
 ]
 </code></pre>
