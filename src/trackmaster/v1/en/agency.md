@@ -74,16 +74,16 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
 {:.prettyprint}
     [
        {
-        "id": 1,
-        "url": "https://{{site.track_api_host}}/networks/1",
+        "id": 11,//Network ID
+        "url": "https://{{site.track_api_host}}/networks/11",
         "name": "Testing Network", //Alias
         "created_at": "2012-09-06T20:39:23Z" //Creation Time
         "account": {
             "status": "enabled", //`enabled` , `disabled` , `unactive` 
             "created_at": "2012-01-10T02:30:59Z", //Network Authorized Time for User  
             "role": {
-                "id": 1,
-                "name": "高级管理员(super admin)"
+                "id": 1,//Role ID
+                "name": "高级管理员(super admin)"//Role Name
              }
           }
        }
@@ -103,11 +103,11 @@ List advertisers data for the specified network.
 {:.prettyprint}
     [
       {
-        "advertiser_id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/advertisers/1",
+        "advertiser_id": 10933,//Advertiser ID
+        "url": "http://{{site.track_api_host}}/networks/11/advertisers/10933",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //Advertiser Name
-        "status": "enabled",
-        "alias": "ibm",
+        "status": "enabled",//Advertise's status
+        "alias": "腾讯",//Alise
         "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //Creation Time
       }
@@ -124,6 +124,8 @@ List campaigns for the specified advertiser in authorized network.
 `name`
 : _Optional_ **string** - Campaign Name
 
+If the input is a part of campaign name, it will find out the campaign.
+
 `network_brand_id`
 : _Optional_ **integer** - Network Brand ID
 
@@ -139,10 +141,10 @@ List campaigns for the specified advertiser in authorized network.
   * `finished` - Finished
 
 `start_date`
-: _Optional_ **date** - Beginning date to retrieve data in format YYYY-MM-DD. Listing campaigns which beginning time date than  `start_date`.
+: _Optional_ **date** - Beginning date to retrieve data in format YYYY-MM-DD. Listing campaigns which beginning date earlier than `start_date`.
 
 `end_date`
-: _Optional_ **date** - Final date to retrieve data in format YYYY-MM-DD. Listing campaigns which final data later than  `end_data`.
+: _Optional_ **date** - Final date to retrieve data in format YYYY-MM-DD. Listing campaigns which final date later than `end_data`.
 
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
@@ -175,23 +177,23 @@ List campaigns for the specified advertiser in authorized network.
 {:.prettyprint}
     [
       {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/1",
-        "name": "This is a testing campaign",
-        "network_brand_id": 10213,
-        "cost_type": "CNY",
-        "total_cost": 20000000,
-        "start_date": "2012-01-03",
-        "end_date": "2012-06-23",
+        "id": 10903,//Campaign ID
+        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10903",
+        "name": "This is a testing campaign",//Campaign Name
+        "network_brand_id": 18,//Network Brand ID
+        "cost_type": "CNY",//The `cost_type` that was performed: “CNY” or “USD”.
+        "total_cost": 20000000,//Total cost of campaign
+        "start_date": "2012-01-03",//Beginning date of campaign
+        "end_date": "2012-06-23",//Final date of campaign
         "default_target": "http://www.admaster.com.cn"
-        "survey_id": 1024,
-        "media_num": 8,
-        "placement_num": 258,
-        "est_imp": 9183213,
-        "est_clk": 12334,
-        "status": "typing",
-        "is_online": "yes",
-        "created_at": "2012-09-06T20:39:23Z"
+        "survey_id": 1024,//Survey ID, If the campaign is connected with SurveyMaster, it will have a survey_id.
+        "media_num": 8,//The number of media in the campaign 
+        "placement_num": 258,//The number of placements in the campaign
+        "est_imp": 9183213,//The estimate of impression
+        "est_clk": 12334,//The estimate of click
+        "status": "kickoff",//The status of campaign 
+        "is_online": "yes",//If the current time is between `start_date` and `end_date + seven days`, the data of `is_online` is "yes". 
+        "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
       }
     ]
 

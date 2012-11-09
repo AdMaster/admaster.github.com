@@ -19,7 +19,8 @@ title: Campaign Report
 **Parameters**
 
 `time`
-: _Required_ **string** 
+: _Required_ **string**  
+It is connected with `start_time` and `end_time`.
 
   * `hourly` Get hourly unique data.
   * `daily` Get daily unique data.
@@ -27,8 +28,7 @@ title: Campaign Report
   * `monthly` Get monthly unique data.
 
 `dims`
-: _Required_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics.
-
+: _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ','. Example : media , placement, time.
   * `media` 
   * `placement` 
   * `keyword` 
@@ -57,10 +57,24 @@ When using dimensions in a feed request, be aware of the following constraints:
 : _Optional_ **integer** - Geography ID
 
 `start_time`
-: _Optional_ **hour** - Beginning date to retrieve data in format YYYY-MM-DD. Listing campaigns which beginning time date than  `start_date`.
+: _Optional_ **hour** - Listing campaigns which beginning time date earlier than `start_date`. The format of `start_time` is connected with `time`.The parament  `start_time` is formatted according to the ISO 8601 standard.
+
+time | start_time   | description
+hourly   | YYYY-MM-DDThh:mmZ   | 2012-11-06T01:57Z
+daily    | YYYY-MM-DD     | 2012-11-06
+weekly   | YYYY-Www     | 2005-W01
+monthly  | YYYY-MM     | 2005-01
+
 
 `end_time`
-: _Optional_ **hour** - Final date to retrieve data in format YYYY-MM-DD. Listing campaigns which final data later than  `end_data`.
+: _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
+
+time | end_time   | description
+hourly   | YYYY-MM-DDThh:mmZ   | 2012-11-06T01:57Z
+daily    | YYYY-MM-DD     | 2012-11-06
+weekly   | YYYY-Www     | 2005-W01
+monthly  | YYYY-MM     | 2005-01
+
 
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
@@ -88,15 +102,15 @@ When using dimensions in a feed request, be aware of the following constraints:
 {:.prettyprint}
     [
       {
-        "campaign_id": 10185,
-        "network_media_id": 1484,
-        "time": "2012-08-03",
-        "imp": 9,
-        "uimp": 6,
-        "ipuimp": 6,
-        "clk": 3,
-        "uclk": 3,
-        "ipuclk": 2
+        "campaign_id": 10185,//Campaign ID
+        "network_media_id": 1484,//Network Media ID
+        "time": "2012-08-03",//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
+        "imp": 90,//Impression
+        "uimp": 60,//Unique Impression
+        "ipuimp": 56,//Unique Impression IP
+        "clk": 30,//Click
+        "uclk": 23,//Unique Click
+        "ipuclk": 22//Unique Click IP
       }
     ]
 
@@ -111,3 +125,33 @@ clk      | integer     | Click
 uclk     | integer     | Unique Click
 ipuclk   | integer     | Unique Click IP
 
+**Valid Combinations Description**  
+Not all combinations can be queried together. Only certain combinations can be used together to create valid combinations. 
+
+
+Valid Combinations |Description
+daily_campaign  | time=daily
+daily_campaign_geo => time=daily&dims=geo  |time=daily&dims=geo
+daily_campaign_media  |time=daily&dims=media
+daily_campaign_media_geo => time=daily&dims=media,geo  |time=daily&dims=media,geo
+daily_campaign_media_placement  |time=daily&dims=campaign,media,placement
+daily_campaign_media_placement_geo  |time=daily&dims=campaign,media,placement,geo
+daily_campaign_media_placement_keyword  |time=daily&dims=campaign,media,placement,keyword 
+hourly_campaign  |time=hourly 
+hourly_campaign_creative  |time=hourly&dims=creative 
+hourly_campaign_geo  |time=hourly&dims=geo 
+hourly_campaign_media  |time=hourly&dims=media 
+hourly_campaign_media_creative  |time=hourly&dims=media,creative 
+hourly_campaign_media_geo  |time=hourly&dims=media,geo 
+hourly_campaign_media_placement  |time=hourly&dims=media,placement 
+hourly_campaign_media_placement_creative  |time=hourly&dims=media,placement,creative 
+hourly_campaign_media_placement_geo  |time=hourly&dims=media,placement,geo
+hourly_campaign_media_placement_keyword  |time=hourly&dims=media,placement,keyword
+monthly_campaign  |time=monthly
+monthly_campaign_media  |time=monthly&dims=media
+monthly_campaign_media_placement  |time=monthly&dims=media,placement
+monthly_campaign_media_placement_keyword  |time=monthly&dims=media,placement,keyword
+weekly_campaign  |time=weekly
+weekly_campaign_media  |time=weekly&dims=media
+weekly_campaign_media_placement  |time=weekly&dims=media,placement
+weekly_campaign_media_placement_keyword  |time=weekly&dims=media,placement,keyword

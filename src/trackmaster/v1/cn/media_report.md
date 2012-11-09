@@ -220,3 +220,13 @@ title: 媒体报告
         "ipuclk": 2
       }
     ]
+
+**字段说明**
+
+返回值字段 | 字段类型     | 字段说明
+imp      | integer     | 曝光
+uimp     | integer     | 独立曝光
+ipuimp   | integer     | IP独立曝光
+clk      | integer     | 点击
+uclk     | integer     | 独立点击
+ipuclk   | integer     | IP独立点击

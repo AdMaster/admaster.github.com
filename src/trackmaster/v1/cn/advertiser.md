@@ -21,7 +21,7 @@ title: 广告主
 `sort`
 : _可选_ **string** - 列表排序以什么排序
 
-  * `id` - 按照广告主ID排序
+  * `id` - 按照广告主 ID 排序
   * `create_time` - 按照创建日期排序
 
 `direction`
@@ -33,8 +33,12 @@ title: 广告主
 `page`
 : _可选_ **integer** - 显示页码
 
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
 `per_page`
-: _可选_ **integer** - 分页数量，默认每页30条
+: _可选_ **integer** - 分页数量，默认每页 30 条
+
+`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 **响应**
 
@@ -47,8 +51,8 @@ title: 广告主
 {:.prettyprint}
     [
       {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/advertisers/1",
+        "id": 10199,//广告主 ID
+        "url": "http://{{site.track_api_host}}/advertisers/10199",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
         "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //创建时间
@@ -68,8 +72,8 @@ title: 广告主
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/advertisers/1",
+        "id": 10199,//广告主 ID
+        "url": "http://{{site.track_api_host}}/advertisers/10199",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
         "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //创建时间
@@ -89,12 +93,12 @@ title: 广告主
 {:.prettyprint}
     [
       {
-        "advertiser_id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/advertisers/1",
+        "advertiser_id": 10199,//广告主 ID
+        "url": "http://{{site.track_api_host}}/networks/11/advertisers/10199",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
-        "status": "enabled",
-        "alias": "ibm",
-        "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+        "status": "enabled",//网络下广告主状态
+        "alias": "腾讯",//网络下广告主别名
+        "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //创建时间
       }
     ]
@@ -112,12 +116,12 @@ title: 广告主
 
 {:.prettyprint}
     {
-        "advertiser_id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/advertisers/1",
+        "advertiser_id": 10198,//广告主 ID
+        "url": "http://{{site.track_api_host}}/networks/1/advertisers/10198",
         "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
-        "status": "enabled"
-        "alias": "通用电器",
-        "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+        "status": "enabled"//网络下广告主状态
+        "alias": "通用电器",//网络下广告主别名
+        "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z" //创建时间
     }
 
@@ -128,8 +132,8 @@ title: 广告主
 **响应**
 
     Status: 204 No Content
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers/1/campaigns>; rel="campaigns"
-    Location: http://{{site.track_api_host}}/networks/1/advertisers/1
+    Link: <http://{{site.track_api_host}}/networks/11/advertisers/10198/campaigns>; rel="campaigns"
+    Location: http://{{site.track_api_host}}/networks/11/advertisers/10198
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -142,8 +146,8 @@ title: 广告主
 
 {:.prettyprint}
     {
-        "alias": "通用电器",
-        "status": "enabled"
+        "alias": "通用电器",//广告主别名
+        "status": "enabled"//网络下广告主状态
     }
 
 
@@ -156,18 +160,18 @@ title: 广告主
 **响应**
 
     Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers/1/campaigns>; rel="campaigns"
+    Link: <http://{{site.track_api_host}}/networks/11/advertisers/10198/campaigns>; rel="campaigns"
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
-        "advertiser_id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/advertisers/1",
+        "advertiser_id": 10198,//广告主 ID
+        "url": "http://{{site.track_api_host}}/networks/11/advertisers/10198",
         "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
-        "status": "enabled"
-        "alias": "通用电器",
-        "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+        "status": "enabled"//网络下广告主状态
+        "alias": "通用电器",//网络下广告主别名
+        "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z" //创建时间
     }
 
@@ -175,10 +179,12 @@ title: 广告主
 
     DELETE /networks/:network_id/advertisers/:advertiser_id
 
+当指定工作网络的指定广告主下有项目时，不能删除。
+
 **响应**
 
     Status: 204 No Content
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers>; rel="campaigns"
+    Link: <http://{{site.track_api_host}}/networks/11/advertisers>; rel="campaigns"
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
