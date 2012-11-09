@@ -76,7 +76,7 @@ Access tokens have a limited lifetime and, in some cases, an application needs a
        {
         "id": 11,//Network ID
         "url": "https://{{site.track_api_host}}/networks/11",
-        "name": "Testing Network", //Alias
+        "name": "Testing Network", //Network Name
         "created_at": "2012-09-06T20:39:23Z" //Creation Time
         "account": {
             "status": "enabled", //`enabled` , `disabled` , `unactive` 
@@ -107,8 +107,8 @@ List advertisers data for the specified network.
         "url": "http://{{site.track_api_host}}/networks/11/advertisers/10933",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //Advertiser Name
         "status": "enabled",//Advertise's status
-        "alias": "腾讯",//Alise
-        "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+        "alias": "腾讯",//Alias
+        "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //Creation Time
       }
     ]

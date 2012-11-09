@@ -28,13 +28,14 @@ It is connected with `start_time` and `end_time`.
   * `monthly` Get monthly unique data.
 
 `dims`
-: _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ','. Example : media , placement, time.
-  * `media` 
-  * `placement` 
-  * `keyword` 
-  * `creative` 
-  * `geo` 
-  * `time` 
+: _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ','. Example : media , placement, time. 
+  
+  *  `media`    
+  *  `placement` 
+  *  `keyword` 
+  *  `creative` 
+  *  `geo` 
+  *  `time` 
 
 When using dimensions in a feed request, be aware of the following constraints:
 
@@ -129,29 +130,29 @@ ipuclk   | integer     | Unique Click IP
 Not all combinations can be queried together. Only certain combinations can be used together to create valid combinations. 
 
 
-Valid Combinations |Description
-daily_campaign  | time=daily
-daily_campaign_geo => time=daily&dims=geo  |time=daily&dims=geo
-daily_campaign_media  |time=daily&dims=media
-daily_campaign_media_geo => time=daily&dims=media,geo  |time=daily&dims=media,geo
-daily_campaign_media_placement  |time=daily&dims=campaign,media,placement
-daily_campaign_media_placement_geo  |time=daily&dims=campaign,media,placement,geo
-daily_campaign_media_placement_keyword  |time=daily&dims=campaign,media,placement,keyword 
-hourly_campaign  |time=hourly 
-hourly_campaign_creative  |time=hourly&dims=creative 
-hourly_campaign_geo  |time=hourly&dims=geo 
-hourly_campaign_media  |time=hourly&dims=media 
-hourly_campaign_media_creative  |time=hourly&dims=media,creative 
-hourly_campaign_media_geo  |time=hourly&dims=media,geo 
-hourly_campaign_media_placement  |time=hourly&dims=media,placement 
-hourly_campaign_media_placement_creative  |time=hourly&dims=media,placement,creative 
-hourly_campaign_media_placement_geo  |time=hourly&dims=media,placement,geo
-hourly_campaign_media_placement_keyword  |time=hourly&dims=media,placement,keyword
-monthly_campaign  |time=monthly
-monthly_campaign_media  |time=monthly&dims=media
-monthly_campaign_media_placement  |time=monthly&dims=media,placement
-monthly_campaign_media_placement_keyword  |time=monthly&dims=media,placement,keyword
-weekly_campaign  |time=weekly
-weekly_campaign_media  |time=weekly&dims=media
-weekly_campaign_media_placement  |time=weekly&dims=media,placement
-weekly_campaign_media_placement_keyword  |time=weekly&dims=media,placement,keyword
+|Valid Combinations
+|time=daily
+|time=daily&dims=geo
+|time=daily&dims=media
+|time=daily&dims=media,geo
+|time=daily&dims=media,placement
+|time=daily&dims=media,placement,geo
+|time=daily&dims=media,placement,keyword 
+|time=hourly 
+|time=hourly&dims=creative 
+|time=hourly&dims=geo 
+|time=hourly&dims=media 
+|time=hourly&dims=media,creative 
+|time=hourly&dims=media,geo 
+|time=hourly&dims=media,placement 
+|time=hourly&dims=media,placement,creative 
+|time=hourly&dims=media,placement,geo
+|time=hourly&dims=media,placement,keyword
+|time=monthly
+|time=monthly&dims=media
+|time=monthly&dims=media,placement
+|time=monthly&dims=media,placement,keyword
+|time=weekly
+|time=weekly&dims=media
+|time=weekly&dims=media,placement
+|time=weekly&dims=media,placement,keyword

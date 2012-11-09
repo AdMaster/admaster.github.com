@@ -118,33 +118,67 @@ ipuclk   | integer     | IP独立点击
 
 **获取数据组合说明**  
 
-不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，可以按时间粒度分开显示，当维度中未选择 time 时，将按时间分组聚合。
+不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。
 
 组合|说明
-daily_campaign  |粒度为天，项目数据
-daily_campaign_geo => time=daily&dims=geo  |粒度为天，项目分地域数据
-daily_campaign_media  |粒度为天，项目分媒体数据
-daily_campaign_media_geo => time=daily&dims=media,geo  |粒度为天，项目分媒体分地域数据
-daily_campaign_media_placement  |粒度为天，项目分媒体分广告位数据
-daily_campaign_media_placement_geo  |粒度为天，项目分媒体分广告位分地域数据
-daily_campaign_media_placement_keyword  |粒度为天，项目分媒体分广告位分关键字数据
-hourly_campaign  |粒度为小时，项目数据
-hourly_campaign_creative  |粒度为小时，项目分创意数据
-hourly_campaign_geo  |粒度为小时，项目分地域数据
-hourly_campaign_media  |粒度为小时，项目分媒体数据
-hourly_campaign_media_creative  |粒度为小时，项目分媒体分创意数据
-hourly_campaign_media_geo  |粒度为小时，项目分媒体分地域数据
-hourly_campaign_media_placement  |粒度为小时，项目分媒体分广告位数据
-hourly_campaign_media_placement_creative  |粒度为小时，项目分媒体分广告位分创意数据
-hourly_campaign_media_placement_geo  |粒度为小时，项目分媒体分广告位分地域数据
-hourly_campaign_media_placement_keyword  |粒度为小时，项目分媒体分广告位分关键字数据
-monthly_campaign  |粒度为月，项目数据
-monthly_campaign_media  |粒度为月，项目分媒体数据
-monthly_campaign_media_placement  |粒度为月，项目分媒体分广告位数据
-monthly_campaign_media_placement_keyword  |粒度为月，项目分媒体分广告位分关键字数据
-weekly_campaign  |粒度为周，项目数据
-weekly_campaign_media  |粒度为周，项目分媒体数据
-weekly_campaign_media_placement  |粒度为周，项目分媒体分广告位数据
-weekly_campaign_media_placement_keyword  |粒度为周，项目分媒体分广告位分关键字数据
+time=daily  |粒度为天，项目数据
+time=daily&dims=geo|粒度为天，项目分地域数据
+time=daily&dims=media|粒度为天，项目分媒体数据
+time=daily&dims=media,geo|粒度为天，项目分媒体分地域数据
+time=daily&dims=media,placement|粒度为天，项目分媒体分广告位数据
+time=daily&dims=media,placement,geo|粒度为天，项目分媒体分广告位分地域数据
+time=daily&dims=media,placement,keyword|粒度为天，项目分媒体分广告位分关键字数据
+time=hourly|粒度为小时，项目数据
+time=hourly&dims=creative|粒度为小时，项目分创意数据
+time=hourly&dims=geo |粒度为小时，项目分地域数据
+time=hourly&dims=media |粒度为小时，项目分媒体数据
+time=hourly&dims=media,creative |粒度为小时，项目分媒体分创意数据
+time=hourly&dims=media,geo|粒度为小时，项目分媒体分地域数据
+time=hourly&dims=media,placement|粒度为小时，项目分媒体分广告位数据
+time=hourly&dims=media,placement,creative |粒度为小时，项目分媒体分广告位分创意数据
+time=hourly&dims=media,placement,geo|粒度为小时，项目分媒体分广告位分地域数据
+time=hourly&dims=media,placement,keyword|粒度为小时，项目分媒体分广告位分关键字数据
+time=monthly|粒度为月，项目数据
+time=monthly&dims=media|粒度为月，项目分媒体数据
+time=monthly&dims=media,placement|粒度为月，项目分媒体分广告位数据
+time=monthly&dims=media,placement,keyword|粒度为月，项目分媒体分广告位分关键字数据
+time=weekly|粒度为周，项目数据
+time=weekly&dims=media|粒度为周，项目分媒体数据
+time=weekly&dims=media,placement|粒度为周，项目分媒体分广告位数据
+time=weekly&dims=media,placement,keyword |粒度为周，项目分媒体分广告位分关键字数据
 
+**示例**
+dims=time
+{:.prettyprint}
+[
+{
+"campaign_id": 10116,
+"time": "2012-11-01",
+"imp": 3,
+"uimp": 3,
+"clk": 7,
+"uclk": 7,
+"ipuimp": 3,
+"ipuclk": 4
+},
+{
+"campaign_id": 10116,
+"time": "2012-11-02",
+…
+]
+
+no dims
+
+{:.prettyprint}
+[
+{
+"campaign_id": 10116,
+"imp": 28,
+"uimp": 27,
+"clk": 72,
+"uclk": 39,
+"ipuimp": 27,
+"ipuclk": 24
+}
+]
 
