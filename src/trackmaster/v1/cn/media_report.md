@@ -180,7 +180,7 @@ title: 媒体报告
 : _可选_ **integer** - 地域ID
 
 `start_time`
-: _可选_ **hour** - 开始时间，会列出日期大于等于此设定的项目，与参数`time`一起使用。
+: _可选_ **hour** - 开始时间，会列出日期大于等于此设定的项目，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
   * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
@@ -192,7 +192,7 @@ title: 媒体报告
   * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `end_time`
-: _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。
+: _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
   * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
@@ -252,4 +252,25 @@ ipuclk   | integer     | IP独立点击
 **获取数据组合说明**
 
 不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。
+
+
+组合|说明
+time=daily  |粒度为天，指定媒体指定项目数据
+time=daily&dims=geo|粒度为天，指定媒体指定项目分地域数据
+time=daily&dims=placement|粒度为天，指定媒体指定项目分广告位数据
+time=daily&dims=placement,geo|粒度为天，指定媒体指定项目分广告位分地域数据
+time=daily&dims=placement,keyword|粒度为天，指定媒体指定项目分广告位分关键字数据
+time=hourly|粒度为小时，指定媒体指定项目数据
+time=hourly&dims=creative |粒度为小时，指定媒体指定项目分创意数据
+time=hourly&dims=geo|粒度为小时，指定媒体指定项目分地域数据
+time=hourly&dims=placement|粒度为小时，指定媒体指定项目分广告位数据
+time=hourly&dims=placement,creative |粒度为小时，指定媒体指定项目分广告位分创意数据
+time=hourly&dims=placement,geo|粒度为小时，指定媒体指定项目分广告位分地域数据
+time=hourly&dims=placement,keyword|粒度为小时，指定媒体指定项目分广告位分关键字数据
+time=monthly|粒度为月，指定媒体指定项目数据
+time=monthly&dims=placement|粒度为月，指定媒体指定项目分广告位数据
+time=monthly&dims=placement,keyword|粒度为月，指定媒体指定项目分广告位分关键字数据
+time=weekly|粒度为周，指定媒体指定项目数据
+time=weekly&dims=placement|粒度为周，指定媒体指定项目分广告位数据
+time=weekly&dims=placement,keyword |粒度为周，指定媒体指定项目分广告位分关键字数据
 
