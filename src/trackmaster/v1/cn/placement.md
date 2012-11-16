@@ -12,7 +12,7 @@ title: 广告位
 * TOC
 {:toc}
 
-## 获取指定项目下指定媒体的广告位列表
+## 获取指定项目下的广告位列表
 
     GET /networks/advertisers/campaigns/:campaign_id/placements
 
@@ -70,7 +70,7 @@ title: 广告位
             //物料文件大小单位，B K M
             "material_size_unit": "B"
         }
-        //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
+        //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
         "rotation" : "1/4",
         //点击目标地址
         "target_url": "http://www.admaster.com.cn/",
@@ -139,7 +139,7 @@ title: 广告位
         //物料文件大小单位，B K M
         "material_size_unit": "B"
     },
-    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
+    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
     "rotation" : "1/4",
     //点击目标地址
     "target_url": "http://www.admaster.com.cn/",
@@ -181,7 +181,7 @@ title: 广告位
 : _必选_ **integer** - 广告位频道ID
 
 `rotation`
-: _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推，默认: `1/1`
+: _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推，默认: `1/1`
 
 `target_url`
 : _可选_ **string** 点击目标地址, 默认为空，继承项目的点击目标地址
@@ -240,14 +240,14 @@ title: 广告位
 **响应**
 
     Status: 201 Created
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1",
+        "id": 200057486,
+        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486",
         "name": "这是一个测试广告位",
         "network_media_id": 1314,
         "channel": {
@@ -279,10 +279,12 @@ title: 广告位
 
     DELETE /networks/advertisers/campaigns/placements/:id
 
+当广告位下曾经获取到监测数据时，不能删除该广告位。
+
 **响应**
 
     Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/123/placements
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/placements
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 

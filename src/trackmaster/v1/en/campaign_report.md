@@ -156,3 +156,40 @@ Not all combinations can be queried together. Only certain combinations can be u
 |time=weekly&dims=media
 |time=weekly&dims=media,placement
 |time=weekly&dims=media,placement,keyword
+
+**Example**
+
+dims contain time
+
+{:.prettyprint}
+    [
+        {
+            "campaign_id": 10116,
+            "time": "2012-11-01",
+            "imp": 3,
+            "uimp": 3,
+            "clk": 7,
+            "uclk": 7,
+            "ipuimp": 3,
+            "ipuclk": 4
+        },
+        {
+            "campaign_id": 10116,
+            "time": "2012-11-02",
+        …
+    ]
+
+dims without time
+
+{:.prettyprint}
+    [
+        {
+            "campaign_id": 10116,
+            "imp": 28,
+            "uimp": 27,
+            "clk": 72,
+            "uclk": 39,
+            "ipuimp": 27,
+            "ipuclk": 24
+        }
+    ]

@@ -54,7 +54,7 @@ title: 广告主
         "id": 10199,//广告主 ID
         "url": "http://{{site.track_api_host}}/advertisers/10199",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
-        "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+        "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //创建时间
       }
     ]
@@ -75,7 +75,7 @@ title: 广告主
         "id": 10199,//广告主 ID
         "url": "http://{{site.track_api_host}}/advertisers/10199",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
-        "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+        "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //创建时间
     }
 
@@ -110,16 +110,16 @@ title: 广告主
 **响应**
 
     Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers/1/campaigns>; rel="campaigns"
+    Link: <http://{{site.track_api_host}}/networks/11/advertisers/10198/campaigns>; rel="campaigns"
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
         "advertiser_id": 10198,//广告主 ID
-        "url": "http://{{site.track_api_host}}/networks/1/advertisers/10198",
+        "url": "http://{{site.track_api_host}}/networks/11/advertisers/10198",
         "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
-        "status": "enabled"//网络下广告主状态
+        "status": "enabled",//网络下广告主状态
         "alias": "通用电器",//网络下广告主别名
         "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z" //创建时间

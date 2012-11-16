@@ -183,6 +183,8 @@ title: 创意
 
     PATCH /networks/advertisers/campaigns/creatives/:id
 
+删除创意后，创意变为默认创意，注意此时获取的监测代码会发生变化。
+
 **参数**
 
 `name`

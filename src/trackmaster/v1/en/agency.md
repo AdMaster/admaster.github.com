@@ -107,7 +107,7 @@ List advertisers data for the specified network.
         "url": "http://{{site.track_api_host}}/networks/11/advertisers/10933",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //Advertiser Name
         "status": "enabled",//Advertise's status
-        "alias": "腾讯",//Alias
+        "alias": "腾讯",//Advertise's Alias
         "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z"  //Creation Time
       }
@@ -124,7 +124,7 @@ List campaigns for the specified advertiser in authorized network.
 `name`
 : _Optional_ **string** - Campaign Name
 
-If the input is a part of campaign name, it will find out the campaign.
+If the input is a part of campaign name, it will search the campaign.
 
 `network_brand_id`
 : _Optional_ **integer** - Network Brand ID
@@ -169,8 +169,8 @@ If the input is a part of campaign name, it will find out the campaign.
 **Response**
 
     Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/12/advertisers/122/campaigns?page=2>; rel="next",
-          <http://{{site.track_api_host}}/networks/12/advertisers/122/campaigns?page=10>; rel="last"
+    Link: <http://{{site.track_api_host}}/networks/12/advertisers/10282/campaigns?page=2>; rel="next",
+          <http://{{site.track_api_host}}/networks/12/advertisers/10282/campaigns?page=10>; rel="last"
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -181,18 +181,17 @@ If the input is a part of campaign name, it will find out the campaign.
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10903",
         "name": "This is a testing campaign",//Campaign Name
         "network_brand_id": 18,//Network Brand ID
-        "cost_type": "CNY",//The `cost_type` that was performed: “CNY” or “USD”.
+        "cost_type": "CNY",//The `cost_type` that was performed: “CNY” , “USD” or "None".
         "total_cost": 20000000,//Total cost of campaign
         "start_date": "2012-01-03",//Beginning date of campaign
         "end_date": "2012-06-23",//Final date of campaign
         "default_target": "http://www.admaster.com.cn"
-        "survey_id": 1024,//Survey ID, If the campaign is connected with SurveyMaster, it will have a survey_id.
         "media_num": 8,//The number of media in the campaign 
         "placement_num": 258,//The number of placements in the campaign
-        "est_imp": 9183213,//The estimate of impression
-        "est_clk": 12334,//The estimate of click
-        "status": "kickoff",//The status of campaign 
-        "is_online": "yes",//If the current time is between `start_date` and `end_date + seven days`, the data of `is_online` is "yes". 
+        "est_imp": 9183213,//Estimate of impression
+        "est_clk": 12334,//Estimate of click
+        "status": "kickoff",//Status of campaign 
+        "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
         "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
       }
     ]

@@ -3,21 +3,21 @@ weight: 5
 layout: default
 category: trackmaster
 subcategory: agency
-language: cn
-title: 品牌
+language: en
+title: Brand
 ---
 
-# 品牌 #
+# Brand #
 
 * TOC
 {:toc}
 
 
-## 获取指定网络下指定广告主下的所有品牌
+## Get brands of advertiser in the authorized network
 
     GET /networks/:network_id/advertisers/:advertiser_id/brands
 
-**响应**
+**Response**
 
     Status: 200 OK
     X-RateLimit-Limit: 5000
@@ -27,18 +27,18 @@ title: 品牌
 {:.prettyprint}
     [
       {
-        "id": 30,//网络品牌 ID
-        "name": "巧乐兹",//品牌名称
-        "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+        "id": 30,//Network Brand ID
+        "name": "巧乐兹",//Brand Name
+        "created_at": "2012-09-06T20:39:23Z"//Creation Time
       }
     ]
 
 
-## 获取指定 ID 品牌详细信息
+## Get details of brand
 
     GET /networks/advertisers/brands/:id
 
-**响应**
+**Response**
 
     Status: 200 OK
     X-RateLimit-Limit: 5000
@@ -46,29 +46,29 @@ title: 品牌
 
 {:.prettyprint}
     {
-        "id": 30,//网络品牌 ID
-        "network_id": 11,//工作网络 ID
-        "advertiser_id": 10231,//广告主 ID
-        "name": "巧乐兹",//品牌名称
+        "id": 30,//Network Brand ID
+        "network_id": 11,//Network ID
+        "advertiser_id": 10231,//Advertiser ID
+        "name": "巧乐兹",//Advertiser Name
         "url": "http://{{site.track_api_host}}/networks/advertisers/brands/30",
-        "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+        "created_at": "2012-09-06T20:39:23Z"//Creation Time
     }
 
 
-## 添加指定品牌到指定网络广告主下
+## Add a brand to the given advertiser 
 
     POST /networks/:network_id/advertisers/:advertiser_id/brands
 
-**请求**
+**Request**
 
     {
         "name": "巧乐兹"
     }
 
 `name`
-: _必填_ **string** - 品牌名称
+: _Required_ **string** - Brand Name
 
-**响应**
+**Response**
 
     Status: 201 Created 
     Location: http://{{site.track_api_host}}/networks/11/advertisers/10231/brands
@@ -77,20 +77,20 @@ title: 品牌
 
 {:.prettyprint}
     {
-        "id": 30,//网络品牌 ID
-        "network_id": 11,//工作网络 ID
-        "advertiser_id": 10231,//广告主 ID
-        "name": "巧乐兹",//品牌名称
+        "id": 30,//Network Brand ID
+        "network_id": 11,//Network ID
+        "advertiser_id": 10231,//Advertiser ID
+        "name": "巧乐兹",//Advertiser Name
         "url": "http://{{site.track_api_host}}/networks/advertisers/brands/30",
-        "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+        "created_at": "2012-09-06T20:39:23Z"//Creation Time
     }
 
 
-## 修改指定的网络广告主下品牌名称
+## Modify brand name of the given advertiser 
 
     PATCH /networks/advertisers/brands/:id
 
-**请求**
+**Request**
 
 {:.prettyprint}
     {
@@ -98,23 +98,21 @@ title: 品牌
     }
 
 `name`
-: _必选_ **string** - 品牌名称
+: _Required_ **string** - Brand Name
 
 
-**响应**
+**Response**
 
     Status: 204 No Content 
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 
-## 删除指定的网络广告主下品牌
+## Delete brand of the given advertiser
 
     DELETE /networks/advertisers/brands/:id
 
-当品牌下有关联项目时，不能删除。
-
-**响应**
+**Response**
 
 {:.prettyprint}
     Status: 204 No Content 

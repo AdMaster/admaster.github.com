@@ -71,7 +71,7 @@ title: 项目报告
 
   * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
 
-  * 当参数 `time` 选择 `周`，例 2005-W01，表示选择 2005 年的第一周。
+  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。
 
   * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
@@ -157,7 +157,7 @@ time=weekly&dims=media,placement,keyword |粒度为周，项目分媒体分广�
 
 **示例**
 
-dims=time
+维度参数包括 time，显示内容按时间分组聚合。
 
 {:.prettyprint}
     [
@@ -177,7 +177,7 @@ dims=time
         …
     ]
 
-No dims
+维度参数不选择 time
 
 {:.prettyprint}
     [
