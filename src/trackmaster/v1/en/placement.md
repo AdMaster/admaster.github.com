@@ -284,7 +284,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
 
     DELETE /networks/advertisers/campaigns/placements/:id
 
-
+When the placement which you want to delete has impression or click data, it can not be deleted.
 
 **Response**
 

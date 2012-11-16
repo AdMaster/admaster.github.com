@@ -112,6 +112,8 @@ title: Brand
 
     DELETE /networks/advertisers/brands/:id
 
+When the brand which you want to delete connects campaigns, it can not be deleted. 
+
 **Response**
 
 {:.prettyprint}

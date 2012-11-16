@@ -204,6 +204,8 @@ You can use this in combination with page to retrieve a subset of elements, or u
 
     DELETE /networks/medias/:id
 
+When the media which you want to delete has campaigns, it can not be deleted.
+
 **Response**
 
     Status: 204 No Content
@@ -331,6 +333,7 @@ No Match
 
     DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
+When the media which you want to delete has placements, it can not be deleted.
 
 **Response**
 

@@ -280,6 +280,10 @@ Get information near the bottom of the page.
 
     DELETE /networks/advertisers/campaigns/:id
 
+When the campaign's status which you want to delete is not typing, the campaign's status will be changed as deleted.
+
+When the campaign's status which you want to delete is typing, the campaign will be deleted.
+
 **Response**
 
     Status: 204 No Content

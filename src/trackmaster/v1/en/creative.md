@@ -169,6 +169,10 @@ title: Creative
 
     DELETE /networks/advertisers/campaigns/creatives/:id
 
+When the creative's data which you want to delete is not "0", the creative's data will be changed as "0".   
+When the creative's data which you want to delete is "0", it can not be deleted. 
+ 
+
 **Response**
 
     Status: 204 No Content
@@ -200,7 +204,7 @@ title: Creative
 `target_url`
 : _Optional_ **string** - Target Website
 
-**请求**
+**Request**
 
 {:.prettyprint}
     {
@@ -212,7 +216,7 @@ title: Creative
         "target_url": "http://www.admaster.com.cn/",
     }
 
-**响应**
+**Response**
 
     Status: 204 No Content
     X-RateLimit-Limit: 5000
