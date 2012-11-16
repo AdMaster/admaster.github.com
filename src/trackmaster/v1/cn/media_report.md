@@ -109,7 +109,7 @@ title: 媒体报告
     X-RateLimit-Remaining: 4999
 
 
-## 媒体用户获取iab数据
+## 媒体用户获取 iab 数据
 
     GET /medias/:id/ies
 
@@ -124,7 +124,7 @@ title: 媒体报告
 **参数**
 
 `pubid`
-: _可选_ **string** - pubid 指定后只获取该pubid的数据
+: _可选_ **string** - pubid 指定后只获取该 pubid 的数据
 
 `date`
 : _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据
