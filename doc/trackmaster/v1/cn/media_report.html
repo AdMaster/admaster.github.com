@@ -46,7 +46,7 @@
   <li><a href="#section-2">获取指定项目下的日报告</a></li>
   <li><a href="#section-3">获取指定监测代码下的项目日报告</a></li>
   <li><a href="#section-4">获取指定监测代码下的项目报告</a></li>
-  <li><a href="#iab">媒体用户获取iab数据</a></li>
+  <li><a href="#iab-">媒体用户获取 iab 数据</a></li>
   <li><a href="#section-5">获取指定媒体项目报告列表</a></li>
 </ul>
 
@@ -62,7 +62,7 @@
 
 <pre class="prettyprint"><code>[
   {
-    "id": 1,
+    "id": 10185,
     "name": "这是一个测试项目",
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
@@ -80,9 +80,9 @@
 
 <dl>
   <dt><code>start_time</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目开始日期，例如2012-08-01，会列出项目开始日期大于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>date</strong> - 项目开始日期，例如 2012-08-01，会列出项目开始日期大于等于此设定的项目</dd>
   <dt><code>end_time</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目结束日期，例如2012-08-02，会列出项目结束日期小于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>date</strong> - 项目结束日期，例如 2012-08-02，会列出项目结束日期小于等于此设定的项目</dd>
   <dt><code>sort</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
 
@@ -160,7 +160,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="iab">媒体用户获取iab数据</h2>
+<h2 id="iab-">媒体用户获取 iab 数据</h2>
 
 <pre><code>GET /medias/:id/ies
 </code></pre>
@@ -178,7 +178,7 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>pubid</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该pubid的数据</dd>
+  <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该 pubid 的数据</dd>
   <dt><code>date</code></dt>
   <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
   <dt><code>page</code></dt>
@@ -206,7 +206,7 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>time</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 数据时间类型
+  <dd><em>必选</em> <strong>string</strong> - 数据时间类型,与参数 <code>start_time</code> 和 <code>end_time</code> 共同使用。
 
     <ul>
       <li><code>hourly</code> 获取小时数据</li>
@@ -227,17 +227,51 @@ X-RateLimit-Remaining: 4999
     </ul>
   </dd>
   <dt><code>placement_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 广告位 ID</dd>
   <dt><code>keyword_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 关键字ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 关键字 ID</dd>
   <dt><code>creative_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
   <dt><code>geo_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 地域ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 地域 ID</dd>
   <dt><code>start_time</code></dt>
-  <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目，与参数<code>time</code>一起使用。<br />
+采用国际标准 ISO 8601 的日期和时间显示格式。
+
+    <ul>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。</p>
+      </li>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
+      </li>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01。</p>
+      </li>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
+      </li>
+    </ul>
+  </dd>
   <dt><code>end_time</code></dt>
-  <dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目</dd>
+  <dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目，与参数<code>time</code>一起使用。<br />
+采用国际标准 ISO 8601 的日期和时间显示格式。
+
+    <ul>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。</p>
+      </li>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
+      </li>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。</p>
+      </li>
+      <li>
+        <p>当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
+      </li>
+    </ul>
+  </dd>
   <dt><code>sort</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
 
@@ -321,6 +355,92 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
     </tr>
   </tbody>
 </table>
+
+<p><strong>获取数据组合说明</strong></p>
+
+<p>不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>组合</td>
+      <td>说明</td>
+    </tr>
+    <tr>
+      <td>time=daily</td>
+      <td>粒度为天，指定媒体指定项目数据</td>
+    </tr>
+    <tr>
+      <td>time=daily&amp;dims=geo</td>
+      <td>粒度为天，指定媒体指定项目分地域数据</td>
+    </tr>
+    <tr>
+      <td>time=daily&amp;dims=placement</td>
+      <td>粒度为天，指定媒体指定项目分广告位数据</td>
+    </tr>
+    <tr>
+      <td>time=daily&amp;dims=placement,geo</td>
+      <td>粒度为天，指定媒体指定项目分广告位分地域数据</td>
+    </tr>
+    <tr>
+      <td>time=daily&amp;dims=placement,keyword</td>
+      <td>粒度为天，指定媒体指定项目分广告位分关键字数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly</td>
+      <td>粒度为小时，指定媒体指定项目数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly&amp;dims=creative</td>
+      <td>粒度为小时，指定媒体指定项目分创意数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly&amp;dims=geo</td>
+      <td>粒度为小时，指定媒体指定项目分地域数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly&amp;dims=placement</td>
+      <td>粒度为小时，指定媒体指定项目分广告位数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly&amp;dims=placement,creative</td>
+      <td>粒度为小时，指定媒体指定项目分广告位分创意数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly&amp;dims=placement,geo</td>
+      <td>粒度为小时，指定媒体指定项目分广告位分地域数据</td>
+    </tr>
+    <tr>
+      <td>time=hourly&amp;dims=placement,keyword</td>
+      <td>粒度为小时，指定媒体指定项目分广告位分关键字数据</td>
+    </tr>
+    <tr>
+      <td>time=monthly</td>
+      <td>粒度为月，指定媒体指定项目数据</td>
+    </tr>
+    <tr>
+      <td>time=monthly&amp;dims=placement</td>
+      <td>粒度为月，指定媒体指定项目分广告位数据</td>
+    </tr>
+    <tr>
+      <td>time=monthly&amp;dims=placement,keyword</td>
+      <td>粒度为月，指定媒体指定项目分广告位分关键字数据</td>
+    </tr>
+    <tr>
+      <td>time=weekly</td>
+      <td>粒度为周，指定媒体指定项目数据</td>
+    </tr>
+    <tr>
+      <td>time=weekly&amp;dims=placement</td>
+      <td>粒度为周，指定媒体指定项目分广告位数据</td>
+    </tr>
+    <tr>
+      <td>time=weekly&amp;dims=placement,keyword</td>
+      <td>粒度为周，指定媒体指定项目分广告位分关键字数据</td>
+    </tr>
+  </tbody>
+</table>
+
 
       </div>
       
@@ -407,66 +527,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -547,66 +617,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -687,66 +707,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -827,66 +797,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -967,66 +887,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -1107,66 +977,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -1237,6 +1057,566 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
             
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -1361,66 +1741,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -1501,66 +1831,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -1641,66 +1921,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -1781,66 +2011,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -1921,66 +2101,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -2061,66 +2191,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -2201,66 +2281,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -2341,66 +2371,16 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
           
-        
-          
-          
-            
           
           
           
-            
           
           
           
-            
           
           
           
-            
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -2471,6 +2451,746 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
           
           
             
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           

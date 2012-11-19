@@ -337,6 +337,43 @@ Not all combinations can be queried together. Only certain combinations can be u
   </tbody>
 </table>
 
+<p><strong>Example</strong></p>
+
+<p>dims contain time</p>
+
+<pre class="prettyprint"><code>[
+    {
+        "campaign_id": 10116,
+        "time": "2012-11-01",
+        "imp": 3,
+        "uimp": 3,
+        "clk": 7,
+        "uclk": 7,
+        "ipuimp": 3,
+        "ipuclk": 4
+    },
+    {
+        "campaign_id": 10116,
+        "time": "2012-11-02",
+    …
+]
+</code></pre>
+
+<p>dims without time</p>
+
+<pre class="prettyprint"><code>[
+    {
+        "campaign_id": 10116,
+        "imp": 28,
+        "uimp": 27,
+        "clk": 72,
+        "uclk": 39,
+        "ipuimp": 27,
+        "ipuclk": 24
+    }
+]
+</code></pre>
+
       </div>
       
     <div id="js-sidebar" class="sidebar-shell">
@@ -384,6 +421,30 @@ Not all combinations can be queried together. Only certain combinations can be u
           
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -400,38 +461,6 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
             
           
@@ -496,36 +525,8 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -544,36 +545,8 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -640,36 +613,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -736,36 +701,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -832,36 +789,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -928,36 +877,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1006,6 +947,626 @@ Not all combinations can be queried together. Only certain combinations can be u
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
           
           
           
@@ -1017,10 +1578,62 @@ Not all combinations can be queried together. Only certain combinations can be u
                 </h3>
                 <ul class="js-guides">
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertiser.html">Advertiser</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/brand.html">Brand</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/campaign.html">Campaign</a></li>
+                  
                   <li style=""><a href="/doc/trackmaster/v1/en/campaign_report.html">Campaign Report</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/channel.html">Channel</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/code.html">Code</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/creative.html">Creative</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/media.html">Media</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/network.html">Network</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/placement.html">Placement</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/spot.html">Spot</a></li>
                   
                 </ul>
               </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
@@ -1046,50 +1659,6 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -1142,36 +1711,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1238,36 +1799,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1334,36 +1887,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1430,36 +1975,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1526,36 +2063,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1622,36 +2151,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1718,36 +2239,28 @@ Not all combinations can be queried together. Only certain combinations can be u
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1796,6 +2309,750 @@ Not all combinations can be queried together. Only certain combinations can be u
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
           
