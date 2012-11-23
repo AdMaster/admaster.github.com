@@ -149,7 +149,7 @@ X-RateLimit-Remaining: 4999
     "url": "http://track.admasterapi.com/networks/11/advertisers/10933",
     "name": {"zh_cn" =&gt; "腾讯", "en_us" =&gt; "tencent"},   //Advertiser Name
     "status": "enabled",//Advertise's status
-    "alias": "腾讯",//Alias
+    "alias": "腾讯",//Advertise's Alias
     "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
     "created_at": "2012-09-06T20:39:23Z"  //Creation Time
   }
@@ -170,7 +170,7 @@ X-RateLimit-Remaining: 4999
   <dd><em>Optional</em> <strong>string</strong> - Campaign Name</dd>
 </dl>
 
-<p>If the input is a part of campaign name, it will find out the campaign.</p>
+<p>If the input is a part of campaign name, it will search the campaign.</p>
 
 <dl>
   <dt><code>network_brand_id</code></dt>
@@ -221,8 +221,8 @@ X-RateLimit-Remaining: 4999
 <p><strong>Response</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/12/advertisers/122/campaigns?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/networks/12/advertisers/122/campaigns?page=10&gt;; rel="last"
+Link: &lt;http://track.admasterapi.com/networks/12/advertisers/10282/campaigns?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/networks/12/advertisers/10282/campaigns?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -233,18 +233,17 @@ X-RateLimit-Remaining: 4999
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/10903",
     "name": "This is a testing campaign",//Campaign Name
     "network_brand_id": 18,//Network Brand ID
-    "cost_type": "CNY",//The `cost_type` that was performed: “CNY” or “USD”.
+    "cost_type": "CNY",//The `cost_type` that was performed: “CNY” , “USD” or "None".
     "total_cost": 20000000,//Total cost of campaign
     "start_date": "2012-01-03",//Beginning date of campaign
     "end_date": "2012-06-23",//Final date of campaign
     "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1024,//Survey ID, If the campaign is connected with SurveyMaster, it will have a survey_id.
     "media_num": 8,//The number of media in the campaign 
     "placement_num": 258,//The number of placements in the campaign
-    "est_imp": 9183213,//The estimate of impression
-    "est_clk": 12334,//The estimate of click
-    "status": "kickoff",//The status of campaign 
-    "is_online": "yes",//If the current time is between `start_date` and `end_date + seven days`, the data of `is_online` is "yes". 
+    "est_imp": 9183213,//Estimate of impression
+    "est_clk": 12334,//Estimate of click
+    "status": "kickoff",//Status of campaign 
+    "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
     "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
   }
 ]
@@ -308,6 +307,30 @@ X-RateLimit-Remaining: 4999
           
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -324,38 +347,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
             
           
@@ -420,36 +411,8 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -468,36 +431,8 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -564,36 +499,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -660,36 +587,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -756,36 +675,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -852,36 +763,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -930,6 +833,626 @@ X-RateLimit-Remaining: 4999
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
           
           
           
@@ -941,10 +1464,62 @@ X-RateLimit-Remaining: 4999
                 </h3>
                 <ul class="js-guides">
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertiser.html">Advertiser</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/brand.html">Brand</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/campaign.html">Campaign</a></li>
+                  
                   <li style=""><a href="/doc/trackmaster/v1/en/campaign_report.html">Campaign Report</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/channel.html">Channel</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/code.html">Code</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/creative.html">Creative</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/media.html">Media</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/network.html">Network</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/placement.html">Placement</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/spot.html">Spot</a></li>
                   
                 </ul>
               </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
@@ -970,50 +1545,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
           
             
           
@@ -1066,36 +1597,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1162,36 +1685,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1258,36 +1773,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1354,36 +1861,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1450,36 +1949,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1546,36 +2037,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1642,36 +2125,28 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
+          
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
+            
           
           
           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            
           
           
           
@@ -1720,6 +2195,750 @@ X-RateLimit-Remaining: 4999
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
           
