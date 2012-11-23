@@ -85,6 +85,8 @@ monthly  | YYYY-MM     | 2005-01
   * `clk` - Sorting occurs by click.
   * `uimp` - Sorting occurs by unique impression.
   * `uclk` - Sorting occurs by unique click.
+  * `network_media_id` - Sorting occurs by `network_media_id`
+  * `placement_id` - Sorting occurs by `placement_id`
 
 
 `direction`

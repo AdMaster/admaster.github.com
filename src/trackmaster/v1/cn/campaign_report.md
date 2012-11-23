@@ -83,7 +83,8 @@ title: 项目报告
   * `clk` - 按照点击排序
   * `uimp` - 按照独立曝光排序
   * `uclk` - 按照独立点击排序
-
+  * `network_media_id` - 按照网络媒体 ID 排序
+  * `placement_id` - 按照广告位 ID 排序
 
 `direction`
 : _可选_ **string** - 排序方式，结合参数`sort`使用。
