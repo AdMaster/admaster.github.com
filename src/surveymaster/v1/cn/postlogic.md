@@ -2,7 +2,7 @@
 weight: 8
 layout: default
 category: surveymaster
-title: 后置逻辑相关接口
+title: 后置逻辑相关
 language: cn
 ---
 
@@ -19,7 +19,7 @@ language: cn
 {:.prettyprint}
     [/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，检查即终止 */
 	    {
-		    "id" : 1,
+		    "postlogic_id" : 1,
 		    "url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/1',
 		    "goto" : 8,/* 跳转到第几页 */
 		    "order_num" : 1,
@@ -37,7 +37,7 @@ language: cn
 	    },
 
 	    {
-		    "id" : 2,
+		    "postlogic_id" : 2,
 		    "url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/2',
 		    "goto" : 10,/* 跳转到第几页 */
 		    "order_num" : 2,
@@ -70,7 +70,7 @@ language: cn
 
 {:.prettyprint}
     {
-	    "id" : 1,/* 后置逻辑的id（自增 全局唯一） */
+	    "postlogic_id" : 1,/* 后置逻辑的id（自增 全局唯一） */
 	    "url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/1',
 	    "page_id" : 1,
 	    "goto" : 10,/* 跳转到第几页 */
@@ -158,7 +158,7 @@ language: cn
 
 {:.prettyprint}
     {
-	    "id" : 1,/* 后置逻辑id(自增) */
+	    "postlogic_id" : 1,/* 后置逻辑id(自增) */
 	    /* 后置逻辑详情 */
     }
 

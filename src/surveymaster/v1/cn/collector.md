@@ -2,7 +2,7 @@
 weight: 5
 layout: default
 category: surveymaster
-title: 渠道相关接口
+title: 渠道相关
 language: cn
 ---
 
@@ -19,7 +19,7 @@ language: cn
 {:.prettyprint}
     [
 	    {
-		    "id" : 1,
+		    "collector_id" : 1,
 		    "url" : 'http://api.surveymaster.com.cn/surveys/collectors/1',
 		    "type" : 'openlink/edm',
 		    "name" : '新浪汽车',
@@ -41,7 +41,7 @@ language: cn
 
 {:.prettyprint}
     {
-	    "id" : 1,
+	    "collector_id" : 1,
 	    "url" : 'http://api.surveymaster.com.cn/surveys/collectors/1',
 	    "survey_id" : 1,
 	    "type" : 'openlink/edm',
@@ -99,7 +99,7 @@ language: cn
 
 {:.prettyprint}
     {
-	    "id" : 1,/* 渠道id(自增) */
+	    "collector_id" : 1,/* 渠道id(自增) */
 	    /* 渠道详情 */
     }
 
