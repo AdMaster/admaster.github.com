@@ -22,13 +22,13 @@ title: 广告位
 : _可选_ **string** - 广告位名称，支持模糊搜索
 
 `network_media_id`
-: _可选_ **integer** - 限定工作网络媒体ID
+: _可选_ **integer** - 限定工作网络媒体 ID
 
 `page`
 : _可选_ **integer** - 显示页码
 
 `per_page`
-: _可选_ **integer** - 分页数量，默认每页30条
+: _可选_ **integer** - 分页数量，默认每页 30 条
 
 **响应**
 
@@ -44,7 +44,7 @@ title: 广告位
         //广告位ID，全局唯一
         "id": 1,
         //获取详情接口地址
-        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1",
+        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
         //广告位位置名称
         "name": "这是一个测试广告位",
         //工作网络下媒体ID
@@ -113,7 +113,7 @@ title: 广告位
     //广告位ID，全局唯一
     "id": 1,
     //获取详情接口地址
-    "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1",
+    "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
     //广告位位置名称
     "name": "这是一个测试广告位",
     //工作网络下媒体ID
