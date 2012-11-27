@@ -2,7 +2,7 @@
 weight: 9
 layout: default
 category: surveymaster
-title: 统计相关接口
+title: 统计相关
 language: cn
 ---
 

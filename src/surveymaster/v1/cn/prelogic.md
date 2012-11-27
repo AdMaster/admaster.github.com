@@ -2,7 +2,7 @@
 weight: 7
 layout: default
 category: surveymaster
-title: 前置逻辑相关接口
+title: 前置逻辑相关
 language: cn
 ---
 
@@ -21,7 +21,7 @@ language: cn
 	    "visible" : "yes",/* 此问题是否显示 */
 	    "logics" : [/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，逻辑判断即终止 */
 		    {
-			    "id" : 1,
+			    "prelogic_id" : 1,
 			    "url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/1',
 			    "order_num" : 1,
 			    "conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
@@ -38,7 +38,7 @@ language: cn
 		    },
 
 		    {
-			    "id" : 2,
+			    "prelogic_id" : 2,
 			    "url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/2',
 			    "order_num" : 2,
 			    "conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
@@ -66,7 +66,7 @@ language: cn
 
 {:.prettyprint}
     {
-	    "id" : 1,/* 前置逻辑的id（自增 全局唯一） */
+	    "prelogic_id" : 1,/* 前置逻辑的id（自增 全局唯一） */
 	    "url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/1',
 	    "question_id" : 1,
 	    "visible" : "yes",/* 此问题是否显示 */
@@ -154,7 +154,7 @@ language: cn
 
 {:.prettyprint}
     {
-	    "id" : 1,/* 前置逻辑id(自增) */
+	    "prelogic_id" : 1,/* 前置逻辑id(自增) */
 	    /* 前置逻辑详情 */
     }
 

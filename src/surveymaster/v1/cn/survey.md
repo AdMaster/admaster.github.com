@@ -9,8 +9,6 @@ language: cn
 * TOC
 {:toc}
 
-#API - 问卷相关(共5个)
-
 ## 1. 获取问卷列表
 
     GET /surveys
@@ -70,7 +68,7 @@ language: cn
 {:.prettyprint}
     [
       {
-        "id" : 112,
+        "survey_id" : 112,
         "url" : "http://api.surveymaster.com/surveys/112",
         "logo" : "http://domain.com/img/logo.gif",
         "title" : "伊利8月新生活",
@@ -153,7 +151,7 @@ language: cn
 {:.prettyprint}
     [
       {
-        "id" : 112,
+        "survey_id" : 112,
         "url" : "http://api.surveymaster.com/surveys/112",
         "logo" : "http://domain.com/img/logo.gif",
         "title" : "伊利8月新生活",
@@ -234,7 +232,7 @@ language: cn
 
 {:.prettyprint}
     {
-      "id" : 112,
+      "survey_id" : 112,
       "url" : "http://api.surveymaster.com.cn/surveys/112",
       "logo" : "http://domain.com/img/logo.gif",
       "title" : "伊利8月新生活",
@@ -265,7 +263,7 @@ language: cn
 
 {:.prettyprint}
     {
-      "id" : 112,
+      "survey_id" : 112,
       "url" : "http://api.surveymaster.com.cn/surveys/112",
       "logo" : "http://domain.com/img/logo.gif",
       "title" : "伊利8月新生活",

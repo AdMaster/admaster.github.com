@@ -20,7 +20,7 @@ language: cn
 
 {:.prettyprint}
     {
-      "id" : 1,
+      "page_id" : 1,
       "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
       "survey_id" : 112,    /* 问卷ID */
       "order_num" : 1,   /* 显示顺序 */
@@ -38,7 +38,7 @@ language: cn
 
 {:.prettyprint}
     {
-        "id" : 1,
+        "page_id" : 1,
         "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
         "survey_id" : 112,
         "order_num" : 1,   /* 显示顺序 */
