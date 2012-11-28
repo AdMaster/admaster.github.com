@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Spot - trackmaster - AdMaster API 文档中心</title>
+  <title>Placement - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -39,34 +39,35 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="spot">Spot</h1>
+        <h1 id="placement">Placement</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#get-spots-of-the-given-campaign-in-a-period-of-time">Get spots of the given campaign in a period of time</a></li>
-  <li><a href="#modify-the-given-spot">Modify the given spot</a></li>
+  <li><a href="#list-placements-of-the-given-publisher">List placements of the given publisher</a></li>
+  <li><a href="#get-details-of-the-given-placement">Get details of the given placement</a></li>
 </ul>
 
-<h2 id="get-spots-of-the-given-campaign-in-a-period-of-time">Get spots of the given campaign in a period of time</h2>
+<h2 id="list-placements-of-the-given-publisher">List placements of the given publisher</h2>
 
-<pre><code>GET /networks/advertisers/campaigns/:campaign_id/spots
+<pre><code>GET /medias/:media_id/placements
 </code></pre>
 
 <p><strong>Parameters</strong></p>
 
 <dl>
-  <dt><code>start_date</code></dt>
-  <dd><em>Required</em> <strong>date</strong> - Beginning date to retrieve data in format YYYY-MM-DD.</dd>
-  <dt><code>end_date</code></dt>
-  <dd><em>Required</em> <strong>date</strong> - Final date to retrieve data in format YYYY-MM-DD.</dd>
+  <dt><code>media_id</code></dt>
+  <dd><em>Required</em> <strong>integer</strong> - Media ID <br />
+If the input is a part of placement name, it will search the placement.</dd>
+  <dt><code>name</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Placement Name</dd>
   <dt><code>page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
+  <dd><em>Optional</em> <strong>integer</strong> - the start index  </dd>
 </dl>
 
 <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
 
 <dl>
   <dt><code>per_page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results     </dd>
 </dl>
 
 <p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
@@ -74,8 +75,8 @@
 <p><strong>Response</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/advertisers/campaigns/:campaign_id/spots?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/networks/advertisers/campaigns/:campaign_id/spots?page=10&gt;; rel="last"
+Link: &lt;http://track.admasterapi.com/medias/100/placements?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/medias/100/placements?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -83,38 +84,54 @@ X-RateLimit-Remaining: 4999
 <pre class="prettyprint"><code>[
   {
     //Placement ID
-    "placement_id": 200019261,
-    //Online Date
-    "online_date": "2012-04-13",
-    //Creative ID
-    "creative_id": 200019827,
-    //Perchase Unites
-    "units": 23,
+    "id": 200057486,
+    //Placement Name
+    "name": "A Testing Placement",
+    //Channel Information
+    "channel": {
+        //Channel Name
+        "name": "Sport News",
+        //Type-`webpage` , `video`, `client`, `se` Search Engine, `email`, `other`
+        "type": "webpage",
+},
+    //Target URL(Click)
+    "target_url": "http://www.admaster.com.cn/",
+    //Creation Time
+    "created_at": "2012-09-06T20:39:23Z"
   }
 ]
 </code></pre>
 
-<h2 id="modify-the-given-spot">Modify the given spot</h2>
+<h2 id="get-details-of-the-given-placement">Get details of the given placement</h2>
 
-<pre><code>PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:date
+<pre><code>GET /medias/:media_id/placements/:placement_id
 </code></pre>
-
-<p><strong>Request</strong></p>
-
-<dl>
-  <dt><code>units</code></dt>
-  <dd><em>Required</em> <strong>integer</strong> - Perchase Unites</dd>
-  <dt><code>creative_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Creative ID</dd>
-</dl>
 
 <p><strong>Response</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre><code>Status: 200 OK
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
+<pre class="prettyprint"><code>{
+//Placement ID
+"id": 200057486,
+//slacement Name
+"name": "A Testing Placement",
+//Channel Information
+"channel": {
+    //Channel Name
+    "name": "Sport News",
+    //Type-`webpage` , `video`, `client`, `se` Search Engine, `email`, `other`
+    "type": "webpage",
+},
+//Target URL(Click)
+"target_url": "http://www.admaster.com.cn/",
+//Creation Time
+"created_at": "2012-09-06T20:39:23Z"
+}
+</code></pre>
 
       </div>
       
