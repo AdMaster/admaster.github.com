@@ -223,7 +223,7 @@ language: cn
 
 ## 3. 获取当前答题人下一页的问题列表
 
-    GET /survey/:code
+    GET /surveys/:code
 
 **响应**
 
