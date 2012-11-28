@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: surveymaster
-title: 答案相关接口
+title: 答案相关
 language: cn
 ---
 
@@ -11,7 +11,7 @@ language: cn
 
 
 ## 1. 新增答案
-	POST /surveys/collectors/:collector_id/answers
+	POST /surveys/collectors/:code/answers
 	Set-Cookie: admaster_cookie_id=***
 
 **请求**
@@ -75,7 +75,6 @@ language: cn
 **响应**
 
     Status: 201 No Content
-    Location: http://api.surveymaster.com.cn/surveys/1/pages/next
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -111,7 +110,7 @@ language: cn
 {:.prettyprint}
     [
 	    {
-		    "id" : 1,/* 答案id */
+		    "answer_id" : 1,/* 答案id */
 		    "url" : 'http://api.surveymaster.com.cn/surveys/collectors/answers/1',
 		    "respondent_id" : 1,
 		    "collector_id" : 1,
