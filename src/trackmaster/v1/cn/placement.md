@@ -56,7 +56,7 @@ title: 广告位
             //频道名称
             "name": "体育新闻",
             //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-            "type": "web",
+            "type": "webpage",
             //广告位在第几屏幕
             "screen": 3,
             //频道地址
