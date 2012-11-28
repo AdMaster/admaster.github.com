@@ -94,6 +94,18 @@ title: 广告位
         "name": "体育新闻",
         //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
         "type": "webpage",
+        //广告位在第几屏幕
+         "screen": 3,
+        //频道地址
+         "home": "http://www.admaster.com.cn/",
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+          "material_type": "flash",
+         //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+          "material_dimension": "400x300",
+         //物料文件大小，单位由 material_size_unit 指定
+           "material_size": 200,
+         //物料文件大小单位，B K M
+           "material_size_unit": "B"
     },
     //点击目标地址
     "target_url": "http://www.admaster.com.cn/",
