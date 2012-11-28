@@ -3,7 +3,7 @@ weight: 10
 layout: default
 category: trackmaster
 subcategory: publisher
-language: en
+language: cn
 title: 广告位
 ---
 
