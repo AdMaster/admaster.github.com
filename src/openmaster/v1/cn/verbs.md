@@ -40,7 +40,7 @@ title: 协议及请求方式
 
 调用API客户端的错误有三种可能类型，它们收到的请求主体是：
 
-1.发送无效 JSON将导致400个错误请求响应。
+1.发送无效 JSON将导致400错误请求响应。
 
     HTTP/1.1 400 Bad Request
     Content-Length: 35
@@ -126,7 +126,7 @@ OAuth2 Token (作为参数发送):
 分页信息包含在 the link header：
 
 {:.prettyprint}
-    Link: <http://track.admasterapi.com/advertisers?page=3&per_page=100>; rel=”next”, 
+    Link: <http://track.admasterapi.com/advertisers?page=3&per_page=100>; rel=”next”,
       <http://track.admasterapi.com/advertisers?page=50&per_page=100>; rel=”last”
 
 换行仅做显示用。
@@ -161,12 +161,12 @@ OAuth2 Token (作为参数发送):
 
 下面是一个发自浏览器的示例需求`http://some-site.com`：
 
-    $ curl -i https://track.admasterapi.com -H "Origin: http://some-site.com" 
+    $ curl -i https://track.admasterapi.com -H "Origin: http://some-site.com"
     HTTP/1.1 302 Found
 
 任何一个被接受的域名都是作为OAUTH应用程序注册的。下面是一个示例需求，用于浏览器触及 Calendar About Nothing:
 
-    $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" 
+    $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com"
 
 {:.prettyprint}
     HTTP/1.1 302 Found
@@ -177,7 +177,7 @@ OAuth2 Token (作为参数发送):
 
 下面是CORS系统预检请求：
 
-    $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS   
+    $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS
 
 {:.prettyprint}
     HTTP/1.1 204 No Content
