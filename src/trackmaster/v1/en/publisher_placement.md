@@ -53,10 +53,24 @@ You can use this in combination with page to retrieve a subset of elements, or u
         "name": "A Testing Placement",
         //Channel Information
         "channel": {
-            //Channel Name
-            "name": "Sport News",
-            //Type-`webpage` , `video`, `client`, `se` Search Engine, `email`, `other`
-            "type": "webpage",
+       //Channel ID
+        "id": 1025,
+        //Channel Name
+        "name": "Sport News",
+        //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
+        "type": "webpage",
+        //Which screen the placement is in
+        "screen": 3,
+        //Channel Website
+        "home": "http://www.admaster.com.cn/",
+        //Material Type -`flash`(Default)，`image`，`video`, `textlink`, `other`
+        "material_type": 'flash',
+        //Material Dimension
+        "material_dimension": "400x300",
+        //Material Size
+        "material_size": 200,
+        //Material Unit，B K(Default) M
+        "material_size_unit": "B"
     },
         //Target URL(Click)
         "target_url": "http://www.admaster.com.cn/",
@@ -84,10 +98,24 @@ You can use this in combination with page to retrieve a subset of elements, or u
     "name": "A Testing Placement",
     //Channel Information
     "channel": {
+       //Channel ID
+        "id": 1025,
         //Channel Name
         "name": "Sport News",
-        //Type-`webpage` , `video`, `client`, `se` Search Engine, `email`, `other`
+        //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
         "type": "webpage",
+        //Which screen the placement is in
+        "screen": 3,
+        //Channel Website
+        "home": "http://www.admaster.com.cn/",
+        //Material Type -`flash`(Default)，`image`，`video`, `textlink`, `other`
+        "material_type": 'flash',
+        //Material Dimension
+        "material_dimension": "400x300",
+        //Material Size
+        "material_size": 200,
+        //Material Unit，B K(Default) M
+        "material_size_unit": "B"
     },
     //Target URL(Click)
     "target_url": "http://www.admaster.com.cn/",
