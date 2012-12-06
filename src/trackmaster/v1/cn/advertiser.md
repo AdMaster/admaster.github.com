@@ -93,6 +93,7 @@ title: 广告主
 {:.prettyprint}
     [
       {
+        "network_id":11,//广告主所属工作网络 ID
         "advertiser_id": 10199,//广告主 ID
         "url": "http://{{site.track_api_host}}/networks/11/advertisers/10199",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
@@ -116,6 +117,7 @@ title: 广告主
 
 {:.prettyprint}
     {
+        "network_id":11,//广告主所属工作网络 ID
         "advertiser_id": 10198,//广告主 ID
         "url": "http://{{site.track_api_host}}/networks/11/advertisers/10198",
         "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
