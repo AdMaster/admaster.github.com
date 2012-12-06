@@ -85,8 +85,12 @@ If the input is a part of campaign name, it will search the campaign.
         "default_target": "http://www.admaster.com.cn"
         "media_num": 8,//The number of media in the campaign 
         "placement_num": 258,//The number of placements in the campaign
-        "est_imp": 9183213,//Estimate of impression
-        "est_clk": 12334,//Estimate of click
+        "real_imp": 10187535,//Total Impression
+        "real_clk": 13700,//Total Click
+        "est_imp": 9183213,//Estimate Impression
+        "est_clk": 12334,//Estimate Click
+		"sp_imp": 753823,//Cor Estinate Impression
+        "sp_clk": 15342,//Cor Estinate Click
         "status": "midterm",//Status of campaign
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
         "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
