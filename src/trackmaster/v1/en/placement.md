@@ -97,6 +97,14 @@ You can use this in combination with page to retrieve a subset of elements, or u
         "est_imp": 871821,
         //Estimate Click(total)
         "est_clk": 1231,
+        //Cor Estimate Impression
+        "sp_imp": 61821,
+        //Cor Estimate Click
+        "sp_clk": 300,
+        //Total Impression
+        "real_imp": 71821,
+        //Total Click
+        "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z"
       }
@@ -165,6 +173,14 @@ You can use this in combination with page to retrieve a subset of elements, or u
     "est_imp": 871821,
     //Estimate Click(total)
     "est_clk": 1231,
+    //Cor Estimate Impression
+    "sp_imp": 61821,
+    //Cor Estimate Click
+    "sp_clk": 300,
+    //Total Impression
+    "real_imp": 71821,
+    //Total Click
+    "real_clk": 400,
     //Creation Time
     "created_at": "2012-09-06T20:39:23Z"
     }
