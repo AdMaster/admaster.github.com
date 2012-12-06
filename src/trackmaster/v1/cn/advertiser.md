@@ -123,6 +123,7 @@ title: 广告主
         "alias": "通用电器",//网络下广告主别名
         "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z" //创建时间
+        "creator":"name"//创建者
     }
 
 ## 添加指定系统广告主到指定工作网络下
