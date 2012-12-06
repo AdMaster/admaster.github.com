@@ -93,7 +93,8 @@ You can use this in combination with page to retrieve a subset of elements, or u
 {:.prettyprint}
     [
       {
-        "advertiser_id": 10198,//Advertiser Name
+        "network_id":11,//Network ID
+	    "advertiser_id": 10198,//Advertiser Name
         "url": "http://{{site.track_api_host}}/networks/11/advertisers/10198",
         "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //Advertiser Name
         "status": "enabled",//Advertiser's Status
@@ -116,6 +117,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
 
 {:.prettyprint}
     {
+        "network_id":11,//Network ID
         "advertiser_id": 10198,
         "url": "http://{{site.track_api_host}}/networks/11/advertisers/10198",
         "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //Advertiser Name
@@ -123,6 +125,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
         "alias": "通用电器",//Advertiser's Alias
         "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
         "created_at": "2012-09-06T20:39:23Z" //Creation Time
+        "creator":"name"//Creator
     }
 
 ## Add an advertiser to the given network
