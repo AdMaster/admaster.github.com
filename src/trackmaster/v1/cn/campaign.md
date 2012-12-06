@@ -83,8 +83,12 @@ title: 项目
         "default_target": "http://www.admaster.com.cn"//项目默认点击目标地址
         "media_num": 8,//项目中媒体数目
         "placement_num": 258,//项目中广告位数目
+		"real_imp": 10187535,//项目总曝光数
+        "real_clk": 13700,//项目总点击数
         "est_imp": 9183213,//项目预估总曝光数
         "est_clk": 12334,//项目预估总点击数
+		"sp_imp": 753823,//项目预估同期曝光数
+        "sp_clk": 15342,//项目预估同期点击数
         "status": "midterm",//项目当前状态
         "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
         "created_at": "2012-09-06T20:39:23Z"//项目创建时间

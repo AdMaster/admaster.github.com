@@ -144,7 +144,7 @@ title: 媒体报告
       }
     ]
 
-## 获取指定媒体项目报告
+## 获取指定媒体项目报告列表
 
     GET /medias/:media_id/campaigns/:campaign_id/reports
 
@@ -165,7 +165,10 @@ title: 媒体报告
   * `keyword` 按关键字维度聚合
   * `creative` 按创意维度聚合
   * `geo` 按地域维度聚合
-  * `time` 按时间维度聚合
+  * `time` 按时间维度聚合    
+
+`network_media_id`
+: _可选_ **integer** - 网络媒体 ID
 
 `placement_id`
 : _可选_ **integer** - 广告位 ID
