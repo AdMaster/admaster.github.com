@@ -144,7 +144,7 @@ title: 媒体报告
       }
     ]
 
-## 获取指定媒体项目报告列表
+## 获取指定媒体项目报告
 
     GET /medias/:media_id/campaigns/:campaign_id/reports
 
