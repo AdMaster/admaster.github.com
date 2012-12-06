@@ -68,6 +68,8 @@ title: 广告位
         "target_url": "http://www.admaster.com.cn/",
         //创建时间
         "created_at": "2012-09-06T20:39:23Z"
+        //广告位所属项目 ID
+        "campaign_id":1000
       }
     ]
 
@@ -111,4 +113,6 @@ title: 广告位
     "target_url": "http://www.admaster.com.cn/",
     //创建时间
     "created_at": "2012-09-06T20:39:23Z"
+    //广告位所属项目 ID
+    "campaign_id":1000
     }

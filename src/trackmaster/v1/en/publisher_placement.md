@@ -76,6 +76,8 @@ You can use this in combination with page to retrieve a subset of elements, or u
         "target_url": "http://www.admaster.com.cn/",
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z"
+       //Campaign ID
+        "campaign_id":1000
       }
     ]
 
@@ -121,4 +123,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
     "target_url": "http://www.admaster.com.cn/",
     //Creation Time
     "created_at": "2012-09-06T20:39:23Z"
+    //Campaign ID
+    "campaign_id":1000
+
     }
