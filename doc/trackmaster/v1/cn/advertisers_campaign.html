@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>品牌 - trackmaster - AdMaster API 文档中心</title>
+  <title>项目 - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,131 +40,59 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">品牌</h1>
+        <h1 id="section">项目</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取指定网络下指定广告主下的所有品牌</a></li>
-  <li><a href="#id-">获取指定 ID 品牌详细信息</a></li>
-  <li><a href="#section-2">添加指定品牌到指定网络广告主下</a></li>
-  <li><a href="#section-3">修改指定的网络广告主下品牌名称</a></li>
-  <li><a href="#section-4">删除指定的网络广告主下品牌</a></li>
+  <li><a href="#section-1">获取指定广告主的项目</a></li>
+  <li><a href="#section-2">响应</a></li>
+  <li><a href="#section-3">获取指定项目信息</a></li>
 </ul>
 
-<h2 id="section-1">获取指定网络下指定广告主下的所有品牌</h2>
+<h2 id="section-1">获取指定广告主的项目</h2>
 
-<pre><code>GET /networks/:network_id/advertisers/:advertiser_id/brands
-</code></pre>
+<p>GET /advertisers/:advertiser_id/campaigns</p>
 
-<p><strong>响应</strong></p>
+<h2 id="section-2">响应</h2>
 
 <pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
 
-<pre class="prettyprint"><code>[
+[
   {
-    "id": 30,//网络品牌 ID
-    "name": "巧乐兹",//品牌名称
-    "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+    "id": 10185,
+    "name": "测试项目"
   }
 ]
 </code></pre>
 
-<h2 id="id-">获取指定 ID 品牌详细信息</h2>
+<h2 id="section-3">获取指定项目信息</h2>
 
-<pre><code>GET /networks/advertisers/brands/:id
-</code></pre>
+<p>GET /advertisers/:advertiser_id/campaigns/:id</p>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 30,//网络品牌 ID
-    "network_id": 11,//工作网络 ID
-    "advertiser_id": 10231,//广告主 ID
-    "name": "巧乐兹",//品牌名称
-    "url": "http://track.admasterapi.com/networks/advertisers/brands/30",
-    "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+    "id": 10786,//项目 ID
+    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/10786",
+    "name": "测试项目",//项目名称
+    "network_brand_id": 10213,//项目网络品牌 ID
+    "cost_type": "CNY",//媒体预算货币类型
+    "total_cost": 20000000,//项目总费用
+    "start_date": "2012-01-03",//项目开始时间
+    "end_date": "2012-06-23",//项目结束时间
+    "default_target": "http://www.admaster.com.cn"//项目默认点击目标地址
+    "media_num": 8,//项目中媒体数目
+    "placement_num": 258,//项目中广告位数目
+    "target_audience":{//目标受众人群
+        "age": "19-25",//目标受众人群年龄范围
+        "sex": "male"//目标受众人群性别
+    },
+    "status": "midterm",//项目当前状态
+    "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
+    "created_at": "2012-09-06T20:39:23Z"//项目创建时间
 }
-</code></pre>
-
-<h2 id="section-2">添加指定品牌到指定网络广告主下</h2>
-
-<pre><code>POST /networks/:network_id/advertisers/:advertiser_id/brands
-</code></pre>
-
-<p><strong>请求</strong></p>
-
-<pre><code>{
-    "name": "巧乐兹"
-}
-</code></pre>
-
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>必填</em> <strong>string</strong> - 品牌名称</dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 201 Created 
-Location: http://track.admasterapi.com/networks/11/advertisers/10231/brands
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-    "id": 30,//网络品牌 ID
-    "network_id": 11,//工作网络 ID
-    "advertiser_id": 10231,//广告主 ID
-    "name": "巧乐兹",//品牌名称
-    "url": "http://track.admasterapi.com/networks/advertisers/brands/30",
-    "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
-}
-</code></pre>
-
-<h2 id="section-3">修改指定的网络广告主下品牌名称</h2>
-
-<pre><code>PATCH /networks/advertisers/brands/:id
-</code></pre>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>{
-    "name": "巧乐鸡"
-}
-</code></pre>
-
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 品牌名称</dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content 
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-4">删除指定的网络广告主下品牌</h2>
-
-<pre><code>DELETE /networks/advertisers/brands/:id
-</code></pre>
-
-<p>当品牌下有关联项目时，不能删除。</p>
-
-<p><strong>响应</strong></p>
-
-<pre class="prettyprint"><code>Status: 204 No Content 
-Location: http://track.admasterapi.com/networks/11/advertisers/10231/brands
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 
       </div>

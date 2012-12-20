@@ -65,6 +65,9 @@ title: 站点分析报告
 
 
 ## diensions
+
+名称|类型|级别|说明
+----|----|----|
 dm:visitorType|	Visitor|visit-dm|访问者类型(新访或回访，值为“new”或者“return”)
 dm:visitCount|	Visitor	|visit-dm|第几次访问，大于0的自然数
 dm:daysSinceLastVisit	|Visitor	|visit-dm|距离上次访问的天数
@@ -116,6 +119,9 @@ dm:adcookie|	Traffic Sources|visit-dm|admcookie id
 
 
 ##metrics 说明
+
+名称|类型|级别|说明
+----|----|----|
 mt:visitors	|Visitor|	raw-mt|通过第一方cookie 统计的访问者
 mt:newVisits	|Visitor|	raw-mt|新访者
 mt:visits	|Session	|raw-mt|访问次数
@@ -135,8 +141,11 @@ mt:advisitors|	Visitor|	raw-mt|通过第三方admcookie 统计的访问者
 ##filters 说明
 
 ####过滤器操作符
+
 针对维度和指标分别有6个过滤器操作符，操作符必须被URL编码。  
+
 ####指标操作符
+
 操作符|描述|URL编码格式|举例
 ---|---|---|---
 ==|等于|%3D%3D|filters=mt:timeOnPage%3D%3D10，返回页面停留时间等于10秒的结果
@@ -147,6 +156,7 @@ mt:advisitors|	Visitor|	raw-mt|通过第三方admcookie 统计的访问者
 <=|小于等于|%3C%3|filters=ga:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果  
 
 ####维度过滤器
+
 操作符|描述|URL编码格式|举例
 ---|---|---|---
 ==|完全匹配|%3D%3D|filters=ga:city%3D%3DIrvine，返回城市为Irvine的统计指标数据

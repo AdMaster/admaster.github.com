@@ -47,8 +47,8 @@
   <li><a href="#diensions">diensions</a></li>
   <li><a href="#metrics-">metrics 说明</a></li>
   <li><a href="#filters-">filters 说明</a>    <ul>
-      <li><a href="#section-4">过滤器语法</a></li>
-      <li><a href="#section-5">组合过滤器</a></li>
+      <li><a href="#section-5">过滤器语法</a></li>
+      <li><a href="#section-6">组合过滤器</a></li>
     </ul>
   </li>
   <li><a href="#segment-">segment 说明</a></li>
@@ -102,99 +102,524 @@ X-RateLimit-Remaining: 4999
 </dl>
 
 <h2 id="diensions">diensions</h2>
-<p>dm:visitorType|	Visitor|visit-dm|访问者类型(新访或回访，值为“new”或者“return”)
-dm:visitCount|	Visitor	|visit-dm|第几次访问，大于0的自然数
-dm:daysSinceLastVisit	|Visitor	|visit-dm|距离上次访问的天数
-dm:referralPath|	Traffic Sources |visit-dm|引荐路径
-dm:campaign|	Traffic Sources| visit-dm|项目，smt_cp
-dm:placement	|Traffic Sources| visit-dm|广告位,smt_pl
-dm:medium	|Traffic Sources| visit-dm|媒体，smt_md
-dm:keyword	|Traffic Sources| visit-dm|关键字，smt_kw
-dm:creative|	Traffic Sources| visit-dm|创意，smt_ct
-dm:cookieSourceType|	Traffic Sources| visit-dm|来源类型，<code>点击引导</code> 或 <code>曝光引导</code>或<code>(not set)</code>
-dm:cookieCampaign|	Traffic Sources| visit-dm|项目，通过 cookie 获取
-dm:cookiePlacement	|Traffic Sources| visit-dm|广告位,通过 cookie 获取
-dm:cookieMedium	|Traffic Sources| visit-dm|媒体，通过 cookie 获取
-dm:cookieKeyword	|Traffic Sources| visit-dm|关键字，通过 cookie 获取
-dm:cookieCreative|	Traffic Sources| visit-dm|创意，通过 cookie 获取
-dm:browser	|Platform / Device|visit-dm|浏览器（<a href="https://github.com/AdMaster/SiteMaster/wiki/siteBrowse">字典</a>）
-dm:browserVersion	|Platform / Device|visit-dm|浏览器版本（<a href="https://github.com/AdMaster/SiteMaster/wiki/siteBrowse">字典</a>）
-dm:operatingSystem	|Platform / Device|visit-dm|操作系统（字典）
-dm:operatingSystemVersion|	Platform / Device|visit-dm|操作系统版本（字典）
-dm:isMobile|	Platform / Device	|visit-dm|是否是移动设备(Yes or No)
-dm:mobileDeviceBranding	|Platform / Device|	visit-dm|移动设备品牌，如：三星，htc(字典)
-dm:mobileDeviceModel	|Platform / Device	|visit-dm|移动设备型号，如ipad1，ipad2（字典）
-dm:mobileDeviceInfo|	Platform / Device|	visit-dm|品牌+型号
-dm:mobileInputSelector|	Platform / Device|	visit-dm|输入方式，值为 “touchscreen” 或者 “(not set)”
-dm:continent	|Geo / Network	|visit-dm|大洲（字典）
-dm:country	|Geo / Network	|visit-dm|国家（字典）
-dm:province	|Geo / Network	|visit-dm|省份（字典）
-dm:city	|Geo / Network	|visit-dm|城市（字典）
-dm:latitude|	Geo / Network	|visit-dm|纬度
-dm:longitude	|Geo / Network|	visit-dm|经度
-dm:flashVersion|	System|	visit-dm|flash版本（采集到的原始数据）
-dm:javaEnabled|System	|visit-dm|是否支持java（Yes or No）
-dm:language|	System|visit-dm|语言
-dm:screenColors	|System	|visit-dm|屏幕颜色
-dm:screenResolution	|System|	visit-dm|屏幕分辨率
-dm:landingPagePath	|Page Tracking|	visit-dm|登陆页路径
-:exitPagePath|	Page Tracking	|visit-dm|退出页路径
-dm:date|	Time 	|time-dm|日期
-dm:month	|Time |	time-dm|月份
-dm:week	|Time 	|time-dm|周
-dm:hour	|Time |	time-dm|时
-dm:host|	Page Tracking	|page-dm|主机名(带端口号)
-dm:pagePath	|Page Tracking|	page-dm|页面路径
-dm:pageTitle	|Page Tracking	|page-dm|页面标题
-dm:eventCategory	|Event Tracking 	||事件分类
-dm:eventAction	|Event Tracking 	||事件动作
-dm:eventLabel	|Event Tracking 	||事件标签
-dm:adcookie|	Traffic Sources|visit-dm|admcookie id</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>级别</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dm:visitorType</td>
+      <td>Visitor</td>
+      <td>visit-dm</td>
+      <td>访问者类型(新访或回访，值为“new”或者“return”)</td>
+    </tr>
+    <tr>
+      <td>dm:visitCount</td>
+      <td>Visitor</td>
+      <td>visit-dm</td>
+      <td>第几次访问，大于0的自然数</td>
+    </tr>
+    <tr>
+      <td>dm:daysSinceLastVisit</td>
+      <td>Visitor</td>
+      <td>visit-dm</td>
+      <td>距离上次访问的天数</td>
+    </tr>
+    <tr>
+      <td>dm:referralPath</td>
+      <td>Traffic Sources </td>
+      <td>visit-dm</td>
+      <td>引荐路径</td>
+    </tr>
+    <tr>
+      <td>dm:campaign</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>项目，smt_cp</td>
+    </tr>
+    <tr>
+      <td>dm:placement</td>
+      <td>Traffic Sources</td>
+      <td>visit-dm</td>
+      <td>广告位,smt_pl</td>
+    </tr>
+    <tr>
+      <td>dm:medium</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>媒体，smt_md</td>
+    </tr>
+    <tr>
+      <td>dm:keyword</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>关键字，smt_kw</td>
+    </tr>
+    <tr>
+      <td>dm:creative</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>创意，smt_ct</td>
+    </tr>
+    <tr>
+      <td>dm:cookieSourceType</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>来源类型，<code>点击引导</code> 或 <code>曝光引导</code>或<code>(not set)</code></td>
+    </tr>
+    <tr>
+      <td>dm:cookieCampaign</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>项目，通过 cookie 获取</td>
+    </tr>
+    <tr>
+      <td>dm:cookiePlacement</td>
+      <td>Traffic Sources</td>
+      <td>visit-dm</td>
+      <td>广告位,通过 cookie 获取</td>
+    </tr>
+    <tr>
+      <td>dm:cookieMedium</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>媒体，通过 cookie 获取</td>
+    </tr>
+    <tr>
+      <td>dm:cookieKeyword</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>关键字，通过 cookie 获取</td>
+    </tr>
+    <tr>
+      <td>dm:cookieCreative</td>
+      <td>Traffic Sources</td>
+      <td> visit-dm</td>
+      <td>创意，通过 cookie 获取</td>
+    </tr>
+    <tr>
+      <td>dm:browser</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>浏览器（<a href="https://github.com/AdMaster/SiteMaster/wiki/siteBrowse">字典</a>）</td>
+    </tr>
+    <tr>
+      <td>dm:browserVersion</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>浏览器版本（<a href="https://github.com/AdMaster/SiteMaster/wiki/siteBrowse">字典</a>）</td>
+    </tr>
+    <tr>
+      <td>dm:operatingSystem</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>操作系统（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:operatingSystemVersion</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>操作系统版本（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:isMobile</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>是否是移动设备(Yes or No)</td>
+    </tr>
+    <tr>
+      <td>dm:mobileDeviceBranding</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>移动设备品牌，如：三星，htc(字典)</td>
+    </tr>
+    <tr>
+      <td>dm:mobileDeviceModel</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>移动设备型号，如ipad1，ipad2（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:mobileDeviceInfo</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>品牌+型号</td>
+    </tr>
+    <tr>
+      <td>dm:mobileInputSelector</td>
+      <td>Platform / Device</td>
+      <td>visit-dm</td>
+      <td>输入方式，值为 “touchscreen” 或者 “(not set)”</td>
+    </tr>
+    <tr>
+      <td>dm:continent</td>
+      <td>Geo / Network</td>
+      <td>visit-dm</td>
+      <td>大洲（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:country</td>
+      <td>Geo / Network</td>
+      <td>visit-dm</td>
+      <td>国家（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:province</td>
+      <td>Geo / Network</td>
+      <td>visit-dm</td>
+      <td>省份（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:city</td>
+      <td>Geo / Network</td>
+      <td>visit-dm</td>
+      <td>城市（字典）</td>
+    </tr>
+    <tr>
+      <td>dm:latitude</td>
+      <td>Geo / Network</td>
+      <td>visit-dm</td>
+      <td>纬度</td>
+    </tr>
+    <tr>
+      <td>dm:longitude</td>
+      <td>Geo / Network</td>
+      <td>visit-dm</td>
+      <td>经度</td>
+    </tr>
+    <tr>
+      <td>dm:flashVersion</td>
+      <td>System</td>
+      <td>visit-dm</td>
+      <td>flash版本（采集到的原始数据）</td>
+    </tr>
+    <tr>
+      <td>dm:javaEnabled</td>
+      <td>System</td>
+      <td>visit-dm</td>
+      <td>是否支持java（Yes or No）</td>
+    </tr>
+    <tr>
+      <td>dm:language</td>
+      <td>System</td>
+      <td>visit-dm</td>
+      <td>语言</td>
+    </tr>
+    <tr>
+      <td>dm:screenColors</td>
+      <td>System</td>
+      <td>visit-dm</td>
+      <td>屏幕颜色</td>
+    </tr>
+    <tr>
+      <td>dm:screenResolution</td>
+      <td>System</td>
+      <td>visit-dm</td>
+      <td>屏幕分辨率</td>
+    </tr>
+    <tr>
+      <td>dm:landingPagePath</td>
+      <td>Page Tracking</td>
+      <td>visit-dm</td>
+      <td>登陆页路径</td>
+    </tr>
+    <tr>
+      <td>:exitPagePath</td>
+      <td>Page Tracking</td>
+      <td>visit-dm</td>
+      <td>退出页路径</td>
+    </tr>
+    <tr>
+      <td>dm:date</td>
+      <td>Time </td>
+      <td>time-dm</td>
+      <td>日期</td>
+    </tr>
+    <tr>
+      <td>dm:month</td>
+      <td>Time </td>
+      <td>time-dm</td>
+      <td>月份</td>
+    </tr>
+    <tr>
+      <td>dm:week</td>
+      <td>Time </td>
+      <td>time-dm</td>
+      <td>周</td>
+    </tr>
+    <tr>
+      <td>dm:hour</td>
+      <td>Time </td>
+      <td>time-dm</td>
+      <td>时</td>
+    </tr>
+    <tr>
+      <td>dm:host</td>
+      <td>Page Tracking</td>
+      <td>page-dm</td>
+      <td>主机名(带端口号)</td>
+    </tr>
+    <tr>
+      <td>dm:pagePath</td>
+      <td>Page Tracking</td>
+      <td>page-dm</td>
+      <td>页面路径</td>
+    </tr>
+    <tr>
+      <td>dm:pageTitle</td>
+      <td>Page Tracking</td>
+      <td>page-dm</td>
+      <td>页面标题</td>
+    </tr>
+    <tr>
+      <td>dm:eventCategory</td>
+      <td>Event Tracking </td>
+      <td> </td>
+      <td>事件分类</td>
+    </tr>
+    <tr>
+      <td>dm:eventAction</td>
+      <td>Event Tracking </td>
+      <td> </td>
+      <td>事件动作</td>
+    </tr>
+    <tr>
+      <td>dm:eventLabel</td>
+      <td>Event Tracking </td>
+      <td> </td>
+      <td>事件标签</td>
+    </tr>
+    <tr>
+      <td>dm:adcookie</td>
+      <td>Traffic Sources</td>
+      <td>visit-dm</td>
+      <td>admcookie id</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="metrics-">metrics 说明</h2>
-<p>mt:visitors	|Visitor|	raw-mt|通过第一方cookie 统计的访问者
-mt:newVisits	|Visitor|	raw-mt|新访者
-mt:visits	|Session	|raw-mt|访问次数
-mt:bounces	|Session|raw-mt|跳出次数
-mt:entrances	|Page Tracking	|raw-mt|进入次数
-mt:pageviews	|Page Tracking	|raw-mt|浏览量
-mt:uniquePageviews	|Page Tracking	|raw-mt|唯一浏览量
-mt:timeOnPage	|Page Tracking	|raw-mt|页面停留时间
-mt:exits	|Page Tracking	|raw-mt|退出次数
-mt:pageLoadTime|	Site Speed	|raw-mt|页面加载时间（所有样本加载时间总和）
-mt:pageLoadSample|Site Speed	|raw-mt|页面加载样本数量
-mt:totalEvents|	Event Tracking 	|raw-mt|事件总数
-mt:uniqueEvents|	Event Tracking |	raw-mt|唯一身份事件数
-mt:eventValue	|Event Tracking |	raw-mt|事件价值
-mt:advisitors|	Visitor|	raw-mt|通过第三方admcookie 统计的访问者</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>级别</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mt:visitors</td>
+      <td>Visitor</td>
+      <td>raw-mt</td>
+      <td>通过第一方cookie 统计的访问者</td>
+    </tr>
+    <tr>
+      <td>mt:newVisits</td>
+      <td>Visitor</td>
+      <td>raw-mt</td>
+      <td>新访者</td>
+    </tr>
+    <tr>
+      <td>mt:visits</td>
+      <td>Session</td>
+      <td>raw-mt</td>
+      <td>访问次数</td>
+    </tr>
+    <tr>
+      <td>mt:bounces</td>
+      <td>Session</td>
+      <td>raw-mt</td>
+      <td>跳出次数</td>
+    </tr>
+    <tr>
+      <td>mt:entrances</td>
+      <td>Page Tracking</td>
+      <td>raw-mt</td>
+      <td>进入次数</td>
+    </tr>
+    <tr>
+      <td>mt:pageviews</td>
+      <td>Page Tracking</td>
+      <td>raw-mt</td>
+      <td>浏览量</td>
+    </tr>
+    <tr>
+      <td>mt:uniquePageviews</td>
+      <td>Page Tracking</td>
+      <td>raw-mt</td>
+      <td>唯一浏览量</td>
+    </tr>
+    <tr>
+      <td>mt:timeOnPage</td>
+      <td>Page Tracking</td>
+      <td>raw-mt</td>
+      <td>页面停留时间</td>
+    </tr>
+    <tr>
+      <td>mt:exits</td>
+      <td>Page Tracking</td>
+      <td>raw-mt</td>
+      <td>退出次数</td>
+    </tr>
+    <tr>
+      <td>mt:pageLoadTime</td>
+      <td>Site Speed</td>
+      <td>raw-mt</td>
+      <td>页面加载时间（所有样本加载时间总和）</td>
+    </tr>
+    <tr>
+      <td>mt:pageLoadSample</td>
+      <td>Site Speed</td>
+      <td>raw-mt</td>
+      <td>页面加载样本数量</td>
+    </tr>
+    <tr>
+      <td>mt:totalEvents</td>
+      <td>Event Tracking </td>
+      <td>raw-mt</td>
+      <td>事件总数</td>
+    </tr>
+    <tr>
+      <td>mt:uniqueEvents</td>
+      <td>Event Tracking </td>
+      <td>raw-mt</td>
+      <td>唯一身份事件数</td>
+    </tr>
+    <tr>
+      <td>mt:eventValue</td>
+      <td>Event Tracking </td>
+      <td>raw-mt</td>
+      <td>事件价值</td>
+    </tr>
+    <tr>
+      <td>mt:advisitors</td>
+      <td>Visitor</td>
+      <td>raw-mt</td>
+      <td>通过第三方admcookie 统计的访问者</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="filters-">filters 说明</h2>
 
 <h4 id="section-2">过滤器操作符</h4>
-<p>针对维度和指标分别有6个过滤器操作符，操作符必须被URL编码。<br />
-####指标操作符
-操作符|描述|URL编码格式|举例
-—|—|—|—
-==|等于|%3D%3D|filters=mt:timeOnPage%3D%3D10，返回页面停留时间等于10秒的结果
-!=|不等于|!%3D|filters=mt:timeOnPage!%3D10,返回页面停留时间不等于10秒的结果
-&gt;|大于|%3E|filters=ga:timeOnPage%3E10，返回页面停留时间大于10秒的结果
-&lt;|小于|%3C|filters=ga:timeOnPage%3C10，返回页面停留时间小于10秒的结果
-&gt;=|大于等于|%3E%3D|filters=ga:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果
-&lt;=|小于等于|%3C%3|filters=ga:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果  </p>
 
-<h4 id="section-3">维度过滤器</h4>
-<p>操作符|描述|URL编码格式|举例
-—|—|—|—
-==|完全匹配|%3D%3D|filters=ga:city%3D%3DIrvine，返回城市为Irvine的统计指标数据
-!=|不匹配|!%3D|filters=ga:city!%3DIrvine，返回城市不为Irvine的统计指标数据
-=@|包含子串|%3D@|filters=ga:city%3D@York，返回城市名中包含 York 字符的统计指标数据
-!@|不包含子串|!@|filters=ga:city!@York，返回城市名中不包含 York 字符的统计指标数据
-=~|和后面语法匹配|%3D~|filters=ga:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据
-!~|和后面语法不匹配|!~|filters=ga:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据  </p>
+<p>针对维度和指标分别有6个过滤器操作符，操作符必须被URL编码。  </p>
 
-<h3 id="section-4">过滤器语法</h3>
+<h4 id="section-3">指标操作符</h4>
 
-<h3 id="section-5">组合过滤器</h3>
+<table>
+  <thead>
+    <tr>
+      <th>操作符</th>
+      <th>描述</th>
+      <th>URL编码格式</th>
+      <th>举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>==</td>
+      <td>等于</td>
+      <td>%3D%3D</td>
+      <td>filters=mt:timeOnPage%3D%3D10，返回页面停留时间等于10秒的结果</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>不等于</td>
+      <td>!%3D</td>
+      <td>filters=mt:timeOnPage!%3D10,返回页面停留时间不等于10秒的结果</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>大于</td>
+      <td>%3E</td>
+      <td>filters=ga:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>小于</td>
+      <td>%3C</td>
+      <td>filters=ga:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>大于等于</td>
+      <td>%3E%3D</td>
+      <td>filters=ga:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>小于等于</td>
+      <td>%3C%3</td>
+      <td>filters=ga:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="section-4">维度过滤器</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>操作符</th>
+      <th>描述</th>
+      <th>URL编码格式</th>
+      <th>举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>==</td>
+      <td>完全匹配</td>
+      <td>%3D%3D</td>
+      <td>filters=ga:city%3D%3DIrvine，返回城市为Irvine的统计指标数据</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>不匹配</td>
+      <td>!%3D</td>
+      <td>filters=ga:city!%3DIrvine，返回城市不为Irvine的统计指标数据</td>
+    </tr>
+    <tr>
+      <td>=@</td>
+      <td>包含子串</td>
+      <td>%3D@</td>
+      <td>filters=ga:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
+    </tr>
+    <tr>
+      <td>!@</td>
+      <td>不包含子串</td>
+      <td>!@</td>
+      <td>filters=ga:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
+    </tr>
+    <tr>
+      <td>=~</td>
+      <td>和后面语法匹配</td>
+      <td>%3D~</td>
+      <td>filters=ga:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
+    </tr>
+    <tr>
+      <td>!~</td>
+      <td>和后面语法不匹配</td>
+      <td>!~</td>
+      <td>filters=ga:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-5">过滤器语法</h3>
+
+<h3 id="section-6">组合过滤器</h3>
 <p>过滤器可以用 OR 或 AND 进行逻辑组合，语句部分的长度上限为128字符。<br />
 ####OR
 “或操作”用逗号(,)表示，优先级高于与操作。<br />
