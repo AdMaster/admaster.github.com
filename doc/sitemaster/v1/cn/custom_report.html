@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>接口定义 - 通用说明 - openmaster - AdMaster API 文档中心</title>
+  <title>自定义报告接口 - sitemaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,49 +40,149 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">接口定义 - 通用说明</h1>
+        <h1 id="section">自定义报告</h1>
 
-<h2 id="section-1">通用参数说明</h2>
+<ul id="markdown-toc">
+  <li><a href="#section-1">获取指定站点下所有自定义报告</a></li>
+  <li><a href="#section-2">添加站点自定义报告</a></li>
+  <li><a href="#section-3">修改站点自定义报告</a></li>
+  <li><a href="#section-4">删除站点自定义报告</a></li>
+</ul>
 
-<p><code>access_token</code>
-	oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带</p>
+<h2 id="section-1">获取指定站点下所有自定义报告</h2>
 
-<h2 id="section-2">返回状态说明</h2>
+<pre><code>GET /sites/:site_id/customAnalytics/all
+</code></pre>
 
-<p><strong>返回状态在请求返回的头部信息</strong></p>
+<p><strong>响应</strong></p>
 
-<p><code>200 OK</code>
-	请求成功，只是请求成功，不代表没有逻辑错误，逻辑错误记录在 error_code, error_msg 元素中</p>
+<pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
-<p><code>201 CREATED</code>
-	创建成功</p>
+<pre class="prettyprint"><code>[
+  {
+      id: 245
+      name: '这是一自定义报告',
+      diensions: 'dm:date,dm:city',
+      metrics: 'mt:visits,mt:visitors,mt:pageviews',
+      filters: 'md:city==北京;mt:visits&gt;1000',
+      sort: '-mt:pageviews',
+      created_at: "2012-12-12 16:00:08",//添加时间
+  }
+]
+</code></pre>
 
-<p><code>202 ACCEPTED</code>
-	更新、修改成功</p>
+<h2 id="section-2">添加站点自定义报告</h2>
 
-<p><code>204 NO CONTENT</code>
-	无返回内容</p>
+<pre><code>POST /sites/:site_id/customAnalytics
+</code></pre>
 
-<p><code>400 BAD REQUEST</code>
-	请求地址不存在或者带有不支持的参数</p>
+<p><strong>参数</strong></p>
 
-<p><code>401 UNAUTHORIZED</code>
-	未经授权</p>
+<dl>
+  <dt><code>name</code></dt>
+  <dd><em>必选</em> <strong>email</strong> - 用户email地址</dd>
+  <dt><code>metrics</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 指标，多个用逗号隔开，指标有那些可以参考页面底部指标列表</dd>
+  <dt><code>diensions</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 维度，多个用逗号开个，最多支持3个维度 参考页面底部维度列表</dd>
+  <dt><code>filters</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 过滤条件，可以对指标或者维度过滤，具体的过滤规则查看页面底部filter的说明</dd>
+  <dt><code>segment</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 高级细分，设置对访次的细分过滤，具体查看页面底部segment的说明</dd>
+</dl>
 
-<p><code>403 FORBIDDEN</code>
-	禁止访问</p>
+<p><strong>请求</strong></p>
 
-<p><code>404 NOT FOUND</code>
-	请求的资源不存在</p>
+<pre class="prettyprint"><code>{
+      name: '这是一自定义报告',
+      diensions: 'dm:date,dm:city',
+      metrics: 'mt:visits,mt:visitors,mt:pageviews',
+      filters: 'md:city==北京;mt:visits&gt;1000',
+      sort: '-mt:pageviews',
+}
+</code></pre>
 
-<p><code>422 UNPROCESSABLE ENTITY</code>
-  请求参数错误，返回消息中包含错误信息列表</p>
+<p><strong>响应</strong></p>
 
-<p><code>500 INTERNAL SERVER ERROR</code>
-	服务器内部错误</p>
+<pre><code>Status: 201 Created
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
-<h2 id="section-3">错误代码说明</h2>
+<pre class="prettyprint"><code>{
+      id: 245
+      name: '这是一自定义报告',
+      diensions: 'dm:date,dm:city',
+      metrics: 'mt:visits,mt:visitors,mt:pageviews',
+      filters: 'md:city==北京;mt:visits&gt;1000',
+      sort: '-mt:pageviews',
+      created_at: "2012-12-12 16:00:08",//添加时间
+}
+</code></pre>
 
+<h2 id="section-3">修改站点自定义报告</h2>
+
+<pre><code>PATCH /sites/customAnalytics/:id
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>name</code></dt>
+  <dd><em>必选</em> <strong>email</strong> - 用户email地址</dd>
+  <dt><code>metrics</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 指标，多个用逗号隔开，指标有那些可以参考页面底部指标列表</dd>
+  <dt><code>diensions</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 维度，多个用逗号开个，最多支持3个维度 参考页面底部维度列表</dd>
+  <dt><code>filters</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 过滤条件，可以对指标或者维度过滤，具体的过滤规则查看页面底部filter的说明</dd>
+  <dt><code>segment</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 高级细分，设置对访次的细分过滤，具体查看页面底部segment的说明</dd>
+</dl>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+      name: '这是一自定义报告',
+      diensions: 'dm:date,dm:city',
+      metrics: 'mt:visits,mt:visitors,mt:pageviews',
+      filters: 'md:city==北京;mt:visits&gt;1000',
+      sort: '-mt:pageviews',
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>{
+      id: 245
+      name: '这是一自定义报告',
+      diensions: 'dm:date,dm:city',
+      metrics: 'mt:visits,mt:visitors,mt:pageviews',
+      filters: 'md:city==北京;mt:visits&gt;1000',
+      sort: '-mt:pageviews',
+      created_at: "2012-12-12 16:00:08",//添加时间
+}
+</code></pre>
+
+<h2 id="section-4">删除站点自定义报告</h2>
+
+<pre><code>DELETE /sites/customAnalytics/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
       </div>
       
@@ -97,10 +197,14 @@
           
           
             
+          
+          
+          
+            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/index.html">OpenMaster文档首页</a>
+                  <a  href="/doc/sitemaster/v1/cn/index.html">SiteMaster 文档首页</a>
                 </h3>
                 <ul class="js-guides">
                   
@@ -117,14 +221,70 @@
             
           
           
+        
+          
           
             
           
           
           
+            
           
           
           
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -134,7 +294,21 @@
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/get_started.html">快速入门</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_user.html">站点用户</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/sitemaster/v1/cn/site.html">站点</a>
                 </h3>
                 <ul class="js-guides">
                   
@@ -149,42 +323,10 @@
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/oauth.html">OAuth 认证</a>
+                  <a class="active" href="/doc/sitemaster/v1/cn/custom_report.html">自定义报告接口</a>
                 </h3>
                 <ul class="js-guides">
                   
@@ -195,30 +337,10 @@
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/openmaster/v1/cn/verbs.html">协议及请求方式</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_report.html">站点分析报告</a>
                 </h3>
                 <ul class="js-guides">
                   
@@ -227,20 +349,6 @@
             
           
           
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
         
           
           
@@ -261,22 +369,6 @@
           
           
             
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/openmaster/v1/cn/common.html">接口定义 - 通用说明</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
-            
-          
-          
-          
-          
-          
-          
           
           
         
@@ -301,10 +393,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -329,10 +437,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -357,10 +481,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -385,10 +525,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -413,10 +569,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -441,10 +613,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -469,10 +657,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -497,10 +701,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -525,10 +745,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -553,10 +789,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -581,10 +833,26 @@
             
           
           
+        
+          
+          
+            
           
           
           
+            
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
         
@@ -609,12 +877,6 @@
             
           
           
-          
-          
-          
-          
-          
-          
         
           
           
@@ -635,348 +897,6 @@
           
           
             
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
-          
-          
-        
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-          
-          
-          
           
           
         
@@ -985,8 +905,8 @@
 
       <div class="sidebar-module">
         <p>
-          <a href="/doc/openmaster/v1/cn/index.html">中文 (中国)</a>
-          - <a href="/doc/openmaster/v1/en/index.html">English</a>
+          <a href="/doc/sitemaster/v1/cn/index.html">中文 (中国)</a>
+          - <a href="/doc/sitemaster/v1/en/index.html">English</a>
         </p>
       </div>
 
