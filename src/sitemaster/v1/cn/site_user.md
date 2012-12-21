@@ -29,7 +29,7 @@ title: 站点用户
           id: 245
           email: "zhaoxiongfei@admaster.com.cn",
           username: "zhaoxiongfei",
-          type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+          role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
           created_at: "2012-12-12 16:00:08",//添加时间
       }
     ]
@@ -49,7 +49,7 @@ title: 站点用户
           id: 245
           email: "zhaoxiongfei@admaster.com.cn",
           username: "zhaoxiongfei",
-          type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+          role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
           created_at: "2012-12-12 16:00:08",//添加时间
     }
 
@@ -59,15 +59,15 @@ title: 站点用户
 
 **参数**
 
-`type`
-: _必选_ **enum** - 用户类型 `admin` `user` 
+`role`
+: _必选_ **enum** - 用户角色 `admin` `user` 
 
 
 **请求**
 
 {:.prettyprint}
     {
-        "type": "admin", //用户类型
+        "role": "admin", //用户角色
     }
 
 **响应**
@@ -81,7 +81,7 @@ title: 站点用户
           id: 245
           email: "zhaoxiongfei@admaster.com.cn",
           username: "zhaoxiongfei",
-          type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+          role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
           created_at: "2012-12-12 16:00:08",//添加时间
     }
 
@@ -94,8 +94,8 @@ title: 站点用户
 `email`
 : _必选_ **email** - 用户email地址
 
-`type`
-: _必选_ **enum** - 用户类型 `admin` `user` 
+`role`
+: _必选_ **enum** - 用户角色 `admin` `user` 
 
 
 **请求**
@@ -103,7 +103,7 @@ title: 站点用户
 {:.prettyprint}
     {
         "email": "zhaoxiongfei@admaster.com.cn",//用户email地址
-        "type": "admin", //用户类型
+        "role": "admin", //用户角色
     }
 
 **响应**
@@ -118,7 +118,7 @@ title: 站点用户
           id: 245
           email: "zhaoxiongfei@admaster.com.cn",
           username: "zhaoxiongfei",
-          type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+          role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
           created_at: "2012-12-12 16:00:08",//添加时间
     }
 
@@ -134,10 +134,10 @@ title: 站点用户
 
 ## 字段说明
 
-返回值字段         | 字段类型 | 字段说明
+返回值字段         | 字段角色 | 字段说明
 id               | integer | 用户 ID
 email            | email   | 用户email地址
 username         | string  | 用户名
-type             | enum    | 用户类型 `founder` `admin` `user`
+role             | enum    | 用户角色 `founder` `admin` `user`
 created_at       | date    | 创建时间
 
