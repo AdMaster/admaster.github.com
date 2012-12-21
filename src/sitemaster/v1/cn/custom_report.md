@@ -26,7 +26,7 @@ title: 自定义报告接口
       {
           id: 245
           name: '这是一自定义报告',
-          diensions: 'dm:date,dm:city',
+          dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
           filters: 'md:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
@@ -47,7 +47,7 @@ title: 自定义报告接口
 `metrics`
 : _必选_ **string** - 指标，多个用逗号隔开，指标有那些可以参考页面底部指标列表
 
-`diensions`
+`dimensions`
 : _可选_ **string** - 维度，多个用逗号开个，最多支持3个维度 参考页面底部维度列表
 
 `filters`
@@ -62,7 +62,7 @@ title: 自定义报告接口
 {:.prettyprint}
     {
           name: '这是一自定义报告',
-          diensions: 'dm:date,dm:city',
+          dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
           filters: 'md:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
@@ -78,7 +78,7 @@ title: 自定义报告接口
     {
           id: 245
           name: '这是一自定义报告',
-          diensions: 'dm:date,dm:city',
+          dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
           filters: 'md:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
@@ -97,7 +97,7 @@ title: 自定义报告接口
 `metrics`
 : _必选_ **string** - 指标，多个用逗号隔开，指标有那些可以参考页面底部指标列表
 
-`diensions`
+`dimensions`
 : _可选_ **string** - 维度，多个用逗号开个，最多支持3个维度 参考页面底部维度列表
 
 `filters`
@@ -112,7 +112,7 @@ title: 自定义报告接口
 {:.prettyprint}
     {
           name: '这是一自定义报告',
-          diensions: 'dm:date,dm:city',
+          dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
           filters: 'md:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
@@ -128,7 +128,7 @@ title: 自定义报告接口
     {
           id: 245
           name: '这是一自定义报告',
-          diensions: 'dm:date,dm:city',
+          dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
           filters: 'md:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
