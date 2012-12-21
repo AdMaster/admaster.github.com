@@ -70,7 +70,7 @@ X-RateLimit-Remaining: 4999
       id: 245
       email: "zhaoxiongfei@admaster.com.cn",
       username: "zhaoxiongfei",
-      type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
       created_at: "2012-12-12 16:00:08",//添加时间
   }
 ]
@@ -92,7 +92,7 @@ X-RateLimit-Remaining: 4999
       id: 245
       email: "zhaoxiongfei@admaster.com.cn",
       username: "zhaoxiongfei",
-      type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
       created_at: "2012-12-12 16:00:08",//添加时间
 }
 </code></pre>
@@ -105,14 +105,14 @@ X-RateLimit-Remaining: 4999
 <p><strong>参数</strong></p>
 
 <dl>
-  <dt><code>type</code></dt>
-  <dd><em>必选</em> <strong>enum</strong> - 用户类型 <code>admin</code> <code>user</code> </dd>
+  <dt><code>role</code></dt>
+  <dd><em>必选</em> <strong>enum</strong> - 用户角色 <code>admin</code> <code>user</code> </dd>
 </dl>
 
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
-    "type": "admin", //用户类型
+    "role": "admin", //用户角色
 }
 </code></pre>
 
@@ -127,7 +127,7 @@ X-RateLimit-Remaining: 4999
       id: 245
       email: "zhaoxiongfei@admaster.com.cn",
       username: "zhaoxiongfei",
-      type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
       created_at: "2012-12-12 16:00:08",//添加时间
 }
 </code></pre>
@@ -142,15 +142,15 @@ X-RateLimit-Remaining: 4999
 <dl>
   <dt><code>email</code></dt>
   <dd><em>必选</em> <strong>email</strong> - 用户email地址</dd>
-  <dt><code>type</code></dt>
-  <dd><em>必选</em> <strong>enum</strong> - 用户类型 <code>admin</code> <code>user</code> </dd>
+  <dt><code>role</code></dt>
+  <dd><em>必选</em> <strong>enum</strong> - 用户角色 <code>admin</code> <code>user</code> </dd>
 </dl>
 
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
     "email": "zhaoxiongfei@admaster.com.cn",//用户email地址
-    "type": "admin", //用户类型
+    "role": "admin", //用户角色
 }
 </code></pre>
 
@@ -166,7 +166,7 @@ X-RateLimit-Remaining: 4999
       id: 245
       email: "zhaoxiongfei@admaster.com.cn",
       username: "zhaoxiongfei",
-      type: "admin",//用户类型 `founder` 创始人 `admin` 管理员 `user` 普通用户
+      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
       created_at: "2012-12-12 16:00:08",//添加时间
 }
 </code></pre>
@@ -189,7 +189,7 @@ X-RateLimit-Remaining: 4999
   <tbody>
     <tr>
       <td>返回值字段</td>
-      <td>字段类型</td>
+      <td>字段角色</td>
       <td>字段说明</td>
     </tr>
     <tr>
@@ -208,9 +208,9 @@ X-RateLimit-Remaining: 4999
       <td>用户名</td>
     </tr>
     <tr>
-      <td>type</td>
+      <td>role</td>
       <td>enum</td>
-      <td>用户类型 <code>founder</code> <code>admin</code> <code>user</code></td>
+      <td>用户角色 <code>founder</code> <code>admin</code> <code>user</code></td>
     </tr>
     <tr>
       <td>created_at</td>
