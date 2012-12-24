@@ -132,10 +132,13 @@ ipuclk   | integer     | IP独立点击
 
 组合|说明
 time=daily  |粒度为天，项目数据
+time=daily&dims=creative|粒度为天，项目分创意数据
 time=daily&dims=geo|粒度为天，项目分地域数据
 time=daily&dims=media|粒度为天，项目分媒体数据
 time=daily&dims=media,geo|粒度为天，项目分媒体分地域数据
+time=daily&dims=media,creative |粒度为天，项目分媒体分创意数据
 time=daily&dims=media,placement|粒度为天，项目分媒体分广告位数据
+time=daily&dims=media,creative |粒度为天，项目分媒体分创意数据
 time=daily&dims=media,placement,geo|粒度为天，项目分媒体分广告位分地域数据
 time=daily&dims=media,placement,keyword|粒度为天，项目分媒体分广告位分关键字数据
 time=hourly|粒度为小时，项目数据
