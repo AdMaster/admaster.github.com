@@ -135,10 +135,13 @@ Not all combinations can be queried together. Only certain combinations can be u
 |Valid Combinations
 |time=daily
 |time=daily&dims=geo
+|time=daily&dims=creative 
 |time=daily&dims=media
 |time=daily&dims=media,geo
+|time=daily&dims=media,creative 
 |time=daily&dims=media,placement
 |time=daily&dims=media,placement,geo
+|time=daily&dims=media,placement,creative 
 |time=daily&dims=media,placement,keyword 
 |time=hourly 
 |time=hourly&dims=creative 
