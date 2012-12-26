@@ -121,7 +121,7 @@ title: 站点访问详情
           "pageLoadTime": 0,
           "stayTime": 123,
           "referralUrl": "http://www.admaster.com.cn/",
-          "cliclNum": 20
+          "clickNum": 20
       }
     ]
 

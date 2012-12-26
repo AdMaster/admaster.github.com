@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>广告位 - trackmaster - AdMaster API 文档中心</title>
+  <title>媒体 - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,78 +40,38 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">广告位</h1>
+        <h1 id="section">媒体</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取指定媒体的广告位列表</a></li>
-  <li><a href="#section-2">获取指定媒体指定广告位的信息</a></li>
+  <li><a href="#section-1">获取广告主下的媒体列表</a></li>
+  <li><a href="#section-2">响应</a></li>
+  <li><a href="#section-3">获取广告主下媒体详情</a></li>
 </ul>
 
-<h2 id="section-1">获取指定媒体的广告位列表</h2>
+<h2 id="section-1">获取广告主下的媒体列表</h2>
 
-<pre><code>GET /medias/:media_id/placements
+<pre><code>GET /advertisers/:advertiser_id/medias
 </code></pre>
 
-<p><strong>参数</strong></p>
+<h2 id="section-2">响应</h2>
 
-<dl>
-  <dt><code>media_id</code></dt>
-  <dd><em>必选</em> <strong>integer</strong> - 系统媒体 ID</dd>
-  <dt><code>name</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位名称，支持模糊搜索</dd>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
-  <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
-</dl>
+<pre><code>status: 200 ok
 
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/medias/100/placements?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/medias/100/placements?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-    //广告位ID，全局唯一
-    "id": 1,
-    //广告位位置名称
-    "name": "这是一个测试广告位",
-    //频道信息
-    "channel": {
-        //频道名称
-        "name": "体育新闻",
-        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-        "type": "webpage",
-        //广告位在第几屏幕
-        "screen": 3,
-        //频道地址
-        "home": "http://www.admaster.com.cn/",
-        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "material_type": "flash",
-        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-        "material_dimension": "400x300",
-        //物料文件大小，单位由 material_size_unit 指定
-        "material_size": 200,
-        //物料文件大小单位，B K M
-        "material_size_unit": "B"
-},
-    //点击目标地址
-    "target_url": "http://www.admaster.com.cn/",
-    //创建时间
-    "created_at": "2012-09-06T20:39:23Z"
-    //广告位所属项目 ID
-    "campaign_id":1000
-  }
+[
+    {
+        id: 53
+        name: "test media name"
+        logo: "0"
+        domain: "example.com"
+        tag: "test tag"
+        created_at: "2012-12-10T04:03:54Z"
+    }
 ]
 </code></pre>
 
-<h2 id="section-2">获取指定媒体指定广告位的信息</h2>
+<h2 id="section-3">获取广告主下媒体详情</h2>
 
-<pre><code>GET /medias/:media_id/placements/:placement_id
+<pre><code>GET /advertisers/:advertiser_id/medias/:_id
 </code></pre>
 
 <p><strong>响应</strong></p>
@@ -122,37 +82,16 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-//广告位ID，全局唯一
-"id": 1,
-//广告位位置名称
-"name": "这是一个测试广告位",
-//频道信息
-"channel": {
-    //频道名称
-    "name": "体育新闻",
-    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-    "type": "webpage",
-    //广告位在第几屏幕
-     "screen": 3,
-    //频道地址
-     "home": "http://www.admaster.com.cn/",
-    //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-      "material_type": "flash",
-     //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-      "material_dimension": "400x300",
-     //物料文件大小，单位由 material_size_unit 指定
-       "material_size": 200,
-     //物料文件大小单位，B K M
-       "material_size_unit": "B"
-},
-//点击目标地址
-"target_url": "http://www.admaster.com.cn/",
-//创建时间
-"created_at": "2012-09-06T20:39:23Z"
-//广告位所属项目 ID
-"campaign_id":1000
+    "id": 400,//系统媒体 ID
+    "url": "http://track.admasterapi.com/medias/400",
+    "name": "新浪",//系统媒体名称
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "domain": "sina.com.cn",
+    "tag": "综合其他",
+    "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
+
 
       </div>
       
