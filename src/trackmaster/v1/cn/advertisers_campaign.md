@@ -16,14 +16,14 @@ title: 项目
 
    GET /advertisers/:advertiser_id/campaigns
 
-##响应
+**响应**
     
     Status: 200 OK
 
     [
       {
-        "id": 10185,
-        "name": "测试项目"
+        "id": 10185,//项目 ID
+        "name": "测试项目",//项目名称
       }
     ]
 

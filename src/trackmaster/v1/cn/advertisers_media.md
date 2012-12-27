@@ -16,14 +16,14 @@ title: 媒体
 
     GET /advertisers/:advertiser_id/medias
 
-##响应
+**响应**
 
     status: 200 ok
 
     [
         {
-            id: 53
-            name: "test media name"
+            id: 53,//系统媒体 ID
+            name: "test media name",//系统媒体名称
             logo: "0"
             domain: "example.com"
             tag: "test tag"
