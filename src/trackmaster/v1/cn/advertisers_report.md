@@ -4,7 +4,7 @@ layout: default
 category: trackmaster
 subcategory: advertisers
 language: cn
-title: 广告主项目报告
+title: 广告主报告
 ---
 
 # 广告主项目报告
