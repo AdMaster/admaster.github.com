@@ -14,7 +14,7 @@ title: 项目
 
 ##获取指定广告主的项目
 
-   GET /advertisers/:advertiser_id/campaigns
+  	 GET /advertisers/:advertiser_id/campaigns
 
 **响应**
     
@@ -29,7 +29,7 @@ title: 项目
 
 ## 获取指定项目信息
 
- GET /advertisers/:advertiser_id/campaigns/:id
+ 	GET /advertisers/:advertiser_id/campaigns/:id
 
 **响应**
 
