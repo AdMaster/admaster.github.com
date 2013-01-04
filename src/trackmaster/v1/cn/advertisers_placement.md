@@ -14,7 +14,7 @@ title: 广告位
 
 ##广告主下广告位列表
 
-    GET /advertisers/:advertiser_id/placements
+    GET /advertisers/:advertiser_id/campaigns/:campaig_id/placements
 
 
 **参数**
@@ -72,7 +72,7 @@ title: 广告位
 
 ## 获取指定广告位信息
 
-    GET /advertisers/:advertiser_id/placements/:id
+    GET /advertisers/:advertiser_id/campaigns/placements/:placement_id
 
 **响应**
 
@@ -109,36 +109,36 @@ title: 广告位
         //物料文件大小单位，B K M
         "material_size_unit": "B"
     },
-    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
-    "rotation" : "1/4",
-    //点击目标地址
-    "target_url": "http://www.admaster.com.cn/",
-    //支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
-    "payment_type": "purchase",
-    //单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
-    "cost_type": "day"
-    //单位成本
-    "cost_per_unit": 873.12,
-    //单位预估曝光数
-    "est_imp_per_unit": 239,
-    //单位预估点击
-    "est_clk_per_unit": 3,
-    //购买量
-    "units": 58,
-    //其他要求
-    "other_requirement": "没有什么要求",
-    //预估曝光
-    "est_imp": 871821,
-    //预估点击
-    "est_clk": 1231,
-    //预估同期曝光
-    "sp_imp": 61821,
-    //预估同期点击
-    "sp_clk": 300,
-    //实际总曝光
-    "real_imp": 71821,
-    //实际总点击
-    "real_clk": 400,
-    //创建时间
-    "created_at": "2012-09-06T20:39:23Z"
+    	//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
+   		 "rotation" : "1/4",
+    	//点击目标地址
+   		 "target_url": "http://www.admaster.com.cn/",
+    	//支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
+   		 "payment_type": "purchase",
+    	//单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
+   		 "cost_type": "day"
+    	//单位成本
+   		 "cost_per_unit": 873.12,
+    	//单位预估曝光数
+   		 "est_imp_per_unit": 239,
+    	//单位预估点击
+   		 "est_clk_per_unit": 3,
+    	//购买量
+   		 "units": 58,
+    	//其他要求
+   		 "other_requirement": "没有什么要求",
+    	//预估曝光
+   		 "est_imp": 871821,
+    	//预估点击
+   		 "est_clk": 1231,
+    	//预估同期曝光
+   		 "sp_imp": 61821,
+    	//预估同期点击
+   		 "sp_clk": 300,
+    	//实际总曝光
+   		 "real_imp": 71821,
+    	//实际总点击
+   		 "real_clk": 400,
+    	//创建时间
+   		 "created_at": "2012-09-06T20:39:23Z"
     }
