@@ -83,7 +83,7 @@ title: 关键字
 
     POST /networks/advertisers/campaigns/placements/:placement_id/keywords
 
-注意：同一个广告位下创建关键字不超过 100 个
+注意：同一个广告位下创建关键字,关键字 URL 不能超过 100 个。 
 
 **参数**
 
