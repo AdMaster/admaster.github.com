@@ -44,10 +44,14 @@ title: TrackMaster™ 文档首页
 　　指广告素材的具体展示位置与上线的时间信息。
 
 
-## 媒体发布商
+## 媒体发布商 ##
 
 * [媒体对接指南](/doc/trackmaster/v1/cn/publisher.html)
 
-## 广告客户/代理机构 ##
+## 代理机构 ##
 
 * [代理开发指南](/doc/trackmaster/v1/cn/agency.html)
+
+## 广告主 ##
+
+* [广告主对接指南](/doc/trackmaster/v1/cn/advertisers.html)
