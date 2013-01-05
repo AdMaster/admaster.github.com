@@ -132,6 +132,25 @@ title: 站点用户
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
+
+## 获取当前用户信息
+
+    GET /user
+
+**响应**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    {
+        id: xxx
+        email: "email@admaster.com.cn"
+        username: "your name"
+        uuid: "xxxxxxxxxxxxxxxxxxxxx"
+    }
+
 ## 字段说明
 
 返回值字段         | 字段角色 | 字段说明

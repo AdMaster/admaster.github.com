@@ -48,7 +48,8 @@
   <li><a href="#section-3">修改用户信息</a></li>
   <li><a href="#section-4">添加站点用户</a></li>
   <li><a href="#section-5">删除用户</a></li>
-  <li><a href="#section-6">字段说明</a></li>
+  <li><a href="#section-6">获取当前用户信息</a></li>
+  <li><a href="#section-7">字段说明</a></li>
 </ul>
 
 <h2 id="section-1">获取指定站点下的用户</h2>
@@ -183,7 +184,27 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="section-6">字段说明</h2>
+<h2 id="section-6">获取当前用户信息</h2>
+
+<pre><code>GET /user
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    id: xxx
+    email: "email@admaster.com.cn"
+    username: "your name"
+    uuid: "xxxxxxxxxxxxxxxxxxxxx"
+}
+</code></pre>
+
+<h2 id="section-7">字段说明</h2>
 
 <table>
   <tbody>
@@ -262,6 +283,28 @@ X-RateLimit-Remaining: 4999
             
           
           
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
           
             
           
@@ -292,45 +335,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -423,20 +428,6 @@ X-RateLimit-Remaining: 4999
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/user.html">站点</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
-            
-          
-          
-          
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
                   <a  href="/doc/sitemaster/v1/cn/visit.html">站点访问详情</a>
                 </h3>
                 <ul class="js-guides">
@@ -472,45 +463,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -562,45 +515,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -652,45 +567,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -742,45 +619,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -832,45 +671,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -922,45 +723,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -1012,45 +775,7 @@ X-RateLimit-Remaining: 4999
             
           
           
-          
-            
-          
-          
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
-          
-          
-            
-          
           
           
             
@@ -1102,6 +827,28 @@ X-RateLimit-Remaining: 4999
             
           
           
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
           
             
           
@@ -1132,6 +879,28 @@ X-RateLimit-Remaining: 4999
             
           
           
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
           
             
           
@@ -1162,6 +931,28 @@ X-RateLimit-Remaining: 4999
             
           
           
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
           
             
           
@@ -1171,6 +962,106 @@ X-RateLimit-Remaining: 4999
           
             
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
           
           
             
