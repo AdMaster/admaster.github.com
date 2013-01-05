@@ -134,6 +134,8 @@ title: 项目
 
     POST /networks/:network_id/advertisers/:advertiser_id/campaigns
 
+注意：同广告主下项目名称不允许重名
+
 **参数**
 
 `name`

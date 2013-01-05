@@ -185,6 +185,8 @@ title: 广告位
 
     POST /networks/advertisers/campaigns/:campaign_id/placements
 
+注意：同一个项目下广告位数目限制为 400 个
+
 **参数**
 
 `name`
@@ -295,7 +297,7 @@ title: 广告位
 
     DELETE /networks/advertisers/campaigns/placements/:id
 
-当广告位下曾经获取到监测数据时，不能删除该广告位。
+注意：当广告位下曾经获取到监测数据时，不能删除该广告位。
 
 **响应**
 
