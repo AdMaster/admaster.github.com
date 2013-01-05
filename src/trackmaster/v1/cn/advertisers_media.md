@@ -33,7 +33,7 @@ title: 媒体
 
 ##获取广告主下媒体详情
 
-    GET /advertisers/:advertiser_id/medias/:_id
+    GET /advertisers/:advertiser_id/medias/:media_id
 
 **响应**
 
