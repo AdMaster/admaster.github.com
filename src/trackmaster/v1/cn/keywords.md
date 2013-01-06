@@ -37,6 +37,7 @@ title: 关键字
 
 {:.prettyprint}
    [
+
         {
             //广告位ID
             "placement_id":1
@@ -64,6 +65,7 @@ title: 关键字
 
 {:.prettyprint}
     [
+
         {
             //广告位ID
             "placement_id":1
@@ -98,6 +100,7 @@ title: 关键字
 
 {:.prettyprint}
     [
+
     	{
         	"name": "keyword name"
         	"target_url": "http://www.admaster.com.cn"
@@ -112,7 +115,9 @@ title: 关键字
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    {
+   [
+	
+	 {
         //广告位 ID
         "placement_id":1
         //关键字 ID
@@ -142,6 +147,7 @@ title: 关键字
 
 {:.prettyprint}
     [
+
     	{
         	"name": "keyword name"
         	"target_url": "http://www.admaster.com.cn"
