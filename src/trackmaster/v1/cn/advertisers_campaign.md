@@ -14,13 +14,15 @@ title: 项目
 
 ##获取指定广告主的项目
 
-  	 GET /advertisers/:advertiser_id/campaigns
+	GET /advertisers/:advertiser_id/campaigns
 
 **响应**
     
     Status: 200 OK
 
+{:.prettyprint}
     [
+
       {
 		"id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
@@ -52,7 +54,9 @@ title: 项目
     Status: 200 OK
 
 {:.prettyprint}
-    {
+    [
+
+		{
         "id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
         "name": "测试项目",//项目名称
@@ -72,3 +76,4 @@ title: 项目
         "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
         "created_at": "2012-09-06T20:39:23Z"//项目创建时间
     }
+	]

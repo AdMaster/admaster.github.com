@@ -71,6 +71,7 @@ title: 项目
 
 {:.prettyprint}
     [
+
       {
         "id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
@@ -108,7 +109,9 @@ title: 项目
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    {
+    [
+
+	{
         "id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
         "name": "这是一个测试项目",//项目名称
@@ -128,7 +131,7 @@ title: 项目
         "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
         "created_at": "2012-09-06T20:39:23Z"//项目创建时间
     }
-
+]
 
 ## 添加指定项目到指定广告主下
 
@@ -173,7 +176,9 @@ title: 项目
 **请求**
 
 {:.prettyprint}
-    {
+   [ 
+
+	{
         "name": "这是一个测试项目",//项目名称
         "network_brand_id": 10021,//项目网络品牌 ID
         "start_date": "2012-01-31",//项目开始日期
@@ -185,6 +190,7 @@ title: 项目
             "sex": "female"//目标受众人群性别
         }
     }
+]
 
 **响应**
 
@@ -259,7 +265,9 @@ title: 项目
 **请求**
 
 {:.prettyprint}
-    {
+    [
+
+	{
         "name": "这是一个测试项目",//项目名称
         "network_brand_id": 10021,//项目网络品牌 ID
         "start_date": "2012-01-31",//项目开始日期
@@ -271,7 +279,7 @@ title: 项目
             "sex": "female"//目标受众人群性别
         }
     }
-
+]
 **响应**
 
     Status: 204 No Content
