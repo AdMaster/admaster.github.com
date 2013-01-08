@@ -24,7 +24,7 @@ title: 项目
     [
 
       {
-		"id": 10786,//项目 ID
+        "id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
         "name": "测试项目",//项目名称
         "network_brand_id": 10213,//项目网络品牌 ID
@@ -46,8 +46,8 @@ title: 项目
     ]
 
 ## 获取指定项目信息
-
- 	GET /advertisers/:advertiser_id/campaigns/:id
+	
+	GET /advertisers/:advertiser_id/campaigns/:id
 
 **响应**
 
@@ -56,7 +56,7 @@ title: 项目
 {:.prettyprint}
     [
 
-		{
+	{
         "id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
         "name": "测试项目",//项目名称

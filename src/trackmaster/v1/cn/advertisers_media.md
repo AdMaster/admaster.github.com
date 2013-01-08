@@ -20,7 +20,9 @@ title: 媒体
 
     status: 200 ok
 
+{:.prettyprint}
     [
+
         {
             id: 53,//系统媒体 ID
             name: "test media name",//系统媒体名称

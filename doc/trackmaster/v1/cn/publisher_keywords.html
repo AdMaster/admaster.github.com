@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>广告主 - trackmaster - AdMaster API 文档中心</title>
+  <title>关键字 - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,99 +40,61 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">广告主</h1>
+        <h1 id="section">关键字</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取系统广告主列表</a></li>
-  <li><a href="#section-2">获取指定系统广告主信息</a></li>
-  <li><a href="#section-3">获取指定工作网络下所有广告主属性列表</a></li>
-  <li><a href="#section-4">获取指定网络下的指定广告主属性</a></li>
-  <li><a href="#section-5">添加指定系统广告主到指定工作网络下</a></li>
-  <li><a href="#section-6">修改指定网络下的指定广告主属性</a></li>
-  <li><a href="#section-7">删除指定工作网络下的指定广告主</a></li>
+  <li><a href="#section-1">获取广告位下的关键字列表</a></li>
+  <li><a href="#section-2">获取指定广告位下的关键字详情</a></li>
 </ul>
 
-<h2 id="section-1">获取系统广告主列表</h2>
+<h2 id="section-1">获取广告位下的关键字列表</h2>
 
-<pre><code>GET /advertisers
+<pre><code>GET /medias/:media_id/placements/:placement_id/keywords
 </code></pre>
 
-<p><strong>参数</strong></p>
+<p><strong>参数</strong>     </p>
 
 <dl>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
-
-    <ul>
-      <li><code>id</code> - 按照广告主 ID 排序</li>
-      <li><code>create_time</code> - 按照创建日期排序</li>
-    </ul>
-  </dd>
-  <dt><code>direction</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式
-
-    <ul>
-      <li><code>asc</code> 升序 (<em>默认</em>)</li>
-      <li><code>desc</code> 降序</li>
-    </ul>
-  </dd>
   <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 显示页码  </dd>
 </dl>
 
-<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code>和<code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定<code>page</code>显示 30 条之后的数据。    </p>
 
 <dl>
   <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条        </dd>
 </dl>
 
-<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
+<p><code>per_page</code>和<code>page</code>一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/advertisers?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/advertisers?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>[
-  {
-    "id": 10199,//广告主 ID
-    "url": "http://track.admasterapi.com/advertisers/10199",
-    "name": {"zh_cn" =&gt; "腾讯", "en_us" =&gt; "tencent"},   //广告主名称
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z"  //创建时间
-  }
+
+    {
+        //广告位ID
+        "placement_id":1
+        //关键字ID
+        "order_num":1
+        //关键字名称
+        "name": this is example
+        //关键字点击目标地址
+        "target_url": http://www.admaster.com.cn
+        //创建时间
+        "created_at": "2012-12-27T15:45:27Z"
+    }
 ]
 </code></pre>
 
-<h2 id="section-2">获取指定系统广告主信息</h2>
+<h2 id="section-2">获取指定广告位下的关键字详情</h2>
 
-<pre><code>GET /advertisers/:id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-    "id": 10199,//广告主 ID
-    "url": "http://track.admasterapi.com/advertisers/10199",
-    "name": {"zh_cn" =&gt; "腾讯", "en_us" =&gt; "tencent"},   //广告主名称
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z"  //创建时间
-}
-</code></pre>
-
-<h2 id="section-3">获取指定工作网络下所有广告主属性列表</h2>
-
-<pre><code>GET /networks/:network_id/advertisers
+<pre><code>GET /medias/:media_id/placements/:placement_id/keywords/:id
 </code></pre>
 
 <p><strong>响应</strong></p>
@@ -143,111 +105,20 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>[
-  {
-    "network_id":11,//广告主所属工作网络 ID
-    "advertiser_id": 10199,//广告主 ID
-    "url": "http://track.admasterapi.com/networks/11/advertisers/10199",
-    "name": {"zh_cn" =&gt; "腾讯", "en_us" =&gt; "tencent"},   //广告主名称
-    "status": "enabled",//网络下广告主状态
-    "alias": "腾讯",//网络下广告主别名
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/tencent.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z"  //创建时间
-  }
+
+    {
+        //广告位ID
+        "placement_id":1
+        //关键字ID
+        "order_num":1
+        //关键字名称
+        "name": this is example
+        //关键字点击目标地址
+        "target_url": http://www.admaster.com.cn
+        //创建时间
+        "created_at": "2012-12-27T15:45:27Z"
+    }
 ]
-</code></pre>
-
-<h2 id="section-4">获取指定网络下的指定广告主属性</h2>
-
-<pre><code>GET /networks/:network_id/advertisers/:advertiser_id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/11/advertisers/10198/campaigns&gt;; rel="campaigns"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-    "network_id":11,//广告主所属工作网络 ID
-    "advertiser_id": 10198,//广告主 ID
-    "url": "http://track.admasterapi.com/networks/11/advertisers/10198",
-    "name": {"zh_cn" =&gt; "通用电器", "en_us" =&gt; "GM"},   //广告主名称
-    "status": "enabled",//网络下广告主状态
-    "alias": "通用电器",//网络下广告主别名
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z" //创建时间
-    "creator":"name"//创建者
-}
-</code></pre>
-
-<h2 id="section-5">添加指定系统广告主到指定工作网络下</h2>
-
-<pre><code>PUT /networks/:network_id/advertisers/:advertiser_id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-Link: &lt;http://track.admasterapi.com/networks/11/advertisers/10198/campaigns&gt;; rel="campaigns"
-Location: http://track.admasterapi.com/networks/11/advertisers/10198
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-6">修改指定网络下的指定广告主属性</h2>
-
-<pre><code>PATCH /networks/:network_id/advertisers/:advertiser_id
-</code></pre>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>{
-    "alias": "通用电器",//广告主别名
-    "status": "enabled"//网络下广告主状态
-}
-</code></pre>
-
-<dl>
-  <dt><code>alias</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 别名</dd>
-  <dt><code>status</code></dt>
-  <dd><em>可选</em> <code>enabled</code>, <code>disabled</code></dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/11/advertisers/10198/campaigns&gt;; rel="campaigns"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-    "advertiser_id": 10198,//广告主 ID
-    "url": "http://track.admasterapi.com/networks/11/advertisers/10198",
-    "name": {"zh_cn" =&gt; "通用电器", "en_us" =&gt; "GM"},   //广告主名称
-    "status": "enabled"//网络下广告主状态
-    "alias": "通用电器",//网络下广告主别名
-    "logo": "http://www.trackmaster.com.cn/data/advIcon/GM.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z" //创建时间
-}
-</code></pre>
-
-<h2 id="section-7">删除指定工作网络下的指定广告主</h2>
-
-<pre><code>DELETE /networks/:network_id/advertisers/:advertiser_id
-</code></pre>
-
-<p>当指定工作网络的指定广告主下有项目时，不能删除。</p>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-Link: &lt;http://track.admasterapi.com/networks/11/advertisers&gt;; rel="campaigns"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 
 

@@ -7,5 +7,8 @@
 
 ## Run local server
 
-  jekyll --auto --server
+    source ~/.bash_profile
 
+    jekyll --auto --server
+
+    
