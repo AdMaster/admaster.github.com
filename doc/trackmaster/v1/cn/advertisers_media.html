@@ -45,6 +45,7 @@
 <ul id="markdown-toc">
   <li><a href="#section-1">获取广告主下的媒体列表</a></li>
   <li><a href="#section-2">获取广告主下媒体详情</a></li>
+  <li><a href="#id-">获取网络媒体 ID 对应系统媒体详情</a></li>
 </ul>
 
 <h2 id="section-1">获取广告主下的媒体列表</h2>
@@ -82,7 +83,9 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>{
+<pre class="prettyprint"><code>[
+
+{
     "id": 400,//系统媒体 ID
     "url": "http://track.admasterapi.com/medias/400",
     "name": "新浪",//系统媒体名称
@@ -90,9 +93,33 @@ X-RateLimit-Remaining: 4999
     "domain": "sina.com.cn",
     "tag": "综合其他",
     "created_at": "2012-09-06T20:39:23Z"
-}
+} ]
 </code></pre>
 
+<h2 id="id-">获取网络媒体 ID 对应系统媒体详情</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/networks/medias/:network_media_id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>[
+
+{
+    "id": 400,//系统媒体 ID
+    "url": "http://track.admasterapi.com/medias/400",
+    "name": "新浪",//系统媒体名称
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "domain": "sina.com.cn",
+    "tag": "综合其他",
+    "created_at": "2012-09-06T20:39:23Z"
+} ]
+</code></pre>
 
       </div>
       

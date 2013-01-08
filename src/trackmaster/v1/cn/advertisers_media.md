@@ -44,6 +44,8 @@ title: 媒体
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
+    [
+
     {
         "id": 400,//系统媒体 ID
         "url": "http://{{site.track_api_host}}/medias/400",
@@ -53,5 +55,28 @@ title: 媒体
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
     }
+]
 
+##获取网络媒体 ID 对应系统媒体详情
 
+    GET /advertisers/:advertiser_id/networks/medias/:network_media_id
+
+**响应**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    [
+
+    {
+        "id": 400,//系统媒体 ID
+        "url": "http://{{site.track_api_host}}/medias/400",
+        "name": "新浪",//系统媒体名称
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+        "domain": "sina.com.cn",
+        "tag": "综合其他",
+        "created_at": "2012-09-06T20:39:23Z"
+    }
+]
