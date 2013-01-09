@@ -14,7 +14,7 @@ title: 关键字
 
 ## 获取广告位下的关键字列表
 
-    GET /advertisers/:advertiser_id/placements/:placement_id/keywords
+    GET /advertisers/campaigns/placements/:placement_id/keywords
 
 **参数**     
 
@@ -55,7 +55,7 @@ title: 关键字
 
 ## 获取指定广告位下的关键字详情
 
-    GET /adertisers/:advertiser_id/placements/:placement_id/keywords/:id
+    GET /advertisers/campaigns/placements/:placement_id/keywords/:id
 
 **响应**
 

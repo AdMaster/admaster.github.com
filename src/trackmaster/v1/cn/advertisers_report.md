@@ -15,7 +15,7 @@ title: 广告主报告
 
 ## 获取广告主项目报告列表
 
-    GET /advertisers/:advertiser_id/campaigns/:campaign_id/reports
+    GET /advertisers/campaigns/:campaign_id/reports
 
 **参数**
 

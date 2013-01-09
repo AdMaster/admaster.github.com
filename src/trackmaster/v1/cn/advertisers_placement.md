@@ -14,7 +14,7 @@ title: 广告位
 
 ##广告主下广告位列表
 
-    GET /advertisers/:advertiser_id/campaigns/:campaig_id/placements
+    GET /advertisers/campaigns/:campaign_id/placements
 
 
 **参数**
@@ -37,6 +37,7 @@ title: 广告位
 
 {:.prettyprint}
     [
+
       {
         //广告位 ID，全局唯一
         "id": 100000,
@@ -72,7 +73,7 @@ title: 广告位
 
 ## 获取指定广告位信息
 
-    GET /advertisers/:advertiser_id/campaigns/placements/:placement_id
+    GET /advertisers/campaigns/placements/:placements_id
 
 **响应**
 

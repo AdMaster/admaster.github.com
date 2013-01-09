@@ -49,7 +49,7 @@
 
 <h2 id="section-1">获取指定广告主项目下的创意列表</h2>
 
-<pre><code>GET /advertisers/:advertiser_id/campaigns/:campaign_id/creatives
+<pre><code>GET /advertisers/campaigns/:campaign_id/creatives
 </code></pre>
 
 <p><strong>响应</strong></p>
@@ -58,6 +58,7 @@
 </code></pre>
 
 <pre class="prettyprint"><code>[
+
   {
     //创意ID，全局唯一
     "id": 1,
@@ -88,7 +89,7 @@
 
 <h2 id="section-2">获取指定广告主项目下的创意详情</h2>
 
-<pre><code>GET /advertisers/:advertiser_id/campaigns/:campaign_id/creatives/:id
+<pre><code>GET /advertisers/campaigns/creatives/:id
 </code></pre>
 
 <p><strong>响应</strong></p>

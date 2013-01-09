@@ -47,7 +47,7 @@ title: 项目
 
 ## 获取指定项目信息
 	
-	GET /advertisers/:advertiser_id/campaigns/:id
+	GET /advertisers/campaigns/:id
 
 **响应**
 

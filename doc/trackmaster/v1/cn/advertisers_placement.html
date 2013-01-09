@@ -49,7 +49,7 @@
 
 <h2 id="section-1">广告主下广告位列表</h2>
 
-<pre><code>GET /advertisers/:advertiser_id/campaigns/:campaig_id/placements
+<pre><code>GET /advertisers/campaigns/:campaign_id/placements
 </code></pre>
 
 <p><strong>参数</strong></p>
@@ -71,6 +71,7 @@
 </code></pre>
 
 <pre class="prettyprint"><code>[
+
   {
     //广告位 ID，全局唯一
     "id": 100000,
@@ -107,7 +108,7 @@
 
 <h2 id="section-2">获取指定广告位信息</h2>
 
-<pre><code>GET /advertisers/:advertiser_id/campaigns/placements/:placement_id
+<pre><code>GET /advertisers/campaigns/placements/:placements_id
 </code></pre>
 
 <p><strong>响应</strong></p>

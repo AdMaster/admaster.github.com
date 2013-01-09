@@ -84,7 +84,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
 
 ## Get details of the given placement
 
-    GET /medias/:media_id/placements/:placement_id
+    GET /medias/placements/:placement_id
 
 **Response**
 
@@ -96,7 +96,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
     {
     //Placement ID
     "id": 200057486,
-    //slacement Name
+    //Placement Name
     "name": "A Testing Placement",
     //Channel Information
     "channel": {

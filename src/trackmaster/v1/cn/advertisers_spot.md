@@ -14,7 +14,7 @@ title: 点位
 
 ## 获取指定项目下指定时间段内的点位
 
-    GET /advertisers/:advertiser_id/campaigns/placements/:placement_id/spots
+    GET /advertisers/campaigns/placements/:placement_id/spots
 
 **参数**
 

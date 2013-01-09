@@ -14,7 +14,7 @@ title: 创意
 
 ##获取指定广告主项目下的创意列表
 
-    GET /advertisers/:advertiser_id/campaigns/:campaign_id/creatives
+    GET /advertisers/campaigns/:campaign_id/creatives
 
 **响应**
 
@@ -22,6 +22,7 @@ title: 创意
 
 {:.prettyprint}
     [
+
       {
         //创意ID，全局唯一
         "id": 1,
@@ -51,7 +52,7 @@ title: 创意
 
 ##获取指定广告主项目下的创意详情
 
-    GET /advertisers/:advertiser_id/campaigns/:campaign_id/creatives/:id
+    GET /advertisers/campaigns/creatives/:id
 
 **响应**
 

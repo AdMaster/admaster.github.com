@@ -76,7 +76,7 @@ title: 广告位
 
 ## 获取指定媒体指定广告位的信息
 
-    GET /medias/:media_id/placements/:placement_id
+    GET /medias/placements/:placement_id
 
 **响应**
 

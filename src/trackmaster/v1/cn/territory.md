@@ -17,6 +17,11 @@ title: 地域
 
     GET /geos/:id
 
+**参数**   
+ 
+`language=en`    
+: _可选_  - 地域名称为英文
+
 **响应**
 
     Status: 200 OK
