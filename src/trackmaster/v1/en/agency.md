@@ -176,6 +176,7 @@ If the input is a part of campaign name, it will search the campaign.
 
 {:.prettyprint}
     [
+
       {
         "id": 10903,//Campaign ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10903",
@@ -200,7 +201,7 @@ If the input is a part of campaign name, it will search the campaign.
 
 [Campaign Report](/doc/trackmaster/v1/en/campaign_report.html)
  
-# More information #
+## More information 
 
 [TrackMaster Index](/doc/trackmaster/v1/en/index.html)
 

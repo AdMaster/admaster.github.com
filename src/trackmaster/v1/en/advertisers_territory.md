@@ -17,6 +17,11 @@ title: Territory
 
     GET /geos/:id
 
+**Parameters**   
+ 
+`language=en`    
+: _Optional_  - Egnlish Name
+
 **Response**
 
     Status: 200 OK
@@ -28,7 +33,7 @@ title: Territory
      [
             {
             "id":1
-            "name":中国
+            "name":China
             }
         ]
 

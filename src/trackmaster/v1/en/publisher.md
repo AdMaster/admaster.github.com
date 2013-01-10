@@ -47,8 +47,6 @@ Before your application can access a TrackMaster API, it must obtain an access t
 
 Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of `expires_in`. In this case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens. 
 
-**Parameters**
-
     {
       "client_id": "***",
       "client_secret": "***",
@@ -72,7 +70,7 @@ The `access_token` you received as a response to `Getting the access_token`.
     [
       {
         "id": 1,
-        "name": "This is a testing campaign",
+        "name": "Testing campaign",
         "start_date": "2012-01-03",
         "end_date": "2012-06-23",
         "created_at": "2012-09-06T20:39:23Z"
@@ -80,27 +78,44 @@ The `access_token` you received as a response to `Getting the access_token`.
     ]
 
 
-## Get the media report 
+## Get the media daily report 
 
     GET http://track.admasterapi.com/medias/:media_id/campaigns/:campaign_id/daily_reports
 
 **Parameters**
 
-    :media_id Required Integer - The media ID you received from TrackMaster.
-    :campaign_id Required Integer - The campaign ID you received from TrackMaster.
+`media_id`   
+: _Required_ **Integer** - The media ID you received from TrackMaster.    
 
-    access_token=***
-    start_time Optional Date - Beginning date to retrieve data in format YYYY-MM-DD. Example:2012-08-01，listing campaigns which beginning time earlier than  `start_time`.
-    end_time Optional Date - Final date to retrieve data in format YYYY-MM-DD. Example:2012-08-02，listing campaigns which final time later than `end_time`.
-    sort Optional String - The order to retrieve the results.
-    direction Optional String - The direction to retrieve the results.
+`campaign_id`    
+: _Required_ **Integer** - The campaign ID you received from TrackMaster.      
+
+`access_token=***`     
+
+`start_time`    
+: _Optional_ **Date**   
+   
+Beginning date to retrieve data in format YYYY-MM-DD. Example:2012-08-01，listing campaigns which beginning time earlier than  `start_time`.
+
+`end_time`     
+: _Optional_ **Date** 
+
+Final date to retrieve data in format YYYY-MM-DD. Example:2012-08-02，listing campaigns which final time later than `end_time`.    
+
+`sort`    
+: _Optional_ **String** - The order to retrieve the results.
+
+`direction`    
+: _Optional_ **String** - The direction to retrieve the results.
+
 
 
 **Response**
 
     Status: 200 OK
-
+{:.prettyprint}
     [
+
       {
         "time": "2012-08-01", // time
         "imp": 23, //impression

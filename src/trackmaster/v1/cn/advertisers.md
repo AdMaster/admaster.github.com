@@ -75,11 +75,11 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 
 ## 第三步 获取项目报告
 
-    GET http://track.admasterapi.com/advertisers/:advertiser_id/campaigns/:campaign_id/reports
+    GET /advertisers/campaigns/:campaign_id/reports
 
 **参数**
 
-   `time`
+`time`
 : _必选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
 
   * `hourly` 获取小时数据
