@@ -27,6 +27,9 @@ title: 站点访问详情
     [
       {
           "id": '2323fwfs',
+          "startTime": "2012-12-21 12:12:02",
+          "stayTime": "1230",
+          "pageDepth": 5,
           "visitorType": "new",
           "visitCount" : 2,
           "daysSinceLastVisit": 1,
