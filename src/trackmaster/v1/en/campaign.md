@@ -73,6 +73,7 @@ If the input is a part of campaign name, it will search the campaign.
 
 {:.prettyprint}
     [
+
       {
         "id": 10786,//Campaign ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
@@ -89,7 +90,7 @@ If the input is a part of campaign name, it will search the campaign.
         "real_clk": 13700,//Total Click
         "est_imp": 9183213,//Estimate Impression
         "est_clk": 12334,//Estimate Click
-		"sp_imp": 753823,//Cor Estinate Impression
+        "sp_imp": 753823,//Cor Estinate Impression
         "sp_clk": 15342,//Cor Estinate Click
         "status": "midterm",//Status of campaign
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
@@ -113,7 +114,7 @@ If the input is a part of campaign name, it will search the campaign.
     {
         "id": 10786,//Campaign ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
-        "name": "This is a testing campaign",//Campaign Name
+        "name": "Testing campaign",//Campaign Name
         "network_brand_id": 10213,//Network Brand ID
         "cost_type": "CNY",//The `cost_type` that was performed: “CNY” , “USD” or "None".
         "total_cost": 20000000,//Total cost of campaign

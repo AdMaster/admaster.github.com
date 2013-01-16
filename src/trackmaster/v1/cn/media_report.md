@@ -129,8 +129,10 @@ title: 媒体报告
 `date`
 : _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据
 
-`page`
-: _可选_ **integer** - 显示页码
+`per_page`
+: _可选_ **integer** - 分页数量，默认每页 30 条
+
+`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 {:.prettyprint}
     [
@@ -167,8 +169,6 @@ title: 媒体报告
   * `geo` 按地域维度聚合
   * `time` 按时间维度聚合    
 
-`network_media_id`
-: _可选_ **integer** - 网络媒体 ID
 
 `placement_id`
 : _可选_ **integer** - 广告位 ID
@@ -214,7 +214,6 @@ title: 媒体报告
   * `clk` - 按照点击排序
   * `uimp` - 按照独立曝光排序
   * `uclk` - 按照独立点击排序
-  * `network_media_id` - 按照网络媒体 ID 排序
   * `placement_id` - 按照广告位 ID 排序
 
 `direction`
@@ -223,6 +222,15 @@ title: 媒体报告
   * `asc` 升序 (_默认_)
   * `desc` 降序
 
+`page`
+: _可选_ **integer** - 显示页码
+
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
+`per_page`
+: _可选_ **integer** - 分页数量，默认每页 30 条
+
+`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 **响应**
 
@@ -281,3 +289,39 @@ time=weekly|粒度为周，指定媒体指定项目数据
 time=weekly&dims=placement|粒度为周，指定媒体指定项目分广告位数据
 time=weekly&dims=placement,keyword |粒度为周，指定媒体指定项目分广告位分关键字数据
 
+**示例**
+
+维度参数包括 time，显示内容按时间分组聚合。
+
+{:.prettyprint}
+    [
+        {
+            "campaign_id": 10116,
+            "time": "2012-11-01",
+            "imp": 3,
+            "uimp": 3,
+            "clk": 7,
+            "uclk": 7,
+            "ipuimp": 3,
+            "ipuclk": 4
+        },
+        {
+            "campaign_id": 10116,
+            "time": "2012-11-02",
+        …
+    ]
+
+维度参数不选择 time
+
+{:.prettyprint}
+    [
+        {
+            "campaign_id": 10116,
+            "imp": 28,
+            "uimp": 27,
+            "clk": 72,
+            "uclk": 39,
+            "ipuimp": 27,
+            "ipuclk": 24
+        }
+    ]
