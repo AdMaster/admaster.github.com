@@ -71,11 +71,11 @@ title: Creative
         "id": 200000271,
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/200000271",
         //Creative Name
-        "name": "A Good Creative",
+        "name": "Creative A",
         //Creative Shortname
         "shortname": "GO",
         //Description
-        "description": "This is a good creative",
+        "description": "Null",
         //Color Identifier
         "color": "#ff00ff",
         //Attachment file
