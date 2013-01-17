@@ -39,9 +39,9 @@ title: 点位
 {:.prettyprint}
     [
       {
-        /*广告位 ID*/
+        //广告位 ID
         "placement_id": 200019261,
-        /*排期日期*/
+        //排期日期
         "online_date": "2012-04-13",
         //创意ID
         "creative_id": 200019827,
