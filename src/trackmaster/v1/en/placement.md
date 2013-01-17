@@ -46,12 +46,13 @@ You can use this in combination with page to retrieve a subset of elements, or u
 
 {:.prettyprint}
     [
+
       {
         //Placement ID
         "id": 200057486,
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486",
         //Placement Name
-        "name": "This is a testing Placement",
+        "name": "Testing Placement",
         //Network Media ID
         "network_media_id": 1314,
         //Channel Information
@@ -61,7 +62,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
             //Channel Name
             "name": "Sport News",
             //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
-            "type": "web",
+            "type": "webpage",
             //Which screen the placement is in
             "screen": 3,
             //Channel Website
@@ -122,12 +123,14 @@ You can use this in combination with page to retrieve a subset of elements, or u
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
+[
+
     {
     //Placement ID
     "id": 200057486,
     "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486",
     //Placement Name
-    "name": "This is a testing Placement",
+    "name": "Testing Placement",
     //Network Media ID
     "network_media_id": 1314,
     //Channel Information
@@ -184,6 +187,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
     //Creation Time
     "created_at": "2012-09-06T20:39:23Z"
     }
+]
 
 ## Add a placement to the given campaign
 
