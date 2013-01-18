@@ -213,7 +213,7 @@ If the input is a part of campaign name, it will search the campaign.
         },
         "status": "typing",//Status of campaign 
         "is_online": "no",
-        "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
+        "created_at": "2012-09-06T20:39:23Z"//Creation Time 
     }
 
 **Field Description**
@@ -285,9 +285,7 @@ Get information near the bottom of the page.
 
     DELETE /networks/advertisers/campaigns/:id
 
-When the campaign's status which you want to delete is not typing, the campaign's status will be changed as deleted.
-
-When the campaign's status which you want to delete is typing, the campaign will be deleted.
+When the campaign which you want to delete contains placement, the campaign can not be deleted.
 
 **Response**
 
@@ -313,5 +311,5 @@ media_num        | integer | The number of media
 placement_num    | integer | The number of placements
 status           | string  | Status
 is_online        | string  | If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
-created_at       | date    | Creation
+created_at       | date    | Creation Time
 

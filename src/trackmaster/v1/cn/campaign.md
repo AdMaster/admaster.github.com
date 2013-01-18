@@ -292,7 +292,7 @@ title: 项目
 
     DELETE /networks/advertisers/campaigns/:id
 
-当项目状态为 typing 时，直接删除项目；当项目为其他状态时，标记项目状态为已删除。
+注意：当项目下有广告位时不允许删除项目；如需删除请先删除该项目下的广告位。
 
 **响应**
 
