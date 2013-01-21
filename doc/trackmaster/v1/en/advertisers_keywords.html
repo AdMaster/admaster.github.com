@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Advertiser - trackmaster - AdMaster API 文档中心</title>
+  <title>Keyword - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,252 +40,86 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="trackmaster-api-for-advertisers">TrackMaster API for Advertisers</h1>
+        <h1 id="keyword">Keyword</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#get-the-accesstoken">Get the access_token</a></li>
-  <li><a href="#list-the-campaigns">List the campaigns</a></li>
-  <li><a href="#get-the-advertiser-report">Get the advertiser report</a></li>
-  <li><a href="#more-information">More information</a></li>
+  <li><a href="#list-keywords-of-the-given-placement">List keywords of the given placement</a></li>
+  <li><a href="#get-keywords-details-of-the-given-placement">Get keywords details of the given placement</a></li>
 </ul>
 
-<p>TrackMaster provides an API for programmatic access to account data. All API access is over HTTP. All data is sent and received as JSON.</p>
+<h2 id="list-keywords-of-the-given-placement">List keywords of the given placement</h2>
 
-<p>TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization.</p>
-
-<p>All developers need to register their application before getting started. A registered OAuth application is assigned a unique <code>client_id</code> and <code>client_secret</code>. The client_secret should not be shared.</p>
-
-<h2 id="get-the-accesstoken">Get the access_token</h2>
-
-<p>Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API.</p>
-
-<pre><code>POST http://open.admaster.com.cn/oauth/access_token
+<pre><code>GET /advertisers/campaigns/placements/:placement_id/keywords
 </code></pre>
 
-<p><strong>Parameters</strong></p>
+<p><strong>Parameters</strong>     </p>
 
-<pre><code>{
-  "client_id": "***",
-  "client_secret": "***",
-  "grant_type": "password",
-  "email": "yourmailaddress@email.com",
-  "password": "***"
-}
-</code></pre>
+<dl>
+  <dt><code>page</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - the start index  </dd>
+</dl>
+
+<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.    </p>
+
+<dl>
+  <dt><code>per_page</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results       </dd>
+</dl>
+
+<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
 
 <p><strong>Response</strong></p>
-
-<pre><code>{
-  "access_token": "7a68b4d65ddd6a6191ef0cbf9cadb06528d92d67",
-  "expires_in": "18000",
-  "refresh_token": "23a89c9944afc0525a25d15d180c6bce03efa331"
-}
-</code></pre>
-
-<p>Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of <code>expires_in</code>. In this case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens. </p>
-
-<pre><code>{
-  "client_id": "***",
-  "client_secret": "***",
-  "grant_type": "refresh_token",
-  "refresh_token": "***"
-}
-</code></pre>
-
-<h2 id="list-the-campaigns">List the campaigns</h2>
-
-<pre><code>GET http://track.admasterapi.com/advertisers/:advertiser_id/campaigns
-</code></pre>
-
-<p><strong>Parameters</strong></p>
-
-<p>The <code>access_token</code> you received as a response to <code>Getting the access_token</code>.</p>
-
-<pre><code>access_token=***
-</code></pre>
-
-<p><strong>Response</strong></p>
-
-<pre><code>[
-  {
-    "id": 1,
-    "name": "Testing campaign",
-    "start_date": "2012-01-03",
-    "end_date": "2012-06-23",
-    "created_at": "2012-09-06T20:39:23Z"
-  }
-]
-</code></pre>
-
-<h2 id="get-the-advertiser-report">Get the advertiser report</h2>
-
-<pre><code>GET /advertisers/campaigns/:campaign_id/reports
-</code></pre>
-
-<p><strong>Parameters</strong></p>
-
-<dl>
-  <dt><code>time</code></dt>
-  <dd><em>Required</em> <strong>string</strong><br />
-It is connected with <code>start_time</code> and <code>end_time</code>.
-
-    <ul>
-      <li><code>hourly</code> Get hourly unique data.</li>
-      <li><code>daily</code> Get daily unique data.</li>
-      <li><code>weekly</code> Get weekly unique data.</li>
-      <li><code>monthly</code> Get monthly unique data.</li>
-    </ul>
-  </dd>
-  <dt><code>dims</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time. 
-
-    <ul>
-      <li><code>media</code>    </li>
-      <li><code>placement</code> </li>
-      <li><code>keyword</code> </li>
-      <li><code>creative</code> </li>
-      <li><code>geo</code> </li>
-      <li><code>time</code> </li>
-    </ul>
-  </dd>
-</dl>
-
-<p>When using dimensions in a feed request, be aware of the following constraints:</p>
-
-<ul>
-  <li>You can not send a query comprised only of dimensions: you must combine any requested dimension with at least one metric.</li>
-  <li>Any given dimension can be used with other dimensions or metrics, but only certain dimensions and metrics can be used together to create valid combinations. </li>
-</ul>
-
-<dl>
-  <dt><code>network_media_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Network Media ID</dd>
-  <dt><code>placement_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Placement ID</dd>
-  <dt><code>keyword_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Keyword ID</dd>
-  <dt><code>creative_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Creative ID</dd>
-  <dt><code>geo_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Geography ID</dd>
-  <dt><code>start_time</code></dt>
-  <dd><em>Optional</em> <strong>hour</strong> - Listing campaigns which beginning time date earlier than <code>start_date</code>. The format of <code>start_time</code> is connected with <code>time</code>.The parament  <code>start_time</code> is formatted according to the ISO 8601 standard.</dd>
-</dl>
-
-<table>
-  <tbody>
-    <tr>
-      <td>time</td>
-      <td>start_time</td>
-      <td>description</td>
-    </tr>
-    <tr>
-      <td>hourly</td>
-      <td>YYYY-MM-DDThh:mmZ</td>
-      <td>2012-11-06T01:57Z</td>
-    </tr>
-    <tr>
-      <td>daily</td>
-      <td>YYYY-MM-DD</td>
-      <td>2012-11-06</td>
-    </tr>
-    <tr>
-      <td>weekly</td>
-      <td>YYYY-Www</td>
-      <td>2005-W01</td>
-    </tr>
-    <tr>
-      <td>monthly</td>
-      <td>YYYY-MM</td>
-      <td>2005-01</td>
-    </tr>
-  </tbody>
-</table>
-
-<dl>
-  <dt><code>end_time</code></dt>
-  <dd><em>Optional</em> <strong>hour</strong> - Listing campaigns which final date later than <code>end_time</code>. The format of <code>end_time</code> is connected with <code>time</code>.The parament <code>end_time</code> is formatted according to the ISO 8601 standard.</dd>
-</dl>
-
-<table>
-  <tbody>
-    <tr>
-      <td>time</td>
-      <td>end_time</td>
-      <td>description</td>
-    </tr>
-    <tr>
-      <td>hourly</td>
-      <td>YYYY-MM-DDThh:mmZ</td>
-      <td>2012-11-06T01:57Z</td>
-    </tr>
-    <tr>
-      <td>daily</td>
-      <td>YYYY-MM-DD</td>
-      <td>2012-11-06</td>
-    </tr>
-    <tr>
-      <td>weekly</td>
-      <td>YYYY-Www</td>
-      <td>2005-W01</td>
-    </tr>
-    <tr>
-      <td>monthly</td>
-      <td>YYYY-MM</td>
-      <td>2005-01</td>
-    </tr>
-  </tbody>
-</table>
-
-<dl>
-  <dt><code>sort</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.
-
-    <ul>
-      <li><code>time</code> - Sorting occurs by time.</li>
-      <li><code>imp</code> - Sorting occurs by impression.</li>
-      <li><code>clk</code> - Sorting occurs by click.</li>
-      <li><code>uimp</code> - Sorting occurs by unique impression.</li>
-      <li><code>uclk</code> - Sorting occurs by unique click.</li>
-      <li><code>network_media_id</code> - Sorting occurs by <code>network_media_id</code></li>
-      <li><code>placement_id</code> - Sorting occurs by <code>placement_id</code></li>
-    </ul>
-  </dd>
-  <dt><code>direction</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - The direction to retrieve the results.
-
-    <ul>
-      <li><code>asc</code> Ascend (<em>Default</em>)</li>
-      <li><code>desc</code> Descend</li>
-    </ul>
-  </dd>
-</dl>
-
-<p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>[
-  {
-    "campaign_id": 10185,//Campaign ID
-    "network_media_id": 1484,//Network Media ID
-    "time": "2012-08-03",//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
-    "imp": 90,//Impression
-    "uimp": 60,//Unique Impression
-    "ipuimp": 56,//Unique Impression IP
-    "clk": 30,//Click
-    "uclk": 23,//Unique Click
-    "ipuclk": 22//Unique Click IP
-  }
+
+    {
+        //Placement ID
+        "placement_id":1
+        //Keyword ID
+        "order_num":1
+        //Keyword Name
+        "name": this is example
+        //Target URL
+        "target_url": http://www.admaster.com.cn
+        //Creation Time
+        "created_at": "2012-12-27T15:45:27Z"
+    }
 ]
 </code></pre>
 
-<h2 id="more-information">More information</h2>
+<h2 id="get-keywords-details-of-the-given-placement">Get keywords details of the given placement</h2>
 
-<p><a href="/doc/trackmaster/v1/en/index.html">TrackMaster Index</a></p>
+<pre><code>GET /advertisers/campaigns/placements/:placement_id/keywords/:id
+</code></pre>
 
-<p><a href="/doc/openmaster/v1/en/verbs.html">Protocal and Requests Instructions</a></p>
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>[
+
+    {
+        //Placement ID
+        "placement_id":1
+        //Keyword ID
+        "order_num":1
+        //Keyword Name
+        "name": this is example
+        //Target URL
+        "target_url": http://www.admaster.com.cn
+        //Creation Time
+        "created_at": "2012-12-27T15:45:27Z"
+    }
+]
+</code></pre>
 
 
       </div>
@@ -3048,7 +2882,7 @@ It is connected with <code>start_time</code> and <code>end_time</code>.
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/trackmaster/v1/en/advertisers.html">Advertiser</a>
+                  <a  href="/doc/trackmaster/v1/en/advertisers.html">Advertiser</a>
                 </h3>
                 <ul class="js-guides">
                   

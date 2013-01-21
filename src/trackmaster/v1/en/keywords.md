@@ -39,7 +39,7 @@ You can use this in combination with page to retrieve a subset of elements, or u
     [
 
         {
-            //PlacementID
+            //Placement ID
             "placement_id":1
             //Keyword ID
             "order_num":1
