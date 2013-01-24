@@ -19,6 +19,8 @@ TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization
 
 All developers need to register their application before getting started. A registered OAuth application is assigned a unique `client_id` and `client_secret`. The client_secret should not be shared.
 
+Please read more about [OAuth](http://dev.admaster.com.cn/doc/openmaster/v1/en/oauth.html) and [Protocal and Requests Instructions](http://dev.admaster.com.cn/doc/openmaster/v1/en/verbs.html).
+
 
 ## Get the access_token
 Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API. 

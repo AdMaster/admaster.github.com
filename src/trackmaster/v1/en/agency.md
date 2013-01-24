@@ -14,7 +14,7 @@ title: Agency
 
 TrackMaster provides an API for programmatic access to account data. All API access is over HTTP. All data is sent and received as JSON.
 
-TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization.
+TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization. Please read more about [OAuth](http://dev.admaster.com.cn/doc/openmaster/v1/en/oauth.html) and [Protocal and Requests Instructions](http://dev.admaster.com.cn/doc/openmaster/v1/en/verbs.html).
 
 All developers need to register their application before getting started. A registered OAuth application is assigned a unique `client_id` and `client_secret`. The `client_secret` should not be shared.
 

@@ -30,6 +30,7 @@ This is a description of the OAuth flow from 3rd party web sites.
 
 `client_id`
 : _Required_ **string** - The client ID you received from OpenMaster when you [registered](http://open.admaster.com.cn/app/new).
+
 `response_type`
 : _Required_ **Enum** - Type，`code`, `token`
 

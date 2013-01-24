@@ -137,6 +137,8 @@ If the input is a part of campaign name, it will search the campaign.
 
     POST /networks/:network_id/advertisers/:advertiser_id/campaigns
 
+Can not create a campaign if the name has exists in the same advertiser.
+
 **Parameters**
 
 `name`

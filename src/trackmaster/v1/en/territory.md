@@ -20,7 +20,7 @@ title: Territory
 **Parameters**   
  
 `language=en`    
-: _Optional_  - Egnlish Name
+: _Optional_  - English Name
 
 **Response**
 

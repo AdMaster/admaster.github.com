@@ -12,7 +12,7 @@ title: 代理
 * TOC
 {:toc}
 
-TrackMaster™ 所有 API 的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。
+TrackMaster™ 所有 API 的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。请在开发前先阅读 [快速入门](http://dev.admaster.com.cn/doc/openmaster/v1/cn/get_started.html)、[OAuth 认证](http://dev.admaster.com.cn/doc/openmaster/v1/cn/oauth.html)、[协议及请求方式](http://dev.admaster.com.cn/doc/openmaster/v1/cn/verbs.html)、[接口定义-通用说明](http://dev.admaster.com.cn/doc/openmaster/v1/cn/common.html)。
 
 TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。在您阅读本文进行开发时，您应当已经取得了您的帐号。如果没有，请至 [AdMaster 官网](http://www.admaster.com.cn) 申请帐号。
 
@@ -191,7 +191,7 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
 
 # 其它信息 #
 
-[概述](/doc/openmaster/v1/cn/index.html)
+[概述](/doc/openmaster/v1/cn/index.html)  
 [协议及请求说明](/doc/openmaster/v1/cn/verbs.html)
 
 

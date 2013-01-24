@@ -17,6 +17,8 @@ TrackMaster™ 所有 API 的访问都是通过 HTTP 执行的，所有被发送
 
 TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。
 
+请在开发前先阅读 [快速入门](http://dev.admaster.com.cn/doc/openmaster/v1/cn/get_started.html)、[OAuth 认证](http://dev.admaster.com.cn/doc/openmaster/v1/cn/oauth.html)、[协议及请求方式](http://dev.admaster.com.cn/doc/openmaster/v1/cn/verbs.html)、[接口定义-通用说明](http://dev.admaster.com.cn/doc/openmaster/v1/cn/common.html)。
+
 
 ## 第一步 获取访问令牌
 
