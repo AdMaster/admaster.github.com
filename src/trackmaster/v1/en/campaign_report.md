@@ -61,7 +61,7 @@ When using dimensions in a feed request, be aware of the following constraints:
 : _Optional_ **hour** - Listing campaigns which beginning time date earlier than `start_date`. The format of `start_time` is connected with `time`.The parament  `start_time` is formatted according to the ISO 8601 standard.
 
 time | start_time   | description
-hourly   | YYYY-MM-DDThh:mmZ   | 2012-11-06T01:57Z
+hourly   | YYYY-MM-DDThh:mm+08:00   | 2012-11-06T01:57+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
 weekly   | YYYY-Www     | 2005-W01
 monthly  | YYYY-MM     | 2005-01
@@ -71,7 +71,7 @@ monthly  | YYYY-MM     | 2005-01
 : _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
 
 time | end_time   | description
-hourly   | YYYY-MM-DDThh:mmZ   | 2012-11-06T01:57Z
+hourly   | YYYY-MM-DDThh:mm+08:00   | 2012-11-06T01:57+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
 weekly   | YYYY-Www     | 2005-W01
 monthly  | YYYY-MM     | 2005-01
