@@ -46,7 +46,7 @@ title: Update
   </tr>
   <tr>
   	<td>2013-01-09</td>
-	<td>Display English name in territory details.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/publisher_territory.htm">More Information</a></td>
+	<td>Display English name in territory details.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/publisher_territory.html">More Information</a></td>
   </tr>
 </table> 
 
