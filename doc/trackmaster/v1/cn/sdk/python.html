@@ -42,6 +42,8 @@
       <div class="content">
         <h1 id="trackmaster-api-python-sdk">TrackMaster API Python SDK</h1>
 
+<h3 id="section">示例类</h3>
+
 <pre class="prettyprint"><code>import httplib, json
 
 class TrackMasterSDK:
@@ -80,7 +82,7 @@ class TrackMasterSDK:
         return c.getresponse()
 </code></pre>
 
-<h3 id="accesstoken">获取access_token</h3>
+<h3 id="accesstoken">获取 access_token</h3>
 
 <pre><code>def test():
     json = """
@@ -99,13 +101,13 @@ if __name__ == "__main__":
     test()
 </code></pre>
 
-<h3 id="section">获取当前用户</h3>
+<h3 id="section-1">获取当前用户</h3>
 
 <pre><code>server = TrackMasterSDK("track.admasterapi.com")
 response = server.get("/user?access_token=***")
 </code></pre>
 
-<h3 id="section-1">获取当前用户网络</h3>
+<h3 id="section-2">获取当前用户网络</h3>
 
 <pre><code>server = TrackMasterSDK("track.admasterapi.com")
 response = server.get("/user/networks?access_token=***")
@@ -264,9 +266,9 @@ response = server.get("/user/networks?access_token=***")
                   
                   <li style=""><a href="/doc/trackmaster/v1/cn/sdk/php.html">PHP SDK</a></li>
                   
-                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/ruby.html">Ruby SDK</a></li>
-                  
                   <li style=""><a href="/doc/trackmaster/v1/cn/sdk/python.html">Python SDK</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/ruby.html">Ruby SDK</a></li>
                   
                 </ul>
               </li>
