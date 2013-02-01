@@ -11,12 +11,16 @@ title: 更新
 * TOC
 {:toc}
 
-## 代理接口更新 
+## 代理接口/文档更新 
 
 <table width="560" border="0" bordercolor="#000000">
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-02-01</td>
+    <td>添加 Ruby SDK 示例说明。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/sdk/ruby.html">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-01-25</td>
@@ -32,12 +36,16 @@ title: 更新
   </tr>
 </table> 
 
-## 媒体接口更新    
+## 媒体接口/文档更新    
 
 <table width="560" border="0" bordercolor="#000000">
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-02-01</td>
+    <td>添加 Ruby SDK 示例说明。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/sdk/ruby.html">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-01-25</td>
@@ -50,12 +58,16 @@ title: 更新
 </table>    
 
 
-## 广告主接口更新    
+## 广告主接口/文档更新    
 
 <table width="560" border="0" bordercolor="#000000">
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-02-01</td>
+    <td>添加 Ruby SDK 示例说明。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/sdk/ruby.html">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-01-25</td>
