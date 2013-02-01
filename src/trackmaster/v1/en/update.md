@@ -20,6 +20,10 @@ title: Update
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
   <tr>
+    <td>2013-02-01</td>
+    <td>Ruby SDK Sample.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/sdk/ruby.html">More Information</a></td>
+  </tr>
+  <tr>
     <td>2013-01-25</td>
     <td>The input format of start_time and end_time for campaign reports by hour is YYYY-MM-DDThh:mm:ss+08:00. The output formate of time is YYYY-MM-DDThh:mm:ss+08:00.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/campaign_report.html#get-the-authorized-campaign-report">More Information</a></td>
   </tr>
@@ -41,6 +45,10 @@ title: Update
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
   <tr>
+    <td>2013-02-01</td>
+    <td>Ruby SDK Sample.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/sdk/ruby.html">More Information</a></td>
+  </tr>
+  <tr>
     <td>2013-01-25</td>
     <td>The input format of start_time and end_time for campaign reports by hour is YYYY-MM-DDThh:mm:ss+08:00. The output formate of time is YYYY-MM-DDThh:mm:ss+08:00.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/media_report.html#get-campaign-report-of-the-given-media">More Information</a></td>
   </tr>
@@ -56,6 +64,10 @@ title: Update
   <tr>
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-02-01</td>
+    <td>Ruby SDK Sample.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/sdk/ruby.html">More Information</a></td>
   </tr>
   <tr>
     <td>2013-01-25</td>
