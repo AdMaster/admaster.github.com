@@ -17,7 +17,7 @@ title: Ruby SDK
     module TrackMasterSDK
 
       class Server
-        def initialize(host, port, options = nil)
+        def initialize(host, port = 80, options = nil)
           @host = host
           @port = port
           @options = options
@@ -72,12 +72,12 @@ title: Ruby SDK
       password: "***"
     })
 
-    server = TrackMasterSDK::Server.new("open.admasterapi.com", "80")
-    response = server.post("/user", json)
+    server = TrackMasterSDK::Server.new("open.admasterapi.com")
+    response = server.post("/oauth/access_token", json)
 
 ### 获取当前用户
 
-    server = TrackMasterSDK::Server.new("track.admasterapi.com", "80")
+    server = TrackMasterSDK::Server.new("track.admasterapi.com")
     response = server.get("/user?access_token=***")
 
 ### 获取当前用户网络

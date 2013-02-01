@@ -49,7 +49,7 @@
 module TrackMasterSDK
 
   class Server
-    def initialize(host, port, options = nil)
+    def initialize(host, port = 80, options = nil)
       @host = host
       @port = port
       @options = options
@@ -105,13 +105,13 @@ end
   password: "***"
 })
 
-server = TrackMasterSDK::Server.new("open.admasterapi.com", "80")
-response = server.post("/user", json)
+server = TrackMasterSDK::Server.new("open.admasterapi.com")
+response = server.post("/oauth/access_token", json)
 </code></pre>
 
 <h3 id="section">获取当前用户</h3>
 
-<pre><code>server = TrackMasterSDK::Server.new("track.admasterapi.com", "80")
+<pre><code>server = TrackMasterSDK::Server.new("track.admasterapi.com")
 response = server.get("/user?access_token=***")
 </code></pre>
 
