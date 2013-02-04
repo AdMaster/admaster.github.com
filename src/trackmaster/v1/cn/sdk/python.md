@@ -14,7 +14,7 @@ title: Python SDK
 {:.prettyprint}
     import httplib, json
 
-    class TrackMasterSDK:
+    class TrackmasterClient:
 
         def __init__(self, host, port=80, options=None):
             self.host = host
@@ -62,8 +62,8 @@ title: Python SDK
           "password": "***"
         }
         """
-        server = TrackMasterSDK('open.admaster.com.cn')
-        response = server.post("/oauth/access_token", json)
+        client = TrackmasterClient('open.admaster.com.cn')
+        response = client.post("/oauth/access_token", json)
 
     if __name__ == "__main__":
         test()
@@ -71,13 +71,13 @@ title: Python SDK
 ### 获取当前用户
 
 {:.prettyprint}
-    server = TrackMasterSDK("track.admasterapi.com")
-    response = server.get("/user?access_token=***")
+    client = TrackmasterClient("track.admasterapi.com")
+    response = client.get("/user?access_token=***")
 
 ### 获取当前用户网络
 
 {:.prettyprint}
-    server = TrackMasterSDK("track.admasterapi.com")
-    response = server.get("/user/networks?access_token=***")
+    client = TrackmasterClient("track.admasterapi.com")
+    response = client.get("/user/networks?access_token=***")
 
 
