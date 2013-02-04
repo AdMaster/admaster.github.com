@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>关键字 - trackmaster - AdMaster API 文档中心</title>
+  <title>Node.js SDK - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,85 +40,97 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">关键字</h1>
+        <h1 id="trackmaster-api-nodejs-sdk">TrackMaster API Node.js SDK</h1>
 
-<ul id="markdown-toc">
-  <li><a href="#section-1">获取广告位下的关键字列表</a></li>
-  <li><a href="#section-2">获取指定广告位下的关键字详情</a></li>
-</ul>
+<pre class="prettyprint"><code>(function() {
+  var TrackmasterClient, http;
 
-<h2 id="section-1">获取广告位下的关键字列表</h2>
+  http = require('http');
 
-<pre><code>GET /advertisers/campaigns/placements/:placement_id/keywords
-</code></pre>
+  TrackmasterClient = (function() {
 
-<p><strong>参数</strong>     </p>
-
-<dl>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码  </dd>
-</dl>
-
-<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code>和<code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定<code>page</code>显示 30 条之后的数据。    </p>
-
-<dl>
-  <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条        </dd>
-</dl>
-
-<p><code>per_page</code>和<code>page</code>一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>[
-
-    {
-        //广告位ID
-        "placement_id":1
-        //关键字ID
-        "order_num":1
-        //关键字名称
-        "name": this is example
-        //关键字点击目标地址
-        "target_url": http://www.admaster.com.cn
-        //创建时间
-        "created_at": "2012-12-27T15:45:27Z"
+    function TrackmasterClient(host, port) {
+      if (port == null) {
+        port = 80;
+      }
+      this.host = host;
+      this.port = port;
+      this.error = null;
     }
-]
+
+    TrackmasterClient.prototype.get = function(path, callback) {
+      return this.req("GET", path, null, callback);
+    };
+
+    TrackmasterClient.prototype.post = function(path, data, callback) {
+      return this.req("POST", path, data, callback);
+    };
+
+    TrackmasterClient.prototype.put = function(path, data, callback) {
+      return this.req("PUT", path, data, callback);
+    };
+
+    TrackmasterClient.prototype["delete"] = function(path, callback) {
+      return this.req("DELETE", path, null, callback);
+    };
+
+    TrackmasterClient.prototype.req = function(method, path, data, callback) {
+      var options, req;
+      options = {
+        hostname: this.host,
+        port: this.port,
+        path: path,
+        method: method
+      };
+      req = http.request(options, callback);
+      req.on("error", function(e) {
+        return this.error = e;
+      });
+      if (data) {
+        req.write(data);
+      }
+      return req.end();
+    };
+
+    return TrackmasterClient;
+
+  })();
+
+}).call(this);
 </code></pre>
 
-<h2 id="section-2">获取指定广告位下的关键字详情</h2>
+<h3 id="accesstoken">获取access_token</h3>
 
-<pre><code>GET /advertisers/campaigns/placements/:placement_id/keywords/:id
+<pre class="prettyprint"><code>  var json = JSON.stringify({
+    "client_id": "***",
+    "client_secret": "***",
+    "grant_type": "password",
+    "email": "***",
+    "password": "***"
+  });
+
+  var callback = function(res) {
+    console.log("STATUS: " + res.statusCode);
+    console.log("HEADERS: " + JSON.stringify(res.headers));
+    res.setEncoding("utf8");
+    return res.on("data", function(chunk) {
+      return console.log("BODY: " + chunk);
+    });
+  };
+
+  var client = new TrackmasterClient("open.admaster.com.cn");
+  client.post("/oauth/access_token", json, callback);
 </code></pre>
 
-<p><strong>响应</strong></p>
+<h3 id="section">获取当前用户</h3>
 
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+<pre class="prettyprint"><code>var client = new TrackmasterClient("track.admasterapi.com");
+client.get("/user?access_token=***", callback);
 </code></pre>
 
-<pre class="prettyprint"><code>[
+<h3 id="section-1">获取当前用户网络</h3>
 
-    {
-        //广告位ID
-        "placement_id":1
-        //关键字ID
-        "order_num":1
-        //关键字名称
-        "name": this is example
-        //关键字点击目标地址
-        "target_url": http://www.admaster.com.cn
-        //创建时间
-        "created_at": "2012-12-27T15:45:27Z"
-    }
-]
+<pre class="prettyprint"><code>client.get("/user/networks?access_token=***", callback);
 </code></pre>
 
 
