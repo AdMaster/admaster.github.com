@@ -59,7 +59,7 @@ title: Python SDK
           "password": "***"
         }
         """
-        server = TrackMasterSDK('open.admasterapi.com')
+        server = TrackMasterSDK('open.admaster.com.cn')
         response = server.post("/oauth/access_token", json)
 
     if __name__ == "__main__":

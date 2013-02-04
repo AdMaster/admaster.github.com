@@ -72,7 +72,7 @@ title: Ruby SDK
       password: "***"
     })
 
-    server = TrackMasterSDK::Server.new("open.admasterapi.com")
+    server = TrackMasterSDK::Server.new("open.admaster.com.cn")
     response = server.post("/oauth/access_token", json)
 
 ### 获取当前用户
