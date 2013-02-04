@@ -45,7 +45,6 @@
 <ul id="markdown-toc">
   <li><a href="#section-1">获取指定媒体频道列表</a></li>
   <li><a href="#section-2">获取指定频道详细信息</a></li>
-  <li><a href="#section-3">为指定媒体新增频道</a></li>
 </ul>
 
 <h2 id="section-1">获取指定媒体频道列表</h2>
@@ -120,87 +119,6 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<h2 id="section-3">为指定媒体新增频道</h2>
-
-<pre><code>POST /medias/:media_id/channels
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 频道名称</dd>
-  <dt><code>type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 类型
-
-    <ul>
-      <li><code>webpage</code>： 网页</li>
-      <li><code>video</code>： 视频广告</li>
-      <li><code>client</code>： 客户端</li>
-      <li><code>se</code>： 搜索引擎</li>
-      <li><code>email</code>： 邮件</li>
-      <li><code>other</code>： 其他</li>
-    </ul>
-  </dd>
-  <dt><code>screen</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位在第几屏幕</dd>
-  <dt><code>home</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 频道地址</dd>
-  <dt><code>material_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料类型 
-
-    <ul>
-      <li><code>flash</code>:flash (默认)</li>
-      <li><code>image</code>:图片</li>
-      <li><code>video</code>: 视频</li>
-      <li><code>textlink</code>: 文字链接</li>
-      <li><code>other</code>: 其他</li>
-    </ul>
-  </dd>
-  <dt><code>material_dimension</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</dd>
-  <dt><code>material_size</code></dt>
-  <dd><em>可选</em> <strong>enum</strong> - 物料文件大小，单位由 material_size_unit 指定</dd>
-  <dt><code>material_size_unit</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料文件大小单位
-
-    <ul>
-      <li><code>B</code>:Byte</li>
-      <li><code>K</code>:Kbyte (默认)</li>
-      <li><code>M</code>:Mbyte</li>
-    </ul>
-  </dd>
-</dl>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>{
-    //频道名称
-    "name": "体育新闻",
-    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-    "type": "web",
-    //广告位在第几屏幕
-    "screen": 3,
-    //频道地址
-    "home": "http://www.admaster.com.cn/",
-    //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "material_type": 'flash',
-    //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-    "material_dimension": "400x300",
-    //物料文件大小，单位由 material_size_unit 指定
-    "material_size": 200,
-    //物料文件大小单位，B K M
-    "material_size_unit": "B"
-}
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/channel/123
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
 
       </div>
       

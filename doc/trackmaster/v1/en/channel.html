@@ -45,7 +45,6 @@
 <ul id="markdown-toc">
   <li><a href="#list-channels-of-the-given-media">List channels of the given media</a></li>
   <li><a href="#get-details-of-the-given-channel">Get details of the given channel</a></li>
-  <li><a href="#add-a-channel-to-the-given-media">Add a channel to the given media</a></li>
 </ul>
 
 <h2 id="list-channels-of-the-given-media">List channels of the given media</h2>
@@ -120,87 +119,6 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<h2 id="add-a-channel-to-the-given-media">Add a channel to the given media</h2>
-
-<pre><code>POST /medias/:media_id/channels
-</code></pre>
-
-<p><strong>Parameters</strong></p>
-
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>Required</em> <strong>string</strong> - Channel Name</dd>
-  <dt><code>type</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - Channel Type
-
-    <ul>
-      <li><code>webpage</code></li>
-      <li><code>video</code></li>
-      <li><code>client</code></li>
-      <li><code>se</code>： Search Engine</li>
-      <li><code>email</code></li>
-      <li><code>other</code></li>
-    </ul>
-  </dd>
-  <dt><code>screen</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - Which screen the placement is in</dd>
-  <dt><code>home</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - Channel Website</dd>
-  <dt><code>material_type</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - Material Type 
-
-    <ul>
-      <li><code>flash</code>(Default)</li>
-      <li><code>image</code></li>
-      <li><code>video</code></li>
-      <li><code>textlink</code></li>
-      <li><code>other</code></li>
-    </ul>
-  </dd>
-  <dt><code>material_dimension</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - Material Dimension</dd>
-  <dt><code>material_size</code></dt>
-  <dd><em>Optional</em> <strong>enum</strong> - Material Size</dd>
-  <dt><code>material_size_unit</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> - Material Unit
-
-    <ul>
-      <li><code>B</code>:Byte</li>
-      <li><code>K</code>:Kbyte (Default)</li>
-      <li><code>M</code>:Mbyte</li>
-    </ul>
-  </dd>
-</dl>
-
-<p><strong>Request</strong></p>
-
-<pre class="prettyprint"><code>{
-    //Channel Name
-    "name": "Sport News",
-    //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
-    "type": "webpage",
-    //Which screen the placement is in
-    "screen": 3,
-    //Channel Website
-    "home": "http://www.admaster.com.cn/",
-    //Material Type- `flash`(Default)，`image`，`video`, `textlink`, `other` 
-    "material_type": 'flash',
-    //Material Dimension
-    "material_dimension": "400x300",
-    //Material Size
-    "material_size": 200,
-    //Material Unit，B K(Default) M
-    "material_size_unit": "B"
-}
-</code></pre>
-
-<p><strong>Response</strong></p>
-
-<pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/channel/123
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
 
       </div>
       
