@@ -10,7 +10,7 @@ title: PHP SDK
 # TrackMaster API PHP SDK
 
 {:.prettyprint}
-    class TrackMasterSDK {
+    class TrackmasterClient {
 
         function __construct($host, $port = 80) {
             $this->host = $host;
@@ -40,7 +40,7 @@ title: PHP SDK
             }
 
             $request = "$method $url HTTP/1.0\r\nHost: $this->host\r\n";
-            $request .= "User-Agent: TrackMaster-SDK-PHP\r\n";
+            $request .= "User-Agent: TrackMaster-Client-PHP\r\n";
 
             if ($post_data) {
                 $request .= "Content-Length: ".strlen($post_data)."\r\n\r\n";
@@ -72,18 +72,18 @@ title: PHP SDK
       "password" => "***"
     ));
 
-    $server = new TrackMasterSDK("open.admaster.com.cn")
-    $response = $server->post("/oauth/access_token", $json)
+    $client = new TrackmasterClient("open.admaster.com.cn");
+    $response = $client->post("/oauth/access_token", $json);
 
 ### 获取当前用户
 
 {:.prettyprint}
-    $server = new TrackMasterSDK("track.admasterapi.com")
-    $response = $server->get("/user?access_token=***")
+    $client = new TrackmasterClient("track.admasterapi.com");
+    $response = $client->get("/user?access_token=***");
 
 ### 获取当前用户网络
 
 {:.prettyprint}
-    $response = $server->get("/user/networks?access_token=***")
+    $response = $client->get("/user/networks?access_token=***");
 
 
