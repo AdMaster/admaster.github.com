@@ -97,7 +97,7 @@ end
 
 <h3 id="accesstoken">获取access_token</h3>
 
-<pre><code>json = JSON.generate({
+<pre class="prettyprint"><code>json = JSON.generate({
   client_id: "***",
   client_secret: "***",
   grant_type: "password",
@@ -111,13 +111,13 @@ response = server.post("/oauth/access_token", json)
 
 <h3 id="section">获取当前用户</h3>
 
-<pre><code>server = TrackMasterSDK::Server.new("track.admasterapi.com")
+<pre class="prettyprint"><code>server = TrackMasterSDK::Server.new("track.admasterapi.com")
 response = server.get("/user?access_token=***")
 </code></pre>
 
 <h3 id="section-1">获取当前用户网络</h3>
 
-<pre><code>response = server.get("/user/networks?access_token=***")
+<pre class="prettyprint"><code>response = server.get("/user/networks?access_token=***")
 </code></pre>
 
 

@@ -64,6 +64,7 @@ title: Ruby SDK
 
 ### 获取access_token
 
+{:.prettyprint}
     json = JSON.generate({
       client_id: "***",
       client_secret: "***",
@@ -77,11 +78,13 @@ title: Ruby SDK
 
 ### 获取当前用户
 
+{:.prettyprint}
     server = TrackMasterSDK::Server.new("track.admasterapi.com")
     response = server.get("/user?access_token=***")
 
 ### 获取当前用户网络
 
+{:.prettyprint}
     response = server.get("/user/networks?access_token=***")
 
 

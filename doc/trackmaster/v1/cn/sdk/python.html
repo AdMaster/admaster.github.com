@@ -84,7 +84,7 @@ class TrackMasterSDK:
 
 <h3 id="accesstoken">获取 access_token</h3>
 
-<pre><code>def test():
+<pre class="prettyprint"><code>def test():
     json = """
     {
       "client_id": "***",
@@ -103,13 +103,13 @@ if __name__ == "__main__":
 
 <h3 id="section-1">获取当前用户</h3>
 
-<pre><code>server = TrackMasterSDK("track.admasterapi.com")
+<pre class="prettyprint"><code>server = TrackMasterSDK("track.admasterapi.com")
 response = server.get("/user?access_token=***")
 </code></pre>
 
 <h3 id="section-2">获取当前用户网络</h3>
 
-<pre><code>server = TrackMasterSDK("track.admasterapi.com")
+<pre class="prettyprint"><code>server = TrackMasterSDK("track.admasterapi.com")
 response = server.get("/user/networks?access_token=***")
 </code></pre>
 

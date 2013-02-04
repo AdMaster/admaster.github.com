@@ -51,6 +51,7 @@ title: Python SDK
 
 ### 获取 access_token
 
+{:.prettyprint}
     def test():
         json = """
         {
@@ -69,11 +70,13 @@ title: Python SDK
 
 ### 获取当前用户
 
+{:.prettyprint}
     server = TrackMasterSDK("track.admasterapi.com")
     response = server.get("/user?access_token=***")
 
 ### 获取当前用户网络
 
+{:.prettyprint}
     server = TrackMasterSDK("track.admasterapi.com")
     response = server.get("/user/networks?access_token=***")
 
