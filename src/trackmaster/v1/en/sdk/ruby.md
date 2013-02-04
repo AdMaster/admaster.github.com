@@ -9,7 +9,7 @@ title: Ruby SDK
 
 # TrackMaster API Ruby SDK
 
-API Sample
+### API Sample
 
 {:.prettyprint}
     require 'net/http'
