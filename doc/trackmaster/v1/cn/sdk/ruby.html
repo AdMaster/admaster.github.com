@@ -42,7 +42,7 @@
       <div class="content">
         <h1 id="trackmaster-api-ruby-sdk">TrackMaster API Ruby SDK</h1>
 
-<p>示例类</p>
+<h3 id="section">示例类</h3>
 
 <pre class="prettyprint"><code>require 'net/http'
 
@@ -107,13 +107,13 @@ client = TrackmasterClient.new("open.admaster.com.cn")
 response = client.post("/oauth/access_token", json)
 </code></pre>
 
-<h3 id="section">获取当前用户</h3>
+<h3 id="section-1">获取当前用户</h3>
 
 <pre class="prettyprint"><code>client = TrackmasterClient.new("track.admasterapi.com")
 response = client.get("/user?access_token=***")
 </code></pre>
 
-<h3 id="section-1">获取当前用户网络</h3>
+<h3 id="section-2">获取当前用户网络</h3>
 
 <pre class="prettyprint"><code>response = client.get("/user/networks?access_token=***")
 </code></pre>

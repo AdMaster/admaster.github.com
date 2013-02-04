@@ -42,6 +42,8 @@
       <div class="content">
         <h1 id="trackmaster-api-php-sdk">TrackMaster API PHP SDK</h1>
 
+<h3 id="section">示例类</h3>
+
 <pre class="prettyprint"><code>class TrackmasterClient {
 
     function __construct($host, $port = 80) {
@@ -108,13 +110,13 @@ $client = new TrackmasterClient("open.admaster.com.cn");
 $response = $client-&gt;post("/oauth/access_token", $json);
 </code></pre>
 
-<h3 id="section">获取当前用户</h3>
+<h3 id="section-1">获取当前用户</h3>
 
 <pre class="prettyprint"><code>$client = new TrackmasterClient("track.admasterapi.com");
 $response = $client-&gt;get("/user?access_token=***");
 </code></pre>
 
-<h3 id="section-1">获取当前用户网络</h3>
+<h3 id="section-2">获取当前用户网络</h3>
 
 <pre class="prettyprint"><code>$response = $client-&gt;get("/user/networks?access_token=***");
 </code></pre>
