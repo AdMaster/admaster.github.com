@@ -42,6 +42,85 @@
       <div class="content">
         <h1 id="trackmaster-api-php-sdk">TrackMaster API PHP SDK</h1>
 
+<h3 id="api-sample">API Sample</h3>
+
+<pre class="prettyprint"><code>class TrackMasterSDK {
+
+    function __construct($host, $port = 80) {
+        $this-&gt;host = $host;
+        $this-&gt;port = $port;
+    }
+
+    function get($url) {
+       return $this-&gt;send("GET", $url);
+    }
+
+    function post($url, $data = null) {
+        return $this-&gt;send("POST", $url, $data);
+    }
+
+    function put($url, $data = null) {
+        return $this-&gt;send("PUT", $url, $data);
+    }
+
+    function delete($url) {
+        return $this-&gt;send("DELETE", $url);
+    }
+
+    function send($method, $url, $post_data = NULL) {
+        $s = fsockopen($this-&gt;host, $this-&gt;port, $errno, $errstr);
+        if(!$s) {
+            throw new Exception("$errno: $errstr");
+        }
+
+        $request = "$method $url HTTP/1.0\r\nHost: $this-&gt;host\r\n";
+        $request .= "User-Agent: TrackMaster-SDK-PHP\r\n";
+
+        if ($post_data) {
+            $request .= "Content-Length: ".strlen($post_data)."\r\n\r\n";
+            $request .= "$post_data\r\n";
+        } else {
+            $request .= "\r\n";
+        }
+
+        fwrite($s, $request);
+        $response = "";
+
+        while(!feof($s)) {
+            $response .= fgets($s);
+        }
+
+        list($this-&gt;headers, $this-&gt;body) = explode("\r\n\r\n", $response);
+        return $this-&gt;body;
+    }
+}
+</code></pre>
+
+<h3 id="get-an-accesstoken">Get an access_token</h3>
+
+<pre class="prettyprint"><code>$json = json_encode(array(
+  "client_id" =&gt; "***",
+  "client_secret" =&gt; "***",
+  "grant_type" =&gt; "password",
+  "email" =&gt; "***",
+  "password" =&gt; "***"
+));
+
+$server = new TrackMasterSDK("open.admaster.com.cn")
+$response = $server-&gt;post("/oauth/access_token", $json)
+</code></pre>
+
+<h3 id="get-the-user">Get the user</h3>
+
+<pre class="prettyprint"><code>$server = new TrackMasterSDK("track.admasterapi.com")
+$response = $server-&gt;get("/user?access_token=***")
+</code></pre>
+
+<h3 id="get-the-network-of-user-in-trackmaster">Get the network of user in TrackMaster</h3>
+
+<pre class="prettyprint"><code>$response = $server-&gt;get("/user/networks?access_token=***")
+</code></pre>
+
 
       </div>
       
@@ -126,74 +205,6 @@
           
           
             
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -256,6 +267,86 @@
           
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -263,29 +354,17 @@
                 </h3>
                 <ul class="js-guides">
                   
-                  <li style=""><a href="/doc/trackmaster/v1/en/sdk/php.html">PHP SDK</a></li>
+                  <li style=""><a href="/doc/trackmaster/v1/en/sdk/ruby.html">Ruby SDK</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/sdk/python.html">Python SDK</a></li>
                   
-                  <li style=""><a href="/doc/trackmaster/v1/en/sdk/ruby.html">Ruby SDK</a></li>
+                  <li style=""><a href="/doc/trackmaster/v1/en/sdk/php.html">PHP SDK</a></li>
                   
                 </ul>
               </li>
             
           
           
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
         
           
           
@@ -2900,50 +2979,6 @@
           
           
           
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -2955,13 +2990,13 @@
                 </h3>
                 <ul class="js-guides">
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/campaign_report.html">Campaign Report</a></li>
+                  
                   <li style=""><a href="/doc/trackmaster/v1/en/advertiser.html">Advertiser</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/brand.html">Brand</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/campaign.html">Campaign</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/campaign_report.html">Campaign Report</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/channel.html">Channel</a></li>
                   
@@ -2969,64 +3004,20 @@
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/creative.html">Creative</a></li>
                   
-                  <li style=""><a href="/doc/trackmaster/v1/en/keywords.html">Keyword</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/media.html">Media</a></li>
-                  
                   <li style=""><a href="/doc/trackmaster/v1/en/network.html">Network</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/placement.html">Placement</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/spot.html">Spot</a></li>
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/media.html">Media</a></li>
+                  
                   <li style=""><a href="/doc/trackmaster/v1/en/territory.html">Territory</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/keywords.html">Keyword</a></li>
                   
                 </ul>
               </li>
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
             
           
           
@@ -3043,16 +3034,104 @@
                 </h3>
                 <ul class="js-guides">
                   
-                  <li style=""><a href="/doc/trackmaster/v1/en/media_report.html">Publisher Report</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/publisher_keywords.html">Keyword</a></li>
-                  
                   <li style=""><a href="/doc/trackmaster/v1/en/publisher_placement.html">Placement</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/media_report.html">Publisher Report</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/publisher_territory.html">Territory</a></li>
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/publisher_keywords.html">Keyword</a></li>
+                  
                 </ul>
               </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
@@ -3166,6 +3245,78 @@
           
           
           
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
           
@@ -3181,23 +3332,23 @@
                 </h3>
                 <ul class="js-guides">
                   
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_brand.html">Brand</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_campaign.html">Campaign</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_creative.html">Creative</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_keywords.html">Keyword</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_media.html">Media</a></li>
-                  
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_placement.html">Placement</a></li>
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_territory.html">Territory</a></li>
                   
                   <li style=""><a href="/doc/trackmaster/v1/en/advertisers_report.html">Advertiser Report</a></li>
                   
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_campaign.html">Campaign</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_media.html">Media</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_brand.html">Brand</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_creative.html">Creative</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_placement.html">Placement</a></li>
+                  
                   <li style=""><a href="/doc/trackmaster/v1/en/advertisers_spot.html">Spot</a></li>
                   
-                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_territory.html">Territory</a></li>
+                  <li style=""><a href="/doc/trackmaster/v1/en/advertisers_keywords.html">Keyword</a></li>
                   
                 </ul>
               </li>
@@ -3264,78 +3415,6 @@
             
           
           
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
         
           
           
@@ -4254,22 +4333,6 @@
           
           
           
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
           
           
           
@@ -4403,6 +4466,22 @@
                   
                 </ul>
               </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           

@@ -9,6 +9,8 @@ title: PHP SDK
 
 # TrackMaster API PHP SDK
 
+### 示例类
+
 {:.prettyprint}
     class TrackMasterSDK {
 
