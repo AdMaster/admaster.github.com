@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Node.js SDK - trackmaster - AdMaster API 文档中心</title>
+  <title>Java SDK - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,99 +40,102 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="trackmaster-api-nodejs-sdk">TrackMaster API Node.js SDK</h1>
+        <h1 id="trackmaster-api-java-sdk">TrackMaster API Java SDK</h1>
 
-<pre class="prettyprint"><code>(function() {
-  var TrackmasterClient, http;
+<h3 id="clientjava">示例类(client.java)</h3>
 
-  http = require('http');
+<pre class="prettyprint"><code>import java.io.*;
+import java.net.*;
 
-  TrackmasterClient = (function() {
+public class client{
+    URL url;
+    String urlStr;
+    HttpURLConnection conn;
+    BufferedReader reader;
+    String line;
+    String result = "";
 
-    function TrackmasterClient(host, port) {
-      if (port == null) {
-        port = 80;
-      }
-      this.host = host;
-      this.port = port;
-      this.error = null;
+    public client(String urlToRead){
+        urlStr = urlToRead;
     }
 
-    TrackmasterClient.prototype.get = function(path, callback) {
-      return this.req("GET", path, null, callback);
-    };
+    public String get(String param) {
 
-    TrackmasterClient.prototype.post = function(path, data, callback) {
-      return this.req("POST", path, data, callback);
-    };
+        try {
+            url = new URL(urlStr + param);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("User-Agent", "TrackMaster-SDK-JAVA");
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            while ((line = reader.readLine()) != null) {
+                result += line;
+            }
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+   }
 
-    TrackmasterClient.prototype.put = function(path, data, callback) {
-      return this.req("PUT", path, data, callback);
-    };
+    public String post(String param, String json) {
 
-    TrackmasterClient.prototype["delete"] = function(path, callback) {
-      return this.req("DELETE", path, null, callback);
-    };
-
-    TrackmasterClient.prototype.req = function(method, path, data, callback) {
-      var options, req;
-      options = {
-        hostname: this.host,
-        port: this.port,
-        path: path,
-        method: method
-      };
-      req = http.request(options, callback);
-      req.on("error", function(e) {
-        return this.error = e;
-      });
-      if (data) {
-        req.write(data);
-      }
-      return req.end();
-    };
-
-    return TrackmasterClient;
-
-  })();
-
-}).call(this);
+        try {
+            url = new URL(urlStr + param);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setInstanceFollowRedirects(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("User-Agent", "TrackMaster-SDK-JAVA");
+            conn.setRequestProperty("charset", "utf-8");
+            conn.setRequestProperty("Content-Length", "" + Integer.toString(json.getBytes().length));
+            conn.setUseCaches (false);
+            OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+            writer.write(json);
+            writer.flush();
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            while ((line = reader.readLine()) != null) {
+                result += line;
+            }
+            writer.close();
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+}
 </code></pre>
 
-<h3 id="accesstoken">获取access_token</h3>
+<h3 id="accesstokenmymainjava">获取当前用户/获取当前用户网络/获取access_token(myMain.java)</h3>
 
-<pre class="prettyprint"><code>  var json = JSON.stringify({
-    "client_id": "***",
-    "client_secret": "***",
-    "grant_type": "password",
-    "email": "***",
-    "password": "***"
-  });
+<pre class="prettyprint"><code>class myMain{
+    public static void main(String args[])
+   {
+       client apiClient = new client("http://track.admasterapi.com");
+       String access_token = "您的access token";
+       System.out.println(apiClient.get("/user?access_token=" + access_token)); // 获取用户信息
+       System.out.println(apiClient.get("/user/networks?access_token=" + access_token)); // 获取用户网络信息
 
-  var callback = function(res) {
-    console.log("STATUS: " + res.statusCode);
-    console.log("HEADERS: " + JSON.stringify(res.headers));
-    res.setEncoding("utf8");
-    return res.on("data", function(chunk) {
-      return console.log("BODY: " + chunk);
-    });
-  };
+       // 构造json，格式为{"client_id":"aaa","client_secrect":"bbb","grant_type": "ccc","email":"ddd","password":"eee"}
+       String client_id = "\"您的client_id\"";
+       String client_secret = "\"您的client_secrect\"";
+       String grant_type = "\"password\"";
+       String password = "\"您的密码\"";
+       String email = "\"您的邮箱\"";
+       String json = "{\"client_id\":" + client_id
+           + ",\"client_secret\":" + client_secret
+           + ",\"grant_type\":" + grant_type
+           + ",\"email\":" +email
+           + ",\"password\":" +password+"}";
 
-  var client = new TrackmasterClient("open.admaster.com.cn");
-  client.post("/oauth/access_token", json, callback);
+       client openClient = new client("http://open.admaster.com.cn");
+
+       System.out.println(openClient.post("/oauth/access_token", json)); // 获取access_token
+   }
+}
 </code></pre>
-
-<h3 id="section">获取当前用户</h3>
-
-<pre class="prettyprint"><code>var client = new TrackmasterClient("track.admasterapi.com");
-client.get("/user?access_token=***", callback);
-</code></pre>
-
-<h3 id="section-1">获取当前用户网络</h3>
-
-<pre class="prettyprint"><code>client.get("/user/networks?access_token=***", callback);
-</code></pre>
-
 
       </div>
       
