@@ -1,0 +1,333 @@
+<h1 id='media'>Media</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_system_media'>List system media</a></li><li><a href='#get_details_of_the_given_system_media'>Get details of the given system media</a></li><li><a href='#list_media_of_the_given_network'>List media of the given network</a></li><li><a href='#get_details_of_the_given_media_in_the_authorized_network'>Get details of the given media in the authorized network</a></li><li><a href='#add_a_media_to_the_given_network'>Add a media to the given network</a></li><li><a href='#delete_media_of_the_given_network'>Delete media of the given network</a></li><li><a href='#modify_details_of_media_in_the_given_network'>Modify details of media in the given network</a></li><li><a href='#list_media_of_the_given_campaign'>List media of the given campaign</a></li><li><a href='#get_details_of_the_given_media_in_the_authorized_campaign'>Get details of the given media in the authorized campaign</a></li><li><a href='#match_a_media_in_the_given_campaign'>Match a media in the given campaign</a></li><li><a href='#add_a_media_to_the_given_campaign'>Add a media to the given campaign</a></li><li><a href='#delete_a_media_in_the_given_campaign'>Delete a media in the given campaign</a></li></ul></div>
+<h2 id='list_system_media'>List system media</h2>
+
+<pre><code>GET /medias</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>sort</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.</dd>
+</dl>
+
+<p>* <code>id</code> - Sorting occurs by media id * <code>name</code> - Sorting occurs by media name * <code>create_time</code> - Sorting occurs by creation time</p>
+
+<dl>
+<dt><code>direction</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The direction to retrieve the results.</dd>
+</dl>
+
+<p>* <code>asc</code> Ascend (_Default_) * <code>desc</code> Descend</p>
+
+<dl>
+<dt><code>page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
+</dl>
+
+<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
+</dl>
+
+<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///medias?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///medias?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 400,//System Media ID
+    &quot;url&quot;: &quot;http:///medias/400&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//System Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_system_media'>Get details of the given system media</h2>
+
+<pre><code>GET /medias/:id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 400,//System Media ID
+    &quot;url&quot;: &quot;http:///medias/400&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//System Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<h2 id='list_media_of_the_given_network'>List media of the given network</h2>
+
+<pre><code>GET /networks/:network_id/medias</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>sort</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.</dd>
+</dl>
+
+<p>* <code>id</code> - Sorting occurs by network media id. * <code>name</code> - Sorting occurs by network media name. * <code>status</code> - Sorting occurs by <code>status</code>. * <code>framework</code> - Sorting occurs by <code>framework</code>.</p>
+
+<dl>
+<dt><code>direction</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The direction to retrieve the results.</dd>
+</dl>
+
+<p>* <code>asc</code> Ascend (_Default_) * <code>desc</code> Descend</p>
+
+<dl>
+<dt><code>page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
+</dl>
+
+<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
+</dl>
+
+<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///networks/11/medias?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///networks/11/medias?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 1314,//Network Media ID
+    &quot;url&quot;: &quot;http:///networks/11/medias/1314&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//Network Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;status&quot;: &quot;enabled&quot;
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    &quot;media_id&quot;: 400//System Media ID
+    &quot;framework&quot;: &quot;no&quot;
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_media_in_the_authorized_network'>Get details of the given media in the authorized network</h2>
+
+<pre><code>GET /networks/:network_id/medias/:media_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 1314,//Network Media ID
+    &quot;url&quot;: &quot;http:///networks/11/medias/1314&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//Network Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;status&quot;: &quot;enabled&quot;
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    &quot;media_id&quot;: 400//System Media ID
+    &quot;framework&quot;: &quot;no&quot;
+}</code></pre>
+
+<h2 id='add_a_media_to_the_given_network'>Add a media to the given network</h2>
+
+<pre><code>POST /networks/:network_id/medias</code></pre>
+
+<p><strong>Reques</strong></p>
+
+<pre class='prettyprint'><code>{
+    &#39;media_id&#39;: 400
+}</code></pre>
+
+<p><code>media_id</code>: <em>Required</em> <strong>integer</strong> - System Media ID</p>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 201 Created
+Location: http:///networks/11/medias/2
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 1314,//Network Media ID
+    &quot;url&quot;: &quot;http:///networks/11/medias/1314&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//Network Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;status&quot;: &quot;enabled&quot;
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    &quot;media_id&quot;: 400//System Media ID
+    &quot;framework&quot;: &quot;no&quot;
+}</code></pre>
+
+<h2 id='delete_media_of_the_given_network'>Delete media of the given network</h2>
+
+<pre><code>DELETE /networks/medias/:id</code></pre>
+
+<p>When the media which you want to delete has campaigns, it can not be deleted.</p>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+Location: http:///networks/11/medias
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<h2 id='modify_details_of_media_in_the_given_network'>Modify details of media in the given network</h2>
+
+<pre><code>PATCH /networks/:network_id/medias/:media_id</code></pre>
+
+<p><strong>Request</strong></p>
+
+<pre class='prettyprint'><code>{
+    &quot;name&quot;: &quot;新浪财经&quot;,//Network Media Name
+    &quot;framework&quot;: &quot;no&quot;,
+    &quot;status&quot;: &quot;enabled&quot;
+}</code></pre>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Network Media Name</dd>
+
+<dt><code>framework</code></dt>
+
+<dd><em>Optional</em> <strong>enum</strong> - <code>yes</code>, <code>no</code></dd>
+
+<dt><code>status</code></dt>
+
+<dd><em>Optional</em> <strong>enum</strong> - <code>enabled</code>, <code>disabled</code></dd>
+</dl>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 1314,//Network Media ID
+    &quot;url&quot;: &quot;http:///networks/1/medias/1314&quot;,
+    &quot;name&quot;: &quot;新浪财经&quot;,//Network Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;status&quot;: &quot;enabled&quot;
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    &quot;media_id&quot;: 400//System Media ID
+    &quot;framework&quot;: &quot;no&quot;
+}</code></pre>
+
+<h2 id='list_media_of_the_given_campaign'>List media of the given campaign</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/medias/attributes</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 1314,//Network Media ID
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/10092/medias/1314&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//Network Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_media_in_the_authorized_campaign'>Get details of the given media in the authorized campaign</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id/attributes</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 1314,//Network Media ID
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/10092/medias/1314&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//Network Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:2&quot;
+}</code></pre>
+
+<h2 id='match_a_media_in_the_given_campaign'>Match a media in the given campaign</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<p>Match</p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<p>No Match</p>
+
+<pre><code>Status: 404 Not Found
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<h2 id='add_a_media_to_the_given_campaign'>Add a media to the given campaign</h2>
+
+<pre><code>PUT /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+Location: http:///networks/advertisers/campaigns/10092/medias/2010/attributes
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<h2 id='delete_a_media_in_the_given_campaign'>Delete a media in the given campaign</h2>
+
+<pre><code>DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id</code></pre>
+
+<p>When the media which you want to delete has placements, it can not be deleted.</p>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+Location: http:///networks/advertisers/campaigns/10092/medias/attributes
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>

@@ -1,7 +1,9 @@
 ---
-weight: 3
+weight: 4
 layout: default
 category: trackmaster
+subcategory: agency
+language: cn
 title: 媒体
 ---
 
@@ -19,7 +21,7 @@ title: 媒体
 `sort`
 : _可选_ **string** - 列表排序以什么排序
 
-  * `id` - 按照媒体ID排序
+  * `id` - 按照媒体 ID 排序
   * `name` - 按照媒体名称排序
   * `create_time` - 按照创建日期排序
 
@@ -32,8 +34,13 @@ title: 媒体
 `page`
 : _可选_ **integer** - 显示页码
 
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
+
 `per_page`
 : _可选_ **integer** - 分页数量，默认每页30条
+
+`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 **响应**
 
@@ -46,9 +53,9 @@ title: 媒体
 {:.prettyprint}
     [
       {
-        "id": 1,
+        "id": 400,//系统媒体 ID
         "url": "http://{{site.track_api_host}}/medias/1",
-        "name": "新浪",
+        "name": "新浪",//系统媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
@@ -69,50 +76,14 @@ title: 媒体
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/medias/1",
-        "name": "新浪",
+        "id": 400,//系统媒体 ID
+        "url": "http://{{site.track_api_host}}/medias/400",
+        "name": "新浪",//系统媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
     }
-
-
-## 媒体用户获取iab数据
-
-    GET /medias/:id/ies
-
-**响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/ies?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/ies?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-**参数**
-
-`pubid`
-: _可选_ **string** - pubid 指定后只获取该pubid的数据
-
-`date`
-: _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据
-
-`page`
-: _可选_ **integer** - 显示页码
-
-{:.prettyprint}
-    [
-      {
-        "date_hour": 2012061015,
-        "pubid": "IYK_IMloxnwepMEqlx",
-        "city": "北京",
-        "geoid": 110000,
-        "impression": 12039423,
-        "click": 43432,
-      }
-    ]
 
 
 ## 获取指定工作网络下媒体库列表
@@ -124,7 +95,7 @@ title: 媒体
 `sort`
 : _可选_ **string** - 列表排序以什么排序
 
-  * `id` - 按照网络媒体ID排序
+  * `id` - 按照网络媒体 ID 排序
   * `name` - 按照网络媒体名称排序
   * `status` - 按照状态排序
   * `framework` - 按照框架排序
@@ -138,8 +109,12 @@ title: 媒体
 `page`
 : _可选_ **integer** - 显示页码
 
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
 `per_page`
 : _可选_ **integer** - 分页数量，默认每页30条
+
+`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 **响应**
 
@@ -152,15 +127,15 @@ title: 媒体
 {:.prettyprint}
     [
       {
-        "id": 1,
+        "id": 1305,//网络媒体 ID
         "url": "http://{{site.track_api_host}}/networks/1/medias/2",
-        "name": "新浪",
+        "name": "新浪",//网络媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "status": "enabled"
+        "status": "enabled"//网络媒体状态
         "created_at": "2012-09-06T20:39:23Z"
-        "media_id": 150
+        "media_id": 400//系统媒体 ID
         "framework": "no"
       }
     ]
@@ -178,15 +153,15 @@ title: 媒体
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/medias/2",
+        "id": 1305,//网络媒体 ID
+        "url": "http://{{site.track_api_host}}/networks/11/medias/1305",
         "name": "新浪",
-        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
         "status": "enabled"
         "created_at": "2012-09-06T20:39:23Z"
-        "media_id": 150
+        "media_id": 400//系统媒体 ID
         "framework": "no"
     }
 
@@ -202,26 +177,26 @@ title: 媒体
         'media_id': 8982
     }
 
-`media_id`: _必选_ **integer** - 系统媒体ID
+`media_id`: _必选_ **integer** - 系统媒体 ID
 
 **响应**
 
     Status: 201 Created
-    Location: http://{{site.track_api_host}}/networks/1/medias/2
+    Location: http://{{site.track_api_host}}/networks/11/medias/1305
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/medias/2",
+        "id":1305,//网络媒体 ID
+        "url": "http://{{site.track_api_host}}/networks/11/medias/1305",
         "name": "新浪",
-        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
         "status": "enabled"
         "created_at": "2012-09-06T20:39:23Z"
-        "media_id": 8982
+        "media_id": 400//系统媒体 ID
         "framework": "no"
     }
 
@@ -232,7 +207,7 @@ title: 媒体
 **响应**
 
     Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/1/medias
+    Location: http://{{site.track_api_host}}/networks/11/medias
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -268,15 +243,15 @@ title: 媒体
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/networks/1/medias/2",
+        "id": 1305,//网络媒体 ID
+        "url": "http://{{site.track_api_host}}/networks/1/medias/1305",
         "name": "新浪财经",
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
         "status": "enabled"
         "created_at": "2012-09-06T20:39:23Z"
-        "media_id": 8982
+        "media_id": 400//系统媒体 ID
         "framework": "no"
     }
 
@@ -294,10 +269,10 @@ title: 媒体
 {:.prettyprint}
     [
       {
-        "id": 1314,
+        "id": 1314,//网络媒体 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
-        "name": "新浪",
-        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+        "name": "新浪",//网络媒体名称
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "created_at": "2012-09-06T20:39:23Z"
       }
     ]
@@ -314,10 +289,10 @@ title: 媒体
 
 {:.prettyprint}
     {
-        "id": 1314,
+        "id": 1314,//网络媒体 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
-        "name": "新浪",
-        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+        "name": "新浪",//网络媒体名称
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "created_at": "2012-09-06T20:39:2"
     }
 
@@ -347,7 +322,7 @@ title: 媒体
 **响应**
 
     Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/12/medias/123/attributes
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/medias/2000/attributes
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -356,9 +331,11 @@ title: 媒体
 
     DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
+当该项目下媒体存在广告位时，不能删除媒体。
+
 **响应**
 
     Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/12/medias/attributes
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/medias/attributes
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999

@@ -1,0 +1,37 @@
+<h1 id='brand'>Brand</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_brands_of_the_given_advertiser'>List brands of the given advertiser</a></li><li><a href='#get_details_of_the_given_brand'>Get details of the given brand</a></li></ul></div>
+<h2 id='list_brands_of_the_given_advertiser'>List brands of the given advertiser</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/brands</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 30,//Network Brand ID
+    &quot;name&quot;: &quot;巧乐兹&quot;,//Network Brand Name
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//Creation Time
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_brand'>Get details of the given brand</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/brands/:id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 30,//Network Brand ID
+    &quot;network_id&quot;: 11,//Network ID
+    &quot;advertiser_id&quot;: 10231,//Advertiser ID
+    &quot;name&quot;: &quot;巧乐兹&quot;,//Network Brand Name
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//Creation Time
+}</code></pre>

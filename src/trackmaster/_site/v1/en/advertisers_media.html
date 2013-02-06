@@ -1,0 +1,68 @@
+<h1 id='media'>Media</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_media_of_the_given_advertiser'>List media of the given advertiser</a></li><li><a href='#get_details_of_the_given_advertisers'>Get details of the given advertisers</a></li><li><a href='#get_details_of_system_media_in_the_given_network_media_id'>Get details of system media in the given network media ID</a></li></ul></div>
+<h2 id='list_media_of_the_given_advertiser'>List media of the given advertiser</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/medias</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>status: 200 ok</code></pre>
+
+<pre><code>[
+
+    {
+    &quot;id&quot;: 400,//System Media ID
+    &quot;name&quot;: &quot;Sina&quot;,//System Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_advertisers'>Get details of the given advertisers</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/medias/:media_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+
+{
+    &quot;id&quot;: 400,//System Media ID
+    &quot;name&quot;: &quot;Sina&quot;,//System Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/sina.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<p>]</p>
+
+<h2 id='get_details_of_system_media_in_the_given_network_media_id'>Get details of system media in the given network media ID</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/networks/medias/:network_media_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+
+{
+    &quot;id&quot;: 400,//System Media ID
+    &quot;url&quot;: &quot;http:///medias/400&quot;,
+    &quot;name&quot;: &quot;Sina&quot;,//System Media Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/mediaIcon/1.ico&quot;,
+    &quot;domain&quot;: &quot;sina.com.cn&quot;,
+    &quot;tag&quot;: &quot;综合其他&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<p>]</p>

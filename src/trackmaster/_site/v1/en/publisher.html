@@ -1,0 +1,129 @@
+<h1 id='trackmaster_api_for_publishers'>TrackMaster API for Publishers</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#get_the_access_token'>Get the access_token</a></li><li><a href='#list_the_campaigns'>List the campaigns</a></li><li><a href='#get_the_media_daily_report'>Get the media daily report</a></li><li><a href='#more_information'>More information</a></li></ul></div>
+<p>TrackMaster provides an API for programmatic access to account data. All API access is over HTTP. All data is sent and received as JSON.</p>
+
+<p>TrackMaster APIs use the OAuth 2.0 protocol for authentication and authorization.</p>
+
+<p>All developers need to register their application before getting started. A registered OAuth application is assigned a unique <code>client_id</code> and <code>client_secret</code>. The client_secret should not be shared.</p>
+
+<p>Please read more about <a href='http://dev.admaster.com.cn/doc/openmaster/v1/en/oauth.html'>OAuth</a> and <a href='http://dev.admaster.com.cn/doc/openmaster/v1/en/verbs.html'>Protocal and Requests Instructions</a>.</p>
+
+<h2 id='get_the_access_token'>Get the access_token</h2>
+
+<p>Before your application can access a TrackMaster API, it must obtain an access token that grants access to that API.</p>
+
+<pre><code>POST http://open.admaster.com.cn/oauth/access_token</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<pre><code>{
+  &quot;client_id&quot;: &quot;***&quot;,
+  &quot;client_secret&quot;: &quot;***&quot;,
+  &quot;grant_type&quot;: &quot;password&quot;,
+  &quot;email&quot;: &quot;your@email.com&quot;,
+  &quot;password&quot;: &quot;***&quot;
+}</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre><code>{
+  &quot;access_token&quot;: &quot;7a68b4d65ddd6a6191ef0cbf9cadb06528d92d67&quot;,
+  &quot;expires_in&quot;: &quot;18000&quot;,
+  &quot;refresh_token&quot;: &quot;23a89c9944afc0525a25d15d180c6bce03efa331&quot;
+}</code></pre>
+
+<p>Access tokens have a limited lifetime and, in some cases, an application needs access to a TrackMaster API beyond the lifetime of <code>expires_in</code>. In this case, your application can obtain what is called a refresh token. A refresh token and some parameters allow your application to obtain new access tokens.</p>
+
+<pre><code>{
+  &quot;client_id&quot;: &quot;***&quot;,
+  &quot;client_secret&quot;: &quot;***&quot;,
+  &quot;grant_type&quot;: &quot;refresh_token&quot;,
+  &quot;refresh_token&quot;: &quot;***&quot;
+}</code></pre>
+
+<h2 id='list_the_campaigns'>List the campaigns</h2>
+
+<pre><code>GET http://track.admasterapi.com/medias/:media_id/campaigns</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<p>The <code>access_token</code> you received as a response to <code>Getting the access_token</code>.</p>
+
+<pre><code>access_token=***</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Testing campaign&quot;,
+    &quot;start_date&quot;: &quot;2012-01-03&quot;,
+    &quot;end_date&quot;: &quot;2012-06-23&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+  }
+]</code></pre>
+
+<h2 id='get_the_media_daily_report'>Get the media daily report</h2>
+
+<pre><code>GET http://track.admasterapi.com/medias/:media_id/campaigns/:campaign_id/daily_reports</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>media_id</code></dt>
+
+<dd><em>Required</em> <strong>Integer</strong> - The media ID you received from TrackMaster.</dd>
+
+<dt><code>campaign_id</code></dt>
+
+<dd><em>Required</em> <strong>Integer</strong> - The campaign ID you received from TrackMaster.</dd>
+</dl>
+
+<p><code>access_token=***</code></p>
+
+<dl>
+<dt><code>start_time</code></dt>
+
+<dd><em>Optional</em> <strong>Date</strong></dd>
+</dl>
+
+<p>Beginning date to retrieve data in format YYYY-MM-DD. Example:2012-08-01，listing campaigns which beginning time earlier than <code>start_time</code>.</p>
+
+<dl>
+<dt><code>end_time</code></dt>
+
+<dd><em>Optional</em> <strong>Date</strong></dd>
+</dl>
+
+<p>Final date to retrieve data in format YYYY-MM-DD. Example:2012-08-02，listing campaigns which final time later than <code>end_time</code>.</p>
+
+<dl>
+<dt><code>sort</code></dt>
+
+<dd><em>Optional</em> <strong>String</strong> - The order to retrieve the results.</dd>
+
+<dt><code>direction</code></dt>
+
+<dd><em>Optional</em> <strong>String</strong> - The direction to retrieve the results.</dd>
+</dl>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+  {
+    &quot;time&quot;: &quot;2012-08-01&quot;, // time
+    &quot;imp&quot;: 23, //impression
+    &quot;uimp&quot;: 20, //unique impression
+    &quot;clk&quot;: 20, //click
+    &quot;uclk&quot;: 10, //unique click
+  }
+]</code></pre>
+
+<h2 id='more_information'>More information</h2>
+
+<p><a href='/doc/trackmaster/v1/en/index.html'>TrackMaster Index</a></p>
+
+<p><a href='/doc/openmaster/v1/en/verbs.html'>Protocal and Requests Instructions</a></p>

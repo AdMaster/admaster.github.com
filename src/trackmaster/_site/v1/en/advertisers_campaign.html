@@ -1,0 +1,63 @@
+<h1 id='campaign'>Campaign</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_campaigns_of_the_given_advertiser'>List campaigns of the given advertiser</a></li><li><a href='#get_details_of_the_given_campaign'>Get details of the given campaign</a></li></ul></div>
+<h2 id='list_campaigns_of_the_given_advertiser'>List campaigns of the given advertiser</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/campaigns</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+  {
+    &quot;id&quot;: 10786,//Campaign ID
+    &quot;name&quot;: &quot;Testing campaign&quot;,//Campaign Name
+    &quot;network_brand_id&quot;: 10213,//Network Brand ID
+    &quot;cost_type&quot;: &quot;CNY&quot;,//The `cost_type` that was performed: “CNY” , “USD” or &quot;None&quot;.
+    &quot;total_cost&quot;: 20000000,//Total cost of campaign
+    &quot;start_date&quot;: &quot;2012-01-03&quot;,//Beginning date of campaign
+    &quot;end_date&quot;: &quot;2012-06-23&quot;,//Final date of campaign
+    &quot;default_target&quot;: &quot;http://www.admaster.com.cn&quot;//Target Website
+    &quot;media_num&quot;: 8,//The number of media in the campaign 
+    &quot;placement_num&quot;: 258,//The number of placements in the campaign
+    &quot;target_audience&quot;:{//Target Audience
+        &quot;age&quot;: &quot;19-25&quot;,//Age Groups
+        &quot;sex&quot;: &quot;male&quot;//Gender
+    },
+    &quot;status&quot;: &quot;midterm&quot;,//Status of campaign 
+    &quot;is_online&quot;: &quot;yes&quot;,//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is &quot;yes&quot;. 
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//Creation time of campaign
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_campaign'>Get details of the given campaign</h2>
+
+<pre><code>GET /advertisers/campaigns/:id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+{
+    &quot;id&quot;: 10786,//Campaign ID
+    &quot;name&quot;: &quot;Testing campaign&quot;,//Campaign Name
+    &quot;network_brand_id&quot;: 10213,//Network Brand ID
+    &quot;cost_type&quot;: &quot;CNY&quot;,//The `cost_type` that was performed: “CNY” , “USD” or &quot;None&quot;.
+    &quot;total_cost&quot;: 20000000,//Total cost of campaign
+    &quot;start_date&quot;: &quot;2012-01-03&quot;,//Beginning date of campaign
+    &quot;end_date&quot;: &quot;2012-06-23&quot;,//Final date of campaign
+    &quot;default_target&quot;: &quot;http://www.admaster.com.cn&quot;//Target Website
+    &quot;media_num&quot;: 8,//The number of media in the campaign 
+    &quot;placement_num&quot;: 258,//The number of placements in the campaign
+    &quot;target_audience&quot;:{//Target Audience
+        &quot;age&quot;: &quot;19-25&quot;,//Age Groups
+        &quot;sex&quot;: &quot;male&quot;//Gender
+    },
+    &quot;status&quot;: &quot;midterm&quot;,//Status of campaign 
+    &quot;is_online&quot;: &quot;yes&quot;,//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is &quot;yes&quot;. 
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//Creation time of campaign
+}
+]</code></pre>

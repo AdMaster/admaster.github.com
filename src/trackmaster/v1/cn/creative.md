@@ -1,7 +1,9 @@
 ---
-weight: 9
+weight: 6
 layout: default
 category: trackmaster
+subcategory: agency
+language: cn
 title: 创意
 ---
 
@@ -30,11 +32,11 @@ title: 创意
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1",
         //创意名称
-        "name": "这是一个很不错的创意",
+        "name": "创意 A",
         //创意名缩写
         "shortname": "GO",
         //创意描述
-        "description": "这个很不错的创意受到了全国人民的一致认可",
+        "description": "此创意针对20-30岁人群",
         //创意颜色标识
         "color": "#ff00ff",
         //创意附属文件
@@ -71,11 +73,11 @@ title: 创意
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1",
         //创意名称
-        "name": "这是一个很不错的创意",
+        "name": "创意 A",
         //创意名缩写
         "shortname": "GO",
         //创意描述
-        "description": "这个很不错的创意受到了全国人民的一致认可",
+        "description": "此创意针对20-30岁人群",
         //创意颜色标识
         "color": "#ff00ff",
         //创意附属文件
@@ -122,9 +124,9 @@ title: 创意
 
 {:.prettyprint}
     {
-        "name": "这是一个很不错的创意",
+        "name": "创意 A",
         "shortname": "GO",
-        "description": "这个很不错的创意受到了全国人民的一致认可",
+        "description": "此创意针对20-30岁人群",
         "color": "#ff00ff",
         "file_id": 123,
         "target_url": "http://www.admaster.com.cn/",
@@ -144,11 +146,11 @@ title: 创意
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1",
         //创意名称
-        "name": "这是一个很不错的创意",
+        "name": "创意 A",
         //创意名缩写
         "shortname": "GO",
         //创意描述
-        "description": "这个很不错的创意受到了全国人民的一致认可",
+        "description": "此创意针对20-30岁人群",
         //创意颜色标识
         "color": "#ff00ff",
         //创意附属文件
@@ -181,6 +183,8 @@ title: 创意
 
     PATCH /networks/advertisers/campaigns/creatives/:id
 
+删除创意后，创意变为默认创意，注意此时获取的监测代码会发生变化。
+
 **参数**
 
 `name`
@@ -205,9 +209,9 @@ title: 创意
 
 {:.prettyprint}
     {
-        "name": "这是一个很不错的创意",
+        "name": "创意 A",
         "shortname": "GO",
-        "description": "这个很不错的创意受到了全国人民的一致认可",
+        "description": "此创意针对20-30岁人群",
         "color": "#ff00ff",
         "file_id": 123,
         "target_url": "http://www.admaster.com.cn/",
