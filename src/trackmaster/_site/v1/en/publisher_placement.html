@@ -1,0 +1,120 @@
+<h1 id='placement'>Placement</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_placements_of_the_given_publisher'>List placements of the given publisher</a></li><li><a href='#get_details_of_the_given_placement'>Get details of the given placement</a></li></ul></div>
+<h2 id='list_placements_of_the_given_publisher'>List placements of the given publisher</h2>
+
+<pre><code>GET /medias/:media_id/placements</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>media_id</code></dt>
+
+<dd><em>Required</em> <strong>integer</strong> - Media ID <br />If the input is a part of placement name, it will search the placement.</dd>
+
+<dt><code>name</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Placement Name</dd>
+
+<dt><code>page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
+</dl>
+
+<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
+</dl>
+
+<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///medias/100/placements?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///medias/100/placements?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    //Placement ID
+    &quot;id&quot;: 200057486,
+    //Placement Name
+    &quot;name&quot;: &quot;A Testing Placement&quot;,
+    //Channel Information
+    &quot;channel&quot;: {
+   //Channel ID
+    &quot;id&quot;: 1025,
+    //Channel Name
+    &quot;name&quot;: &quot;Sport News&quot;,
+    //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
+    &quot;type&quot;: &quot;webpage&quot;,
+    //Which screen the placement is in
+    &quot;screen&quot;: 3,
+    //Channel Website
+    &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //Material Type -`flash`(Default)，`image`，`video`, `textlink`, `other`
+    &quot;material_type&quot;: &#39;flash&#39;,
+    //Material Dimension
+    &quot;material_dimension&quot;: &quot;400x300&quot;,
+    //Material Size
+    &quot;material_size&quot;: 200,
+    //Material Unit，B K(Default) M
+    &quot;material_size_unit&quot;: &quot;B&quot;
+},
+    //Target URL(Click)
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //Creation Time
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+   //Campaign ID
+    &quot;campaign_id&quot;:1000
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_placement'>Get details of the given placement</h2>
+
+<pre><code>GET /medias/placements/:placement_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+//Placement ID
+&quot;id&quot;: 200057486,
+//Placement Name
+&quot;name&quot;: &quot;A Testing Placement&quot;,
+//Channel Information
+&quot;channel&quot;: {
+   //Channel ID
+    &quot;id&quot;: 1025,
+    //Channel Name
+    &quot;name&quot;: &quot;Sport News&quot;,
+    //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
+    &quot;type&quot;: &quot;webpage&quot;,
+    //Which screen the placement is in
+    &quot;screen&quot;: 3,
+    //Channel Website
+    &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //Material Type -`flash`(Default)，`image`，`video`, `textlink`, `other`
+    &quot;material_type&quot;: &#39;flash&#39;,
+    //Material Dimension
+    &quot;material_dimension&quot;: &quot;400x300&quot;,
+    //Material Size
+    &quot;material_size&quot;: 200,
+    //Material Unit，B K(Default) M
+    &quot;material_size_unit&quot;: &quot;B&quot;
+},
+//Target URL(Click)
+&quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+//Creation Time
+&quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+//Campaign ID
+&quot;campaign_id&quot;:1000
+
+}</code></pre>

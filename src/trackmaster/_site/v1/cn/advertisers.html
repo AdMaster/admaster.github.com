@@ -1,0 +1,170 @@
+<h1 id='id20'>广告主对接指南</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#_'>第一步 获取访问令牌</a></li><li><a href='#_'>第二步 获取广告主项目列表</a></li><li><a href='#_'>第三步 获取项目报告</a></li></ul></div>
+<p>TrackMaster™ 所有 API 的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。</p>
+
+<p>TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。</p>
+
+<p>请在开发前先阅读 <a href='http://dev.admaster.com.cn/doc/openmaster/v1/cn/get_started.html'>快速入门</a>、<a href='http://dev.admaster.com.cn/doc/openmaster/v1/cn/oauth.html'>OAuth 认证</a>、<a href='http://dev.admaster.com.cn/doc/openmaster/v1/cn/verbs.html'>协议及请求方式</a>、<a href='http://dev.admaster.com.cn/doc/openmaster/v1/cn/common.html'>接口定义-通用说明</a>。</p>
+
+<h2 id='_'>第一步 获取访问令牌</h2>
+
+<pre><code>POST http://open.admaster.com.cn/oauth/access_token</code></pre>
+
+<p><strong>参数</strong></p>
+
+<pre><code>{
+  &quot;client_id&quot;: &quot;***&quot;,
+  &quot;client_secret&quot;: &quot;***&quot;,
+  &quot;grant_type&quot;: &quot;password&quot;,
+  &quot;email&quot;: &quot;yourmailaddress@email.com&quot;,
+  &quot;password&quot;: &quot;***&quot;
+}</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>{
+  &quot;access_token&quot;: &quot;7a68b4d65ddd6a6191ef0cbf9cadb06528d92d67&quot;,
+  &quot;expires_in&quot;: &quot;18000&quot;,
+  &quot;refresh_token&quot;: &quot;23a89c9944afc0525a25d15d180c6bce03efa331&quot;
+}</code></pre>
+
+<p><code>access_token</code>在<code>expires_in</code>秒内有效，超期后请重新访问该接口获取新的访问令牌，携带参数：</p>
+
+<pre><code>{
+  &quot;client_id&quot;: &quot;***&quot;,
+  &quot;client_secret&quot;: &quot;***&quot;,
+  &quot;grant_type&quot;: &quot;refresh_token&quot;,
+  &quot;refresh_token&quot;: &quot;***&quot;
+}</code></pre>
+
+<h2 id='_'>第二步 获取广告主项目列表</h2>
+
+<pre><code>GET http://track.admasterapi.com/advertisers/:advertiser_id/campaigns</code></pre>
+
+<p><strong>参数</strong></p>
+
+<p>第一步中获取到的<code>access_token</code></p>
+
+<pre><code>access_token=***</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;测试项目&quot;,
+    &quot;start_date&quot;: &quot;2012-01-03&quot;,
+    &quot;end_date&quot;: &quot;2012-06-23&quot;,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+  }
+]</code></pre>
+
+<h2 id='_'>第三步 获取项目报告</h2>
+
+<pre><code>GET /advertisers/campaigns/:campaign_id/reports</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+<dt><code>time</code></dt>
+
+<dd><em>必选</em> <strong>string</strong> - 数据时间类型,与参数 <code>start_time</code> 和 <code>end_time</code> 共同使用。</dd>
+</dl>
+
+<p>* <code>hourly</code> 获取小时数据 * <code>daily</code> 获取日数据 * <code>weekly</code> 获取周数据 * <code>monthly</code> 获取月数据</p>
+
+<dl>
+<dt><code>dims</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 数据聚合维度,多个选项之间用<code>,</code>分开</dd>
+</dl>
+
+<p>* <code>media</code> 按媒体维度聚合 * <code>placement</code> 按广告位维度聚合 * <code>keyword</code> 按关键字维度聚合 * <code>creative</code> 按创意维度聚合 * <code>geo</code> 按地域维度聚合 * <code>time</code> 按时间维度聚合</p>
+
+<dl>
+<dt><code>network_media_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 网络媒体 ID</dd>
+
+<dt><code>placement_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 广告位 ID</dd>
+
+<dt><code>keyword_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 关键字 ID</dd>
+
+<dt><code>creative_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
+
+<dt><code>geo_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 地域 ID</dd>
+
+<dt><code>start_time</code></dt>
+
+<dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目，与参数<code>time</code>一起使用。<br />采用国际标准 ISO 8601 的日期和时间显示格式。</dd>
+</dl>
+
+<p>* 当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。</p>
+
+<p>* 当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
+
+<p>* 当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01。</p>
+
+<p>* 当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
+
+<dl>
+<dt><code>end_time</code></dt>
+
+<dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目，与参数<code>time</code>一起使用。<br />采用国际标准 ISO 8601 的日期和时间显示格式。</dd>
+</dl>
+
+<p>* 当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。</p>
+
+<p>* 当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
+
+<p>* 当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。</p>
+
+<p>* 当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
+
+<dl>
+<dt><code>sort</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序</dd>
+</dl>
+
+<p>* <code>time</code> - 按照时间排序 * <code>imp</code> - 按照曝光排序 * <code>clk</code> - 按照点击排序 * <code>uimp</code> - 按照独立曝光排序 * <code>uclk</code> - 按照独立点击排序 * <code>network_media_id</code> - 按照网络媒体 ID 排序 * <code>placement_id</code> - 按照广告位 ID 排序</p>
+
+<dl>
+<dt><code>direction</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 排序方式</dd>
+</dl>
+
+<p>* <code>asc</code> 升序 (_默认_) * <code>desc</code> 降序</p>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///campaigns/10185/reports?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///campaigns/10185/reports?page=10&gt;; rel=&quot;last&quot;</code></pre>
+
+<pre><code>[
+  {
+    &quot;campaign_id&quot;: 10185,//项目 ID
+    &quot;network_media_id&quot;: 1484,//媒体网络 ID
+    &quot;time&quot;: &quot;2012-08-03&quot;,//此处 `time` 格式与参数 `start_time`、`end_time` 一致，例如当参数`time`为 daily，则此处时间为从 `start_time` 到 `end_time` 分天时间.
+    &quot;imp&quot;: 90,//曝光数
+    &quot;uimp&quot;: 60,//独立曝光数
+    &quot;ipuimp&quot;: 56,//独立曝光 IP 数
+    &quot;clk&quot;: 30,//点击数
+    &quot;uclk&quot;: 23,//独立点击数
+    &quot;ipuclk&quot;: 27//独立点击 IP 数
+  }
+]</code></pre>
+
+<p><strong>详情参见</strong></p>
+
+<p><a href='/doc/trackmaster/v1/cn/advertisers_report.html'>广告主项目报告</a> <br /><a href='/doc/openmaster/v1/cn/verbs.html'>协议及请求说明</a></p>

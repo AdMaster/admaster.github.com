@@ -32,6 +32,7 @@
             <li><a href="/doc/trackmaster/v1/cn/index.html">TrackMaster</a></li>
             <li><a href="/doc/weibomaster/v1/cn/index.html">WeiboMaster</a></li>
             <li><a href="/doc/surveymaster/v1/cn/index.html">SurveyMaster</a></li>
+            <li><a href="/doc/sitemaster/v1/cn/index.html">SiteMaster</a></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -44,7 +45,6 @@
 <ul id="markdown-toc">
   <li><a href="#section-1">获取系统媒体库列表</a></li>
   <li><a href="#section-2">获取指定系统媒体详细信息</a></li>
-  <li><a href="#iab">媒体用户获取iab数据</a></li>
   <li><a href="#section-3">获取指定工作网络下媒体库列表</a></li>
   <li><a href="#section-4">获取指定工作网络下指定媒体信息</a></li>
   <li><a href="#section-5">给指定工作网络添加一个媒体</a></li>
@@ -69,7 +69,7 @@
   <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
 
     <ul>
-      <li><code>id</code> - 按照媒体ID排序</li>
+      <li><code>id</code> - 按照媒体 ID 排序</li>
       <li><code>name</code> - 按照媒体名称排序</li>
       <li><code>create_time</code> - 按照创建日期排序</li>
     </ul>
@@ -84,9 +84,16 @@
   </dd>
   <dt><code>page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+</dl>
+
+<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+
+<dl>
   <dt><code>per_page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页30条</dd>
 </dl>
+
+<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
 
 <p><strong>响应</strong></p>
 
@@ -99,9 +106,9 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
   {
-    "id": 1,
+    "id": 400,//系统媒体 ID
     "url": "http://track.admasterapi.com/medias/1",
-    "name": "新浪",
+    "name": "新浪",//系统媒体名称
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
@@ -123,51 +130,14 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 1,
-    "url": "http://track.admasterapi.com/medias/1",
-    "name": "新浪",
+    "id": 400,//系统媒体 ID
+    "url": "http://track.admasterapi.com/medias/400",
+    "name": "新浪",//系统媒体名称
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
     "created_at": "2012-09-06T20:39:23Z"
 }
-</code></pre>
-
-<h2 id="iab">媒体用户获取iab数据</h2>
-
-<pre><code>GET /medias/:id/ies
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/medias/1/ies?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/medias/1/ies?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>pubid</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该pubid的数据</dd>
-  <dt><code>date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
-</dl>
-
-<pre class="prettyprint"><code>[
-  {
-    "date_hour": 2012061015,
-    "pubid": "IYK_IMloxnwepMEqlx",
-    "city": "北京",
-    "geoid": 110000,
-    "impression": 12039423,
-    "click": 43432,
-  }
-]
 </code></pre>
 
 <h2 id="section-3">获取指定工作网络下媒体库列表</h2>
@@ -182,7 +152,7 @@ X-RateLimit-Remaining: 4999
   <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
 
     <ul>
-      <li><code>id</code> - 按照网络媒体ID排序</li>
+      <li><code>id</code> - 按照网络媒体 ID 排序</li>
       <li><code>name</code> - 按照网络媒体名称排序</li>
       <li><code>status</code> - 按照状态排序</li>
       <li><code>framework</code> - 按照框架排序</li>
@@ -198,9 +168,16 @@ X-RateLimit-Remaining: 4999
   </dd>
   <dt><code>page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+</dl>
+
+<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+
+<dl>
   <dt><code>per_page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页30条</dd>
 </dl>
+
+<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
 
 <p><strong>响应</strong></p>
 
@@ -213,15 +190,15 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
   {
-    "id": 1,
+    "id": 1305,//网络媒体 ID
     "url": "http://track.admasterapi.com/networks/1/medias/2",
-    "name": "新浪",
+    "name": "新浪",//网络媒体名称
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
-    "status": "enabled"
+    "status": "enabled"//网络媒体状态
     "created_at": "2012-09-06T20:39:23Z"
-    "media_id": 150
+    "media_id": 400//系统媒体 ID
     "framework": "no"
   }
 ]
@@ -240,15 +217,15 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 1,
-    "url": "http://track.admasterapi.com/networks/1/medias/2",
+    "id": 1305,//网络媒体 ID
+    "url": "http://track.admasterapi.com/networks/11/medias/1305",
     "name": "新浪",
-    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
     "status": "enabled"
     "created_at": "2012-09-06T20:39:23Z"
-    "media_id": 150
+    "media_id": 400//系统媒体 ID
     "framework": "no"
 }
 </code></pre>
@@ -265,26 +242,26 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<p><code>media_id</code>: <em>必选</em> <strong>integer</strong> - 系统媒体ID</p>
+<p><code>media_id</code>: <em>必选</em> <strong>integer</strong> - 系统媒体 ID</p>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 201 Created
-Location: http://track.admasterapi.com/networks/1/medias/2
+Location: http://track.admasterapi.com/networks/11/medias/1305
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 1,
-    "url": "http://track.admasterapi.com/networks/1/medias/2",
+    "id":1305,//网络媒体 ID
+    "url": "http://track.admasterapi.com/networks/11/medias/1305",
     "name": "新浪",
-    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
     "status": "enabled"
     "created_at": "2012-09-06T20:39:23Z"
-    "media_id": 8982
+    "media_id": 400//系统媒体 ID
     "framework": "no"
 }
 </code></pre>
@@ -297,7 +274,7 @@ X-RateLimit-Remaining: 4999
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/networks/1/medias
+Location: http://track.admasterapi.com/networks/11/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -333,15 +310,15 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 1,
-    "url": "http://track.admasterapi.com/networks/1/medias/2",
+    "id": 1305,//网络媒体 ID
+    "url": "http://track.admasterapi.com/networks/1/medias/1305",
     "name": "新浪财经",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
     "status": "enabled"
     "created_at": "2012-09-06T20:39:23Z"
-    "media_id": 8982
+    "media_id": 400//系统媒体 ID
     "framework": "no"
 }
 </code></pre>
@@ -360,10 +337,10 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
   {
-    "id": 1314,
+    "id": 1314,//网络媒体 ID
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/10092/medias/1314",
-    "name": "新浪",
-    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "name": "新浪",//网络媒体名称
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
     "created_at": "2012-09-06T20:39:23Z"
   }
 ]
@@ -382,10 +359,10 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 1314,
+    "id": 1314,//网络媒体 ID
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/10092/medias/1314",
-    "name": "新浪",
-    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "name": "新浪",//网络媒体名称
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
     "created_at": "2012-09-06T20:39:2"
 }
 </code></pre>
@@ -419,7 +396,7 @@ X-RateLimit-Remaining: 4999
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/networks/advertisers/campaigns/12/medias/123/attributes
+Location: http://track.admasterapi.com/networks/advertisers/campaigns/10786/medias/2000/attributes
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -429,1084 +406,6884 @@ X-RateLimit-Remaining: 4999
 <pre><code>DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 </code></pre>
 
+<p>当该项目下媒体存在广告位时，不能删除媒体。</p>
+
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/networks/advertisers/campaigns/12/medias/attributes
+Location: http://track.admasterapi.com/networks/advertisers/campaigns/10786/medias/attributes
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
       </div>
-
+      
     <div id="js-sidebar" class="sidebar-shell">
       <div class="js-toggle-list sidebar-module expandable">
         <ul>
         
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/index.html">
-                  TrackMaster首页
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/advertiser.html">
-                  广告主
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/trackmaster/v1/cn/media.html">
-                  媒体
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/network.html">
-                  工作网络
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
+          
+          
+          
+          
+          
+          
           
+          
+          
+          
+          
             
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/brand.html">
-                  品牌
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
+          
+          
+          
             
+          
           
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
-        
           
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/channel.html">
-                  频道
-                </a></h3>
+                  <a  href="/doc/trackmaster/v1/cn/index.html">TrackMaster™ 文档首页</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  
                 </ul>
               </li>
             
           
-            
           
-            
-          
-        
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
           
             
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/campaign.html">
-                  项目
-                </a></h3>
+                  <a  href="/doc/trackmaster/v1/cn/sdk.html">SDK</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/java.html">Java SDK</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/php.html">PHP SDK</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/cs.html">C# SDK</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/ruby.html">Ruby SDK</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/python.html">Python SDK</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/sdk/nodejs.html">Node.js SDK</a></li>
+                  
                 </ul>
               </li>
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
+          
+          
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
           
             
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/code.html">
-                  代码
-                </a></h3>
+                  <a  href="/doc/trackmaster/v1/cn/publisher.html">媒体</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/publisher_placement.html">广告位</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/publisher_keywords.html">关键字</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/publisher_territory.html">地域</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/media_report.html">媒体报告</a></li>
+                  
                 </ul>
               </li>
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
           
-        
           
             
           
-            
           
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
           
             
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/creative.html">
-                  创意
-                </a></h3>
+                  <a  href="/doc/trackmaster/v1/cn/agency.html">代理</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/campaign.html">项目</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/placement.html">广告位</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/keywords.html">关键字</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/campaign_report.html">项目报告</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertiser.html">广告主</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/channel.html">频道</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/creative.html">创意</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/network.html">工作网络</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/media.html">媒体</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/spot.html">点位</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/brand.html">品牌</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/territory.html">地域</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/code.html">代码</a></li>
+                  
                 </ul>
               </li>
             
           
-            
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
           
-            
-          
-            
           
             
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/placement.html">
-                  广告位
-                </a></h3>
+                  <a  href="/doc/trackmaster/v1/cn/advertisers.html">广告主</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_spot.html">点位</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_creative.html">创意</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_keywords.html">关键字</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_territory.html">地域</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_brand.html">品牌</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_media.html">媒体</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_report.html">广告主报告</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_campaign.html">项目</a></li>
+                  
+                  <li style=""><a href="/doc/trackmaster/v1/cn/advertisers_placement.html">广告位</a></li>
+                  
                 </ul>
               </li>
             
           
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
           
             
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/spot.html">
-                  点位
-                </a></h3>
+                  <a  href="/doc/trackmaster/v1/cn/update.html">更新</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  
                 </ul>
               </li>
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
           
-        
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/campaign_report.html">
-                  项目报告
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
+          
           
             
           
-            
+          
           
             
           
-            
           
-        
           
             
           
-            
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/media_report.html">
-                  媒体报告
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-        
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
           
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/trackmaster/v1/cn/publisher_guide.html">
-                  媒体对接指南
-                </a></h3>
-                <ul class="js-guides">
-                  <li style="display: none;"></li>
-                </ul>
-              </li>
-            
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
           
-            
+          
           
             
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
         
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-            
           
-        
           
-            
           
-            
           
-            
           
-            
+          
           
+          
+          
+          
+          
+          
+          
             
           
+          
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
           
-        
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
           
+          
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
-        
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
           
+          
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
           
+          
             
+          
+          
           
             
           
+          
+          
             
+          
+          
           
             
           
+          
+          
             
           
+          
+          
             
+          
           
         
        </ul>
       </div> <!-- /sidebar-module -->
+
+      <div class="sidebar-module">
+        <p>
+          <a href="/doc/trackmaster/v1/cn/index.html">中文 (中国)</a>
+          - <a href="/doc/trackmaster/v1/en/index.html">English</a>
+        </p>
+      </div>
+
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->
 
     <div id="footer" >
        <div class="lower_footer">
-        <div class="footer_inner clearfix">              
-          <div id="legal"> 
+        <div class="footer_inner clearfix">
+          <div id="legal">
               <!--<ul id="legal_links">
                 <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
                 <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>

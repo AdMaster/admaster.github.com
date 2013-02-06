@@ -1,0 +1,145 @@
+<h1 id='advertiser_report'>Advertiser Report</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#get_the_advertiser_report'>Get the advertiser report</a></li></ul></div>
+<h2 id='get_the_advertiser_report'>Get the advertiser report</h2>
+
+<pre><code>GET /advertisers/campaigns/:campaign_id/reports</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>time</code></dt>
+
+<dd><em>Required</em> <strong>string</strong><br />It is connected with <code>start_time</code> and <code>end_time</code>.</dd>
+</dl>
+
+<p>* <code>hourly</code> Get hourly unique data. * <code>daily</code> Get daily unique data. * <code>weekly</code> Get weekly unique data. * <code>monthly</code> Get monthly unique data.</p>
+
+<dl>
+<dt><code>dims</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use &#8217;,&#8217;. Example : media , placement, time.</dd>
+</dl>
+
+<p>* <code>media</code> <br /> * <code>placement</code> * <code>keyword</code> * <code>creative</code> * <code>geo</code> * <code>time</code></p>
+
+<p>When using dimensions in a feed request, be aware of the following constraints:</p>
+
+<ul>
+<li>You can not send a query comprised only of dimensions: you must combine any requested dimension with at least one metric.</li>
+
+<li>Any given dimension can be used with other dimensions or metrics, but only certain dimensions and metrics can be used together to create valid combinations.</li>
+</ul>
+
+<dl>
+<dt><code>network_media_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Network Media ID</dd>
+
+<dt><code>placement_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Placement ID</dd>
+
+<dt><code>keyword_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Keyword ID</dd>
+
+<dt><code>creative_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Creative ID</dd>
+
+<dt><code>geo_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Geography ID</dd>
+
+<dt><code>start_time</code></dt>
+
+<dd><em>Optional</em> <strong>hour</strong> - Listing campaigns which beginning time date earlier than <code>start_date</code>. The format of <code>start_time</code> is connected with <code>time</code>.The parament <code>start_time</code> is formatted according to the ISO 8601 standard.</dd>
+</dl>
+
+<p>time | start_time | description hourly | YYYY-MM-DDThh:mm:ss+08:00 | 2012-11-06T01:57:10+08:00 daily | YYYY-MM-DD | 2012-11-06 weekly | YYYY-Www | 2005-W01 monthly | YYYY-MM | 2005-01</p>
+
+<dl>
+<dt><code>end_time</code></dt>
+
+<dd><em>Optional</em> <strong>hour</strong> - Listing campaigns which final date later than <code>end_time</code>. The format of <code>end_time</code> is connected with <code>time</code>.The parament <code>end_time</code> is formatted according to the ISO 8601 standard.</dd>
+</dl>
+
+<p>time | end_time | description hourly | YYYY-MM-DDThh:mm:ss+08:00 | 2012-11-06T01:57:10+08:00 daily | YYYY-MM-DD | 2012-11-06 weekly | YYYY-Www | 2005-W01 monthly | YYYY-MM | 2005-01</p>
+
+<dl>
+<dt><code>sort</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.</dd>
+</dl>
+
+<p>* <code>time</code> - Sorting occurs by time. * <code>imp</code> - Sorting occurs by impression. * <code>clk</code> - Sorting occurs by click. * <code>uimp</code> - Sorting occurs by unique impression. * <code>uclk</code> - Sorting occurs by unique click. * <code>network_media_id</code> - Sorting occurs by <code>network_media_id</code> * <code>placement_id</code> - Sorting occurs by <code>placement_id</code></p>
+
+<dl>
+<dt><code>direction</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The direction to retrieve the results.</dd>
+</dl>
+
+<p>* <code>asc</code> Ascend (_Default_) * <code>desc</code> Descend</p>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+  {
+    &quot;campaign_id&quot;: 10185,//Campaign ID
+    &quot;network_media_id&quot;: 1484,//Network Media ID
+    &quot;time&quot;: &quot;2012-08-03&quot;,//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
+    &quot;imp&quot;: 90,//Impression
+    &quot;uimp&quot;: 60,//Unique Impression
+    &quot;ipuimp&quot;: 56,//Unique Impression IP
+    &quot;clk&quot;: 30,//Click
+    &quot;uclk&quot;: 23,//Unique Click
+    &quot;ipuclk&quot;: 22//Unique Click IP
+  }
+]</code></pre>
+
+<p><strong>Dimensions Description</strong></p>
+
+<p>Field | Type | Description imp | integer | Impression uimp | integer | Unique Impression ipuimp | integer | Unique Impression IP clk | integer | Click uclk | integer | Unique Click ipuclk | integer | Unique Click IP</p>
+
+<p><strong>Valid Combinations Description</strong><br />Not all combinations can be queried together. Only certain combinations can be used together to create valid combinations.</p>
+
+<p>|Valid Combinations |time=daily |time=daily&amp;dims=geo |time=daily&amp;dims=creative |time=daily&amp;dims=media |time=daily&amp;dims=media,geo |time=daily&amp;dims=media,creative |time=daily&amp;dims=media,placement |time=daily&amp;dims=media,placement,geo |time=daily&amp;dims=media,placement,creative |time=daily&amp;dims=media,placement,keyword |time=hourly |time=hourly&amp;dims=creative |time=hourly&amp;dims=geo |time=hourly&amp;dims=media |time=hourly&amp;dims=media,creative |time=hourly&amp;dims=media,geo |time=hourly&amp;dims=media,placement |time=hourly&amp;dims=media,placement,creative |time=hourly&amp;dims=media,placement,geo |time=hourly&amp;dims=media,placement,keyword |time=monthly |time=monthly&amp;dims=media |time=monthly&amp;dims=media,placement |time=monthly&amp;dims=media,placement,keyword |time=weekly |time=weekly&amp;dims=media |time=weekly&amp;dims=media,placement |time=weekly&amp;dims=media,placement,keyword</p>
+
+<p><strong>Example</strong></p>
+
+<p>dims contain time</p>
+
+<pre class='prettyprint'><code>[
+    {
+        &quot;campaign_id&quot;: 10116,
+        &quot;time&quot;: &quot;2012-11-01&quot;,
+        &quot;imp&quot;: 3,
+        &quot;uimp&quot;: 3,
+        &quot;clk&quot;: 7,
+        &quot;uclk&quot;: 7,
+        &quot;ipuimp&quot;: 3,
+        &quot;ipuclk&quot;: 4
+    },
+    {
+        &quot;campaign_id&quot;: 10116,
+        &quot;time&quot;: &quot;2012-11-02&quot;,
+    …
+]</code></pre>
+
+<p>dims without time</p>
+
+<pre class='prettyprint'><code>[
+    {
+        &quot;campaign_id&quot;: 10116,
+        &quot;imp&quot;: 28,
+        &quot;uimp&quot;: 27,
+        &quot;clk&quot;: 72,
+        &quot;uclk&quot;: 39,
+        &quot;ipuimp&quot;: 27,
+        &quot;ipuclk&quot;: 24
+    }
+]</code></pre>

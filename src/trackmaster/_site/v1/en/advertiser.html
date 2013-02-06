@@ -1,0 +1,184 @@
+<h1 id='advertiser'>Advertiser</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_advertisers_of_the_authorized_network'>List advertisers of the authorized network</a></li><li><a href='#get_details_of_the_advertiser'>Get details of the advertiser</a></li><li><a href='#list_details_of_advertisers_in_the_authorized_network'>List details of advertisers in the authorized network</a></li><li><a href='#get_details_of_the_advertiser_in_the_authorized_network'>Get details of the advertiser in the authorized network</a></li><li><a href='#add_an_advertiser_to_the_given_network'>Add an advertiser to the given network</a></li><li><a href='#modify_details_of_advertiser_in_the_given_network'>Modify details of advertiser in the given network</a></li><li><a href='#delete_advertiser_of_the_given_network'>Delete advertiser of the given network</a></li></ul></div>
+<h2 id='list_advertisers_of_the_authorized_network'>List advertisers of the authorized network</h2>
+
+<pre><code>GET /advertisers</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>sort</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The order to retrieve the results.</dd>
+</dl>
+
+<p>* <code>id</code> - Sorting occurs by advertiser id. * <code>create_time</code> - Sorting occurs by <code>create_time</code>.</p>
+
+<dl>
+<dt><code>direction</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - The direction to retrieve the results.</dd>
+</dl>
+
+<p>* <code>asc</code> Ascend (_Default_) * <code>desc</code> Descend</p>
+
+<dl>
+<dt><code>page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
+</dl>
+
+<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
+</dl>
+
+<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///advertisers?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///advertisers?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 10199,//Advertiser ID
+    &quot;url&quot;: &quot;http:///advertisers/10199&quot;,
+    &quot;name&quot;: {&quot;zh_cn&quot; =&gt; &quot;腾讯&quot;, &quot;en_us&quot; =&gt; &quot;tencent&quot;},   //Advertiser Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/advIcon/tencent.jpg&quot;,  //Logo URL
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;  //Creation Time
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_advertiser'>Get details of the advertiser</h2>
+
+<pre><code>GET /advertisers/:id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 10199,//Advertiser Name
+    &quot;url&quot;: &quot;http:///advertisers/10199&quot;,
+    &quot;name&quot;: {&quot;zh_cn&quot; =&gt; &quot;腾讯&quot;, &quot;en_us&quot; =&gt; &quot;tencent&quot;},   //Advertiser Name
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/advIcon/tencent.jpg&quot;,  //Logo URL
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;  //Creation Time
+}</code></pre>
+
+<h2 id='list_details_of_advertisers_in_the_authorized_network'>List details of advertisers in the authorized network</h2>
+
+<pre><code>GET /networks/:network_id/advertisers</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;network_id&quot;:11,//Network ID
+    &quot;advertiser_id&quot;: 10198,//Advertiser Name
+    &quot;url&quot;: &quot;http:///networks/11/advertisers/10198&quot;,
+    &quot;name&quot;: {&quot;zh_cn&quot; =&gt; &quot;腾讯&quot;, &quot;en_us&quot; =&gt; &quot;tencent&quot;},   //Advertiser Name
+    &quot;status&quot;: &quot;enabled&quot;,//Advertiser&#39;s Status
+    &quot;alias&quot;: &quot;tencent&quot;,//Advertiser&#39;s Alias
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/advIcon/tencent.jpg&quot;,  //Logo URL
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;  //Creation Time
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_advertiser_in_the_authorized_network'>Get details of the advertiser in the authorized network</h2>
+
+<pre><code>GET /networks/:network_id/advertisers/:advertiser_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///networks/11/advertisers/10198/campaigns&gt;; rel=&quot;campaigns&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;network_id&quot;:11,//Network ID
+    &quot;advertiser_id&quot;: 10198,
+    &quot;url&quot;: &quot;http:///networks/11/advertisers/10198&quot;,
+    &quot;name&quot;: {&quot;zh_cn&quot; =&gt; &quot;通用电器&quot;, &quot;en_us&quot; =&gt; &quot;GM&quot;},   //Advertiser Name
+    &quot;status&quot;: &quot;enabled&quot;,//Advertiser&#39;s Status
+    &quot;alias&quot;: &quot;通用电器&quot;,//Advertiser&#39;s Alias
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/advIcon/GM.jpg&quot;,  //Logo URL
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot; //Creation Time
+    &quot;creator&quot;:&quot;name&quot;//Creator
+}</code></pre>
+
+<h2 id='add_an_advertiser_to_the_given_network'>Add an advertiser to the given network</h2>
+
+<pre><code>PUT /networks/:network_id/advertisers/:advertiser_id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+Link: &lt;http:///networks/11/advertisers/10198/campaigns&gt;; rel=&quot;campaigns&quot;
+Location: http:///networks/11/advertisers/10198
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<h2 id='modify_details_of_advertiser_in_the_given_network'>Modify details of advertiser in the given network</h2>
+
+<pre><code>PATCH /networks/:network_id/advertisers/:advertiser_id</code></pre>
+
+<p><strong>Request</strong></p>
+
+<pre class='prettyprint'><code>{
+    &quot;alias&quot;: &quot;通用电器&quot;,
+    &quot;status&quot;: &quot;enabled&quot;
+}</code></pre>
+
+<dl>
+<dt><code>alias</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Alias</dd>
+
+<dt><code>status</code></dt>
+
+<dd><em>Optional</em> <code>enabled</code>, <code>disabled</code></dd>
+</dl>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///networks/11/advertisers/10198/campaigns&gt;; rel=&quot;campaigns&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;advertiser_id&quot;: 10198,//Advertiser ID
+    &quot;url&quot;: &quot;http:///networks/11/advertisers/10198&quot;,
+    &quot;name&quot;: {&quot;zh_cn&quot; =&gt; &quot;通用电器&quot;, &quot;en_us&quot; =&gt; &quot;GM&quot;},   //Advertiser Name
+    &quot;status&quot;: &quot;enabled&quot;,//Advertiser&#39;s Status
+    &quot;alias&quot;: &quot;通用电器&quot;,//Advertiser&#39;s Alias
+    &quot;logo&quot;: &quot;http://www.trackmaster.com.cn/data/advIcon/GM.jpg&quot;,  //Logo URL
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot; //Creation Time
+}</code></pre>
+
+<h2 id='delete_advertiser_of_the_given_network'>Delete advertiser of the given network</h2>
+
+<pre><code>DELETE /networks/:network_id/advertisers/:advertiser_id</code></pre>
+
+<p>When the advertiser which you want to delete has campaigns, it can not be deleted.</p>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+Link: &lt;http:///networks/11/advertisers&gt;; rel=&quot;campaigns&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>

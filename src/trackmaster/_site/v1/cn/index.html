@@ -1,0 +1,43 @@
+<h1 id='trackmaster_'>TrackMaster™ 文档首页</h1>
+
+<p>中国领先的网络广告监测分析优化工具</p>
+
+<h2 id='trackmaster_'>TrackMaster™ 广告网络结构示意图</h2>
+
+<p><strong>TrackMaster™ 工作网络</strong> 设计为广告代理公司进行广告项目的数据监测与管理。 并提供了完整的 API 接口用于第三方开发。</p>
+
+<p><img alt='trackmaster结构示意图' src='/doc/trackmaster/v1/cn/trackmaster.png' /><br />　　</p>
+
+<p><strong>工作网络</strong><br />　　工作网络是包含完整广告项目的数据监测与管理的根对象。大多数客户只有一个工作网络。每个工作网络管理其自己的用户帐户和权限。</p>
+
+<p><strong>网络用户、网络角色</strong><br />　　工作网络拥有完整的用户帐户管理功能，用户在该工作网络内的权限，通过分配角色进行管理。当然你也可以单独针对某个用户进行权限设置。</p>
+
+<p><strong>网络媒体库</strong><br />　　<strong>媒体</strong> 指业务中广告的实际投放执行方。每个广告项目都必然存在一或多个媒体。您需要首先对将所需的媒体从 <em>全局媒体库</em> 添加到工作网络内后，即可多次调用，应用到各个项目中。<br />* 用户无法操作全局媒体库。对于全局媒体库中未包含所需媒体的情况，请与我们联系。</p>
+
+<p><strong>网络广告主库</strong><br />　　代理公司通常服务于多位广告主。与媒体库类似，您需要从全局广告主库添加到工作网络内。一个工作网络可以包含多个广告主。</p>
+
+<p><strong>品牌</strong><br />　　对于部分广告主而言，旗下会拥有不同的品牌。品牌往往指独立的产品线。品牌对象一定属于某个广告主。</p>
+
+<p><strong>项目</strong><br />　　<strong>项目</strong> 定义为具体某次广告方案的投放执行过程，也是 TrackMaster 数据监测功能的主体数据对象。一个项目一定归属某个广告主。</p>
+
+<p><strong>项目媒体</strong><br />　　具体某个项目内的媒体方面执行者。在建立一个项目后，可以从工作网络媒体库为项目添加一或多个项目媒体。</p>
+
+<p><strong>广告位</strong><br />　　指广告素材的具体展示位置与上线的时间信息。</p>
+
+<h2 id='id99'>媒体发布商</h2>
+
+<ul>
+<li><a href='/doc/trackmaster/v1/cn/publisher.html'>媒体对接指南</a></li>
+</ul>
+
+<h2 id='id100'>代理机构</h2>
+
+<ul>
+<li><a href='/doc/trackmaster/v1/cn/agency.html'>代理开发指南</a></li>
+</ul>
+
+<h2 id='id101'>广告主</h2>
+
+<ul>
+<li><a href='/doc/trackmaster/v1/cn/advertisers.html'>广告主对接指南</a></li>
+</ul>

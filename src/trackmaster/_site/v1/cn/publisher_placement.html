@@ -1,0 +1,109 @@
+<h1 id='id8'>广告位</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id9'>获取指定媒体的广告位列表</a></li><li><a href='#id10'>获取指定媒体指定广告位的信息</a></li></ul></div>
+<h2 id='id9'>获取指定媒体的广告位列表</h2>
+
+<pre><code>GET /medias/:media_id/placements</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+<dt><code>media_id</code></dt>
+
+<dd><em>必选</em> <strong>integer</strong> - 系统媒体 ID</dd>
+
+<dt><code>name</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 广告位名称，支持模糊搜索</dd>
+
+<dt><code>page</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+
+<dt><code>per_page</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///medias/100/placements?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///medias/100/placements?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    //广告位ID，全局唯一
+    &quot;id&quot;: 1,
+    //广告位位置名称
+    &quot;name&quot;: &quot;这是一个测试广告位&quot;,
+    //频道信息
+    &quot;channel&quot;: {
+        //频道名称
+        &quot;name&quot;: &quot;体育新闻&quot;,
+        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+        &quot;type&quot;: &quot;webpage&quot;,
+        //广告位在第几屏幕
+        &quot;screen&quot;: 3,
+        //频道地址
+        &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+        &quot;material_type&quot;: &quot;flash&quot;,
+        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+        &quot;material_dimension&quot;: &quot;400x300&quot;,
+        //物料文件大小，单位由 material_size_unit 指定
+        &quot;material_size&quot;: 200,
+        //物料文件大小单位，B K M
+        &quot;material_size_unit&quot;: &quot;B&quot;
+},
+    //点击目标地址
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //创建时间
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    //广告位所属项目 ID
+    &quot;campaign_id&quot;:1000
+  }
+]</code></pre>
+
+<h2 id='id10'>获取指定媒体指定广告位的信息</h2>
+
+<pre><code>GET /medias/placements/:placement_id</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+//广告位ID，全局唯一
+&quot;id&quot;: 1,
+//广告位位置名称
+&quot;name&quot;: &quot;这是一个测试广告位&quot;,
+//频道信息
+&quot;channel&quot;: {
+    //频道名称
+    &quot;name&quot;: &quot;体育新闻&quot;,
+    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+    &quot;type&quot;: &quot;webpage&quot;,
+    //广告位在第几屏幕
+     &quot;screen&quot;: 3,
+    //频道地址
+     &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+      &quot;material_type&quot;: &quot;flash&quot;,
+     //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+      &quot;material_dimension&quot;: &quot;400x300&quot;,
+     //物料文件大小，单位由 material_size_unit 指定
+       &quot;material_size&quot;: 200,
+     //物料文件大小单位，B K M
+       &quot;material_size_unit&quot;: &quot;B&quot;
+},
+//点击目标地址
+&quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+//创建时间
+&quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+//广告位所属项目 ID
+&quot;campaign_id&quot;:1000
+}</code></pre>

@@ -8,6 +8,7 @@ kramdown:
 
 track_api_host: track.admasterapi.com
 track_site_host: www.trackmaster.com.cn
+site_api_host: site.admasterapi.com
 
 open_site_host: open.admaster.com.cn
 weibo_api_host: weibo.admasterapi.com

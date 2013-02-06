@@ -2,6 +2,7 @@
 weight: 5
 layout: default
 category: openmaster
+language: cn
 title: 接口定义 - 通用说明
 ---
 
@@ -11,7 +12,7 @@ title: 接口定义 - 通用说明
 ## 通用参数说明
 
 `access_token`
-	oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带，具体查看[oauth 验证][apiOauth]
+	oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带
 	
 
 ## 返回状态说明

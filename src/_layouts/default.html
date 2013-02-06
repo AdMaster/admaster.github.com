@@ -32,6 +32,7 @@
             <li><a href="/doc/trackmaster/v1/cn/index.html">TrackMaster</a></li>
             <li><a href="/doc/weibomaster/v1/cn/index.html">WeiboMaster</a></li>
             <li><a href="/doc/surveymaster/v1/cn/index.html">SurveyMaster</a></li>
+            <li><a href="/doc/sitemaster/v1/cn/index.html">SiteMaster</a></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -41,36 +42,47 @@
       <div class="content">
         {{ content }}
       </div>
-
+      {% capture l %}/{{ page.language }}/{% endcapture %}
     <div id="js-sidebar" class="sidebar-shell">
       <div class="js-toggle-list sidebar-module expandable">
         <ul>
         {% for weight in (1..30) %}
           {% for p in site.pages %}{% if p.url contains page.category %}
-            {% if p.weight == weight %}
+          {% if p.url contains l %}
+            {% if p.weight == weight %}{% unless p.subcategory %}
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a {% if p.url == page.url %}class="active"{% endif %} href="/doc{{ p.url }}">
-                  {{ p.title }}
-                </a></h3>
+                  <a {% if p.url == page.url %}class="active"{% endif %} href="/doc{{ p.url }}">{{ p.title }}</a>
+                </h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  {% for i in site.pages %}{% if i.url contains l %}{% if p.url contains i.subcategory %}
+                  <li style=""><a href="/doc{{i.url}}">{{ i.title }}</a></li>
+                  {% endif %}{% endif %}{% endfor %}
                 </ul>
               </li>
-            {% endif %}
+            {% endunless %}{% endif %}
+          {% endif %}
           {% endif %}{% endfor %}
         {% endfor %}
        </ul>
       </div> <!-- /sidebar-module -->
+
+      <div class="sidebar-module">
+        <p>
+          <a href="/doc/{{page.category}}/v1/cn/index.html">中文 (中国)</a>
+          - <a href="/doc/{{page.category}}/v1/en/index.html">English</a>
+        </p>
+      </div>
+
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->
 
     <div id="footer" >
        <div class="lower_footer">
-        <div class="footer_inner clearfix">              
-          <div id="legal"> 
+        <div class="footer_inner clearfix">
+          <div id="legal">
               <!--<ul id="legal_links">
                 <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
                 <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>

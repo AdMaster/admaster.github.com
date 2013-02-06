@@ -1,0 +1,384 @@
+<h1 id='id24'>广告位</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id25'>获取指定项目下的广告位列表</a></li><li><a href='#id26'>获取指定广告位信息</a></li><li><a href='#id27'>添加一个广告位在指定项目下</a></li><li><a href='#id28'>删除指定的广告位</a></li><li><a href='#id29'>修改指定的广告位属性</a></li></ul></div>
+<h2 id='id25'>获取指定项目下的广告位列表</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/placements</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 广告位名称，支持模糊搜索</dd>
+
+<dt><code>network_media_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 限定工作网络媒体 ID</dd>
+
+<dt><code>page</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+</dl>
+
+<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
+</dl>
+
+<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///networks/advertisers/campaigns/123/placements?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///networks/advertisers/campaigns/123/placements?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    //广告位ID，全局唯一
+    &quot;id&quot;: 1,
+    //获取详情接口地址
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/placements/20000006&quot;,
+    //广告位位置名称
+    &quot;name&quot;: &quot;这是一个测试广告位&quot;,
+    //工作网络下媒体ID
+    &quot;network_media_id&quot;: 1314,
+    //频道信息
+    &quot;channel&quot;: {
+        //频道ID，全局唯一
+        &quot;id&quot;: 1025,
+        //频道名称
+        &quot;name&quot;: &quot;体育新闻&quot;,
+        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+        &quot;type&quot;: &quot;webpage&quot;,
+        //广告位在第几屏幕
+        &quot;screen&quot;: 3,
+        //频道地址
+        &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+        &quot;material_type&quot;: &quot;flash&quot;,
+        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+        &quot;material_dimension&quot;: &quot;400x300&quot;,
+        //物料文件大小，单位由 material_size_unit 指定
+        &quot;material_size&quot;: 200,
+        //物料文件大小单位，B K M
+        &quot;material_size_unit&quot;: &quot;B&quot;
+    }
+    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    //点击目标地址
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    //单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
+    &quot;cost_type&quot;: &quot;day&quot;
+    //单位成本
+    &quot;cost_per_unit&quot;: 873.12,
+    //单位预估曝光数
+    &quot;est_imp_per_unit&quot;: 239,
+    //单位预估点击
+    &quot;est_clk_per_unit&quot;: 3,
+    //购买量
+    &quot;units&quot;: 58,
+    //其他要求
+    &quot;other_requirement&quot;: &quot;没有什么要求&quot;,
+    //预估曝光
+    &quot;est_imp&quot;: 871821,
+    //预估点击
+    &quot;est_clk&quot;: 1231,
+    //预估同期曝光
+    &quot;sp_imp&quot;: 61821,
+    //预估同期点击
+    &quot;sp_clk&quot;: 300,
+    //实际总曝光
+    &quot;real_imp&quot;: 71821,
+    //实际总点击
+    &quot;real_clk&quot;: 400,
+    //创建时间
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+  }
+]</code></pre>
+
+<h2 id='id26'>获取指定广告位信息</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/placements/:id</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+//广告位ID，全局唯一
+&quot;id&quot;: 1,
+//获取详情接口地址
+&quot;url&quot;: &quot;http:///networks/advertisers/campaigns/placements/20000006&quot;,
+//广告位位置名称
+&quot;name&quot;: &quot;这是一个测试广告位&quot;,
+//工作网络下媒体ID
+&quot;network_media_id&quot;: 1314,
+//频道信息
+&quot;channel&quot;: {
+    //频道ID，全局唯一
+    &quot;id&quot;: 1025,
+    //频道名称
+    &quot;name&quot;: &quot;体育新闻&quot;,
+    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+    &quot;type&quot;: &quot;webpage&quot;,
+    //广告位在第几屏幕
+    &quot;screen&quot;: 3,
+    //频道地址
+    &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+    &quot;material_type&quot;: &quot;flash&quot;,
+    //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+    &quot;material_dimension&quot;: &quot;400x300&quot;,
+    //物料文件大小，单位由 material_size_unit 指定
+    &quot;material_size&quot;: 200,
+    //物料文件大小单位，B K M
+    &quot;material_size_unit&quot;: &quot;B&quot;
+},
+//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
+&quot;rotation&quot; : &quot;1/4&quot;,
+//点击目标地址
+&quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+//支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
+&quot;payment_type&quot;: &quot;purchase&quot;,
+//单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
+&quot;cost_type&quot;: &quot;day&quot;
+//单位成本
+&quot;cost_per_unit&quot;: 873.12,
+//单位预估曝光数
+&quot;est_imp_per_unit&quot;: 239,
+//单位预估点击
+&quot;est_clk_per_unit&quot;: 3,
+//购买量
+&quot;units&quot;: 58,
+//其他要求
+&quot;other_requirement&quot;: &quot;没有什么要求&quot;,
+//预估曝光
+&quot;est_imp&quot;: 871821,
+//预估点击
+&quot;est_clk&quot;: 1231,
+//预估同期曝光
+&quot;sp_imp&quot;: 61821,
+//预估同期点击
+&quot;sp_clk&quot;: 300,
+//实际总曝光
+&quot;real_imp&quot;: 71821,
+//实际总点击
+&quot;real_clk&quot;: 400,
+//创建时间
+&quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<h2 id='id27'>添加一个广告位在指定项目下</h2>
+
+<pre><code>POST /networks/advertisers/campaigns/:campaign_id/placements</code></pre>
+
+<p>注意：同一个项目下广告位数目限制为 400 个</p>
+
+<p><strong>参数</strong></p>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>必选</em> <strong>string</strong> - 广告位位置名称，字符串，长度为 3 - 100个字符</dd>
+
+<dt><code>network_media_id</code></dt>
+
+<dd><em>必选</em> <strong>string</strong> - 广告位所属工作网络媒体ID,</dd>
+
+<dt><code>channel_id</code></dt>
+
+<dd><em>必选</em> <strong>integer</strong> - 广告位频道ID</dd>
+
+<dt><code>rotation</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，依次类推，默认: <code>1/1</code></dd>
+
+<dt><code>target_url</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> 点击目标地址, 默认为空，继承项目的点击目标地址</dd>
+
+<dt><code>payment_type</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 支付类型</dd>
+</dl>
+
+<p>* <code>purchase</code> 购买 <em>默认值</em> * <code>offering</code> 配送 * <code>framework</code> 框架 * <code>Compensation</code> 补偿 * <code>other</code> 其他</p>
+
+<dl>
+<dt><code>cost_type</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 单位收费类型</dd>
+</dl>
+
+<p>* <code>day</code> 天 <em>默认值</em> * <code>week</code> 周 * <code>month</code> 月 * <code>cpc</code> 每次点击成本 * <code>cpm</code> 千人展示成本 * <code>cpa</code> 每次行动成本 * <code>article</code> 文章 * <code>kmail</code> 千封邮件 * <code>other</code> 其他</p>
+
+<dl>
+<dt><code>cost_per_unit</code></dt>
+
+<dd><em>可选</em> <strong>float</strong> - 单位成本</dd>
+
+<dt><code>est_imp_per_unit</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 单位预估曝光数</dd>
+
+<dt><code>est_clk_per_unit</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 单位预估点击</dd>
+
+<dt><code>other_requirement</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 其他要求</dd>
+</dl>
+
+<p><strong>请求</strong></p>
+
+<pre class='prettyprint'><code>{
+    &quot;name&quot;: &quot;这是一个测试广告位&quot;,
+    &quot;network_media_id&quot;: 1314,
+    &quot;channel_id&quot;: 123,
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    &quot;cost_type&quot;: &quot;day&quot;
+    &quot;cost_per_unit&quot;: 873.12,
+    &quot;est_imp_per_unit&quot;: 239,
+    &quot;est_clk_per_unit&quot;: 3,
+    &quot;other_requirement&quot;: &quot;没有什么要求&quot;,
+}</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 201 Created
+Location: http:///networks/advertisers/campaigns/placements/200057486
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 200057486,
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/placements/200057486&quot;,
+    &quot;name&quot;: &quot;这是一个测试广告位&quot;,
+    &quot;network_media_id&quot;: 1314,
+    &quot;channel&quot;: {
+        &quot;id&quot;: 123,
+        &quot;name&quot;: &quot;体育新闻&quot;,
+        &quot;type&quot;: &quot;webpage&quot;,
+        &quot;screen&quot;: 3,
+        &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+        &quot;material_type&quot;: &quot;flash&quot;,
+        &quot;material_dimension&quot;: &quot;400x300&quot;,
+        &quot;material_size&quot;: 200,
+        &quot;material_size_unit&quot;: &quot;B&quot;
+    },
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    &quot;cost_type&quot;: &quot;day&quot;
+    &quot;cost_per_unit&quot;: 873.12,
+    &quot;est_imp_per_unit&quot;: 239,
+    &quot;est_clk_per_unit&quot;: 3,
+    &quot;units&quot;: 0,
+    &quot;other_requirement&quot;: &quot;没有什么要求&quot;,
+    &quot;est_imp&quot;: 0,
+    &quot;est_clk&quot;: 0,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<h2 id='id28'>删除指定的广告位</h2>
+
+<pre><code>DELETE /networks/advertisers/campaigns/placements/:id</code></pre>
+
+<p>注意：当广告位下曾经获取到监测数据时，不能删除该广告位。</p>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+Location: http:///networks/advertisers/campaigns/10786/placements
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<h2 id='id29'>修改指定的广告位属性</h2>
+
+<pre><code>PATCH /networks/advertisers/campaigns/placements/:id</code></pre>
+
+<p><strong>请求</strong></p>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 广告位位置名称，字符串，长度为 3 - 100个字符</dd>
+
+<dt><code>channel_id</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 广告位频道ID</dd>
+
+<dt><code>rotation</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，一次类推，默认: <code>1/1</code></dd>
+
+<dt><code>target_url</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> 点击目标地址, 默认为空，继承项目的点击目标地址</dd>
+
+<dt><code>payment_type</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 支付类型</dd>
+</dl>
+
+<p>* <code>purchase</code> 购买 <em>默认</em> * <code>offering</code> 配送 * <code>framework</code> 框架 * <code>Compensation</code> 补偿 * <code>other</code> 其他</p>
+
+<dl>
+<dt><code>cost_type</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 单位收费类型</dd>
+</dl>
+
+<p>* <code>day</code> 天 <em>默认</em> * <code>week</code> 周 * <code>month</code> 月 * <code>cpc</code> 每次点击成本 * <code>cpm</code> 千人展示成本 * <code>cpa</code> 每次行动成本 * <code>article</code> 文章 * <code>kmail</code> 千封邮件 * <code>other</code> 其他</p>
+
+<dl>
+<dt><code>cost_per_unit</code></dt>
+
+<dd><em>可选</em> <strong>float</strong> - 单位成本</dd>
+
+<dt><code>est_imp_per_unit</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 单位预估曝光数</dd>
+
+<dt><code>est_clk_per_unit</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 单位预估点击</dd>
+
+<dt><code>other_requirement</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 其他要求</dd>
+</dl>
+
+<p><strong>请求</strong></p>
+
+<pre class='prettyprint'><code>{
+    &quot;name&quot;: &quot;这是一个测试广告位&quot;,
+    &quot;channel_id&quot;: 123,
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    &quot;cost_type&quot;: &quot;day&quot;
+    &quot;cost_per_unit&quot;: 873.12,
+    &quot;est_imp_per_unit&quot;: 239,
+    &quot;est_clk_per_unit&quot;: 3,
+    &quot;other_requirement&quot;: &quot;没有什么要求&quot;,
+}</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>

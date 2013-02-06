@@ -1,0 +1,148 @@
+<h1 id='id117'>广告位</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id118'>广告主下广告位列表</a></li><li><a href='#id119'>获取指定广告位信息</a></li></ul></div>
+<h2 id='id118'>广告主下广告位列表</h2>
+
+<pre><code>GET /advertisers/campaigns/:campaign_id/placements</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+<dt><code>advertiser_id</code></dt>
+
+<dd><em>必选</em> <strong>integer</strong> - 广告主 ID</dd>
+
+<dt><code>name</code></dt>
+
+<dd><em>可选</em> <strong>string</strong> - 广告位名称，支持模糊搜索</dd>
+
+<dt><code>page</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+</dl>
+
+<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
+</dl>
+
+<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+  {
+    //广告位 ID，全局唯一
+    &quot;id&quot;: 100000,
+    //广告位位置名称
+    &quot;name&quot;: &quot;测试广告位&quot;,
+    //工作网络下媒体 ID
+    &quot;network_media_id&quot;: 1314,
+    //频道信息
+    &quot;channel&quot;: {
+        //频道名称
+        &quot;name&quot;: &quot;体育新闻&quot;,
+        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+        &quot;type&quot;: &quot;webpage&quot;,
+        //广告位在第几屏幕
+        &quot;screen&quot;: 3,
+        //频道地址
+        &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+        &quot;material_type&quot;: &quot;flash&quot;,
+        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+        &quot;material_dimension&quot;: &quot;400x300&quot;,
+        //物料文件大小，单位由 material_size_unit 指定
+        &quot;material_size&quot;: 200,
+        //物料文件大小单位，B K M
+        &quot;material_size_unit&quot;: &quot;B&quot;
+},
+    //点击目标地址
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //创建时间
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+    //广告位所属项目 ID
+    &quot;campaign_id&quot;:1000
+  }
+]</code></pre>
+
+<h2 id='id119'>获取指定广告位信息</h2>
+
+<pre><code>GET /advertisers/campaigns/placements/:placements_id</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+
+{
+//广告位ID，全局唯一
+&quot;id&quot;: 1000000,
+//广告位位置名称
+&quot;name&quot;: &quot;测试广告位&quot;,
+//工作网络下媒体 ID
+&quot;network_media_id&quot;: 1314,
+//频道信息
+&quot;channel&quot;: {
+    //频道ID，全局唯一
+    &quot;id&quot;: 1025,
+    //频道名称
+    &quot;name&quot;: &quot;体育新闻&quot;,
+    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+    &quot;type&quot;: &quot;webpage&quot;,
+    //广告位在第几屏幕
+    &quot;screen&quot;: 3,
+    //频道地址
+    &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+    &quot;material_type&quot;: &quot;flash&quot;,
+    //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+    &quot;material_dimension&quot;: &quot;400x300&quot;,
+    //物料文件大小，单位由 material_size_unit 指定
+    &quot;material_size&quot;: 200,
+    //物料文件大小单位，B K M
+    &quot;material_size_unit&quot;: &quot;B&quot;
+},
+//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
+&quot;rotation&quot; : &quot;1/4&quot;,
+//点击目标地址
+&quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+//支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
+&quot;payment_type&quot;: &quot;purchase&quot;,
+//单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
+&quot;cost_type&quot;: &quot;day&quot;
+//单位成本
+&quot;cost_per_unit&quot;: 873.12,
+//单位预估曝光数
+&quot;est_imp_per_unit&quot;: 239,
+//单位预估点击
+&quot;est_clk_per_unit&quot;: 3,
+//购买量
+&quot;units&quot;: 58,
+//其他要求
+&quot;other_requirement&quot;: &quot;无&quot;,
+//预估曝光
+&quot;est_imp&quot;: 871821,
+//预估点击
+&quot;est_clk&quot;: 1231,
+//预估同期曝光
+&quot;sp_imp&quot;: 61821,
+//预估同期点击
+&quot;sp_clk&quot;: 300,
+//实际总曝光
+&quot;real_imp&quot;: 71821,
+//实际总点击
+&quot;real_clk&quot;: 400,
+//创建时间
+&quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<p>]</p>

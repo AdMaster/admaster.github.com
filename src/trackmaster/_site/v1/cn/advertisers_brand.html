@@ -1,0 +1,37 @@
+<h1 id='id66'>品牌</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id67'>获取指定广告主下的品牌列表</a></li><li><a href='#_id_'>获取广告主下指定 ID 品牌详细信息</a></li></ul></div>
+<h2 id='id67'>获取指定广告主下的品牌列表</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/brands</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    &quot;id&quot;: 30,//网络品牌 ID
+    &quot;name&quot;: &quot;巧乐兹&quot;,//品牌名称
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//品牌创建时间
+  }
+]</code></pre>
+
+<h2 id='_id_'>获取广告主下指定 ID 品牌详细信息</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/brands/:id</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 30,//网络品牌 ID
+    &quot;network_id&quot;: 11,//工作网络 ID
+    &quot;advertiser_id&quot;: 10231,//广告主 ID
+    &quot;name&quot;: &quot;巧乐兹&quot;,//品牌名称
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//品牌创建时间
+}</code></pre>

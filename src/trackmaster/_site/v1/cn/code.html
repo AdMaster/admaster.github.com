@@ -1,0 +1,46 @@
+<h1 id='id121'>代码</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id122'>获取指定广告位下的代码</a></li></ul></div>
+<h2 id='id122'>获取指定广告位下的代码</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/placements/:placement_id/codes</code></pre>
+
+<p><strong>参数</strong></p>
+
+<p>无</p>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+  {
+    // 创意 ID
+    &quot;creative_id&quot;: 0,
+
+    // 创意名称
+    &quot;creative_name&quot;: &quot;默认创意&quot;,
+
+    // 点击代码
+    &quot;clktag&quot;: &quot;http://c.admaster.com.cn/c/a10786,b200057486,c2010,i0,m101,h&quot;,
+
+    // 曝光代码
+    &quot;imptag&quot;: &quot;http://v.admaster.com.cn/i/a10786,b200057486,c2010,i0,m202,h&quot;,
+
+    // 曝光Flash AS2代码
+    &quot;imptag_flash_as2&quot;: &quot;if(_root[\&quot;adCnt\&quot;]!=\&quot;ldd\&quot;) {\n_root[\&quot;adCnt\&quot;]=\&quot;ldd\&quot;;var hstr=\&quot;\&quot;,u3rd=\&quot;\&quot;;\nloadMovie(\&quot;http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m201,h\&quot;+escape(hstr)+\&quot;,d\&quot;+escape(_url)+\&quot;,u\&quot;+escape(u3rd),createEmptyMovieClip(\&quot;MSd\&quot;,this.getNextHighestDepth()));\n}&quot;,
+
+    // 曝光Flash AS3代码
+    &quot;imptag_flash_as3&quot;: &quot;if(root[\&quot;adCnt\&quot;]!=\&quot;ldd\&quot;) {\nroot[\&quot;adCnt\&quot;]=\&quot;ldd\&quot;; var hstr=\&quot;\&quot;,u3rd=\&quot;\&quot;;\nvar MSd=new Loader();MSd.load(new URLRequest(\&quot;http:\/\/v.admaster.com.cn\/i\/a10786,b200057486,c2010,i0,m201,h\&quot;+escape(hstr)+\&quot;,d\&quot;+escape(loaderInfo.loaderURL)+\&quot;,u\&quot;+escape(u3rd)));this.addChild(MSd);\n}&quot;,
+
+    // 曝光图片代码
+    &quot;imptag_img&quot;: &quot;&lt;img src=\&quot;http:\/\/v.admaster.com.cn\/i\/a10786,b200057486,c2010,i0,m203,h\&quot; width=\&quot;1\&quot; height=\&quot;1\&quot; \/&gt;&quot;,
+
+    // 曝光JavaScript代码
+    &quot;imptag_js&quot;: &quot;&lt;script language=\&quot;javascript\&quot;&gt;var actId=10786,sptId=200057486,medId=2010,invId=0,hstr=\&quot;\&quot;;&lt;\/script&gt;\n&lt;script language=\&quot;javascript\&quot; src=\&quot;http:\/\/v.admaster.com.cn\/sodv3\/admTracker.js\&quot;&gt;&lt;\/script&gt;&quot;,
+
+    // 曝光Flash代码
+    &quot;imptag_flash&quot;: &quot;&lt;object classid=\&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\&quot; id=\&quot;TrackMasterBeacon\&quot; align=\&quot;middle\&quot; width=\&quot;1\&quot; height=\&quot;1\&quot;&gt;&lt;param name=\&quot;movie\&quot; value=\&quot;http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m204,h\&quot; \/&gt;&lt;param name=\&quot;allowScriptAccess\&quot; value=\&quot;always\&quot; \/&gt;&lt;param name=\&quot;quality\&quot; value=\&quot;high\&quot; \/&gt;\n&lt;embed src=\&quot;http:\/\/v.admaster.com.cn\/i\/a10786,b200057486,c2010,i0,m204,h\&quot; quality=\&quot;high\&quot; swLiveConnect=true id=\&quot;TrackMasterBeacon\&quot; name=\&quot;TrackMasterBeacon\&quot; width=\&quot;1\&quot; height=\&quot;1\&quot; align=\&quot;middle\&quot; allowScriptAccess=\&quot;always\&quot; type=\&quot;application\/x-shockwave-flash\&quot; \/&gt;&lt;\/object&gt;&quot;
+  }
+]</code></pre>

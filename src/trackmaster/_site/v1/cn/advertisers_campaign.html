@@ -1,0 +1,65 @@
+<h1 id='id91'>项目</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id92'>获取指定广告主的项目</a></li><li><a href='#id93'>获取指定项目信息</a></li></ul></div>
+<h2 id='id92'>获取指定广告主的项目</h2>
+
+<pre><code>GET /advertisers/:advertiser_id/campaigns</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+  {
+    &quot;id&quot;: 10786,//项目 ID
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/10786&quot;,
+    &quot;name&quot;: &quot;测试项目&quot;,//项目名称
+    &quot;network_brand_id&quot;: 10213,//项目网络品牌 ID
+    &quot;cost_type&quot;: &quot;CNY&quot;,//媒体预算货币类型
+    &quot;total_cost&quot;: 20000000,//项目总费用
+    &quot;start_date&quot;: &quot;2012-01-03&quot;,//项目开始时间
+    &quot;end_date&quot;: &quot;2012-06-23&quot;,//项目结束时间
+    &quot;default_target&quot;: &quot;http://www.admaster.com.cn&quot;//项目默认点击目标地址
+    &quot;media_num&quot;: 8,//项目中媒体数目
+    &quot;placement_num&quot;: 258,//项目中广告位数目
+    &quot;target_audience&quot;:{//目标受众人群
+        &quot;age&quot;: &quot;19-25&quot;,//目标受众人群年龄范围
+        &quot;sex&quot;: &quot;male&quot;//目标受众人群性别
+    },
+    &quot;status&quot;: &quot;midterm&quot;,//项目当前状态
+    &quot;is_online&quot;: &quot;yes&quot;,//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//项目创建时间
+  }
+]</code></pre>
+
+<h2 id='id93'>获取指定项目信息</h2>
+
+<pre><code>GET /advertisers/campaigns/:id</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK</code></pre>
+
+<pre><code>[
+
+{
+    &quot;id&quot;: 10786,//项目 ID
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/10786&quot;,
+    &quot;name&quot;: &quot;测试项目&quot;,//项目名称
+    &quot;network_brand_id&quot;: 10213,//项目网络品牌 ID
+    &quot;cost_type&quot;: &quot;CNY&quot;,//媒体预算货币类型
+    &quot;total_cost&quot;: 20000000,//项目总费用
+    &quot;start_date&quot;: &quot;2012-01-03&quot;,//项目开始时间
+    &quot;end_date&quot;: &quot;2012-06-23&quot;,//项目结束时间
+    &quot;default_target&quot;: &quot;http://www.admaster.com.cn&quot;//项目默认点击目标地址
+    &quot;media_num&quot;: 8,//项目中媒体数目
+    &quot;placement_num&quot;: 258,//项目中广告位数目
+    &quot;target_audience&quot;:{//目标受众人群
+        &quot;age&quot;: &quot;19-25&quot;,//目标受众人群年龄范围
+        &quot;sex&quot;: &quot;male&quot;//目标受众人群性别
+    },
+    &quot;status&quot;: &quot;midterm&quot;,//项目当前状态
+    &quot;is_online&quot;: &quot;yes&quot;,//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;//项目创建时间
+}
+]</code></pre>

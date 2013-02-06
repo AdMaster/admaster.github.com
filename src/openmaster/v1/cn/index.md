@@ -2,7 +2,8 @@
 layout: default
 category: openmaster
 weight: 1
-title: OpenMaster首页
+language: cn
+title: OpenMaster文档首页
 ---
 
 # {{ page.title }}
@@ -30,7 +31,8 @@ title: OpenMaster首页
 
 ## 着手开发
 
-您需要阅读 **OpenMaster API** [开发文档][main]了解详细功能。
+如果您需要进行 TrackMaster API 的相关开发工作，请进入[TrackMaster API开发文档][TrackMaster API]了解详细功能。    
+如果您需要进行 SurveyMaster API 的相关开发工作，请进入[SurveyMaster API开发文档][SurveyMaster API]了解详细功能。
 
 如果您是富有经验的开发者，请阅读[快速开发范例][get_started]。
 
@@ -39,3 +41,5 @@ title: OpenMaster首页
 [main]: /doc/openmaster/v1/cn/main.html
 [get_started]: /doc/openmaster/v1/cn/get_started.html
 [lisence]: /doc/openmaster/v1/cn/lisence.html
+[TrackMaster API]:/doc/trackmaster/v1/cn/index.html
+[SurveyMaster API]:/doc/surveymaster/v1/cn/index.html

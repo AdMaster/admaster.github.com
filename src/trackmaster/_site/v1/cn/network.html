@@ -1,0 +1,46 @@
+<h1 id='id71'>工作网络</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#id72'>获取当前授权用户有权操作的所有工作网络</a></li><li><a href='#_id_'>获取指定 ID 工作网络信息</a></li></ul></div>
+<h2 id='id72'>获取当前授权用户有权操作的所有工作网络</h2>
+
+<pre><code>GET /user/networks</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+   {
+    &quot;id&quot;: 1,
+    &quot;url&quot;: &quot;https://api.trackmaster.com.cn/networks/1&quot;,
+    &quot;name&quot;: &quot;测试工作网络&quot;, //别名
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot; //创建时间
+    &quot;account&quot;: {
+        &quot;status&quot;: &quot;enabled&quot;, //`enabled` 可用, `disabled` 禁用, `unactive` 未激活
+        &quot;created_at&quot;: &quot;2012-01-10T02:30:59Z&quot;, //当前用户加入网络的时间
+        &quot;role&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;高级管理员(super admin)&quot;
+         }
+      }
+   }
+]</code></pre>
+
+<h2 id='_id_'>获取指定 ID 工作网络信息</h2>
+
+<pre><code>GET /networks/:id</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///networks/1/advertisers&gt;; rel=&quot;advs&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+  &quot;id&quot;: 1,
+  &quot;url&quot;: &quot;https://api.trackmaster.com.cn/networks/1&quot;,
+  &quot;name&quot;: &quot;测试工作网络&quot;,//别名
+  &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot; //创建时间
+}</code></pre>

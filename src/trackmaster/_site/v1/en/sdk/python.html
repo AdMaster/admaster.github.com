@@ -1,0 +1,68 @@
+<h1 id='trackmaster_api_python_sdk'>TrackMaster API Python SDK</h1>
+
+<h3 id='api_sample'>API Sample</h3>
+
+<pre class='prettyprint'><code>import httplib, json
+
+class TrackMasterSDK:
+
+    def __init__(self, host, port=80, options=None):
+        self.host = host
+        self.port = port
+
+    def connect(self):
+        return httplib.HTTPConnection(self.host, self.port) # No close()
+
+    def get(self, uri):
+        c = self.connect()
+        headers = {&quot;Accept&quot;: &quot;application/json&quot;}
+        c.request(&quot;GET&quot;, uri, None, headers)
+        return c.getresponse()
+
+    def post(self, uri, body):
+        c = self.connect()
+        headers = {&quot;Content-type&quot;: &quot;application/json&quot;}
+        c.request(&#39;POST&#39;, uri, body, headers)
+        return c.getresponse()
+
+    def put(self, uri, body):
+        c = self.connect()
+        if len(body) &gt; 0:
+            headers = {&quot;Content-type&quot;: &quot;application/json&quot;}
+            c.request(&quot;PUT&quot;, uri, body, headers)
+        else:
+            c.request(&quot;PUT&quot;, uri, body)
+        return c.getresponse()
+
+    def delete(self, uri):
+        c = self.connect()
+        c.request(&quot;DELETE&quot;, uri)
+        return c.getresponse()</code></pre>
+
+<h3 id='get_an_access_token'>Get an access_token</h3>
+
+<pre><code>def test():
+    json = &quot;&quot;&quot;
+    {
+      &quot;client_id&quot;: &quot;***&quot;,
+      &quot;client_secret&quot;: &quot;***&quot;,
+      &quot;grant_type&quot;: &quot;password&quot;,
+      &quot;email&quot;: &quot;***&quot;,
+      &quot;password&quot;: &quot;***&quot;
+    }
+    &quot;&quot;&quot;
+    server = TrackMasterSDK(&#39;open.admasterapi.com&#39;)
+    response = server.post(&quot;/oauth/access_token&quot;, json)
+
+if __name__ == &quot;__main__&quot;:
+    test()</code></pre>
+
+<h3 id='get_the_user'>Get the user</h3>
+
+<pre><code>server = TrackMasterSDK(&quot;track.admasterapi.com&quot;)
+response = server.get(&quot;/user?access_token=***&quot;)</code></pre>
+
+<h3 id='get_the_network_of_user_in_trackmaster'>Get the network of user in TrackMaster</h3>
+
+<pre><code>server = TrackMasterSDK(&quot;track.admasterapi.com&quot;)
+response = server.get(&quot;/user/networks?access_token=***&quot;)</code></pre>

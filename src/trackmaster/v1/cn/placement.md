@@ -1,7 +1,9 @@
 ---
-weight: 10
+weight: 9
 layout: default
 category: trackmaster
+subcategory: agency
+language: cn
 title: 广告位
 ---
 
@@ -10,7 +12,7 @@ title: 广告位
 * TOC
 {:toc}
 
-## 获取指定项目下指定媒体的广告位列表
+## 获取指定项目下的广告位列表
 
     GET /networks/advertisers/campaigns/:campaign_id/placements
 
@@ -20,13 +22,17 @@ title: 广告位
 : _可选_ **string** - 广告位名称，支持模糊搜索
 
 `network_media_id`
-: _可选_ **integer** - 限定工作网络媒体ID
+: _可选_ **integer** - 限定工作网络媒体 ID
 
 `page`
 : _可选_ **integer** - 显示页码
 
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
 `per_page`
-: _可选_ **integer** - 分页数量，默认每页30条
+: _可选_ **integer** - 分页数量，默认每页 30 条
+
+`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 **响应**
 
@@ -42,7 +48,7 @@ title: 广告位
         //广告位ID，全局唯一
         "id": 1,
         //获取详情接口地址
-        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1",
+        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
         //广告位位置名称
         "name": "这是一个测试广告位",
         //工作网络下媒体ID
@@ -54,7 +60,7 @@ title: 广告位
             //频道名称
             "name": "体育新闻",
             //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-            "type": "web",
+            "type": "webpage",
             //广告位在第几屏幕
             "screen": 3,
             //频道地址
@@ -68,7 +74,7 @@ title: 广告位
             //物料文件大小单位，B K M
             "material_size_unit": "B"
         }
-        //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
+        //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
         "rotation" : "1/4",
         //点击目标地址
         "target_url": "http://www.admaster.com.cn/",
@@ -90,6 +96,14 @@ title: 广告位
         "est_imp": 871821,
         //预估点击
         "est_clk": 1231,
+        //预估同期曝光
+        "sp_imp": 61821,
+        //预估同期点击
+        "sp_clk": 300,
+        //实际总曝光
+        "real_imp": 71821,
+        //实际总点击
+        "real_clk": 400,
         //创建时间
         "created_at": "2012-09-06T20:39:23Z"
       }
@@ -111,7 +125,7 @@ title: 广告位
     //广告位ID，全局唯一
     "id": 1,
     //获取详情接口地址
-    "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1",
+    "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
     //广告位位置名称
     "name": "这是一个测试广告位",
     //工作网络下媒体ID
@@ -137,7 +151,7 @@ title: 广告位
         //物料文件大小单位，B K M
         "material_size_unit": "B"
     },
-    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
+    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
     "rotation" : "1/4",
     //点击目标地址
     "target_url": "http://www.admaster.com.cn/",
@@ -159,6 +173,14 @@ title: 广告位
     "est_imp": 871821,
     //预估点击
     "est_clk": 1231,
+    //预估同期曝光
+    "sp_imp": 61821,
+    //预估同期点击
+    "sp_clk": 300,
+    //实际总曝光
+    "real_imp": 71821,
+    //实际总点击
+    "real_clk": 400,
     //创建时间
     "created_at": "2012-09-06T20:39:23Z"
     }
@@ -166,6 +188,8 @@ title: 广告位
 ## 添加一个广告位在指定项目下
 
     POST /networks/advertisers/campaigns/:campaign_id/placements
+
+注意：同一个项目下广告位数目限制为 400 个
 
 **参数**
 
@@ -179,7 +203,7 @@ title: 广告位
 : _必选_ **integer** - 广告位频道ID
 
 `rotation`
-: _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推，默认: `1/1`
+: _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推，默认: `1/1`
 
 `target_url`
 : _可选_ **string** 点击目标地址, 默认为空，继承项目的点击目标地址
@@ -238,14 +262,14 @@ title: 广告位
 **响应**
 
     Status: 201 Created
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
-        "id": 1,
-        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/1",
+        "id": 200057486,
+        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486",
         "name": "这是一个测试广告位",
         "network_media_id": 1314,
         "channel": {
@@ -277,10 +301,12 @@ title: 广告位
 
     DELETE /networks/advertisers/campaigns/placements/:id
 
+注意：当广告位下曾经获取到监测数据时，不能删除该广告位。
+
 **响应**
 
     Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/123/placements
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/placements
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 

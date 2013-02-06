@@ -1,0 +1,389 @@
+<h1 id='placement'>Placement</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#list_placements_of_the_given_campaign'>List placements of the given campaign</a></li><li><a href='#get_details_of_the_given_placement'>Get details of the given placement</a></li><li><a href='#add_a_placement_to_the_given_campaign'>Add a placement to the given campaign</a></li><li><a href='#delete_the_given_placement'>Delete the given placement</a></li><li><a href='#modify_details_of_the_given_placement'>Modify details of the given placement</a></li></ul></div>
+<h2 id='list_placements_of_the_given_campaign'>List placements of the given campaign</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/placements</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Placement Name</dd>
+</dl>
+
+<p>If the input is a part of placement name, it will search the placement.</p>
+
+<dl>
+<dt><code>network_media_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Network Media ID</dd>
+
+<dt><code>page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
+</dl>
+
+<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+
+<dl>
+<dt><code>per_page</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
+</dl>
+
+<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+Link: &lt;http:///networks/advertisers/campaigns/123/placements?page=2&gt;; rel=&quot;next&quot;,
+      &lt;http:///networks/advertisers/campaigns/123/placements?page=10&gt;; rel=&quot;last&quot;
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>[
+
+  {
+    //Placement ID
+    &quot;id&quot;: 200057486,
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/placements/200057486&quot;,
+    //Placement Name
+    &quot;name&quot;: &quot;Testing Placement&quot;,
+    //Network Media ID
+    &quot;network_media_id&quot;: 1314,
+    //Channel Information
+    &quot;channel&quot;: {
+        //Channel ID
+        &quot;id&quot;: 1025,
+        //Channel Name
+        &quot;name&quot;: &quot;Sport News&quot;,
+        //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
+        &quot;type&quot;: &quot;webpage&quot;,
+        //Which screen the placement is in
+        &quot;screen&quot;: 3,
+        //Channel Website
+        &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+        //Material Type- `flash`(Default),`image`,`video`, `textlink`, `other` 
+        &quot;material_type&quot;: &quot;flash&quot;,
+        //Material Dimension
+        &quot;material_dimension&quot;: &quot;400x300&quot;,
+        //Material Size
+        &quot;material_size&quot;: 200,
+        //Material Unit，B K(Default) M
+        &quot;material_size_unit&quot;: &quot;B&quot;
+    }
+    //Rotation- `1/1`(Default),`1/2`...
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    //Target URL(Click)
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //Payment Type- `purchase`,`offering`,`framework`,`Compensation`,`other`
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    //Cost Type-`day`,`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`kmail`,`other`
+    &quot;cost_type&quot;: &quot;day&quot;
+    //Cost(per_unit)
+    &quot;cost_per_unit&quot;: 873.12,
+    //Estimate Impression(per_unit)
+    &quot;est_imp_per_unit&quot;: 239,
+    //Estimate Click(per_unit)
+    &quot;est_clk_per_unit&quot;: 3,
+    //Units
+    &quot;units&quot;: 58,
+    //Other Requirement
+    &quot;other_requirement&quot;: &quot;Null&quot;,
+    //Estimate Impression(total)
+    &quot;est_imp&quot;: 871821,
+    //Estimate Click(total)
+    &quot;est_clk&quot;: 1231,
+    //Cor Estimate Impression
+    &quot;sp_imp&quot;: 61821,
+    //Cor Estimate Click
+    &quot;sp_clk&quot;: 300,
+    //Total Impression
+    &quot;real_imp&quot;: 71821,
+    //Total Click
+    &quot;real_clk&quot;: 400,
+    //Creation Time
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+  }
+]</code></pre>
+
+<h2 id='get_details_of_the_given_placement'>Get details of the given placement</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/placements/:id</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<p><span /></p>
+
+<pre><code>{
+//Placement ID
+&quot;id&quot;: 200057486,
+&quot;url&quot;: &quot;http:///networks/advertisers/campaigns/placements/200057486&quot;,
+//Placement Name
+&quot;name&quot;: &quot;Testing Placement&quot;,
+//Network Media ID
+&quot;network_media_id&quot;: 1314,
+//Channel Information
+&quot;channel&quot;: {
+    //Channel ID
+    &quot;id&quot;: 1025,
+    //Channel Name
+    &quot;name&quot;: &quot;Sport News&quot;,
+    //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
+    &quot;type&quot;: &quot;webpage&quot;,
+    //Which screen the placement is in
+    &quot;screen&quot;: 3,
+    //Channel Website
+    &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    //Material Type- `flash`(Default),`image`,`video`, `textlink`, `other`
+    &quot;material_type&quot;: &quot;flash&quot;,
+    //Material Dimension
+    &quot;material_dimension&quot;: &quot;400x300&quot;,
+    //Material Size
+    &quot;material_size&quot;: 200,
+    //Material Unit，B K(Default) M
+    &quot;material_size_unit&quot;: &quot;B&quot;
+},
+//Rotation- `1/1`(Default),`1/2`...
+&quot;rotation&quot; : &quot;1/4&quot;,
+//Target URL(Click)
+&quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+//Payment Type- `purchase`,`offering`,`framework`,`Compensation`,`other`
+&quot;payment_type&quot;: &quot;purchase&quot;,
+//Cost Type-`day`,`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`kmail`,`other`
+&quot;cost_type&quot;: &quot;day&quot;
+//Cost(per_unit)
+&quot;cost_per_unit&quot;: 873.12,
+//Estimate Impression(per_unit)
+&quot;est_imp_per_unit&quot;: 239,
+//Estimate Click(per_unit)
+&quot;est_clk_per_unit&quot;: 3,
+//Units
+&quot;units&quot;: 58,
+//Other Requirement
+&quot;other_requirement&quot;: &quot;Null&quot;,
+//Estimate Impression(total)
+&quot;est_imp&quot;: 871821,
+//Estimate Click(total)
+&quot;est_clk&quot;: 1231,
+//Cor Estimate Impression
+&quot;sp_imp&quot;: 61821,
+//Cor Estimate Click
+&quot;sp_clk&quot;: 300,
+//Total Impression
+&quot;real_imp&quot;: 71821,
+//Total Click
+&quot;real_clk&quot;: 400,
+//Creation Time
+&quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<p>]</p>
+
+<h2 id='add_a_placement_to_the_given_campaign'>Add a placement to the given campaign</h2>
+
+<pre><code>POST /networks/advertisers/campaigns/:campaign_id/placements</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>Required</em> <strong>string</strong> - Placement Name</dd>
+
+<dt><code>network_media_id</code></dt>
+
+<dd><em>Required</em> <strong>string</strong> - Network Media ID</dd>
+
+<dt><code>channel_id</code></dt>
+
+<dd><em>Required</em> <strong>integer</strong> - Channel ID</dd>
+
+<dt><code>rotation</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Rotation,<code>1/1</code>(Default),<code>1/2</code>&#8230;</dd>
+
+<dt><code>target_url</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Target URL(Click) inherits campaign&#8217;s target website. Null(Default)</dd>
+
+<dt><code>payment_type</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Payment Type</dd>
+</dl>
+
+<p>* <code>purchase</code> <em>Default</em> * <code>offering</code> * <code>framework</code> * <code>Compensation</code> * <code>other</code></p>
+
+<dl>
+<dt><code>cost_type</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Cost Type</dd>
+</dl>
+
+<p>* <code>day</code> <em>Default</em> * <code>week</code> * <code>month</code> * <code>cpc</code> * <code>cpm</code> * <code>cpa</code> * <code>article</code> * <code>kmail</code> * <code>other</code></p>
+
+<dl>
+<dt><code>cost_per_unit</code></dt>
+
+<dd><em>Optional</em> <strong>float</strong> - Cost(per_unit)</dd>
+
+<dt><code>est_imp_per_unit</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Estimate Impression(per_unit)</dd>
+
+<dt><code>est_clk_per_unit</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Estimate Click(per_unit)</dd>
+
+<dt><code>other_requirement</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Other Requirement</dd>
+</dl>
+
+<p><strong>Request</strong></p>
+
+<pre class='prettyprint'><code>{
+    &quot;name&quot;: &quot;This is a Testing Placement&quot;,
+    &quot;network_media_id&quot;: 1314,
+    &quot;channel_id&quot;: 123,
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    &quot;cost_type&quot;: &quot;day&quot;
+    &quot;cost_per_unit&quot;: 873.12,
+    &quot;est_imp_per_unit&quot;: 239,
+    &quot;est_clk_per_unit&quot;: 3,
+    &quot;other_requirement&quot;: &quot;Null&quot;,
+}</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre class='prettyprint'><code>Status: 201 Created
+Location: http:///networks/advertisers/campaigns/placements/1
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<pre><code>{
+    &quot;id&quot;: 200057486,
+    &quot;url&quot;: &quot;http:///networks/advertisers/campaigns/placements/200057486&quot;,
+    &quot;name&quot;: &quot;This is a Testing Placement&quot;,
+    &quot;network_media_id&quot;: 1314,
+    &quot;channel&quot;: {
+        &quot;id&quot;: 123,
+        &quot;name&quot;: &quot;Sport News&quot;,
+        &quot;type&quot;: &quot;webpage&quot;,
+        &quot;screen&quot;: 3,
+        &quot;home&quot;: &quot;http://www.admaster.com.cn/&quot;,
+        &quot;material_type&quot;: &quot;flash&quot;,
+        &quot;material_dimension&quot;: &quot;400x300&quot;,
+        &quot;material_size&quot;: 200,
+        &quot;material_size_unit&quot;: &quot;B&quot;
+    },
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    &quot;cost_type&quot;: &quot;day&quot;
+    &quot;cost_per_unit&quot;: 873.12,
+    &quot;est_imp_per_unit&quot;: 239,
+    &quot;est_clk_per_unit&quot;: 3,
+    &quot;units&quot;: 0,
+    &quot;other_requirement&quot;: &quot;Null&quot;,
+    &quot;est_imp&quot;: 40000,
+    &quot;est_clk&quot;: 3000,
+    &quot;created_at&quot;: &quot;2012-09-06T20:39:23Z&quot;
+}</code></pre>
+
+<h2 id='delete_the_given_placement'>Delete the given placement</h2>
+
+<pre><code>DELETE /networks/advertisers/campaigns/placements/:id</code></pre>
+
+<p>When the placement which you want to delete has impression or click data, it can not be deleted.</p>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+Location: http:///networks/advertisers/campaigns/10786/placements
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>
+
+<h2 id='modify_details_of_the_given_placement'>Modify details of the given placement</h2>
+
+<pre><code>PATCH /networks/advertisers/campaigns/placements/:id</code></pre>
+
+<p><strong>Request</strong></p>
+
+<dl>
+<dt><code>name</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Placement Name</dd>
+
+<dt><code>channel_id</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Channel ID</dd>
+
+<dt><code>rotation</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Rotation,<code>1/1</code>(Default),<code>1/2</code>&#8230;</dd>
+
+<dt><code>target_url</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Target URL(Click) inherits campaign&#8217;s target website. Null(Default)</dd>
+
+<dt><code>payment_type</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Cost Type</dd>
+</dl>
+
+<p>* <code>purchase</code> <em>Default</em> * <code>offering</code> * <code>framework</code> * <code>Compensation</code> * <code>other</code></p>
+
+<dl>
+<dt><code>cost_type</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Cost Type</dd>
+</dl>
+
+<p>* <code>day</code> <em>Default</em> * <code>week</code> * <code>month</code> * <code>cpc</code> * <code>cpm</code> * <code>cpa</code> * <code>article</code> * <code>kmail</code> * <code>other</code></p>
+
+<dl>
+<dt><code>cost_per_unit</code></dt>
+
+<dd><em>Optional</em> <strong>float</strong> - Cost(per_unit)</dd>
+
+<dt><code>est_imp_per_unit</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Estimate Impression(per_unit)</dd>
+
+<dt><code>est_clk_per_unit</code></dt>
+
+<dd><em>Optional</em> <strong>integer</strong> - Estimate Click(per_unit)</dd>
+
+<dt><code>other_requirement</code></dt>
+
+<dd><em>Optional</em> <strong>string</strong> - Other Requirement</dd>
+</dl>
+
+<p><strong>Request</strong></p>
+
+<pre class='prettyprint'><code>{
+    &quot;name&quot;: &quot;This is a Testing Placement&quot;,
+    &quot;channel_id&quot;: 123,
+    &quot;rotation&quot; : &quot;1/4&quot;,
+    &quot;target_url&quot;: &quot;http://www.admaster.com.cn/&quot;,
+    &quot;payment_type&quot;: &quot;purchase&quot;,
+    &quot;cost_type&quot;: &quot;day&quot;
+    &quot;cost_per_unit&quot;: 873.12,
+    &quot;est_imp_per_unit&quot;: 239,
+    &quot;est_clk_per_unit&quot;: 3,
+    &quot;other_requirement&quot;: &quot;Null&quot;,
+}</code></pre>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999</code></pre>

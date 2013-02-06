@@ -2,6 +2,7 @@
 weight: 2
 layout: default
 category: openmaster
+language: cn
 title: 快速入门
 ---
 
