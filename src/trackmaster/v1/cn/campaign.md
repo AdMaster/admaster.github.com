@@ -175,9 +175,7 @@ title: 项目
 
 **请求**
 
-{:.prettyprint}
-   [ 
-
+{:.prettyprint}   
 	{
         "name": "这是一个测试项目",//项目名称
         "network_brand_id": 10021,//项目网络品牌 ID
@@ -190,7 +188,8 @@ title: 项目
             "sex": "female"//目标受众人群性别
         }
     }
-]
+	
+
 
 **响应**
 
@@ -265,8 +264,6 @@ title: 项目
 **请求**
 
 {:.prettyprint}
-    [
-
 	{
         "name": "这是一个测试项目",//项目名称
         "network_brand_id": 10021,//项目网络品牌 ID
@@ -279,7 +276,7 @@ title: 项目
             "sex": "female"//目标受众人群性别
         }
     }
-]
+
 **响应**
 
     Status: 204 No Content
