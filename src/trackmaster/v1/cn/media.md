@@ -200,6 +200,30 @@ title: 媒体
         "framework": "no"
     }
 
+
+## 获取指定网络媒体ID信息
+
+    GET /networks/medias/:network_media_id
+
+**响应**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    {
+        "id": 1305,//网络媒体 ID
+        "name": "新浪",
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
+        "domain": "sina.com.cn",
+        "tag": "综合其他",
+        "status": "enabled"
+        "created_at": "2012-09-06T20:39:23Z"
+        "media_id": 400//系统媒体 ID
+        "framework": "no"
+    }
+
 ## 删除指定工作网络下的媒体
 
     DELETE /networks/medias/:id

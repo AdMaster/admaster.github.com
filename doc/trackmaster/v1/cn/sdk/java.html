@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>媒体报告 - trackmaster - AdMaster API 文档中心</title>
+  <title>Java SDK - trackmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,465 +40,101 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">媒体报告</h1>
+        <h1 id="trackmaster-api-java-sdk">TrackMaster API Java SDK</h1>
 
-<ul id="markdown-toc">
-  <li><a href="#section-1">获取指定媒体下的项目</a></li>
-  <li><a href="#section-2">获取指定项目下的日报告</a></li>
-  <li><a href="#section-3">获取指定监测代码下的项目日报告</a></li>
-  <li><a href="#section-4">获取指定监测代码下的项目报告</a></li>
-  <li><a href="#iab-">媒体用户获取 iab 数据</a></li>
-  <li><a href="#section-5">获取指定媒体项目报告列表</a></li>
-</ul>
+<h3 id="clientjava">示例类(client.java)</h3>
 
-<h2 id="section-1">获取指定媒体下的项目</h2>
+<pre class="prettyprint"><code>import java.io.*;
+import java.net.*;
 
-<pre><code>GET /medias/:media_id/campaigns
-</code></pre>
+public class client{
+    URL url;
+    String urlStr;
+    HttpURLConnection conn;
+    BufferedReader reader;
+    String line;
+    String result = "";
 
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-    "id": 10185,
-    "name": "这是一个测试项目",
-    "start_date": "2012-01-03",
-    "end_date": "2012-06-23",
-    "created_at": "2012-09-06T20:39:23Z"
-  }
-]
-</code></pre>
-
-<h2 id="section-2">获取指定项目下的日报告</h2>
-
-<pre><code>GET /medias/:media_id/campaigns/:campaign_id/daily_reports
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>start_time</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目开始日期，例如 2012-08-01，会列出项目开始日期大于等于此设定的项目</dd>
-  <dt><code>end_time</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目结束日期，例如 2012-08-02，会列出项目结束日期小于等于此设定的项目</dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
-
-    <ul>
-      <li><code>time</code> - 按照时间排序</li>
-      <li><code>imp</code> - 按照曝光排序</li>
-      <li><code>clk</code> - 按照点击排序</li>
-      <li><code>uimp</code> - 按照独立曝光排序</li>
-      <li><code>uclk</code> - 按照独立点击排序</li>
-    </ul>
-  </dd>
-  <dt><code>direction</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式
-
-    <ul>
-      <li><code>asc</code> 升序 (<em>默认</em>)</li>
-      <li><code>desc</code> 降序</li>
-    </ul>
-  </dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-    "time": "2012-08-01", // 时间
-    "imp": 23, //曝光
-    "uimp": 20, //独立曝光
-    "clk": 20, //点击
-    "uclk": 10, //独立点击
-  }
-]
-</code></pre>
-
-<h2 id="section-3">获取指定监测代码下的项目日报告</h2>
-
-<pre><code>GET /medias/campaigns/daily_reports/codes
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>code</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 项目监测代码</dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/medias/1308/campaigns/10256/daily_reports
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-4">获取指定监测代码下的项目报告</h2>
-
-<pre><code>GET /medias/campaigns/reports/codes
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>code</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 项目监测代码</dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/medias/1308/campaigns/10256/reports
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="iab-">媒体用户获取 iab 数据</h2>
-
-<pre><code>GET /medias/:id/ies
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/medias/1/ies?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/medias/1/ies?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>pubid</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该 pubid 的数据</dd>
-  <dt><code>date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
-  <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
-</dl>
-
-<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
-
-<pre class="prettyprint"><code>[
-  {
-    "date_hour": 2012061015,
-    "pubid": "IYK_IMloxnwepMEqlx",
-    "city": "北京",
-    "geoid": 110000,
-    "impression": 12039423,
-    "click": 43432,
-  }
-]
-</code></pre>
-
-<h2 id="section-5">获取指定媒体项目报告列表</h2>
-
-<pre><code>GET /medias/:media_id/campaigns/:campaign_id/reports
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>time</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 数据时间类型,与参数 <code>start_time</code> 和 <code>end_time</code> 共同使用。
-
-    <ul>
-      <li><code>hourly</code> 获取小时数据</li>
-      <li><code>daily</code> 获取日数据</li>
-      <li><code>weekly</code> 获取周数据</li>
-      <li><code>monthly</code> 获取月数据</li>
-    </ul>
-  </dd>
-  <dt><code>dims</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 数据聚合维度,多个选项之间用<code>,</code>分开
-
-    <ul>
-      <li><code>placement</code> 按广告位维度聚合</li>
-      <li><code>keyword</code> 按关键字维度聚合</li>
-      <li><code>creative</code> 按创意维度聚合</li>
-      <li><code>geo</code> 按地域维度聚合</li>
-      <li><code>time</code> 按时间维度聚合    </li>
-    </ul>
-  </dd>
-  <dt><code>placement_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位 ID</dd>
-  <dt><code>keyword_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 关键字 ID</dd>
-  <dt><code>creative_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
-  <dt><code>geo_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 地域 ID</dd>
-  <dt><code>start_time</code></dt>
-  <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目，与参数<code>time</code>一起使用。<br />
-采用国际标准 ISO 8601 的日期和时间显示格式。
-
-    <ul>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:57:10+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
-      </li>
-    </ul>
-  </dd>
-  <dt><code>end_time</code></dt>
-  <dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目，与参数<code>time</code>一起使用。<br />
-采用国际标准 ISO 8601 的日期和时间显示格式。
-
-    <ul>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:57:10+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
-      </li>
-    </ul>
-  </dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
-
-    <ul>
-      <li><code>time</code> - 按照时间排序</li>
-      <li><code>imp</code> - 按照曝光排序</li>
-      <li><code>clk</code> - 按照点击排序</li>
-      <li><code>uimp</code> - 按照独立曝光排序</li>
-      <li><code>uclk</code> - 按照独立点击排序</li>
-      <li><code>placement_id</code> - 按照广告位 ID 排序</li>
-    </ul>
-  </dd>
-  <dt><code>direction</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式
-
-    <ul>
-      <li><code>asc</code> 升序 (<em>默认</em>)</li>
-      <li><code>desc</code> 降序</li>
-    </ul>
-  </dd>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
-</dl>
-
-<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
-
-<dl>
-  <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
-</dl>
-
-<p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=10&gt;; rel="last"
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-    "campaign_id": 10185,
-    "time": "2012-08-03",
-    "imp": 9,
-    "uimp": 6,
-    "ipuimp": 6,
-    "clk": 3,
-    "uclk": 3,
-    "ipuclk": 2
-  }
-]
-</code></pre>
-
-<p><strong>字段说明</strong></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>返回值字段</td>
-      <td>字段类型</td>
-      <td>字段说明</td>
-    </tr>
-    <tr>
-      <td>imp</td>
-      <td>integer</td>
-      <td>曝光</td>
-    </tr>
-    <tr>
-      <td>uimp</td>
-      <td>integer</td>
-      <td>独立曝光</td>
-    </tr>
-    <tr>
-      <td>ipuimp</td>
-      <td>integer</td>
-      <td>IP独立曝光</td>
-    </tr>
-    <tr>
-      <td>clk</td>
-      <td>integer</td>
-      <td>点击</td>
-    </tr>
-    <tr>
-      <td>uclk</td>
-      <td>integer</td>
-      <td>独立点击</td>
-    </tr>
-    <tr>
-      <td>ipuclk</td>
-      <td>integer</td>
-      <td>IP独立点击</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>获取数据组合说明</strong></p>
-
-<p>不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>组合</td>
-      <td>说明</td>
-    </tr>
-    <tr>
-      <td>time=daily</td>
-      <td>粒度为天，指定媒体指定项目数据</td>
-    </tr>
-    <tr>
-      <td>time=daily&amp;dims=geo</td>
-      <td>粒度为天，指定媒体指定项目分地域数据</td>
-    </tr>
-    <tr>
-      <td>time=daily&amp;dims=creative</td>
-      <td>粒度为天，指定媒体指定项目分创意数据</td>
-    </tr>
-    <tr>
-      <td>time=daily&amp;dims=placement</td>
-      <td>粒度为天，指定媒体指定项目分广告位数据</td>
-    </tr>
-    <tr>
-      <td>time=daily&amp;dims=placement,geo</td>
-      <td>粒度为天，指定媒体指定项目分广告位分地域数据</td>
-    </tr>
-    <tr>
-      <td>time=daily&amp;dims=placement,keyword</td>
-      <td>粒度为天，指定媒体指定项目分广告位分关键字数据</td>
-    </tr>
-    <tr>
-      <td>time=daily&amp;dims=placement,creative</td>
-      <td>粒度为天，指定媒体指定项目分广告位分创意数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly</td>
-      <td>粒度为小时，指定媒体指定项目数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly&amp;dims=creative</td>
-      <td>粒度为小时，指定媒体指定项目分创意数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly&amp;dims=geo</td>
-      <td>粒度为小时，指定媒体指定项目分地域数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly&amp;dims=placement</td>
-      <td>粒度为小时，指定媒体指定项目分广告位数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly&amp;dims=placement,creative</td>
-      <td>粒度为小时，指定媒体指定项目分广告位分创意数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly&amp;dims=placement,geo</td>
-      <td>粒度为小时，指定媒体指定项目分广告位分地域数据</td>
-    </tr>
-    <tr>
-      <td>time=hourly&amp;dims=placement,keyword</td>
-      <td>粒度为小时，指定媒体指定项目分广告位分关键字数据</td>
-    </tr>
-    <tr>
-      <td>time=monthly</td>
-      <td>粒度为月，指定媒体指定项目数据</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=placement</td>
-      <td>粒度为月，指定媒体指定项目分广告位数据</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=placement,keyword</td>
-      <td>粒度为月，指定媒体指定项目分广告位分关键字数据</td>
-    </tr>
-    <tr>
-      <td>time=weekly</td>
-      <td>粒度为周，指定媒体指定项目数据</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=placement</td>
-      <td>粒度为周，指定媒体指定项目分广告位数据</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=placement,keyword</td>
-      <td>粒度为周，指定媒体指定项目分广告位分关键字数据</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>示例</strong></p>
-
-<p>维度参数包括 time，显示内容按时间分组聚合。</p>
-
-<pre class="prettyprint"><code>[
-    {
-        "campaign_id": 10116,
-        "time": "2012-11-01",
-        "imp": 3,
-        "uimp": 3,
-        "clk": 7,
-        "uclk": 7,
-        "ipuimp": 3,
-        "ipuclk": 4
-    },
-    {
-        "campaign_id": 10116,
-        "time": "2012-11-02",
-    …
-]
-</code></pre>
-
-<p>维度参数不选择 time</p>
-
-<pre class="prettyprint"><code>[
-    {
-        "campaign_id": 10116,
-        "imp": 28,
-        "uimp": 27,
-        "clk": 72,
-        "uclk": 39,
-        "ipuimp": 27,
-        "ipuclk": 24
+    public client(String urlToRead){
+        urlStr = urlToRead;
     }
-]
+
+    public String get(String param) {
+
+        try {
+            url = new URL(urlStr + param);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("User-Agent", "TrackMaster-SDK-JAVA");
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            while ((line = reader.readLine()) != null) {
+                result += line;
+            }
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+   }
+
+    public String post(String param, String json) {
+
+        try {
+            url = new URL(urlStr + param);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setInstanceFollowRedirects(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("User-Agent", "TrackMaster-SDK-JAVA");
+            conn.setRequestProperty("charset", "utf-8");
+            conn.setRequestProperty("Content-Length", "" + Integer.toString(json.getBytes().length));
+            conn.setUseCaches (false);
+            OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+            writer.write(json);
+            writer.flush();
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            while ((line = reader.readLine()) != null) {
+                result += line;
+            }
+            writer.close();
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+}
+</code></pre>
+
+<h3 id="accesstokenmymainjava">获取当前用户/获取当前用户网络/获取access_token(myMain.java)</h3>
+
+<pre class="prettyprint"><code>class myMain{
+    public static void main(String args[])
+   {
+       client apiClient = new client("http://track.admasterapi.com");
+       String access_token = "您的access token";
+       System.out.println(apiClient.get("/user?access_token=" + access_token)); // 获取用户信息
+       System.out.println(apiClient.get("/user/networks?access_token=" + access_token)); // 获取用户网络信息
+
+       // 构造json，格式为{"client_id":"aaa","client_secrect":"bbb","grant_type": "ccc","email":"ddd","password":"eee"}
+       String client_id = "\"您的client_id\"";
+       String client_secret = "\"您的client_secrect\"";
+       String grant_type = "\"password\"";
+       String password = "\"您的密码\"";
+       String email = "\"您的邮箱\"";
+       String json = "{\"client_id\":" + client_id
+           + ",\"client_secret\":" + client_secret
+           + ",\"grant_type\":" + grant_type
+           + ",\"email\":" +email
+           + ",\"password\":" +password+"}";
+
+       client openClient = new client("http://open.admaster.com.cn");
+
+       System.out.println(openClient.post("/oauth/access_token", json)); // 获取access_token
+   }
+}
 </code></pre>
 
       </div>
