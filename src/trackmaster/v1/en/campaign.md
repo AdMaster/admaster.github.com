@@ -77,7 +77,7 @@ If the input is a part of campaign name, it will search the campaign.
       {
         "id": 10786,//Campaign ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
-        "name":"This is a testing campaign",//Campaign Name
+        "name":"Testing campaign",//Campaign Name
         "network_brand_id": 10213,//Network Brand ID
         "cost_type": "CNY",//The `cost_type` that was performed: “CNY” , “USD” or "None".
         "total_cost": 20000000,//Total cost of campaign
