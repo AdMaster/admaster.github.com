@@ -125,7 +125,7 @@ If the input is a part of campaign name, it will search the campaign.
         "placement_num": 258,//The number of placements in the campaign
         "target_audience":{//Target Audience
             "age": "19-25",//Age Groups
-            "sex": "male"//Gender
+            "sex": ["male","female"]//Gender
         },
         "status": "midterm",//Status of campaign 
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
@@ -169,7 +169,7 @@ Can not create a campaign if the name has exists in the same advertiser.
 {:.prettyprint}
     {
         "age": "19-25",//Age Groups
-        "sex": "male"//Gender.The `sex` that was performed: “male”, “female”.
+        "sex": ["male"]//Gender.The `sex` that was performed: “male”, “female”. Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.
     }
 
 
@@ -177,7 +177,7 @@ Can not create a campaign if the name has exists in the same advertiser.
 
 {:.prettyprint}
     {
-        "name": "This is a testing campaign",//Campaign Name
+        "name": "Testing campaign",//Campaign Name
         "network_brand_id": 10021,//Network Brand ID
         "start_date": "2012-01-31",//Beginning date
         "end_date": "2012-04-20",//Final date
@@ -185,7 +185,7 @@ Can not create a campaign if the name has exists in the same advertiser.
         "cost_type": "USD",//The `cost_type` that was performed: “CNY” , “USD” or "None".
         "target_audience": {//Target Audience
             "age": "16-30",//Age Groups
-            "sex": "female"//Gender
+            "sex": ["female"]//GenderThe `sex` that was performed: “male”, “female”. Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.
         }
     }
 
@@ -200,7 +200,7 @@ Can not create a campaign if the name has exists in the same advertiser.
     {
         "id": 10786,//Campaign Name
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
-        "name": "This is a testing campaign",//Campaign Name
+        "name": "Testing campaign",//Campaign Name
         "network_brand_id": 10021,//Network Brand ID
         "cost_type": "USD",//The `cost_type` that was performed: “CNY” , “USD” or "None".
         "total_cost": 200000,//Total cost of campaign
@@ -211,7 +211,7 @@ Can not create a campaign if the name has exists in the same advertiser.
         "placement_num": 7,//The number of placements in the campaign 
         "target_audience":{//Target Audience
             "age": "16-30",//Age Groups
-            "sex": "female"//Gender
+            "sex": ["female"]//Gender
         },
         "status": "typing",//Status of campaign 
         "is_online": "no",
@@ -256,7 +256,7 @@ Get information near the bottom of the page.
 {:.prettyprint}
     {
         "age": "19-25",//Age Groups
-        "sex": "male"//Gender
+        "sex": ["male"]//Gender.Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}
     }
 
 **Request**
@@ -271,7 +271,7 @@ Get information near the bottom of the page.
         "cost_type": "USD",//Cost Type
         "target_audience": {//Target Audience
             "age": "16-30",//Age Groups
-            "sex": "female"//Gender
+            "sex": ["female"]//Gender.Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}
         }
     }
 

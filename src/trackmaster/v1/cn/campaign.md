@@ -125,7 +125,7 @@ title: 项目
         "placement_num": 258,//项目中广告位数目
         "target_audience":{//目标受众人群
             "age": "19-25",//目标受众人群年龄范围
-            "sex": "male"//目标受众人群性别
+            "sex": ["male"]//目标受众人群性别。如需同时选择“男”和“女”，格式为"sex": ["male","female"]；如不选择性别，则不输入 sex 内容，即{ "age": "19-25",}
         },
         "status": "midterm",//项目当前状态
         "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
@@ -169,7 +169,7 @@ title: 项目
 {:.prettyprint}
     {
         "age": "19-25",//目标受众人群年龄范围，例如: 16-20  16岁到20岁
-        "sex": "male"//目标受众人群性别，`male` 男, `female` 女
+        "sex": ["male"]//目标受众人群性别，`male` 男, `female` 女。如需同时选择“男”和“女”，格式为"sex": ["male","female"]；如不选择性别，则不输入 sex 内容，即{ "age": "19-25",}
     }
 
 
@@ -185,7 +185,7 @@ title: 项目
         "cost_type": "USD",//媒体预算货币类型
         "target_audience": {//目标受众人群
             "age": "16-30",//目标受众人群年龄范围
-            "sex": "female"//目标受众人群性别
+            "sex": ["female","male"]//目标受众人群性别
         }
     }
 	
@@ -213,7 +213,7 @@ title: 项目
         "placement_num": 4,//项目中广告位数目
         "target_audience":{//目标受众人群
             "age": "16-30",//目标受众人群年龄范围
-            "sex": "female"//目标受众人群性别
+            "sex": ["female"]//目标受众人群性别
         },
         "status": "midterm",//项目当前状态
         "is_online": "yes",//如果当前时间在项目开始时间到项目结束时间之后 7 天内，当前参数为“yes”，否则为“no”
@@ -258,7 +258,7 @@ title: 项目
 {:.prettyprint}
     {
         "age": "19-25",//目标受众人群年龄范围，例如: 16_20  16岁到20岁
-        "sex": "male"//目标受众人群性别，`male` 男, `female` 女
+        "sex": ["male"]//目标受众人群性别，`male` 男, `female` 女。如需同时选择“男”和“女”，格式为"sex": ["male","female"]；如不选择性别，则不输入 sex 内容，即{ "age": "19-25",}
     }
 
 **请求**
@@ -273,7 +273,7 @@ title: 项目
         "cost_type": "USD",//媒体预算货币类型
         "target_audience": {//目标受众人群
             "age": "16-30",//目标受众人群年龄范围
-            "sex": "female"//目标受众人群性别
+            "sex": ["female"]//目标受众人群性别
         }
     }
 

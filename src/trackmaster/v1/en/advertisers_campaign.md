@@ -36,7 +36,7 @@ title: Campaign
         "placement_num": 258,//The number of placements in the campaign
         "target_audience":{//Target Audience
             "age": "19-25",//Age Groups
-            "sex": "male"//Gender
+            "sex": ["male"]//Gender
         },
         "status": "midterm",//Status of campaign 
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
@@ -68,7 +68,7 @@ title: Campaign
         "placement_num": 258,//The number of placements in the campaign
         "target_audience":{//Target Audience
             "age": "19-25",//Age Groups
-            "sex": "male"//Gender
+            "sex": ["male"]//Gender
         },
         "status": "midterm",//Status of campaign 
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
