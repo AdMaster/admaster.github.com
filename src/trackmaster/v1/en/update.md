@@ -21,6 +21,10 @@ title: Update
   </tr>
   <tr>
     <td>2013-02-17</td>
+    <td>Modified the format of "target_audience".The "sex" has three format:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/campaign.html#modify-details-of-the-given-campaign">More Information</a></td>
+  </tr>
+  <tr>
+    <td>2013-02-17</td>
     <td>Node.js SDK Sample.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/sdk/nodejs.html">More Information</a></td>
   </tr>
   <tr>
@@ -104,6 +108,10 @@ title: Update
   <tr>
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-02-17</td>
+    <td>Modified the format of "target_audience".The "sex" has three format:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}. Please pay attention to "<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertisers_campaign.html#list-campaigns-of-the-given-advertiser">List campaigns of the given advertiser" and "<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertisers_campaign.html#get-details-of-the-given-campaign">Get details of the given campaign".</td>
   </tr>
   <tr>
     <td>2013-02-17</td>

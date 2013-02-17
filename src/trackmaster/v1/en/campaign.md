@@ -154,7 +154,7 @@ Can not create a campaign if the name has exists in the same advertiser.
 : _Required_ **date** - Final date to retrieve data in format YYYY-MM-DD. 
 
 `default_target`
-: _Required_ **string** - Target Website.Example:http://www.admaster.com.cn/
+: _Required_ **string** - Target Website. Example:http://www.admaster.com.cn/
 
 `cost_type`
 : _Optional_ **string** - Cost Type
@@ -169,7 +169,7 @@ Can not create a campaign if the name has exists in the same advertiser.
 {:.prettyprint}
     {
         "age": "19-25",//Age Groups
-        "sex": ["male"]//Gender.The `sex` that was performed: “male”, “female”. Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.
+        "sex": ["male"]//Gender.The `sex` that was performed: “male”, “female”. Three format:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.
     }
 
 
@@ -185,7 +185,7 @@ Can not create a campaign if the name has exists in the same advertiser.
         "cost_type": "USD",//The `cost_type` that was performed: “CNY” , “USD” or "None".
         "target_audience": {//Target Audience
             "age": "16-30",//Age Groups
-            "sex": ["female"]//GenderThe `sex` that was performed: “male”, “female”. Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.
+            "sex": ["female"]//Gender.The `sex` that was performed: “male”, “female”. Three format:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}.
         }
     }
 
@@ -256,7 +256,7 @@ Get information near the bottom of the page.
 {:.prettyprint}
     {
         "age": "19-25",//Age Groups
-        "sex": ["male"]//Gender.Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}
+        "sex": ["male"]//Gender.Three format:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}
     }
 
 **Request**
@@ -271,7 +271,7 @@ Get information near the bottom of the page.
         "cost_type": "USD",//Cost Type
         "target_audience": {//Target Audience
             "age": "16-30",//Age Groups
-            "sex": ["female"]//Gender.Three formats:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}
+            "sex": ["female"]//Gender.Three format:"sex": ["male"],"sex": ["male","female"],{"age": "19-25"}
         }
     }
 
