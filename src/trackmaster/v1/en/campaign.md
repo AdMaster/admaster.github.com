@@ -198,7 +198,7 @@ Can not create a campaign if the name has exists in the same advertiser.
 
 {:.prettyprint}
     {
-        "id": 10786,//Campaign Name
+        "id": 10786,//Campaign ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
         "name": "Testing campaign",//Campaign Name
         "network_brand_id": 10021,//Network Brand ID
@@ -263,7 +263,7 @@ Get information near the bottom of the page.
 
 {:.prettyprint}
     {
-        "name": "This is a testing campaign",//Campaign Name
+        "name": "Testing campaign",//Campaign Name
         "network_brand_id": 10021,//Network Brand ID
         "start_date": "2012-01-31",//Beginning date
         "end_date": "2012-04-20",//Final date
