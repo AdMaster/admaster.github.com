@@ -60,17 +60,16 @@
   <dt><code>end_date</code></dt>
   <dd><em>Required</em> <strong>date</strong> - Final date to retrieve data in format YYYY-MM-DD.</dd>
   <dt><code>page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
-</dl>
+  <dd><em>Optional</em> <strong>integer</strong> - the start index
 
-<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
-
-<dl>
+    <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+  </dd>
   <dt><code>per_page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
-</dl>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results
 
-<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+    <p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+  </dd>
+</dl>
 
 <p><strong>Response</strong></p>
 
@@ -81,8 +80,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     //Placement ID
     "placement_id": 200019261,
     //Online Date
@@ -92,7 +90,6 @@ X-RateLimit-Remaining: 4999
     //Perchase Unites
     "units": 23,
   }
-]
 </code></pre>
 
 <h2 id="modify-the-given-spot">Modify the given spot</h2>

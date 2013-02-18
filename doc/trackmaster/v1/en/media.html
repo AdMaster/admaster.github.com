@@ -83,17 +83,16 @@
     </ul>
   </dd>
   <dt><code>page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
-</dl>
+  <dd><em>Optional</em> <strong>integer</strong> - the start index
 
-<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
-
-<dl>
+    <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+  </dd>
   <dt><code>per_page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
-</dl>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results
 
-<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+    <p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+  </dd>
+</dl>
 
 <p><strong>Response</strong></p>
 
@@ -104,8 +103,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     "id": 400,//System Media ID
     "url": "http://track.admasterapi.com/medias/400",
     "name": "Sina",//System Media Name
@@ -114,7 +112,6 @@ X-RateLimit-Remaining: 4999
     "tag": "综合其他",
     "created_at": "2012-09-06T20:39:23Z"
   }
-]
 </code></pre>
 
 <h2 id="get-details-of-the-given-system-media">Get details of the given system media</h2>
@@ -167,17 +164,16 @@ X-RateLimit-Remaining: 4999
     </ul>
   </dd>
   <dt><code>page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the start index</dd>
-</dl>
+  <dd><em>Optional</em> <strong>integer</strong> - the start index
 
-<p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
-
-<dl>
+    <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+  </dd>
   <dt><code>per_page</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - the max-results</dd>
-</dl>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results
 
-<p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+    <p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
+  </dd>
+</dl>
 
 <p><strong>Response</strong></p>
 
@@ -188,8 +184,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     "id": 1314,//Network Media ID
     "url": "http://track.admasterapi.com/networks/11/medias/1314",
     "name": "Sina",//Network Media Name
@@ -201,7 +196,6 @@ X-RateLimit-Remaining: 4999
     "media_id": 400//System Media ID
     "framework": "no"
   }
-]
 </code></pre>
 
 <h2 id="get-details-of-the-given-media-in-the-authorized-network">Get details of the given media in the authorized network</h2>

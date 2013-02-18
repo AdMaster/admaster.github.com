@@ -18,7 +18,7 @@ title: Code
 
 **Parameters**
 
-NO Parameters
+Null
 
 **Response**
 
@@ -27,7 +27,6 @@ NO Parameters
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
       {
         // Creative ID
         "creative_id": 0,
@@ -56,6 +55,5 @@ NO Parameters
         // Impression Code-Flash
         "imptag_flash": "<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" id=\"TrackMasterBeacon\" align=\"middle\" width=\"1\" height=\"1\"><param name=\"movie\" value=\"http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m204,h\" \/><param name=\"allowScriptAccess\" value=\"always\" \/><param name=\"quality\" value=\"high\" \/>\n<embed src=\"http:\/\/v.admaster.com.cn\/i\/a10786,b200057486,c2010,i0,m204,h\" quality=\"high\" swLiveConnect=true id=\"TrackMasterBeacon\" name=\"TrackMasterBeacon\" width=\"1\" height=\"1\" align=\"middle\" allowScriptAccess=\"always\" type=\"application\/x-shockwave-flash\" \/><\/object>"
       }
-    ]
 
 

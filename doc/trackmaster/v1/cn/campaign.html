@@ -104,6 +104,16 @@
       <li><code>desc</code> 降序</li>
     </ul>
   </dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 显示页码
+
+    <p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条
+
+    <p>返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。<code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制</p>
+  </dd>
 </dl>
 
 <p><strong>响应</strong></p>

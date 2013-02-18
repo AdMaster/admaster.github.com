@@ -21,7 +21,7 @@ title: Campaign
 `name`
 : _Optional_ **string** - Campaign Name
 
-If the input is a part of campaign name, it will search the campaign.
+	If the input is a part of campaign name, it will search the campaign.
 
 `network_brand_id`
 : _Optional_ **integer** - Network Brand ID
@@ -63,6 +63,16 @@ If the input is a part of campaign name, it will search the campaign.
   * `asc` Ascend (_Default_)
   * `desc` Descend
 
+`page`
+: _Optional_ **integer** - the start index
+
+	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
+
+`per_page`
+: _Optional_ **integer** - the max-results
+
+	You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.
+
 **Response**
 
     Status: 200 OK
@@ -72,8 +82,6 @@ If the input is a part of campaign name, it will search the campaign.
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
-
       {
         "id": 10786,//Campaign ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
@@ -96,7 +104,6 @@ If the input is a part of campaign name, it will search the campaign.
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
         "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
       }
-    ]
 
 
 ## Get details of the given campaign

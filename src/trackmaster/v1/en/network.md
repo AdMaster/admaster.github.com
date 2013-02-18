@@ -23,7 +23,6 @@ title: Network
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
        {
         "id": 11,//Network ID
         "url": "https://api.trackmaster.com.cn/networks/11",
@@ -38,7 +37,6 @@ title: Network
              }
           }
        }
-    ]
 
 ## Get details of the given network
 
