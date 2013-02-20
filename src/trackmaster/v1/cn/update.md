@@ -19,6 +19,10 @@ title: 更新
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
   <tr>
+    <td>2013-02-20</td>
+    <td>添加“获取指定广告位下的关键字获取代码”接口。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/code.html#section-2>查看详细</a></td>
+  </tr>
+  <tr>
     <td>2013-02-18</td>
     <td>添加 page 和 per_page 参数到各获取列表的接口中，在使用获取列表的接口时，可以使用分页功能。</td>
   </tr>
