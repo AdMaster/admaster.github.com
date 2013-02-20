@@ -44,6 +44,7 @@
 
 <ul id="markdown-toc">
   <li><a href="#section-1">获取指定广告位下的代码</a></li>
+  <li><a href="#section-2">获取指定广告位下的关键字获取代码</a></li>
 </ul>
 
 <h2 id="section-1">获取指定广告位下的代码</h2>
@@ -62,8 +63,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     // 创意 ID
     "creative_id": 0,
 
@@ -71,10 +71,10 @@ X-RateLimit-Remaining: 4999
     "creative_name": "默认创意",
 
     // 点击代码
-    "clktag": "http://c.admaster.com.cn/c/a10786,b200057486,c2010,i0,m101,h",
+    "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h",
 
     // 曝光代码
-    "imptag": "http://v.admaster.com.cn/i/a10786,b200057486,c2010,i0,m202,h",
+    "imptag": "http://v.admaster.com.cn/i/a10111,b200050000,c2000,i0,m202,h",
 
     // 曝光Flash AS2代码
     "imptag_flash_as2": "if(_root[\"adCnt\"]!=\"ldd\") {\n_root[\"adCnt\"]=\"ldd\";var hstr=\"\",u3rd=\"\";\nloadMovie(\"http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m201,h\"+escape(hstr)+\",d\"+escape(_url)+\",u\"+escape(u3rd),createEmptyMovieClip(\"MSd\",this.getNextHighestDepth()));\n}",
@@ -91,7 +91,51 @@ X-RateLimit-Remaining: 4999
     // 曝光Flash代码
     "imptag_flash": "&lt;object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" id=\"TrackMasterBeacon\" align=\"middle\" width=\"1\" height=\"1\"&gt;&lt;param name=\"movie\" value=\"http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m204,h\" \/&gt;&lt;param name=\"allowScriptAccess\" value=\"always\" \/&gt;&lt;param name=\"quality\" value=\"high\" \/&gt;\n&lt;embed src=\"http:\/\/v.admaster.com.cn\/i\/a10786,b200057486,c2010,i0,m204,h\" quality=\"high\" swLiveConnect=true id=\"TrackMasterBeacon\" name=\"TrackMasterBeacon\" width=\"1\" height=\"1\" align=\"middle\" allowScriptAccess=\"always\" type=\"application\/x-shockwave-flash\" \/&gt;&lt;\/object&gt;"
   }
-]
+</code></pre>
+
+<h2 id="section-2">获取指定广告位下的关键字获取代码</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/placements/:placement_id/keywords/codes
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 显示页码
+
+    <p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条
+
+    <p>返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。<code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制</p>
+  </dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>   {
+        //关键字 ID
+        "keyword_id":1
+        //关键字名称
+        "keyword_name": Example
+        "codes": [
+            {
+                //创意 ID
+                "creative_id": 0,
+                //创意名称
+                "creative_name": "默认创意"，
+                //点击代码
+                "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
+            }
+        ]
+    }
 </code></pre>
 
 

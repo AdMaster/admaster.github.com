@@ -27,7 +27,6 @@ title: 代码
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
       {
         // 创意 ID
         "creative_id": 0,
@@ -36,10 +35,10 @@ title: 代码
         "creative_name": "默认创意",
 
         // 点击代码
-        "clktag": "http://c.admaster.com.cn/c/a10786,b200057486,c2010,i0,m101,h",
+        "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h",
 
         // 曝光代码
-        "imptag": "http://v.admaster.com.cn/i/a10786,b200057486,c2010,i0,m202,h",
+        "imptag": "http://v.admaster.com.cn/i/a10111,b200050000,c2000,i0,m202,h",
 
         // 曝光Flash AS2代码
         "imptag_flash_as2": "if(_root[\"adCnt\"]!=\"ldd\") {\n_root[\"adCnt\"]=\"ldd\";var hstr=\"\",u3rd=\"\";\nloadMovie(\"http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m201,h\"+escape(hstr)+\",d\"+escape(_url)+\",u\"+escape(u3rd),createEmptyMovieClip(\"MSd\",this.getNextHighestDepth()));\n}",
@@ -56,6 +55,46 @@ title: 代码
         // 曝光Flash代码
         "imptag_flash": "<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" id=\"TrackMasterBeacon\" align=\"middle\" width=\"1\" height=\"1\"><param name=\"movie\" value=\"http:\/\/v.admaster.com.cn\/i\/a23,b43,c14,i0,m204,h\" \/><param name=\"allowScriptAccess\" value=\"always\" \/><param name=\"quality\" value=\"high\" \/>\n<embed src=\"http:\/\/v.admaster.com.cn\/i\/a10786,b200057486,c2010,i0,m204,h\" quality=\"high\" swLiveConnect=true id=\"TrackMasterBeacon\" name=\"TrackMasterBeacon\" width=\"1\" height=\"1\" align=\"middle\" allowScriptAccess=\"always\" type=\"application\/x-shockwave-flash\" \/><\/object>"
       }
-    ]
+
+## 获取指定广告位下的关键字获取代码
+
+	GET /networks/advertisers/campaigns/placements/:placement_id/keywords/codes
+
+**参数**
+
+`page`
+: _可选_ **integer** - 显示页码
+
+	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
+`per_page`
+: _可选_ **integer** - 分页数量，默认每页 30 条
+
+	返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
+
+**响应**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+       {
+            //关键字 ID
+            "keyword_id":1
+            //关键字名称
+            "keyword_name": Example
+            "codes": [
+                {
+                    //创意 ID
+                    "creative_id": 0,
+                    //创意名称
+                    "creative_name": "默认创意"，
+                    //点击代码
+                    "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
+                }
+            ]
+        }
+
 
 
