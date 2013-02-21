@@ -56,4 +56,42 @@ Null
         "imptag_flash": "<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" id=\"TrackMasterBeacon\" align=\"middle\" width=\"1\" height=\"1\"><param name=\"movie\" value=\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c14,i0,m204,h\" \/><param name=\"allowScriptAccess\" value=\"always\" \/><param name=\"quality\" value=\"high\" \/>\n<embed src=\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c2000,i0,m204,h\" quality=\"high\" swLiveConnect=true id=\"TrackMasterBeacon\" name=\"TrackMasterBeacon\" width=\"1\" height=\"1\" align=\"middle\" allowScriptAccess=\"always\" type=\"application\/x-shockwave-flash\" \/><\/object>"
       }
 
+## Get keywords code of the given placement
 
+	GET /networks/advertisers/campaigns/placements/:placement_id/keywords/codes
+
+**Parameters**
+
+`page`
+: _Optional_ **integer** - the start index
+
+	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
+
+`per_page`
+: _Optional_ **integer** - the max-results
+
+	You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.
+
+**Response**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+       {
+            //Keyword ID
+            "keyword_id":1
+            //Keyword Namw
+            "keyword_name": Example
+            "codes": [
+                {
+                    //Creative ID
+                    "creative_id": 0,
+                    //Creative Name
+                    "creative_name": "默认创意"，
+                    //Click Code
+                    "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
+                }
+            ]
+        }

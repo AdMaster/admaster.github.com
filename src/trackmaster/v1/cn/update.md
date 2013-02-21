@@ -20,7 +20,7 @@ title: 更新
   </tr>
   <tr>
     <td>2013-02-20</td>
-    <td>添加“获取指定广告位下的关键字获取代码”接口。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/code.html#section-2">查看详细</a></td>
+    <td>添加“获取指定广告位下的关键字监测代码”接口。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/code.html#section-2">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-02-18</td>
