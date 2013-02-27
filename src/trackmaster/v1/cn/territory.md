@@ -30,10 +30,9 @@ title: 地域
 
 
 {:.prettyprint}
-     [
-            {
-            "id":1
-            "name":中国
-            }
-        ]
+    {
+       "id":1
+       "name":中国
+    }
+        
 

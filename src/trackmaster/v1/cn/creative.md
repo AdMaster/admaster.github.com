@@ -39,7 +39,7 @@ title: 创意
 {:.prettyprint}
     [
       {
-        //创意ID，全局唯一
+        //创意 ID，全局唯一
         "id": 1,
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1",
@@ -49,17 +49,6 @@ title: 创意
         "shortname": "GO",
         //创意描述
         "description": "此创意针对20-30岁人群",
-        //创意颜色标识
-        "color": "#ff00ff",
-        //创意附属文件
-        "file": {
-            "id": 293,
-            "name": "创意.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //创意点击目标地址
         "target_url": "http://www.admaster.com.cn/",
         //创建时间
@@ -80,7 +69,7 @@ title: 创意
 
 {:.prettyprint}
     {
-        //创意ID，全局唯一
+        //创意 ID，全局唯一
         "id": 1,
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1",
@@ -90,17 +79,6 @@ title: 创意
         "shortname": "GO",
         //创意描述
         "description": "此创意针对20-30岁人群",
-        //创意颜色标识
-        "color": "#ff00ff",
-        //创意附属文件
-        "file": {
-            "id": 293,
-            "name": "创意.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //创意点击目标地址
         "target_url": "http://www.admaster.com.cn/",
         //创建时间
@@ -115,19 +93,15 @@ title: 创意
 **参数**
 
 `name`
-: _必选_ **string** - 创意名称 长度为 3 - 100个字符
+: _必选_ **string** - 创意名称,长度为 3 - 100 个字符
 
 `shortname`
-: _必选_ **string** - 创意短名称 长度为2个字节，字母数字类型
+: _必选_ **string** - 创意短名称,长度为 2 个字节，字母数字类型
 
-`color`
-: _必选_ **string** - 创意颜色 标准颜色代码 例如：`#ff00ff`
 
 `description`
-: _可选_ **string** - 创意描述 最大长度为 1000个字符
+: _可选_ **string** - 创意描述,最大长度为 1000 个字符
 
-`file_id`
-: _可选_ **integer** - 创意物料ID
 
 `target_url`
 : _可选_ **string** - 创意点击目标地址
@@ -139,8 +113,6 @@ title: 创意
         "name": "创意 A",
         "shortname": "GO",
         "description": "此创意针对20-30岁人群",
-        "color": "#ff00ff",
-        "file_id": 123,
         "target_url": "http://www.admaster.com.cn/",
     }
 
@@ -153,7 +125,7 @@ title: 创意
 
 {:.prettyprint}
     {
-        //创意ID，全局唯一
+        //创意 ID，全局唯一
         "id": 1,
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1",
@@ -163,17 +135,6 @@ title: 创意
         "shortname": "GO",
         //创意描述
         "description": "此创意针对20-30岁人群",
-        //创意颜色标识
-        "color": "#ff00ff",
-        //创意附属文件
-        "file": {
-            "id": 123,
-            "name": "创意.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //创意点击目标地址
         "target_url": "http://www.admaster.com.cn/",
         //创建时间
@@ -200,19 +161,15 @@ title: 创意
 **参数**
 
 `name`
-: _必选_ **string** - 创意名称 长度为 3 - 100个字符
+: _必选_ **string** - 创意名称 长度为 3 - 100 个字符
 
 `shortname`
-: _必选_ **string** - 创意短名称 长度为2个字节，字母数字类型
+: _必选_ **string** - 创意短名称 长度为 2 个字节，字母数字类型
 
-`color`
-: _可选_ **string** - 创意颜色 标准颜色代码 例如：`#ff00ff`
 
 `description`
-: _可选_ **string** - 创意描述 最大长度为 1000个字符
+: _可选_ **string** - 创意描述 最大长度为 1000 个字符
 
-`file_id`
-: _可选_ **integer** - 创意物料ID
 
 `target_url`
 : _可选_ **string** - 创意点击目标地址
@@ -224,8 +181,6 @@ title: 创意
         "name": "创意 A",
         "shortname": "GO",
         "description": "此创意针对20-30岁人群",
-        "color": "#ff00ff",
-        "file_id": 123,
         "target_url": "http://www.admaster.com.cn/",
     }
 

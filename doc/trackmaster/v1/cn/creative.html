@@ -81,7 +81,7 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
   {
-    //创意ID，全局唯一
+    //创意 ID，全局唯一
     "id": 1,
     //获取详情接口地址
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/creatives/1",
@@ -91,17 +91,6 @@ X-RateLimit-Remaining: 4999
     "shortname": "GO",
     //创意描述
     "description": "此创意针对20-30岁人群",
-    //创意颜色标识
-    "color": "#ff00ff",
-    //创意附属文件
-    "file": {
-        "id": 293,
-        "name": "创意.jpg",
-        "type": "jpg",
-        "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-        "width": 400,
-        "height": 300
-    },
     //创意点击目标地址
     "target_url": "http://www.admaster.com.cn/",
     //创建时间
@@ -123,7 +112,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    //创意ID，全局唯一
+    //创意 ID，全局唯一
     "id": 1,
     //获取详情接口地址
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/creatives/1",
@@ -133,17 +122,6 @@ X-RateLimit-Remaining: 4999
     "shortname": "GO",
     //创意描述
     "description": "此创意针对20-30岁人群",
-    //创意颜色标识
-    "color": "#ff00ff",
-    //创意附属文件
-    "file": {
-        "id": 293,
-        "name": "创意.jpg",
-        "type": "jpg",
-        "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-        "width": 400,
-        "height": 300
-    },
     //创意点击目标地址
     "target_url": "http://www.admaster.com.cn/",
     //创建时间
@@ -160,15 +138,11 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>name</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 创意名称 长度为 3 - 100个字符</dd>
+  <dd><em>必选</em> <strong>string</strong> - 创意名称,长度为 3 - 100 个字符</dd>
   <dt><code>shortname</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 创意短名称 长度为2个字节，字母数字类型</dd>
-  <dt><code>color</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 创意颜色 标准颜色代码 例如：<code>#ff00ff</code></dd>
+  <dd><em>必选</em> <strong>string</strong> - 创意短名称,长度为 2 个字节，字母数字类型</dd>
   <dt><code>description</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 创意描述 最大长度为 1000个字符</dd>
-  <dt><code>file_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意物料ID</dd>
+  <dd><em>可选</em> <strong>string</strong> - 创意描述,最大长度为 1000 个字符</dd>
   <dt><code>target_url</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 创意点击目标地址</dd>
 </dl>
@@ -179,8 +153,6 @@ X-RateLimit-Remaining: 4999
     "name": "创意 A",
     "shortname": "GO",
     "description": "此创意针对20-30岁人群",
-    "color": "#ff00ff",
-    "file_id": 123,
     "target_url": "http://www.admaster.com.cn/",
 }
 </code></pre>
@@ -194,7 +166,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    //创意ID，全局唯一
+    //创意 ID，全局唯一
     "id": 1,
     //获取详情接口地址
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/creatives/1",
@@ -204,17 +176,6 @@ X-RateLimit-Remaining: 4999
     "shortname": "GO",
     //创意描述
     "description": "此创意针对20-30岁人群",
-    //创意颜色标识
-    "color": "#ff00ff",
-    //创意附属文件
-    "file": {
-        "id": 123,
-        "name": "创意.jpg",
-        "type": "jpg",
-        "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-        "width": 400,
-        "height": 300
-    },
     //创意点击目标地址
     "target_url": "http://www.admaster.com.cn/",
     //创建时间
@@ -246,15 +207,11 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>name</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 创意名称 长度为 3 - 100个字符</dd>
+  <dd><em>必选</em> <strong>string</strong> - 创意名称 长度为 3 - 100 个字符</dd>
   <dt><code>shortname</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 创意短名称 长度为2个字节，字母数字类型</dd>
-  <dt><code>color</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 创意颜色 标准颜色代码 例如：<code>#ff00ff</code></dd>
+  <dd><em>必选</em> <strong>string</strong> - 创意短名称 长度为 2 个字节，字母数字类型</dd>
   <dt><code>description</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 创意描述 最大长度为 1000个字符</dd>
-  <dt><code>file_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意物料ID</dd>
+  <dd><em>可选</em> <strong>string</strong> - 创意描述 最大长度为 1000 个字符</dd>
   <dt><code>target_url</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 创意点击目标地址</dd>
 </dl>
@@ -265,8 +222,6 @@ X-RateLimit-Remaining: 4999
     "name": "创意 A",
     "shortname": "GO",
     "description": "此创意针对20-30岁人群",
-    "color": "#ff00ff",
-    "file_id": 123,
     "target_url": "http://www.admaster.com.cn/",
 }
 </code></pre>

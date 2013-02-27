@@ -43,42 +43,109 @@ title: 广告位
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
       {
-        //广告位ID，全局唯一
+        //广告位 ID，全局唯一
+        "id": 1,
+        //获取详情接口地址
+        "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
+        //广告位所属项目 ID
+        "campaign_id": 10000,
+        //广告位位置名称
+        "name": "测试广告位",
+        //工作网络下媒体 ID
+        "network_media_id": 1314, 
+        //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
+        "rotation" : "1/1",
+        //点击目标地址
+        "target_url": "http://www.admaster.com.cn/",
+        //支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`compensation` 补偿，`other` 其他
+        "payment_type": "purchase",
+        //单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
+        "cost_type": "day"
+        //单位成本
+        "cost_per_unit": 873.12,
+        //单位预估曝光数
+        "est_imp_per_unit": 239,
+        //单位预估点击
+        "est_clk_per_unit": 3,
+        //购买量
+        "units": 58,
+        //其他要求
+        "other_requirement": "没有什么要求",
+        //预估曝光
+        "est_imp": 871821,
+        //预估点击
+        "est_clk": 1231,
+        //预估同期曝光
+        "sp_imp": 61821,
+        //预估同期点击
+        "sp_clk": 300,
+        //实际总曝光
+        "real_imp": 71821,
+        //实际总点击
+        "real_clk": 400,
+        //创建时间
+        "created_at": "2012-09-06T20:39:23Z",
+       //广告位所属媒体频道 ID
+        "channel_id":1025,
+        //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+        "type": "webpage",
+        //广告位在第几屏幕
+        "screen": 3,
+        //广告位地址
+        "page_url": "http://www.admaster.com.cn/",
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+        "material_type": "flash",
+        //物料的显示尺寸，单位像素。格式如 400x300 宽度为400px 高度为300px。如果物料类型选择为`textlink`，请填写物料尺寸为1x1
+        "material_dimension": "400x300",
+        //物料文件大小，单位由 material_size_unit 指定
+        "material_size": 200,
+        //物料文件大小单位，B KB MB。如果物料类型选择为`textlink`，请填写物料文件大小单位为`B`。
+        "material_size_unit": "KB"
+      }
+
+
+## 获取指定广告位信息
+
+    GET /networks/advertisers/campaigns/placements/:id
+
+**响应**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    {
+        //广告位 ID，全局唯一
         "id": 1,
         //获取详情接口地址
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
         //广告位位置名称
-        "name": "这是一个测试广告位",
-        //工作网络下媒体ID
+        "name": "测试广告位",
+        //工作网络下媒体 ID
         "network_media_id": 1314,
-        //频道信息
-        "channel": {
-            //频道ID，全局唯一
-            "id": 1025,
-            //频道名称
-            "name": "体育新闻",
-            //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-            "type": "webpage",
-            //广告位在第几屏幕
-            "screen": 3,
-            //频道地址
-            "home": "http://www.admaster.com.cn/",
-            //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-            "material_type": "flash",
-            //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-            "material_dimension": "400x300",
-            //物料文件大小，单位由 material_size_unit 指定
-            "material_size": 200,
-            //物料文件大小单位，B K M
-            "material_size_unit": "B"
-        }
+        //频道 ID
+        "channel_id": 1025 
+        //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+        "type": "webpage",
+        //广告位在第几屏幕
+        "screen": 3,
+        //广告位地址
+        "page_url": "http://www.admaster.com.cn/",
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+        "material_type": "flash",
+        //物料的显示尺寸，单位像素格式:400x300,宽度为 400px 高度为 300px
+        "material_dimension": "400x300",
+        //物料文件大小，单位由 material_size_unit 指定
+        "material_size": 200,
+        //物料文件大小单位，B KB MB
+        "material_size_unit": "KB",
         //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
         "rotation" : "1/4",
         //点击目标地址
         "target_url": "http://www.admaster.com.cn/",
-        //支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
+        //支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`compensation` 补偿，`other` 其他
         "payment_type": "purchase",
         //单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
         "cost_type": "day"
@@ -106,84 +173,7 @@ title: 广告位
         "real_clk": 400,
         //创建时间
         "created_at": "2012-09-06T20:39:23Z"
-      }
-    ]
-
-
-## 获取指定广告位信息
-
-    GET /networks/advertisers/campaigns/placements/:id
-
-**响应**
-
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-{:.prettyprint}
-    {
-    //广告位ID，全局唯一
-    "id": 1,
-    //获取详情接口地址
-    "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
-    //广告位位置名称
-    "name": "这是一个测试广告位",
-    //工作网络下媒体ID
-    "network_media_id": 1314,
-    //频道信息
-    "channel": {
-        //频道ID，全局唯一
-        "id": 1025,
-        //频道名称
-        "name": "体育新闻",
-        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-        "type": "webpage",
-        //广告位在第几屏幕
-        "screen": 3,
-        //频道地址
-        "home": "http://www.admaster.com.cn/",
-        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "material_type": "flash",
-        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-        "material_dimension": "400x300",
-        //物料文件大小，单位由 material_size_unit 指定
-        "material_size": 200,
-        //物料文件大小单位，B K M
-        "material_size_unit": "B"
-    },
-    //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推
-    "rotation" : "1/4",
-    //点击目标地址
-    "target_url": "http://www.admaster.com.cn/",
-    //支付类型 `purchase` 购买，`offering` 配送，`framework` 框架，`Compensation` 补偿，`other` 其他
-    "payment_type": "purchase",
-    //单位收费类型 `day` 天，`week` 周，`month` 月，`cpc`，`cpm`，`cpa`，`article` 文章，`kmail` 千封邮件，`other` 其他
-    "cost_type": "day"
-    //单位成本
-    "cost_per_unit": 873.12,
-    //单位预估曝光数
-    "est_imp_per_unit": 239,
-    //单位预估点击
-    "est_clk_per_unit": 3,
-    //购买量
-    "units": 58,
-    //其他要求
-    "other_requirement": "没有什么要求",
-    //预估曝光
-    "est_imp": 871821,
-    //预估点击
-    "est_clk": 1231,
-    //预估同期曝光
-    "sp_imp": 61821,
-    //预估同期点击
-    "sp_clk": 300,
-    //实际总曝光
-    "real_imp": 71821,
-    //实际总点击
-    "real_clk": 400,
-    //创建时间
-    "created_at": "2012-09-06T20:39:23Z"
-    }
+     }
 
 ## 添加一个广告位在指定项目下
 
@@ -197,10 +187,48 @@ title: 广告位
 : _必选_ **string** - 广告位位置名称，字符串，长度为 3 - 100个字符
 
 `network_media_id`
-: _必选_ **string** - 广告位所属工作网络媒体ID,
+: _必选_ **string** - 广告位所属工作网络媒体 ID
 
 `channel_id`
-: _必选_ **integer** - 广告位频道ID
+: _可选_ **integer** - 广告位所属媒体频道 ID
+
+`type`
+: _可选_ **string** - 广告位所属类型
+
+  * `webpage` 网页 _默认值_
+  * `video` 视频广告
+  * `client` 客户端
+  * `se` 搜索引擎
+  * `email` 邮件
+  * `other` 其他
+
+`screen`:
+: _可选_ **integer** - 广告位在第几屏幕
+
+`page_url`
+: _必选_ **string** - 广告位所在位置 URL，例"http://www.admaster.com.cn/"
+
+`material_type`
+: _可选_ **string** - 物料类型 
+
+  * `flash` _默认值_
+  * `image`
+  * `video`
+  * `textlink`
+  * `other` 
+
+`material_dimension`
+: _可选_ **string** - 物料的显示尺寸，单位像素 格式如 400x300 宽度为 400px 高度为 300px
+
+`material_size`
+: _可选_ **integer** -物料文件大小，单位由 material_size_unit 指定 
+ 
+`material_size_unit`  
+: _可选_ **string** -物料文件大小单位
+
+  * `B`
+  * `KB`_默认值_
+  * `MB`    
 
 `rotation`
 : _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推，默认: `1/1`
@@ -214,7 +242,7 @@ title: 广告位
   * `purchase` 购买 _默认值_
   * `offering` 配送
   * `framework` 框架
-  * `Compensation` 补偿
+  * `compensation` 补偿
   * `other` 其他
 
 `cost_type`
@@ -246,14 +274,21 @@ title: 广告位
 
 {:.prettyprint} 
     {
-        "name": "这是一个测试广告位",
+        "name": "测试广告位",
         "network_media_id": 1314,
         "channel_id": 123,
-        "rotation" : "1/4",
+        "type": "webpage",
+        "screen": 3,
+        "page_url":"http://www.sina.com.cn/"
+        "material_type": "flash",
+        "material_dimension": "400x300",
+        "material_size": 30,
+        "material_size_unit": "KB",    
+        "rotation" : "1/1",
         "target_url": "http://www.admaster.com.cn/",
         "payment_type": "purchase",
         "cost_type": "day"
-        "cost_per_unit": 873.12,
+        "cost_per_unit": 873,
         "est_imp_per_unit": 239,
         "est_clk_per_unit": 3,
         "other_requirement": "没有什么要求",
@@ -270,31 +305,35 @@ title: 广告位
     {
         "id": 200057486,
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486",
-        "name": "这是一个测试广告位",
-        "network_media_id": 1314,
-        "channel": {
-            "id": 123,
-            "name": "体育新闻",
-            "type": "webpage",
-            "screen": 3,
-            "home": "http://www.admaster.com.cn/",
-            "material_type": "flash",
-            "material_dimension": "400x300",
-            "material_size": 200,
-            "material_size_unit": "B"
-        },
-        "rotation" : "1/4",
+        "campaign_id": 10000,
+        "name": "测试广告位",
+        "network_media_id": 1314,    
+        "rotation" : "1/1",
         "target_url": "http://www.admaster.com.cn/",
         "payment_type": "purchase",
         "cost_type": "day"
-        "cost_per_unit": 873.12,
+        "cost_per_unit": 873,
         "est_imp_per_unit": 239,
         "est_clk_per_unit": 3,
         "units": 0,
         "other_requirement": "没有什么要求",
         "est_imp": 0,
         "est_clk": 0,
-        "created_at": "2012-09-06T20:39:23Z"
+        "sp_imp": 0,
+        "sp_clk" 0,
+        "real_imp": 0,
+        "real_clk": 0,
+        "created_at": "2012-09-06T20:39:23Z",
+        "is_online": 0,
+        "page_url":"http://www.sina.com.cn/",
+        "type": "webpage",
+        "channel_id": 123,
+        "screen": 3,       
+        "material_type": "flash",
+        "material_dimension": "400x300",
+        "material_size": 30,
+        "material_size_unit": "KB",   
+
     }
 
 ## 删除指定的广告位
@@ -321,7 +360,45 @@ title: 广告位
 : _可选_ **string** - 广告位位置名称，字符串，长度为 3 - 100个字符
 
 `channel_id`
-: _可选_ **integer** - 广告位频道ID
+: _可选_ **integer** - 广告位频道 ID
+
+`type`
+: _可选_ **string** - 广告位所属类型
+
+  * `webpage` 网页 _默认值_
+  * `video` 视频广告
+  * `client` 客户端
+  * `se` 搜索引擎
+  * `email` 邮件
+  * `other` 其他
+
+`screen`:
+: _可选_ **integer** - 广告位在第几屏幕
+
+`page_url`
+: _必选_ **string** - 广告位所在位置 URL，例"http://www.admaster.com.cn/"
+
+`material_type`
+: _可选_ **string** - 物料类型 
+
+  * `flash` _默认值_
+  * `image`
+  * `video`
+  * `textlink`
+  * `other` 
+
+`material_dimension`
+: _可选_ **string** - 物料的显示尺寸，单位像素 格式如 400x300 宽度为 400px 高度为 300px
+
+`material_size`
+: _可选_ **integer** -物料文件大小，单位由 material_size_unit 指定 
+ 
+`material_size_unit`  
+: _可选_ **string** -物料文件大小单位
+
+  * `B`
+  * `KB`_默认值_
+  * `MB`    
 
 `rotation`
 : _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推，默认: `1/1`
@@ -335,7 +412,7 @@ title: 广告位
   * `purchase` 购买 _默认_
   * `offering` 配送
   * `framework` 框架
-  * `Compensation` 补偿
+  * `compensation` 补偿
   * `other` 其他 
 
 `cost_type`
@@ -367,13 +444,21 @@ title: 广告位
 
 {:.prettyprint}
     {
-        "name": "这是一个测试广告位",
+        "name": "测试广告位",
+        "network_media_id": 1314,
         "channel_id": 123,
-        "rotation" : "1/4",
+        "type": "webpage",
+        "screen": 3,
+        "page_url":"http://www.sina.com.cn/"
+        "material_type": "flash",
+        "material_dimension": "400x300",
+        "material_size": 30,
+        "material_size_unit": "KB",    
+        "rotation" : "1/1",
         "target_url": "http://www.admaster.com.cn/",
         "payment_type": "purchase",
         "cost_type": "day"
-        "cost_per_unit": 873.12,
+        "cost_per_unit": 873,
         "est_imp_per_unit": 239,
         "est_clk_per_unit": 3,
         "other_requirement": "没有什么要求",

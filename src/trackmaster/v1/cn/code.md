@@ -27,7 +27,7 @@ title: 代码
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-      {
+     [ {
         // 创意 ID
         "creative_id": 0,
 
@@ -54,7 +54,10 @@ title: 代码
 
         // 曝光Flash代码
         "imptag_flash": "<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" id=\"TrackMasterBeacon\" align=\"middle\" width=\"1\" height=\"1\"><param name=\"movie\" value=\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c2000,i0,m204,h\" \/><param name=\"allowScriptAccess\" value=\"always\" \/><param name=\"quality\" value=\"high\" \/>\n<embed src=\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c2000,i0,m204,h\" quality=\"high\" swLiveConnect=true id=\"TrackMasterBeacon\" name=\"TrackMasterBeacon\" width=\"1\" height=\"1\" align=\"middle\" allowScriptAccess=\"always\" type=\"application\/x-shockwave-flash\" \/><\/object>"
-      }
+      },
+      {...},
+      ...
+      {...}]
 
 ## 获取指定广告位下的关键字监测代码
 
@@ -79,7 +82,7 @@ title: 代码
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-       {
+       [{
             //关键字 ID
             "keyword_id":1
             //关键字名称
@@ -94,7 +97,8 @@ title: 代码
                     "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
                 }
             ]
-        }
-
-
+        },
+        {...},
+        ...
+        {...}]
 

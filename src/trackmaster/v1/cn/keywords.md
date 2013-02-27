@@ -42,7 +42,7 @@ title: 关键字
             //关键字ID
             "order_num":1
             //关键字名称
-            "name": this is example
+            "name": Example
             //关键字点击目标地址
             "target_url": http://www.admaster.com.cn
             //创建时间
@@ -68,7 +68,7 @@ title: 关键字
             //关键字ID
             "order_num":1
             //关键字名称
-            "name": this is example
+            "name": Example
             //关键字点击目标地址
             "target_url": http://www.admaster.com.cn
             //创建时间
@@ -113,7 +113,7 @@ title: 关键字
         //关键字 ID
         "order_num":1
         //关键字名称
-        "name": this is example
+        "name": Example
         //关键字点击目标地址
         "target_url": http://www.admaster.com.cn
         //创建时间

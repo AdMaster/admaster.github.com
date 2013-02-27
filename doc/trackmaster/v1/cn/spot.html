@@ -43,13 +43,14 @@
         <h1 id="section">点位</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取指定项目下指定时间段内的点位</a></li>
+  <li><a href="#section-1">获取指定广告位下指定时间段内的点位</a></li>
   <li><a href="#section-2">修改指定点位</a></li>
+  <li><a href="#section-3">批量修改广告位下的点位</a></li>
 </ul>
 
-<h2 id="section-1">获取指定项目下指定时间段内的点位</h2>
+<h2 id="section-1">获取指定广告位下指定时间段内的点位</h2>
 
-<pre><code>GET /networks/advertisers/campaigns/:campaign_id/spots
+<pre><code>GET /networks/advertisers/campaigns/placements/:placement_id/spots
 </code></pre>
 
 <p><strong>参数</strong></p>
@@ -74,8 +75,8 @@
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/advertisers/campaigns/:campaign_id/spots?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/networks/advertisers/campaigns/:campaign_id/spots?page=10&gt;; rel="last"
+Link: &lt;http://track.admasterapi.com/networks/advertisers/campaigns/placements/:placement_id/spots?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/networks/advertisers/campaigns/placements/:placement_id/spots?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -103,9 +104,9 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>units</code></dt>
-  <dd><em>必选</em> <strong>integer</strong> - 购买量，不上线可以设置为0</dd>
+  <dd><em>必选</em> <strong>integer</strong> - 购买量，不上线可以设置为 0</dd>
   <dt><code>creative_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意ID</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
 </dl>
 
 <p><strong>响应</strong></p>
@@ -115,6 +116,51 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
+<h2 id="section-3">批量修改广告位下的点位</h2>
+
+<pre><code>POST /networks/advertisers/campaigns/placements/:placement_id/spots
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<dl>
+  <dt><code>online_date</code></dt>
+  <dd><em>必选</em> <strong>date</strong> - 需求修改点位的排期日期，格式为: yyyy-mm-dd 例如: 2012-04-12</dd>
+  <dt><code>units</code></dt>
+  <dd><em>必选</em> <strong>integer</strong> - 购买量，不上线可以设置为 0</dd>
+  <dt><code>creative_id</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 显示页码
+
+    <p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条
+
+    <p>返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 10 个广告位监测代码。<code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制</p>
+  </dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>[{
+    //需求修改点位的排期日期
+    "online_date": 2013-01-01,
+    //购买量
+    "units": 1,
+    //创意 ID
+    "creative_id": 200019827,
+  },
+ {...},
+ ...
+ {...}]
+</code></pre>
 
       </div>
       

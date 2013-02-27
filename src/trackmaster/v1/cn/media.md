@@ -51,7 +51,6 @@ title: 媒体
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
       {
         "id": 400,//系统媒体 ID
         "url": "http://{{site.track_api_host}}/medias/1",
@@ -61,7 +60,7 @@ title: 媒体
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
       }
-    ]
+    
 
 
 ## 获取指定系统媒体详细信息
@@ -201,7 +200,7 @@ title: 媒体
     }
 
 
-## 获取指定网络媒体ID信息
+## 获取指定网络媒体 ID 信息
 
     GET /networks/medias/:network_media_id
 
@@ -238,7 +237,7 @@ title: 媒体
 
 ## 修改指定工作网络下指定媒体属性
 
-    PATCH /networks/:network_id/medias/:media_id
+    PATCH /networks/:network_id/medias/:network_media_id
 
 **请求**
 
@@ -291,7 +290,6 @@ title: 媒体
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
       {
         "id": 1314,//网络媒体 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
@@ -299,7 +297,7 @@ title: 媒体
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "created_at": "2012-09-06T20:39:23Z"
       }
-    ]
+
 
 ## 获取指定项目下指定媒体属性
 

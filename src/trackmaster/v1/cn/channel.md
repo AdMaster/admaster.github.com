@@ -38,28 +38,12 @@ title: 频道
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
        {
             //频道ID，全局唯一
             "id": 1025,
             //频道名称
             "name": "体育新闻",
-            //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-            "type": "web",
-            //广告位在第几屏幕
-            "screen": 3,
-            //频道地址
-            "home": "http://www.admaster.com.cn/",
-            //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-            "material_type": 'flash',
-            //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-            "material_dimension": "400x300",
-            //物料文件大小，单位由 material_size_unit 指定
-            "material_size": 200,
-            //物料文件大小单位，B K M 默认：`K`
-            "material_size_unit": "B"
         }
-    ]
 
 ## 获取指定频道详细信息
 
@@ -77,20 +61,6 @@ title: 频道
         "id": 1025,
         //频道名称
         "name": "体育新闻",
-        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-        "type": "web",
-        //广告位在第几屏幕
-        "screen": 3,
-        //频道地址
-        "home": "http://www.admaster.com.cn/",
-        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "material_type": 'flash',
-        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-        "material_dimension": "400x300",
-        //物料文件大小，单位由 material_size_unit 指定
-        "material_size": 200,
-        //物料文件大小单位，B K M 默认：`K`
-        "material_size_unit": "B"
     }
 
 
