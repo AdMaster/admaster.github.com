@@ -61,15 +61,13 @@
 <pre><code>Status: 200 OK
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     "id": 10185,
-    "name": "这是一个测试项目",
+    "name": "测试项目",
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
     "created_at": "2012-09-06T20:39:23Z"
   }
-]
 </code></pre>
 
 <h2 id="section-2">获取指定项目下的日报告</h2>
@@ -110,15 +108,13 @@
 <pre><code>Status: 200 OK
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     "time": "2012-08-01", // 时间
     "imp": 23, //曝光
     "uimp": 20, //独立曝光
     "clk": 20, //点击
     "uclk": 10, //独立点击
   }
-]
 </code></pre>
 
 <h2 id="section-3">获取指定监测代码下的项目日报告</h2>
@@ -181,7 +177,7 @@ X-RateLimit-Remaining: 4999
   <dt><code>pubid</code></dt>
   <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该 pubid 的数据</dd>
   <dt><code>date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
+  <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取前一天的数据</dd>
   <dt><code>page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 显示页码
 
@@ -194,8 +190,7 @@ X-RateLimit-Remaining: 4999
   </dd>
 </dl>
 
-<pre class="prettyprint"><code>[
-  {
+<pre class="prettyprint"><code>  {
     "date_hour": 2012061015,
     "pubid": "IYK_IMloxnwepMEqlx",
     "city": "北京",
@@ -203,7 +198,6 @@ X-RateLimit-Remaining: 4999
     "impression": 12039423,
     "click": 43432,
   }
-]
 </code></pre>
 
 <h2 id="section-5">获取指定媒体项目报告列表</h2>

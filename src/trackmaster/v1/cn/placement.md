@@ -22,7 +22,7 @@ title: 广告位
 : _可选_ **string** - 广告位名称，支持模糊搜索
 
 `network_media_id`
-: _可选_ **integer** - 限定工作网络媒体 ID
+: _可选_ **integer** - 工作网络媒体 ID
 
 `page`
 : _可选_ **integer** - 显示页码
@@ -43,7 +43,7 @@ title: 广告位
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-      {
+      [{
         //广告位 ID，全局唯一
         "id": 1,
         //获取详情接口地址
@@ -102,7 +102,7 @@ title: 广告位
         "material_size": 200,
         //物料文件大小单位，B KB MB。如果物料类型选择为`textlink`，请填写物料文件大小单位为`B`。
         "material_size_unit": "KB"
-      }
+      }]
 
 
 ## 获取指定广告位信息

@@ -36,14 +36,13 @@ title: 关键字
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-
         {
             //广告位ID
             "placement_id":1
             //关键字ID
             "order_num":1
             //关键字名称
-            "name": this is example
+            "name": Example
             //关键字点击目标地址
             "target_url": http://www.admaster.com.cn
             //创建时间
@@ -63,14 +62,13 @@ title: 关键字
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-
         {
             //广告位ID
             "placement_id":1
             //关键字ID
             "order_num":1
             //关键字名称
-            "name": this is example
+            "name": Example
             //关键字点击目标地址
             "target_url": http://www.admaster.com.cn
             //创建时间
