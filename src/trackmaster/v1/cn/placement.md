@@ -332,8 +332,7 @@ title: 广告位
         "material_type": "flash",
         "material_dimension": "400x300",
         "material_size": 30,
-        "material_size_unit": "KB",   
-
+        "material_size_unit": "KB",  
     }
 
 ## 删除指定的广告位

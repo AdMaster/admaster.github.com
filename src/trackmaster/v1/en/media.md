@@ -137,7 +137,7 @@ title: Media
       }
 
 
-## Get details of the given media in the authorized network
+## Get details of the given system media ID in the authorized network
 
     GET /networks/:network_id/medias/:media_id
 
@@ -166,7 +166,7 @@ title: Media
 
     POST /networks/:network_id/medias
 
-**Reques**
+**Request**
 
 {:.prettyprint}
     {
@@ -193,6 +193,30 @@ title: Media
         "status": "enabled"
         "created_at": "2012-09-06T20:39:23Z"
         "media_id": 400//System Media ID
+        "framework": "no"
+    }
+
+## Get details of the given network media ID
+
+    GET /networks/medias/:network_media_id
+
+**Response**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    {
+        "id": 1314,//Network Media ID
+        "url": "http://{{site.track_api_host}}/networks/11/medias/1314",
+        "name": "Sina",//Network Media Name
+        "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
+        "domain": "sina.com.cn",
+        "tag": "综合其他",
+        "status": "enabled"
+        "created_at": "2012-09-06T20:39:23Z"
+        "media_id": 400, //System Media ID
         "framework": "no"
     }
 

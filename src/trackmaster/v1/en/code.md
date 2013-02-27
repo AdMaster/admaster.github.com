@@ -27,7 +27,7 @@ Null
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-      {
+      [{
         // Creative ID
         "creative_id": 0,
 
@@ -54,7 +54,10 @@ Null
 
         // Impression Code-Flash
         "imptag_flash": "<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" id=\"TrackMasterBeacon\" align=\"middle\" width=\"1\" height=\"1\"><param name=\"movie\" value=\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c14,i0,m204,h\" \/><param name=\"allowScriptAccess\" value=\"always\" \/><param name=\"quality\" value=\"high\" \/>\n<embed src=\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c2000,i0,m204,h\" quality=\"high\" swLiveConnect=true id=\"TrackMasterBeacon\" name=\"TrackMasterBeacon\" width=\"1\" height=\"1\" align=\"middle\" allowScriptAccess=\"always\" type=\"application\/x-shockwave-flash\" \/><\/object>"
-      }
+      },
+      {...},
+      ...
+      {...}]
 
 ## Get keywords code of the given placement
 
@@ -79,7 +82,7 @@ Null
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-       {
+       [{
             //Keyword ID
             "keyword_id":1
             //Keyword Namw
@@ -94,4 +97,7 @@ Null
                     "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
                 }
             ]
-        }
+        },
+        {...},
+        ...
+        {...}]

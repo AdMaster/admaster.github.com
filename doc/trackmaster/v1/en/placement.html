@@ -86,40 +86,21 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>  {
+<pre class="prettyprint"><code>  [{
     //Placement ID
-    "id": 200057486,
-    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/placements/200057486",
+    "id": 1,
+    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/placements/20000006",
+    //Campaign ID
+    "campaign_id": 10000,
     //Placement Name
     "name": "Testing Placement",
-    //Network Media ID
-    "network_media_id": 1314,
-    //Channel Information
-    "channel": {
-        //Channel ID
-        "id": 1025,
-        //Channel Name
-        "name": "Sport News",
-        //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
-        "type": "webpage",
-        //Which screen the placement is in
-        "screen": 3,
-        //Channel Website
-        "home": "http://www.admaster.com.cn/",
-        //Material Type- `flash`(Default),`image`,`video`, `textlink`, `other` 
-        "material_type": "flash",
-        //Material Dimension
-        "material_dimension": "400x300",
-        //Material Size
-        "material_size": 200,
-        //Material Unit，B K(Default) M
-        "material_size_unit": "B"
-    }
+    //Network media ID
+    "network_media_id": 1314, 
     //Rotation- `1/1`(Default),`1/2`...
-    "rotation" : "1/4",
+    "rotation" : "1/1",
     //Target URL(Click)
     "target_url": "http://www.admaster.com.cn/",
-    //Payment Type- `purchase`,`offering`,`framework`,`Compensation`,`other`
+    //Payment Type- `purchase`,`offering`,`framework`,`compensation`,`other`
     "payment_type": "purchase",
     //Cost Type-`day`,`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`kmail`,`other`
     "cost_type": "day"
@@ -146,8 +127,24 @@ X-RateLimit-Remaining: 4999
     //Total Click
     "real_clk": 400,
     //Creation Time
-    "created_at": "2012-09-06T20:39:23Z"
-  }
+    "created_at": "2012-09-06T20:39:23Z",
+    //Channel ID
+    "channel_id":1025,
+    //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
+    "type": "webpage",
+    //Which screen the placement is in
+    "screen": 3,
+    //Placement URL
+    "page_url": "http://www.admaster.com.cn/",
+    //Material Type- `flash`(Default),`image`,`video`, `textlink`, `other` 
+    "material_type": "flash",
+    //Material Dimension
+    "material_dimension": "400x300",
+    //Material Size
+    "material_size": 200,
+    //Material Unit，B KB(Default) MB
+    "material_size_unit": "KB"
+  }]
 </code></pre>
 
 <h2 id="get-details-of-the-given-placement">Get details of the given placement</h2>
@@ -163,66 +160,63 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-//Placement ID
-"id": 200057486,
-"url": "http://track.admasterapi.com/networks/advertisers/campaigns/placements/200057486",
-//Placement Name
-"name": "Testing Placement",
-//Network Media ID
-"network_media_id": 1314,
-//Channel Information
-"channel": {
+    //Placement ID
+    "id": 1,
+    "url": "http://track.admasterapi.com/networks/advertisers/campaigns/placements/20000006",
+    //Campaign ID
+    "campaign_id": 10000,
+    //Placement Name
+    "name": "Testing Placement",
+    //Network media ID
+    "network_media_id": 1314, 
+    //Rotation- `1/1`(Default),`1/2`...
+    "rotation" : "1/1",
+    //Target URL(Click)
+    "target_url": "http://www.admaster.com.cn/",
+    //Payment Type- `purchase`,`offering`,`framework`,`compensation`,`other`
+    "payment_type": "purchase",
+    //Cost Type-`day`,`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`kmail`,`other`
+    "cost_type": "day"
+    //Cost(per_unit)
+    "cost_per_unit": 873.12,
+    //Estimate Impression(per_unit)
+    "est_imp_per_unit": 239,
+    //Estimate Click(per_unit)
+    "est_clk_per_unit": 3,
+    //Units
+    "units": 58,
+    //Other Requirement
+    "other_requirement": "Null",
+    //Estimate Impression(total)
+    "est_imp": 871821,
+    //Estimate Click(total)
+    "est_clk": 1231,
+    //Cor Estimate Impression
+    "sp_imp": 61821,
+    //Cor Estimate Click
+    "sp_clk": 300,
+    //Total Impression
+    "real_imp": 71821,
+    //Total Click
+    "real_clk": 400,
+    //Creation Time
+    "created_at": "2012-09-06T20:39:23Z",
     //Channel ID
-    "id": 1025,
-    //Channel Name
-    "name": "Sport News",
-    //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
+    "channel_id":1025,
+    //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
     "type": "webpage",
     //Which screen the placement is in
     "screen": 3,
-    //Channel Website
-    "home": "http://www.admaster.com.cn/",
-    //Material Type- `flash`(Default),`image`,`video`, `textlink`, `other`
+    //Placement URL
+    "page_url": "http://www.admaster.com.cn/",
+    //Material Type- `flash`(Default),`image`,`video`, `textlink`, `other` 
     "material_type": "flash",
     //Material Dimension
     "material_dimension": "400x300",
     //Material Size
     "material_size": 200,
-    //Material Unit，B K(Default) M
-    "material_size_unit": "B"
-},
-//Rotation- `1/1`(Default),`1/2`...
-"rotation" : "1/4",
-//Target URL(Click)
-"target_url": "http://www.admaster.com.cn/",
-//Payment Type- `purchase`,`offering`,`framework`,`Compensation`,`other`
-"payment_type": "purchase",
-//Cost Type-`day`,`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`kmail`,`other`
-"cost_type": "day"
-//Cost(per_unit)
-"cost_per_unit": 873.12,
-//Estimate Impression(per_unit)
-"est_imp_per_unit": 239,
-//Estimate Click(per_unit)
-"est_clk_per_unit": 3,
-//Units
-"units": 58,
-//Other Requirement
-"other_requirement": "Null",
-//Estimate Impression(total)
-"est_imp": 871821,
-//Estimate Click(total)
-"est_clk": 1231,
-//Cor Estimate Impression
-"sp_imp": 61821,
-//Cor Estimate Click
-"sp_clk": 300,
-//Total Impression
-"real_imp": 71821,
-//Total Click
-"real_clk": 400,
-//Creation Time
-"created_at": "2012-09-06T20:39:23Z"
+    //Material Unit，B KB(Default) MB
+    "material_size_unit": "KB"
 }
 </code></pre>
 
@@ -239,7 +233,47 @@ X-RateLimit-Remaining: 4999
   <dt><code>network_media_id</code></dt>
   <dd><em>Required</em> <strong>string</strong> - Network Media ID</dd>
   <dt><code>channel_id</code></dt>
-  <dd><em>Required</em> <strong>integer</strong> - Channel ID</dd>
+  <dd><em>Optional</em> <strong>integer</strong> - Channel ID</dd>
+  <dt><code>type</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Placement Type
+
+    <ul>
+      <li><code>webpage</code> WebPage <em>Default</em></li>
+      <li><code>video</code> Video</li>
+      <li><code>client</code> Client</li>
+      <li><code>se</code> Search Engine</li>
+      <li><code>email</code> Email</li>
+      <li><code>other</code> Other</li>
+    </ul>
+  </dd>
+  <dt><code>screen</code>:</dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Which screen the placement is in</dd>
+  <dt><code>page_url</code></dt>
+  <dd><em>Required</em> <strong>string</strong> - Placement URL，Example:”http://www.admaster.com.cn/”</dd>
+  <dt><code>material_type</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Material Type 
+
+    <ul>
+      <li><code>flash</code> <em>Default</em></li>
+      <li><code>image</code></li>
+      <li><code>video</code></li>
+      <li><code>textlink</code></li>
+      <li><code>other</code> </li>
+    </ul>
+  </dd>
+  <dt><code>material_dimension</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Material Dimension</dd>
+  <dt><code>material_size</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> -Material Size</dd>
+  <dt><code>material_size_unit</code>  </dt>
+  <dd><em>Optional</em> <strong>string</strong> -Material Unit
+
+    <ul>
+      <li><code>B</code></li>
+      <li><code>KB</code><em>Default</em></li>
+      <li><code>MB</code>    </li>
+    </ul>
+  </dd>
   <dt><code>rotation</code></dt>
   <dd><em>Optional</em> <strong>string</strong> - Rotation,<code>1/1</code>(Default),<code>1/2</code>…</dd>
   <dt><code>target_url</code></dt>
@@ -283,14 +317,21 @@ X-RateLimit-Remaining: 4999
 <p><strong>Request</strong></p>
 
 <pre class="prettyprint"><code>{
-    "name": "This is a Testing Placement",
+    "name": "Testing Placement",
     "network_media_id": 1314,
     "channel_id": 123,
-    "rotation" : "1/4",
+    "type": "webpage",
+    "screen": 3,
+    "page_url":"http://www.sina.com.cn/"
+    "material_type": "flash",
+    "material_dimension": "400x300",
+    "material_size": 30,
+    "material_size_unit": "KB",    
+    "rotation" : "1/1",
     "target_url": "http://www.admaster.com.cn/",
     "payment_type": "purchase",
     "cost_type": "day"
-    "cost_per_unit": 873.12,
+    "cost_per_unit": 873,
     "est_imp_per_unit": 239,
     "est_clk_per_unit": 3,
     "other_requirement": "Null",
@@ -308,31 +349,34 @@ X-RateLimit-Remaining: 4999
 <pre class="prettyprint"><code>{
     "id": 200057486,
     "url": "http://track.admasterapi.com/networks/advertisers/campaigns/placements/200057486",
-    "name": "This is a Testing Placement",
-    "network_media_id": 1314,
-    "channel": {
-        "id": 123,
-        "name": "Sport News",
-        "type": "webpage",
-        "screen": 3,
-        "home": "http://www.admaster.com.cn/",
-        "material_type": "flash",
-        "material_dimension": "400x300",
-        "material_size": 200,
-        "material_size_unit": "B"
-    },
-    "rotation" : "1/4",
+    "campaign_id": 10000,
+    "name": "Testing Placement",
+    "network_media_id": 1314,    
+    "rotation" : "1/1",
     "target_url": "http://www.admaster.com.cn/",
     "payment_type": "purchase",
     "cost_type": "day"
-    "cost_per_unit": 873.12,
+    "cost_per_unit": 873,
     "est_imp_per_unit": 239,
     "est_clk_per_unit": 3,
     "units": 0,
     "other_requirement": "Null",
-    "est_imp": 40000,
-    "est_clk": 3000,
-    "created_at": "2012-09-06T20:39:23Z"
+    "est_imp": 0,
+    "est_clk": 0,
+    "sp_imp": 0,
+    "sp_clk" 0,
+    "real_imp": 0,
+    "real_clk": 0,
+    "created_at": "2012-09-06T20:39:23Z",
+    "is_online": 0,
+    "page_url":"http://www.sina.com.cn/",
+    "type": "webpage",
+    "channel_id": 123,
+    "screen": 3,       
+    "material_type": "flash",
+    "material_dimension": "400x300",
+    "material_size": 30,
+    "material_size_unit": "KB",  
 }
 </code></pre>
 
@@ -363,6 +407,46 @@ X-RateLimit-Remaining: 4999
   <dd><em>Optional</em> <strong>string</strong> - Placement Name</dd>
   <dt><code>channel_id</code></dt>
   <dd><em>Optional</em> <strong>integer</strong> - Channel ID</dd>
+  <dt><code>type</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Placement Type
+
+    <ul>
+      <li><code>webpage</code> WebPage <em>Default</em></li>
+      <li><code>video</code> Video</li>
+      <li><code>client</code> Client</li>
+      <li><code>se</code> Search Engine</li>
+      <li><code>email</code> Email</li>
+      <li><code>other</code> Other</li>
+    </ul>
+  </dd>
+  <dt><code>screen</code>:</dt>
+  <dd><em>Optional</em> <strong>integer</strong> - Which screen the placement is in</dd>
+  <dt><code>page_url</code></dt>
+  <dd><em>Required</em> <strong>string</strong> - Placement URL，Example:”http://www.admaster.com.cn/”</dd>
+  <dt><code>material_type</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Material Type 
+
+    <ul>
+      <li><code>flash</code> <em>Default</em></li>
+      <li><code>image</code></li>
+      <li><code>video</code></li>
+      <li><code>textlink</code></li>
+      <li><code>other</code> </li>
+    </ul>
+  </dd>
+  <dt><code>material_dimension</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - Material Dimension</dd>
+  <dt><code>material_size</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> -Material Size</dd>
+  <dt><code>material_size_unit</code>  </dt>
+  <dd><em>Optional</em> <strong>string</strong> -Material Unit
+
+    <ul>
+      <li><code>B</code></li>
+      <li><code>KB</code><em>Default</em></li>
+      <li><code>MB</code>    </li>
+    </ul>
+  </dd>
   <dt><code>rotation</code></dt>
   <dd><em>Optional</em> <strong>string</strong> - Rotation,<code>1/1</code>(Default),<code>1/2</code>…</dd>
   <dt><code>target_url</code></dt>
@@ -406,13 +490,21 @@ X-RateLimit-Remaining: 4999
 <p><strong>Request</strong></p>
 
 <pre class="prettyprint"><code>{
-    "name": "This is a Testing Placement",
+    "name": "Testing Placement",
+    "network_media_id": 1314,
     "channel_id": 123,
-    "rotation" : "1/4",
+    "type": "webpage",
+    "screen": 3,
+    "page_url":"http://www.sina.com.cn/"
+    "material_type": "flash",
+    "material_dimension": "400x300",
+    "material_size": 30,
+    "material_size_unit": "KB",    
+    "rotation" : "1/1",
     "target_url": "http://www.admaster.com.cn/",
     "payment_type": "purchase",
     "cost_type": "day"
-    "cost_per_unit": 873.12,
+    "cost_per_unit": 873,
     "est_imp_per_unit": 239,
     "est_clk_per_unit": 3,
     "other_requirement": "Null",

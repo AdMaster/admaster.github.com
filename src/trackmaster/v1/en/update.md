@@ -19,6 +19,14 @@ title: Update
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
+    <tr>
+    <td>2013-02-27</td>
+    <td>Modified creative attributes。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/creative.html">More Information</a></td>
+  </tr>
+  <tr>
+    <td>2013-02-27</td>
+    <td>Modified channel attributes and placement attributes. Modified channel_id parameter to an optional parameter when adding a placement to the given campaign.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/placement.html#add-a-placement-to-the-given-campaign">More Information</a></td>
+  </tr>
   <tr>
     <td>2013-02-21</td>
     <td>Add a "Get keywords code of the given placement" interface .<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/code.html">More Information</a></td>

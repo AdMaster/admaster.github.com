@@ -47,17 +47,6 @@ title: Creative
         "shortname": "GO",
         //Description
         "description": "This is a good creative",
-        //Color Identifier
-        "color": "#ff00ff",
-        //Attachment file
-        "file": {
-            "id": 293,
-            "name": "creative.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //Target Website
         "target_url": "http://www.admaster.com.cn/",
         //Creation Time
@@ -86,17 +75,6 @@ title: Creative
         "shortname": "GO",
         //Description
         "description": "Null",
-        //Color Identifier
-        "color": "#ff00ff",
-        //Attachment file
-        "file": {
-            "id": 293,
-            "name": "creative.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //Target Website
         "target_url": "http://www.admaster.com.cn/",
         //Creation Time
@@ -114,16 +92,10 @@ title: Creative
 : _Required_ **string** - Creative Name
 
 `shortname`
-: _Required_ **string** - Creative Shortname
-
-`color`
-: _Required_ **string** - Color Identifier, Example：`#ff00ff`.
+: _Required_ **string** - Creative Shortname, 2 characters
 
 `description`
 : _Optional_ **string** - Description
-
-`file_id`
-: _Optional_ **integer** - Attachment ID
 
 `target_url`
 : _Optional_ **string** - Target Website
@@ -158,17 +130,6 @@ title: Creative
         "shortname": "GO",
         //Description
         "description": "This is a good creative",
-        //Color Identifier
-        "color": "#ff00ff",
-        //Attachment File
-        "file": {
-            "id": 123,
-            "name": "creative.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //Target Website
         "target_url": "http://www.admaster.com.cn/",
         //Creation Time
@@ -200,16 +161,10 @@ When the creative's data which you want to delete is "0", it can not be deleted.
 : _Required_ **string** - Creative Name
 
 `shortname`
-: _Required_ **string** - Creative Shortname
-
-`color`
-: _Optional_ **string** - Color Identifier, Example：`#ff00ff`
+: _Required_ **string** - Creative Shortname, 2 characters.
 
 `description`
 : _Optional_ **string** - Description
-
-`file_id`
-: _Optional_ **integer** - Creative ID
 
 `target_url`
 : _Optional_ **string** - Target Website
@@ -221,8 +176,6 @@ When the creative's data which you want to delete is "0", it can not be deleted.
         "name": "A Good Creative",
         "shortname": "GO",
         "description": "This is a good creative",
-        "color": "#ff00ff",
-        "file_id": 123,
         "target_url": "http://www.admaster.com.cn/",
     }
 

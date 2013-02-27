@@ -12,9 +12,9 @@ title: Spot
 * TOC
 {:toc}
 
-## Get spots of the given campaign in a period of time
+## Get spots of the given placement in a period of time
 
-    GET /networks/advertisers/campaigns/:campaign_id/spots
+    GET /networks/advertisers/campaigns/placements/:placement_id/spots
 
 **Parameters**
 

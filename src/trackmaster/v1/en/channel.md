@@ -43,20 +43,6 @@ title: Channel
             "id": 1025,
             //Channel Name
             "name": "Sport News",
-            //`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
-            "type": "web",
-            //Which screen the placement is in
-            "screen": 3,
-            //Channel Website
-            "home": "http://www.admaster.com.cn/",
-            //Material Type `flash`，`image`，`video`, `textlink`, `other` ,`flash`(Default)
-            "material_type": 'flash',
-            //Material Dimension
-            "material_dimension": "400x300",
-            //Material Size
-            "material_size": 200,
-            //Material Unit，B K(Default) M
-            "material_size_unit": "B"
         }
 
 ## Get details of the given channel
@@ -75,20 +61,6 @@ title: Channel
         "id": 1025,
         //Channel Name
         "name": "Sport News",
-        //Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other` 
-        "type": "webpage",
-        //Which screen the placement is in
-        "screen": 3,
-        //Channel Website
-        "home": "http://www.admaster.com.cn/",
-        //Material Type -`flash`(Default)，`image`，`video`, `textlink`, `other`
-        "material_type": 'flash',
-        //Material Dimension
-        "material_dimension": "400x300",
-        //Material Size
-        "material_size": 200,
-        //Material Unit，B K(Default) M
-        "material_size_unit": "B"
     }
 
 
