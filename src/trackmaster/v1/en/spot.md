@@ -57,7 +57,7 @@ title: Spot
 
 ## Modify the given spot
 
-    PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:date
+    PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:online_date
 
 **Request**
 
@@ -73,3 +73,38 @@ title: Spot
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
+
+## Bulk modify spots
+
+    POST /networks/advertisers/campaigns/placements/:placement_id/spots
+
+**Request**
+
+`online_date`
+: _Required_ **date** - The date which units need changing. A string of the format: "YYYY-MM-dd". 
+
+`units`
+: _Required_ **integer** - Perchase Unites
+
+`creative_id`
+: _Optional_ **integer** - Creative ID
+
+
+**Response**
+
+    Status: 204 No Content
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    [{
+        //The date which units need changing.
+        "online_date": 2013-01-01,
+        //Perchase Unites
+        "units": 1,
+        //Creative ID
+        "creative_id": 200019827,
+      },
+     {...},
+     ...
+     {...}]

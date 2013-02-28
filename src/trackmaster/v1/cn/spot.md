@@ -58,7 +58,7 @@ title: 点位
 
 ## 修改指定点位
 
-    PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:date
+    PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:online_date
 
 **请求**
 
