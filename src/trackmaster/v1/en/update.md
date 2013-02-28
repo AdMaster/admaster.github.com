@@ -21,7 +21,7 @@ title: Update
   </tr>
     <tr>
     <td>2013-02-28</td>
-    <td>Add a "Bulk modify spots" interface.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/creative.html">More Information</a></td>
+    <td>Add a "Bulk modify spots" interface.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/spot.html#bulk-modify-spots">More Information</a></td>
   </tr>
     <tr>
     <td>2013-02-27</td>
