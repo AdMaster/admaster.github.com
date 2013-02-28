@@ -81,7 +81,7 @@ title: Spot
 **Request**
 
 `online_date`
-: _Required_ **date** - The date which units need changing. A string of the format: "YYYY-MM-dd". 
+: _Required_ **date** - The date which units need changing. A string of the format: "YYYY-MM-DD". 
 
 `units`
 : _Required_ **integer** - Perchase Unites
