@@ -23,7 +23,7 @@ title: Update
     <td>2013-02-28</td>
     <td>Add a "Bulk modify spots" interface.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/spot.html#bulk-modify-spots">More Information</a></td>
   </tr>
-    <tr>
+  <tr>
     <td>2013-02-27</td>
     <td>Modified creative attributes.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/creative.html">More Information</a></td>
   </tr>
@@ -84,7 +84,7 @@ title: Update
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
-    <tr>
+  <tr>
     <td>2013-03-04</td>
     <td>Modified channel attributes and placement attributes.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/publisher_placement.html">More Information</a></td>
   </tr>
@@ -128,6 +128,14 @@ title: Update
   <tr>
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-03-04</td>
+    <td>Modified creative attributes.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertisers_creative.html">More Information</a></td>
+  </tr>
+  <tr>
+    <td>2013-03-04</td>
+    <td>Modified channel attributes and placement attributes.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertisers_placement.html">More Information</a></td>
   </tr>
   <tr>
     <td>2013-02-17</td>
