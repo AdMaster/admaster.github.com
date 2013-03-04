@@ -47,7 +47,7 @@ title: Placement
 {:.prettyprint}
       [{
         //Placement ID
-        "id": 1,
+        "id": 20000006,
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
         //Campaign ID
         "campaign_id": 10000,
@@ -118,7 +118,7 @@ title: Placement
 {:.prettyprint}
     {
         //Placement ID
-        "id": 1,
+        "id": 20000006,
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/20000006",
         //Campaign ID
         "campaign_id": 10000,

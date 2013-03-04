@@ -130,12 +130,12 @@ title: Publisher Report
 `date`
 : _Optional_ **date** - Date of the form YYYY-MM-DD
 
-If not supplied, the date is yesterday. The parament `date` is formatted according to the ISO 8601 standard.
+	If not supplied, the date is yesterday. The parament `date` is formatted according to the ISO 8601 standard.
 
 `page`
 : _Optional_ **integer** - the start index
        
-If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
+	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
 
 {:.prettyprint}
     [
