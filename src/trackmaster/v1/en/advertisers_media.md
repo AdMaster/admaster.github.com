@@ -21,17 +21,15 @@ title: Media
     status: 200 ok
 
 {:.prettyprint}
-    [
-
-        {
+	{
         "id": 400,//System Media ID
         "name": "Sina",//System Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
-        }
-    ]
+	}
+
 
 ##Get details of the given advertisers
 
@@ -44,8 +42,6 @@ title: Media
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
-
     {
         "id": 400,//System Media ID
         "name": "Sina",//System Media Name
@@ -54,7 +50,7 @@ title: Media
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
     }
-]
+
 
 ##Get details of system media in the given network media ID  
 
@@ -67,8 +63,6 @@ title: Media
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
-
     {
         "id": 400,//System Media ID
         "url": "http://{{site.track_api_host}}/medias/400",
@@ -78,4 +72,3 @@ title: Media
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
     }
-]

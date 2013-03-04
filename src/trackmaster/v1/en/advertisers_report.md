@@ -21,7 +21,8 @@ title: Advertiser Report
 
 `time`
 : _Required_ **string**  
-It is connected with `start_time` and `end_time`.
+
+	It is connected with `start_time` and `end_time`.
 
   * `hourly` Get hourly unique data.
   * `daily` Get daily unique data.
@@ -100,8 +101,6 @@ monthly  | YYYY-MM     | 2005-01
     
 
 {:.prettyprint}
-    [
-
       {
         "campaign_id": 10185,//Campaign ID
         "network_media_id": 1484,//Network Media ID
@@ -113,7 +112,6 @@ monthly  | YYYY-MM     | 2005-01
         "uclk": 23,//Unique Click
         "ipuclk": 22//Unique Click IP
       }
-    ]
 
 
 **Dimensions Description**

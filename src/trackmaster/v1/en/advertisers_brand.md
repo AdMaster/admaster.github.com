@@ -24,13 +24,11 @@ title: Brand
 
 
 {:.prettyprint}
-    [
-      {
+	{
         "id": 30,//Network Brand ID
         "name": "巧乐兹",//Network Brand Name
         "created_at": "2012-09-06T20:39:23Z"//Creation Time
-      }
-    ]
+	}
 
 
 

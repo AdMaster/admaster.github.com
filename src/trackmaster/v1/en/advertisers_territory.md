@@ -30,10 +30,8 @@ title: Territory
 
 
 {:.prettyprint}
-     [
-            {
-            "id":1
-            "name":China
-            }
-        ]
+	{
+       "id":1
+       "name":China
+	}
 

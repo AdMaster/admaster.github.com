@@ -21,8 +21,6 @@ title: Campaign
     Status: 200 OK
 
 {:.prettyprint}
-    [
-
       {
         "id": 10786,//Campaign ID
         "name": "Testing campaign",//Campaign Name
@@ -42,7 +40,7 @@ title: Campaign
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
         "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
       }
-    ]
+
 
 ## Get details of the given campaign 
 	
@@ -53,8 +51,6 @@ title: Campaign
     Status: 200 OK
 
 {:.prettyprint}
-    [
-
 	{
         "id": 10786,//Campaign ID
         "name": "Testing campaign",//Campaign Name
@@ -74,4 +70,3 @@ title: Campaign
         "is_online": "yes",//If the current time is between `start_date` and `end_date plus seven days`, the data of `is_online` is "yes". 
         "created_at": "2012-09-06T20:39:23Z"//Creation time of campaign
     }
-	]
