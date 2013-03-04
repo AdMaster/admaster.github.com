@@ -8,14 +8,14 @@ title: 协议及请求方式
 
 # {{ page.title }}
 
-本文讲述了组成官方 AdMaster API 的资源信息。本API处于测试状态。可能会有一些重大更改。
+本文讲述了组成官方 AdMaster API 的资源信息。本 API 处于测试状态。可能会有一些重大更改。
 
 * TOC
 {:toc}
 
 ## 架构
 
-所有API的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。
+所有 API 的访问都是通过 HTTP 执行的，所有被发送和接收的数据都是 JSON。
 
     $ curl -i https://track.admasterapi.com
 
@@ -33,15 +33,15 @@ title: 协议及请求方式
     Content-Length: 0
 
 
-空白区域作为null而不是被忽略。
+空白区域作为 null 而不是被忽略。
 
 所有的时间戳返回格式是ISO 8601：`YYYY-MM-DDTHH:MM:SSZ`
 
 ##  客户端错误
 
-调用API客户端的错误有三种可能类型，它们收到的请求主体是：
+调用 API 客户端的错误有三种可能类型，它们收到的请求主体是：
 
-1.发送无效 JSON将导致400错误请求响应。
+1.发送无效 JSON 将导致 400 错误请求响应。
 
     HTTP/1.1 400 Bad Request
     Content-Length: 35
@@ -50,7 +50,7 @@ title: 协议及请求方式
     {"message":"Problems parsing JSON"}
 
 
-2.发送错误类型的JSON值将导致400错误请求响应
+2.发送错误类型的 JSON 值将导致 400 错误请求响应
 
     HTTP/1.1 400 Bad Request
     Content-Length: 40
@@ -59,7 +59,7 @@ title: 协议及请求方式
     {"message":"Body should be a JSON Hash"}
 
 
-3.发送无效文件将导致422无法处理的实体响应。
+3.发送无效文件将导致 422 无法处理的实体响应。
 
     HTTP/1.1 422 Unprocessable Entity
     Content-Length: 149
@@ -71,7 +71,8 @@ title: 协议及请求方式
         {
           "resource": "Issue",
           "field": "title",
-          "code": "missing_field"
+          "code": "missing_field",
+          "value":"Resource Value"
         }
       ]
     }
@@ -88,17 +89,17 @@ title: 协议及请求方式
 
 ##  HTTP 谓词
 
-对于每一个动作，API尽可能的驱使您使用 HTTP 谓词。
+对于每一个动作，API 尽可能的驱使您使用 HTTP 谓词。
 
-`HEAD` 只获取HTTP的头信息，不管其他资源信息
+`HEAD` 只获取 HTTP 的头信息，不管其他资源信息
 
 `GET` 用于检索资源
 
 `POST` 用于创建资源、执行自定义动作（如合并，推送）
 
-`PATCH` 利用部分 JSON 数据更新资源，例如，一个资源有 title 和 body 属性。一个PATCH需求可能是通过接收一个或多个属性进行资源更新。PATCH是一个相对较新的和不常见的HTTP谓词，所以资源端点也接收POST需求。
+`PATCH` 利用部分 JSON 数据更新资源，例如，一个资源有 title 和 body 属性。一个 PATCH 需求可能是通过接收一个或多个属性进行资源更新。PATCH 是一个相对较新的和不常见的 HTTP 谓词，所以资源端点也接收 POST 需求。
 
-`PUT` 用于收集或代替资源。PUT需求没有 body 属性，所以要确定设置内容长度为0.
+`PUT` 用于收集或代替资源。PUT 需求没有 body 属性，所以要确定设置内容长度为 0。
 
 `DELETE` 用于删除资源。
 
@@ -115,11 +116,11 @@ OAuth2 Token (作为参数发送):
     $ curl http://track.admasterapi.com/advertisers?access_token=OAUTH-TOKEN
 
 
-在某些地方，对认证的需求将返回 404，而不是403。这是为了防止意外泄漏给未经授权的用户的私人资料。
+在某些地方，对认证的需求将返回 404，而不是 403。这是为了防止意外泄漏给未经授权的用户的私人资料。
 
 ## 分页
 
-默认情况下，多项目请求将会被分页成30项。您可以利用参数`?page`指定进一步页，您也可以利用参数`?per_page`自定义页大小到100.
+默认情况下，多项目请求将会被分页成 30 项。您可以利用参数`?page`指定进一步页，您也可以利用参数`?per_page`自定义页大小到 100。
 
     $ curl http://track.admasterapi.com/advertisers?page=2&amp;per_page=100
 
@@ -142,8 +143,8 @@ OAuth2 Token (作为参数发送):
 
 ## 速度限制
 
-我们以每小时5000限制的API 的请求。这是记录了您的登录，您的OAuth的令牌，或请求的IP。
-您可以检查返回的API请求的HTTP头，查看您当前的状态：
+我们以每小时 5000 限制的 API 的请求。这是记录了您的登录，您的 OAuth 的令牌，或请求的 IP。
+您可以检查返回的 API 请求的 HTTP 头，查看您当前的状态：
 
 {:.prettyprint}
     $ curl -i https://track.admasterapi.com/users/whatever
@@ -153,11 +154,11 @@ OAuth2 Token (作为参数发送):
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4966
 
-你可以联系我们要求进行您应用程序白名单访问，我们更推荐为用户设置OAuth应用。
+你可以联系我们要求进行您应用程序白名单访问，我们更推荐为用户设置 OAuth 应用。
 
 ## 跨域资源共享
 
-对于AJAX需求的，API支持跨域资源共享。你可以从HTML5安全指南中阅读CORS W3C working draft, 或者 this intro。
+对于 AJAX 需求的，API 支持跨域资源共享。你可以从 HTML5 安全指南中阅读 CORS W3C working draft, 或者 this intro。
 
 
 下面是一个发自浏览器的示例需求`http://some-site.com`：
@@ -165,7 +166,7 @@ OAuth2 Token (作为参数发送):
     $ curl -i https://track.admasterapi.com -H "Origin: http://some-site.com"
     HTTP/1.1 302 Found
 
-任何一个被接受的域名都是作为OAUTH应用程序注册的。下面是一个示例需求，用于浏览器触及 Calendar About Nothing:
+任何一个被接受的域名都是作为 OAUTH 应用程序注册的。下面是一个示例需求，用于浏览器触及 Calendar About Nothing:
 
     $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com"
 
@@ -176,7 +177,7 @@ OAuth2 Token (作为参数发送):
     Access-Control-Allow-Credentials: true
 
 
-下面是CORS系统预检请求：
+下面是 CORS 系统预检请求：
 
     $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS
 
@@ -190,30 +191,10 @@ OAuth2 Token (作为参数发送):
     Access-Control-Allow-Credentials: true
 
 
-## JSON-P回调(暂未支持)
+## JSON-P 回调(暂未支持)
 
-你可以发送参数`?callback`到任何GET回调函数以获得JSON函数的结果包裹。浏览器通过跨域方式利用网页嵌入AdMaster 内容就是一种典型的应用。
-响应包括定期API相同的数据输出，加上相关的HTTP头信息。
-
-    $ curl https://track.admasterapi.com/advertisers?callback=foo
-
-{:.prettyprint}
-    foo({
-      "meta": {
-        "status": 200,
-        "X-RateLimit-Limit": "5000",
-        "X-RateLimit-Remaining": "4966",
-        "Link": [ // pagination headers and other links
-          ["https://track.admasterapi.com/advertisers?page=2", {"rel": "next"}]
-        ]
-      },
-      "data": {
-        // the data
-      }
-    })
-
-
-你可以写一个javascript处理程序来处理这样的回调：
+你可以发送参数`?callback`到任何GET回调函数以获得 JSON 函数的结果包裹。浏览器通过跨域方式利用网页嵌入 AdMaster 内容就是一种典型的应用。
+响应包括定期 API 相同的数据输出，加上相关的 HTTP 头信息。
 
     $ curl https://track.admasterapi.com/advertisers?callback=foo
 
@@ -233,10 +214,30 @@ OAuth2 Token (作为参数发送):
     })
 
 
+你可以写一个 javascript 处理程序来处理这样的回调：
 
-头都是相同的字符串值作为HTTP头，有一个例外：link。通过数组`[url, options]`阵列，link头部预先为您解析。
+    $ curl https://track.admasterapi.com/advertisers?callback=foo
 
-所谓的link，如下：
+{:.prettyprint}
+    foo({
+      "meta": {
+        "status": 200,
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4966",
+        "Link": [ // pagination headers and other links
+          ["https://track.admasterapi.com/advertisers?page=2", {"rel": "next"}]
+        ]
+      },
+      "data": {
+        // the data
+      }
+    })
+
+
+
+头都是相同的字符串值作为 HTTP 头，有一个例外：link。通过数组`[url, options]`阵列，link 头部预先为您解析。
+
+所谓的 link，如下：
 
 {:.prettyprint}
     Link: <url1>; rel=”next”, <url2>; rel=”foo”; bar=”baz”

@@ -71,7 +71,8 @@ There are three possible types of client errors on API calls that receive reques
         {
           "resource": "Issue",
           "field": "title",
-          "code": "missing_field"
+          "code": "missing_field",
+          "value":"Resource Value"
         }
       ]
     }
