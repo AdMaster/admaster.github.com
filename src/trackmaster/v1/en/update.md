@@ -29,7 +29,7 @@ title: Update
   </tr>
   <tr>
     <td>2013-03-04</td>
-    <td>Add a 'Get codes of the given campaign ID' interface.<a href=http://dev.admaster.com.cn/doc/trackmaster/v1/en/code.html#get-codes-of-the-given-campaign-id">More Information</a></td>
+    <td>Add a 'Get codes of the given campaign ID' interface.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/code.html#get-codes-of-the-given-campaign-id">More Information</a></td>
   </tr>
    <tr>
     <td>2013-02-28</td>
