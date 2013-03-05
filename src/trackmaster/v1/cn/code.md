@@ -102,3 +102,50 @@ title: 代码
         ...
         {...}]
 
+## 获取指定项目下的监测代码
+
+	GET /networks/advertisers/campaigns/:campaign_id/placements/codes
+
+如广告位下有关键字，请调用“获取指定广告位下的关键字监测代码”接口获取广告位下的关键字监测代码。
+
+**参数**
+
+`page`
+: _可选_ **integer** - 显示页码
+
+	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+
+`per_page`
+: _可选_ **integer** - 分页数量，默认返回 10 个广告位的监测代码
+
+	返回数据的数目。当不指定`per_page` 时，默认最大返回 10 个广告位的监测代码。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
+
+**响应**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+       [{
+            //广告位 ID
+            "placement_id":1
+            //广告位名称
+            "placement_name": Example
+            "codes": [
+                {
+                    //创意 ID
+                    "creative_id": 0,
+                    //创意名称
+                    "creative_name": "默认创意"，
+                    //点击代码
+                    "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
+                },
+				{...},
+				...
+				{...}
+            ]
+        },
+        {...},
+        ...
+        {...}]

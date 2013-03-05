@@ -91,6 +91,14 @@ title: 媒体
 
 **参数**
 
+`name`
+: _可选_ **string** - 网络媒体名称，支持模糊查找
+
+
+`domain`
+: _可选_ **string** - 媒体域名，支持模糊查找。
+
+
 `sort`
 : _可选_ **string** - 列表排序以什么排序
 
@@ -254,8 +262,6 @@ title: 媒体
 `framework`
 : _可选_ **enum** - 是否有框架 `yes`, `no`
 
-`status`
-: _可选_ **enum** - 状态 `enabled`, `disabled`
 
 
 **响应**

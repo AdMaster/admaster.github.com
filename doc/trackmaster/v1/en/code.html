@@ -45,6 +45,7 @@
 <ul id="markdown-toc">
   <li><a href="#get-code-of-the-given-placement">Get code of the given placement</a></li>
   <li><a href="#get-keywords-code-of-the-given-placement">Get keywords code of the given placement</a></li>
+  <li><a href="#get-codes-of-the-given-campaign-id">Get codes of the given campaign ID</a></li>
 </ul>
 
 <h2 id="get-code-of-the-given-placement">Get code of the given placement</h2>
@@ -137,6 +138,59 @@ X-RateLimit-Remaining: 4999
                 //Click Code
                 "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h"
             }
+        ]
+    },
+    {...},
+    ...
+    {...}]
+</code></pre>
+
+<h2 id="get-codes-of-the-given-campaign-id">Get codes of the given campaign ID</h2>
+
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/placements/codes
+</code></pre>
+
+<p>If the placement contians keywords, please call ‘Get keywords code of the given placement’.</p>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+  <dt><code>page</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - the start index
+
+    <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results
+
+    <p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 10 placements’ codes.</p>
+  </dd>
+</dl>
+
+<p><strong>Response</strong></p>
+
+<pre><code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>   [{
+        //Placement ID
+        "placement_id":1
+        //Placement Name
+        "placement_name": Example
+        "codes": [
+            {
+                //Creative ID
+                "creative_id": 0,
+                //Creative Name
+                "creative_name": "默认创意"，
+                //Click Code
+                "clktag": "http://c.admaster.com.cn/c/a10000,b200000000,c2000,i0,m101,h"
+            },
+			{...},
+			...
+			{...}
         ]
     },
     {...},

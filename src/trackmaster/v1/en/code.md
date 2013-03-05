@@ -101,3 +101,52 @@ Null
         {...},
         ...
         {...}]
+
+## Get codes of the given campaign ID
+
+	GET /networks/advertisers/campaigns/:campaign_id/placements/codes
+
+If the placement contians keywords, please call 'Get keywords code of the given placement'.
+
+
+**Parameters**
+
+`page`
+: _Optional_ **integer** - the start index
+
+	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
+
+`per_page`
+: _Optional_ **integer** - the max-results
+
+	You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 10 placements' codes.
+
+**Response**
+
+    Status: 200 OK
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+       [{
+            //Placement ID
+            "placement_id":1
+            //Placement Name
+            "placement_name": Example
+            "codes": [
+                {
+                    //Creative ID
+                    "creative_id": 0,
+                    //Creative Name
+                    "creative_name": "默认创意"，
+                    //Click Code
+                    "clktag": "http://c.admaster.com.cn/c/a10000,b200000000,c2000,i0,m101,h"
+                },
+				{...},
+				...
+				{...}
+            ]
+        },
+        {...},
+        ...
+        {...}]

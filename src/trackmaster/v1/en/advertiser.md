@@ -84,6 +84,12 @@ title: Advertiser
 
     GET /networks/:network_id/advertisers
 
+**Parameters**
+
+`alias`
+: _Optional_ **string** - Advertiser's Alias
+
+
 **Response**
 
     Status: 200 OK

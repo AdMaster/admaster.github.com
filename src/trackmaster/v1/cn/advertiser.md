@@ -84,6 +84,12 @@ title: 广告主
 
     GET /networks/:network_id/advertisers
 
+**参数**
+
+`alias`
+: _可选_ **string** - 网络广告主别名，支持模糊查找。
+
+
 **响应**
 
     Status: 200 OK

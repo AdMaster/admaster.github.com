@@ -19,9 +19,21 @@ title: Update
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
-    <tr>
+  <tr>
+    <td>2013-03-04</td>
+    <td>Add 'alise' parament to 'List details of advertisers in the authorized network'.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertiser.html#list-details-of-advertisers-in-the-authorized-network">More Information</a></td>
+  </tr>
+  <tr>
+    <td>2013-03-04</td>
+    <td>Add 'name' and 'domain' to 'List media of the given network'.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/media.html#list-media-of-the-given-network">More Information</a></td>
+  </tr>
+  <tr>
+    <td>2013-03-04</td>
+    <td>Add a 'Get codes of the given campaign ID' interface.<a href="http://localhost:4000/doc/trackmaster/v1/en/code.html#get-codes-of-the-given-campaign-id">More Information</a></td>
+  </tr>
+   <tr>
     <td>2013-02-28</td>
-    <td>Add a "Bulk modify spots" interface.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/spot.html#bulk-modify-spots">More Information</a></td>
+    <td>Add a 'Bulk modify spots' interface.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/spot.html#bulk-modify-spots">More Information</a></td>
   </tr>
   <tr>
     <td>2013-02-27</td>

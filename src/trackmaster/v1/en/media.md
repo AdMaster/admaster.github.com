@@ -90,6 +90,13 @@ title: Media
 
 **Parameters**
 
+`name`
+: _Optional_ **string** - Network Media Name
+
+
+`domain`
+: _Optional_ **string** - Media Domain
+
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
 
@@ -253,8 +260,6 @@ When the media which you want to delete has campaigns, it can not be deleted.
 `framework`
 : _Optional_ **enum** -  `yes`, `no`
 
-`status`
-: _Optional_ **enum** - `enabled`, `disabled`
 
 
 **Response**

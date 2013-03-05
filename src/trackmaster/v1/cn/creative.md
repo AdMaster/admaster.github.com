@@ -90,6 +90,8 @@ title: 创意
 
     POST /networks/advertisers/campaigns/:campaign_id/creatives
 
+最多可以创建创意的数目为 20 个。
+
 **参数**
 
 `name`

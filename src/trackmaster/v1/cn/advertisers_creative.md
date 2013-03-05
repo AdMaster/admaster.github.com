@@ -21,8 +21,6 @@ title: 创意
     Status: 200 OK
 
 {:.prettyprint}
-    [
-
       {
         //创意ID，全局唯一
         "id": 1,
@@ -32,23 +30,12 @@ title: 创意
         "shortname": "GO",
         //创意描述
         "description": "此创意针对20-30岁人群",
-        //创意颜色标识
-        "color": "#ff00ff",
-        //创意附属文件
-        "file": {
-            "id": 293,
-            "name": "创意.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //创意点击目标地址
         "target_url": "http://www.admaster.com.cn/",
         //创建时间
         "created_at": "2012-09-06T20:39:23Z"
       }
-    ]
+
 
 ##获取指定广告主项目下的创意详情
 
@@ -70,17 +57,6 @@ title: 创意
         "shortname": "GO",
         //创意描述
         "description": "此创意针对20-30岁人群",
-        //创意颜色标识
-        "color": "#ff00ff",
-        //创意附属文件
-        "file": {
-            "id": 293,
-            "name": "创意.jpg",
-            "type": "jpg",
-            "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
-            "width": 400,
-            "height": 300
-        },
         //创意点击目标地址
         "target_url": "http://www.admaster.com.cn/",
         //创建时间
