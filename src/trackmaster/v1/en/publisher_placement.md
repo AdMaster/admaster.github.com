@@ -87,8 +87,6 @@ title: Placement
         "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z",
-        //Channel ID
-        "channel_id":1025,
         //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
         "type": "webpage",
         //Which screen the placement is in
@@ -158,8 +156,8 @@ title: Placement
         "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z",
-        //Channel ID
-        "channel_id":1025,
+        //Channel Name
+        "channel_name": "banner",
         //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
         "type": "webpage",
         //Which screen the placement is in

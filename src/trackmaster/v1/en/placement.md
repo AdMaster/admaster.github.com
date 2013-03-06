@@ -87,8 +87,6 @@ title: Placement
         "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z",
-        //Channel ID
-        "channel_id":1025,
         //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
         "type": "webpage",
         //Which screen the placement is in
@@ -158,8 +156,8 @@ title: Placement
         "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z",
-        //Channel ID
-        "channel_id":1025,
+        //Channel Name
+        "channel_name": "banner",
         //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
         "type": "webpage",
         //Which screen the placement is in
@@ -189,7 +187,7 @@ title: Placement
 : _Required_ **string** - Network Media ID
 
 `channel_id`
-: _Optional_ **integer** - Channel ID
+: _Optional_ **integer** - Channel ID 
 
 `type`
 : _Optional_ **string** - Placement Type
@@ -276,7 +274,7 @@ title: Placement
     {
         "name": "Testing Placement",
         "network_media_id": 1314,
-        "channel_id": 123,
+        "channel_name": "banner",
         "type": "webpage",
         "screen": 3,
         "page_url":"http://www.sina.com.cn/"
@@ -327,7 +325,7 @@ title: Placement
         "is_online": 0,
         "page_url":"http://www.sina.com.cn/",
         "type": "webpage",
-        "channel_id": 123,
+        "channel_name": "banner",
         "screen": 3,       
         "material_type": "flash",
         "material_dimension": "400x300",
@@ -445,7 +443,7 @@ When the placement which you want to delete has impression or click data, it can
     {
         "name": "Testing Placement",
         "network_media_id": 1314,
-        "channel_id": 123,
+        "channel_name": "banner",
         "type": "webpage",
         "screen": 3,
         "page_url":"http://www.sina.com.cn/"

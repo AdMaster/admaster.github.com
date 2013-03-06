@@ -19,6 +19,10 @@ title: 更新
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
   <tr>
+    <td>2013-03-05</td>
+    <td>广告位信息中广告位频道 ID 改为显示广告位频道名称。广告位列表中不再提供频道信息，由广告位详情统一提供。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/placement.html">查看详细</a></td>
+  </tr>
+  <tr>
     <td>2013-03-04</td>
     <td>“获取指定工作网络下所有广告主属性列表”增加可以针对网络广告主别名进行模糊搜索功能。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/advertiser.html#section-3">查看详细</a></td>
   </tr>
@@ -101,6 +105,10 @@ title: 更新
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
   <tr>
+    <td>2013-03-05</td>
+    <td>广告位信息中广告位频道 ID 改为显示广告位频道名称。广告位列表中不再提供频道信息，由广告位详情统一提供。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html">查看详细</a></td>
+  </tr>
+  <tr>
     <td>2013-02-27</td>
     <td>调整广告位和频道属性。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html">查看详细</a></td>
   </tr>
@@ -145,6 +153,10 @@ title: 更新
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-03-05</td>
+    <td>广告位信息中广告位频道 ID 改为显示广告位频道名称。广告位列表中不包含频道信息，由广告位详情统一提供。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/advertisers_placement.html">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-03-04</td>

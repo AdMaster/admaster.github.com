@@ -20,6 +20,10 @@ title: Update
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
   <tr>
+    <td>2013-03-05</td>
+    <td>Use 'channel_name' instead of 'channel_id' in placement details. Placement list does not contain channel information.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/placement.html">More Information</a></td>
+  </tr>
+  <tr>
     <td>2013-03-04</td>
     <td>Add 'alise' parament to 'List details of advertisers in the authorized network'.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertiser.html#list-details-of-advertisers-in-the-authorized-network">More Information</a></td>
   </tr>
@@ -97,6 +101,10 @@ title: Update
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
   <tr>
+    <td>2013-03-05</td>
+    <td>Use 'channel_name' instead of 'channel_id' in placement.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/publisher_placement.html">More Information</a></td>
+  </tr>
+  <tr>
     <td>2013-03-04</td>
     <td>Modified channel attributes and placement attributes.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/publisher_placement.html">More Information</a></td>
   </tr>
@@ -140,6 +148,10 @@ title: Update
   <tr>
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-03-05</td>
+    <td>Use 'channel_name' instead of 'channel_id' in placement.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/advertisers_placement.html">More Information</a></td>
   </tr>
   <tr>
     <td>2013-03-04</td>

@@ -86,8 +86,6 @@ title: 广告位
         "real_clk": 400,
         //创建时间
         "created_at": "2012-09-06T20:39:23Z",
-       //广告位所属媒体频道 ID
-        "channel_id":1025,
         //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
         "type": "webpage",
         //广告位在第几屏幕
@@ -125,8 +123,8 @@ title: 广告位
         "name": "测试广告位",
         //工作网络下媒体 ID
         "network_media_id": 1314,
-        //频道 ID
-        "channel_id": 1025 
+        //广告位所属频道名称
+        "channel_name": "首页",
         //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
         "type": "webpage",
         //广告位在第几屏幕
@@ -276,7 +274,7 @@ title: 广告位
     {
         "name": "测试广告位",
         "network_media_id": 1314,
-        "channel_id": 123,
+        "channel_name": "首页",
         "type": "webpage",
         "screen": 3,
         "page_url":"http://www.sina.com.cn/"
@@ -327,7 +325,7 @@ title: 广告位
         "is_online": 0,
         "page_url":"http://www.sina.com.cn/",
         "type": "webpage",
-        "channel_id": 123,
+        "channel_name": "首页",
         "screen": 3,       
         "material_type": "flash",
         "material_dimension": "400x300",
@@ -445,7 +443,7 @@ title: 广告位
     {
         "name": "测试广告位",
         "network_media_id": 1314,
-        "channel_id": 123,
+        "channel_name": "首页",
         "type": "webpage",
         "screen": 3,
         "page_url":"http://www.sina.com.cn/"
