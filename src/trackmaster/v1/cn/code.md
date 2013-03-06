@@ -38,7 +38,7 @@ title: 代码
         "clktag": "http://c.admaster.com.cn/c/a10111,b200050000,c2000,i0,m101,h",
 
         // 曝光代码
-        "imptag": "http://v.admaster.com.cn/i/a10111,b200050000,c2000,i0,m202,h",
+        "imptag_video": "http://v.admaster.com.cn/i/a10111,b200050000,c2000,i0,m202,h",
 
         // 曝光Flash AS2代码
         "imptag_flash_as2": "if(_root[\"adCnt\"]!=\"ldd\") {\n_root[\"adCnt\"]=\"ldd\";var hstr=\"\",u3rd=\"\";\nloadMovie(\"http:\/\/v.admaster.com.cn\/i\/a10111,b200050000,c2000,i0,m202,h\"+escape(hstr)+\",d\"+escape(_url)+\",u\"+escape(u3rd),createEmptyMovieClip(\"MSd\",this.getNextHighestDepth()));\n}",
