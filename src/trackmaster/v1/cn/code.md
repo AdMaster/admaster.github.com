@@ -61,7 +61,7 @@ title: 代码
 
 ## 获取指定广告位下的关键字监测代码
 
-	GET /networks/advertisers/campaigns/placements/:placement_id/keywords/codes
+	GET /networks/advertisers/campaigns/placements/:placement_id/keywords_codes
 
 **参数**
 

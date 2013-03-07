@@ -61,7 +61,7 @@ Null
 
 ## Get keywords code of the given placement
 
-	GET /networks/advertisers/campaigns/placements/:placement_id/keywords/codes
+	GET /networks/advertisers/campaigns/placements/:placement_id/keywords_codes
 
 **Parameters**
 
