@@ -86,6 +86,10 @@ title: 广告位
         "real_clk": 400,
         //创建时间
         "created_at": "2012-09-06T20:39:23Z",
+        //广告位所属频道 ID
+        "channel_id": 1000,
+        //广告位所属频道名称
+        "channel_name": "首页",
         //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
         "type": "webpage",
         //广告位在第几屏幕
@@ -123,6 +127,8 @@ title: 广告位
         "name": "测试广告位",
         //工作网络下媒体 ID
         "network_media_id": 1314,
+        //广告位所属频道 ID
+        "channel_id": 1000,
         //广告位所属频道名称
         "channel_name": "首页",
         //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
@@ -187,6 +193,9 @@ title: 广告位
 `network_media_id`
 : _必选_ **string** - 广告位所属工作网络媒体 ID
 
+`page_url`
+: _必选_ **string** - 广告所在位置 URL，例"http://www.admaster.com.cn/"
+
 `channel_id`
 : _可选_ **integer** - 广告位所属媒体频道 ID
 
@@ -203,8 +212,6 @@ title: 广告位
 `screen`:
 : _可选_ **integer** - 广告位在第几屏幕
 
-`page_url`
-: _必选_ **string** - 广告位所在位置 URL，例"http://www.admaster.com.cn/"
 
 `material_type`
 : _可选_ **string** - 物料类型 
@@ -232,7 +239,7 @@ title: 广告位
 : _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推，默认: `1/1`
 
 `target_url`
-: _可选_ **string** 点击目标地址, 默认为空，继承项目的点击目标地址
+: _可选_ **string** 点击目标地址, 默认为空，继承项目的点击目标地址。请保证此参数的正确性，因为点击监测代码会按照此地址进行跳转。
 
 `payment_type`
 : _可选_ **string** - 支付类型
@@ -274,6 +281,7 @@ title: 广告位
     {
         "name": "测试广告位",
         "network_media_id": 1314,
+        "channel_id":1000,
         "channel_name": "首页",
         "type": "webpage",
         "screen": 3,
@@ -325,6 +333,7 @@ title: 广告位
         "is_online": 0,
         "page_url":"http://www.sina.com.cn/",
         "type": "webpage",
+        "channel_id":1000,
         "channel_name": "首页",
         "screen": 3,       
         "material_type": "flash",
@@ -373,7 +382,7 @@ title: 广告位
 : _可选_ **integer** - 广告位在第几屏幕
 
 `page_url`
-: _必选_ **string** - 广告位所在位置 URL，例"http://www.admaster.com.cn/"
+: _可选_ **string** - 广告位所在位置 URL，例"http://www.admaster.com.cn/"
 
 `material_type`
 : _可选_ **string** - 物料类型 
@@ -443,6 +452,7 @@ title: 广告位
     {
         "name": "测试广告位",
         "network_media_id": 1314,
+        "channel_id":1000,
         "channel_name": "首页",
         "type": "webpage",
         "screen": 3,

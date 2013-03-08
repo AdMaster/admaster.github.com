@@ -87,6 +87,10 @@ title: Placement
         "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z",
+        //Channel ID
+        "channel_id":1000,
+        //Channel Name
+        "channel_name": "banner",
         //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
         "type": "webpage",
         //Which screen the placement is in
@@ -156,6 +160,8 @@ title: Placement
         "real_clk": 400,
         //Creation Time
         "created_at": "2012-09-06T20:39:23Z",
+        //Channel ID
+        "channel_id":1000,
         //Channel Name
         "channel_name": "banner",
         //Placement Type-`webpage`,`video`,`client`,`se` Search Engine,`email`,`other`
@@ -186,6 +192,9 @@ title: Placement
 `network_media_id`
 : _Required_ **string** - Network Media ID
 
+`page_url`
+: _Required_ **string** - Placement URL，Example:"http://www.admaster.com.cn/"
+
 `channel_id`
 : _Optional_ **integer** - Channel ID 
 
@@ -202,8 +211,6 @@ title: Placement
 `screen`:
 : _Optional_ **integer** - Which screen the placement is in
 
-`page_url`
-: _Required_ **string** - Placement URL，Example:"http://www.admaster.com.cn/"
 
 `material_type`
 : _Optional_ **string** - Material Type 
@@ -233,6 +240,7 @@ title: Placement
 `target_url`
 : _Optional_ **string** - Target URL(Click) inherits campaign's target website. Null(Default)
 
+	Please keep target_url correct, click code will point to this address.
 
 `payment_type`
 : _Optional_ **string** - Payment Type
@@ -274,6 +282,7 @@ title: Placement
     {
         "name": "Testing Placement",
         "network_media_id": 1314,
+        "channel_id":1000,
         "channel_name": "banner",
         "type": "webpage",
         "screen": 3,
@@ -325,6 +334,7 @@ title: Placement
         "is_online": 0,
         "page_url":"http://www.sina.com.cn/",
         "type": "webpage",
+        "channel_id":1000,
         "channel_name": "banner",
         "screen": 3,       
         "material_type": "flash",
@@ -373,7 +383,7 @@ When the placement which you want to delete has impression or click data, it can
 : _Optional_ **integer** - Which screen the placement is in
 
 `page_url`
-: _Required_ **string** - Placement URL，Example:"http://www.admaster.com.cn/"
+: _Optional_ **string** - Placement URL，Example:"http://www.admaster.com.cn/"
 
 `material_type`
 : _Optional_ **string** - Material Type 
@@ -443,6 +453,7 @@ When the placement which you want to delete has impression or click data, it can
     {
         "name": "Testing Placement",
         "network_media_id": 1314,
+        "channel_id":1000,
         "channel_name": "banner",
         "type": "webpage",
         "screen": 3,

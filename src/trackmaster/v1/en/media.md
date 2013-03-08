@@ -57,6 +57,7 @@ title: Media
         "name": "Sina",//System Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
+        "status": "enabled",
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
       }
@@ -79,6 +80,7 @@ title: Media
         "name": "Sina",//System Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
+        "status": "enabled",
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
     }
@@ -137,7 +139,7 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "status": "enabled"
+        "status": "enabled",
         "created_at": "2012-09-06T20:39:23Z"
         "media_id": 400//System Media ID
         "framework": "no"
@@ -162,7 +164,7 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "status": "enabled"
+        "status": "enabled",
         "created_at": "2012-09-06T20:39:23Z"
         "media_id": 400//System Media ID
         "framework": "no"
@@ -172,6 +174,8 @@ title: Media
 ## Add a media to the given network
 
     POST /networks/:network_id/medias
+
+If the status of media is disabled, you can not add this media to network.
 
 **Request**
 
@@ -197,8 +201,8 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "status": "enabled"
-        "created_at": "2012-09-06T20:39:23Z"
+        "status": "enabled",
+        "created_at": "2012-09-06T20:39:23Z",
         "media_id": 400//System Media ID
         "framework": "no"
     }
@@ -221,8 +225,8 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "status": "enabled"
-        "created_at": "2012-09-06T20:39:23Z"
+        "status": "enabled",
+        "created_at": "2012-09-06T20:39:23Z",
         "media_id": 400, //System Media ID
         "framework": "no"
     }
@@ -276,7 +280,7 @@ When the media which you want to delete has campaigns, it can not be deleted.
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "status": "enabled"
+        "status": "enabled",
         "created_at": "2012-09-06T20:39:23Z"
         "media_id": 400//System Media ID
         "framework": "no"
@@ -300,7 +304,8 @@ When the media which you want to delete has campaigns, it can not be deleted.
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "Sina",//Network Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
       }
     ]
 
@@ -320,7 +325,8 @@ When the media which you want to delete has campaigns, it can not be deleted.
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "Sina",//Network Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:2"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
     }
 
 ## Match a media in the given campaign
@@ -345,6 +351,8 @@ No Match
 ## Add a media to the given campaign
 
     PUT /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
+
+If the status of media is disabled, you can not add this media to campaign. 
 
 **Response**
 

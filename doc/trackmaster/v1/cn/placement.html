@@ -126,6 +126,10 @@ X-RateLimit-Remaining: 4999
     "real_clk": 400,
     //创建时间
     "created_at": "2012-09-06T20:39:23Z",
+    //广告位所属频道 ID
+    "channel_id": 1000,
+    //广告位所属频道名称
+    "channel_name": "首页",
     //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
     "type": "webpage",
     //广告位在第几屏幕
@@ -164,6 +168,8 @@ X-RateLimit-Remaining: 4999
     "name": "测试广告位",
     //工作网络下媒体 ID
     "network_media_id": 1314,
+    //广告位所属频道 ID
+    "channel_id": 1000,
     //广告位所属频道名称
     "channel_name": "首页",
     //广告位类型-`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
@@ -229,6 +235,8 @@ X-RateLimit-Remaining: 4999
   <dd><em>必选</em> <strong>string</strong> - 广告位位置名称，字符串，长度为 3 - 100个字符</dd>
   <dt><code>network_media_id</code></dt>
   <dd><em>必选</em> <strong>string</strong> - 广告位所属工作网络媒体 ID</dd>
+  <dt><code>page_url</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 广告所在位置 URL，例”http://www.admaster.com.cn/”</dd>
   <dt><code>channel_id</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 广告位所属媒体频道 ID</dd>
   <dt><code>type</code></dt>
@@ -245,8 +253,6 @@ X-RateLimit-Remaining: 4999
   </dd>
   <dt><code>screen</code>:</dt>
   <dd><em>可选</em> <strong>integer</strong> - 广告位在第几屏幕</dd>
-  <dt><code>page_url</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 广告位所在位置 URL，例”http://www.admaster.com.cn/”</dd>
   <dt><code>material_type</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 物料类型 
 
@@ -274,7 +280,7 @@ X-RateLimit-Remaining: 4999
   <dt><code>rotation</code></dt>
   <dd><em>可选</em> <strong>string</strong> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，依次类推，默认: <code>1/1</code></dd>
   <dt><code>target_url</code></dt>
-  <dd><em>可选</em> <strong>string</strong> 点击目标地址, 默认为空，继承项目的点击目标地址</dd>
+  <dd><em>可选</em> <strong>string</strong> 点击目标地址, 默认为空，继承项目的点击目标地址。请保证此参数的正确性，因为点击监测代码会按照此地址进行跳转。</dd>
   <dt><code>payment_type</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 支付类型
 
@@ -316,6 +322,7 @@ X-RateLimit-Remaining: 4999
 <pre class="prettyprint"><code>{
     "name": "测试广告位",
     "network_media_id": 1314,
+    "channel_id":1000,
     "channel_name": "首页",
     "type": "webpage",
     "screen": 3,
@@ -368,6 +375,7 @@ X-RateLimit-Remaining: 4999
     "is_online": 0,
     "page_url":"http://www.sina.com.cn/",
     "type": "webpage",
+    "channel_id":1000,
     "channel_name": "首页",
     "screen": 3,       
     "material_type": "flash",
@@ -419,7 +427,7 @@ X-RateLimit-Remaining: 4999
   <dt><code>screen</code>:</dt>
   <dd><em>可选</em> <strong>integer</strong> - 广告位在第几屏幕</dd>
   <dt><code>page_url</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 广告位所在位置 URL，例”http://www.admaster.com.cn/”</dd>
+  <dd><em>可选</em> <strong>string</strong> - 广告位所在位置 URL，例”http://www.admaster.com.cn/”</dd>
   <dt><code>material_type</code></dt>
   <dd><em>可选</em> <strong>string</strong> - 物料类型 
 
@@ -489,6 +497,7 @@ X-RateLimit-Remaining: 4999
 <pre class="prettyprint"><code>{
     "name": "测试广告位",
     "network_media_id": 1314,
+    "channel_id":1000,
     "channel_name": "首页",
     "type": "webpage",
     "screen": 3,

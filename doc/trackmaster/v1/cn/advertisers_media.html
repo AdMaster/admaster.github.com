@@ -58,17 +58,15 @@
 <pre><code>status: 200 ok
 </code></pre>
 
-<pre class="prettyprint"><code>[
-
-    {
-        id: 53,//系统媒体 ID
-        name: "test media name",//系统媒体名称
-        logo: "0"
-        domain: "example.com"
-        tag: "test tag"
-        created_at: "2012-12-10T04:03:54Z"
-    }
-]
+<pre class="prettyprint"><code>{
+    "id": 53,//系统媒体 ID
+    "name": "test media name",//系统媒体名称
+    "logo": "0",
+    "domain": "example.com",
+    "tag": "test tag",
+    "created_at": "2012-12-10T04:03:54Z",
+    "status": "enabled"
+}
 </code></pre>
 
 <h2 id="section-2">获取广告主下媒体详情</h2>
@@ -83,17 +81,16 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-
-{
+<pre class="prettyprint"><code>{
     "id": 400,//系统媒体 ID
     "url": "http://track.admasterapi.com/medias/400",
     "name": "新浪",//系统媒体名称
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
-    "created_at": "2012-09-06T20:39:23Z"
-} ]
+    "created_at": "2012-09-06T20:39:23Z",
+    "status": "enabled"
+}
 </code></pre>
 
 <h2 id="id-">获取网络媒体 ID 对应系统媒体详情</h2>
@@ -108,17 +105,16 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-
-{
+<pre class="prettyprint"><code>{
     "id": 400,//系统媒体 ID
     "url": "http://track.admasterapi.com/medias/400",
     "name": "新浪",//系统媒体名称
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
-    "created_at": "2012-09-06T20:39:23Z"
-} ]
+    "created_at": "2012-09-06T20:39:23Z",
+    "status": "enabled"
+}
 </code></pre>
 
       </div>

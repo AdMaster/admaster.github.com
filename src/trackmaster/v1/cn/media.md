@@ -57,6 +57,7 @@ title: 媒体
         "name": "新浪",//系统媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
+        "status": "enabled"//系统媒体状态
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
       }
@@ -80,6 +81,7 @@ title: 媒体
         "name": "新浪",//系统媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
+        "status": "enabled"，//系统媒体状态
         "tag": "综合其他",
         "created_at": "2012-09-06T20:39:23Z"
     }
@@ -176,6 +178,8 @@ title: 媒体
 ## 给指定工作网络添加一个媒体
 
     POST /networks/:network_id/medias
+
+如果在工作网络中请求添加的系统媒体状态为“disabled”，则无法在网络中添加该媒体。
 
 **请求**
 
@@ -301,7 +305,8 @@ title: 媒体
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "新浪",//网络媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
       }
 
 
@@ -321,7 +326,8 @@ title: 媒体
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "新浪",//网络媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:2"
+        "created_at": "2012-09-06T20:39:2",
+        "status": "enabled"
     }
 
 ## 判断指定项目下是否有指定媒体
@@ -346,6 +352,8 @@ title: 媒体
 ##为指定项目添加指定媒体
 
     PUT /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
+
+如果在项目中添加的网络媒体的状态为“disabled”，则无法在项目中添加该媒体。
 
 **响应**
 

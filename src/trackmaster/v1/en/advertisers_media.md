@@ -27,7 +27,8 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
 	}
 
 
@@ -48,7 +49,8 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
     }
 
 
@@ -70,5 +72,6 @@ title: Media
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
     }

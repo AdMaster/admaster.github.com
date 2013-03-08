@@ -19,6 +19,10 @@ title: 更新
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
   <tr>
+    <td>2013-03-08</td>
+    <td>广告位信息补充为同时显示频道名称和频道 ID。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/placement.html">查看详细</a></td>
+  </tr>
+  <tr>
     <td>2013-03-07</td>
     <td>修改“获取指定广告位下关键字监测代码”接口路由地址。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/code.html#section-2">查看详细</a></td>
   </tr>
@@ -109,6 +113,10 @@ title: 更新
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
   <tr>
+    <td>2013-03-08</td>
+    <td>广告位信息补充为同时显示频道名称和频道 ID。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html">查看详细</a></td>
+  </tr>
+  <tr>
     <td>2013-03-05</td>
     <td>广告位信息中广告位频道 ID 改为显示广告位频道名称。广告位列表中不再提供频道信息，由广告位详情统一提供。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html">查看详细</a></td>
   </tr>
@@ -157,6 +165,10 @@ title: 更新
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+  <tr>
+    <td>2013-03-08</td>
+    <td>广告位信息补充为同时显示频道名称和频道 ID。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/advertisers_placement.html">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-03-05</td>

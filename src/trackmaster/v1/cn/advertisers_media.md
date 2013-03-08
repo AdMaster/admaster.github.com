@@ -21,17 +21,16 @@ title: 媒体
     status: 200 ok
 
 {:.prettyprint}
-    [
+    {
+        "id": 53,//系统媒体 ID
+        "name": "test media name",//系统媒体名称
+        "logo": "0",
+        "domain": "example.com",
+        "tag": "test tag",
+        "created_at": "2012-12-10T04:03:54Z",
+        "status": "enabled"
+    }
 
-        {
-            id: 53,//系统媒体 ID
-            name: "test media name",//系统媒体名称
-            logo: "0"
-            domain: "example.com"
-            tag: "test tag"
-            created_at: "2012-12-10T04:03:54Z"
-        }
-    ]
 
 ##获取广告主下媒体详情
 
@@ -44,8 +43,6 @@ title: 媒体
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
-
     {
         "id": 400,//系统媒体 ID
         "url": "http://{{site.track_api_host}}/medias/400",
@@ -53,9 +50,9 @@ title: 媒体
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
     }
-]
 
 ##获取网络媒体 ID 对应系统媒体详情
 
@@ -68,8 +65,6 @@ title: 媒体
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
-
     {
         "id": 400,//系统媒体 ID
         "url": "http://{{site.track_api_host}}/medias/400",
@@ -77,6 +72,6 @@ title: 媒体
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
         "domain": "sina.com.cn",
         "tag": "综合其他",
-        "created_at": "2012-09-06T20:39:23Z"
+        "created_at": "2012-09-06T20:39:23Z",
+        "status": "enabled"
     }
-]
