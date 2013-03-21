@@ -159,10 +159,6 @@ time=hourly&dims=media,placement|粒度为小时，项目分媒体分广告位�
 time=hourly&dims=media,placement,creative |粒度为小时，项目分媒体分广告位分创意数据
 time=hourly&dims=media,placement,geo|粒度为小时，项目分媒体分广告位分地域数据
 time=hourly&dims=media,placement,keyword|粒度为小时，项目分媒体分广告位分关键字数据
-time=monthly|粒度为月，项目数据
-time=monthly&dims=media|粒度为月，项目分媒体数据
-time=monthly&dims=media,placement|粒度为月，项目分媒体分广告位数据
-time=monthly&dims=media,placement,keyword|粒度为月，项目分媒体分广告位分关键字数据
 time=weekly|粒度为周，项目数据
 time=weekly&dims=media|粒度为周，项目分媒体数据
 time=weekly&dims=media,placement|粒度为周，项目分媒体分广告位数据

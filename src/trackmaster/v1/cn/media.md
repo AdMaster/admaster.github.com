@@ -306,7 +306,6 @@ title: 媒体
         "name": "新浪",//网络媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "created_at": "2012-09-06T20:39:23Z",
-        "status": "enabled"
       }
 
 
@@ -326,8 +325,7 @@ title: 媒体
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "新浪",//网络媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:2",
-        "status": "enabled"
+        "created_at": "2012-09-06T20:39:23Z",
     }
 
 ## 判断指定项目下是否有指定媒体

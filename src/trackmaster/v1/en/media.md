@@ -304,8 +304,7 @@ When the media which you want to delete has campaigns, it can not be deleted.
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "Sina",//Network Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:23Z",
-        "status": "enabled"
+        "created_at": "2012-09-06T20:39:23Z"
       }
     ]
 
@@ -325,8 +324,7 @@ When the media which you want to delete has campaigns, it can not be deleted.
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "Sina",//Network Media Name
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
-        "created_at": "2012-09-06T20:39:23Z",
-        "status": "enabled"
+        "created_at": "2012-09-06T20:39:23Z"
     }
 
 ## Match a media in the given campaign

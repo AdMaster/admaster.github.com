@@ -162,10 +162,6 @@ Not all combinations can be queried together. Only certain combinations can be u
 |time=hourly&dims=media,placement,creative 
 |time=hourly&dims=media,placement,geo
 |time=hourly&dims=media,placement,keyword
-|time=monthly
-|time=monthly&dims=media
-|time=monthly&dims=media,placement
-|time=monthly&dims=media,placement,keyword
 |time=weekly
 |time=weekly&dims=media
 |time=weekly&dims=media,placement
