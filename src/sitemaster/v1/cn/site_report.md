@@ -3,10 +3,10 @@ weight: 5
 layout: default
 category: sitemaster
 language: cn
-title: 离线分析报告
+title: 标准数据接口
 ---
 
-# 离线分析报告API
+# 标准数据接口
 
 * TOC
 {:toc}
