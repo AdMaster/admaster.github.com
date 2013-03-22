@@ -12,6 +12,9 @@ title: 停留时间维度统计数据
 * TOC
 {:toc}
 
+
+## 可用维度和指标
+
 维度
 
 | 维度     | 说明     |
@@ -49,7 +52,7 @@ title: 停留时间维度统计数据
             mt:entrances: 100,
             uniquePageViews: 100,
             mt:timeOnPage: 100,
-            dm:exits: 100,
+            mt:exits: 100,
             mt:pageLoadTime: 100,
             pageLoadSample: 100,
             mt:newVisitsRatio: 0.99,
@@ -68,7 +71,7 @@ title: 停留时间维度统计数据
 | mt:bounces           | 总跳出次数       |
 | mt:entrances         | 进入总次数       |
 | mt:exits             | 总退出次数       |
-| mt:uniquePageviews   | 页面唯一访问量   |
+| mt:mt:uniquePageviews   | 页面唯一访问量   |
 | mt:timeOnPage        | 平均页面停留时间 |
 | mt:pageLoadTime      | 平均页面加载时间 |
 | mt:newVisitsRatio | 新访比例         |

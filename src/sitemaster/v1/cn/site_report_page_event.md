@@ -12,12 +12,15 @@ title: 页面事件维度统计数据
 * TOC
 {:toc}
 
+
+## 可用维度和指标
+
 维度
 
-| 维度    | 说明    |
-|---------|---------|
-| dm:pageTitle  | 页面标题  |
-| dm:pagePath | 页面URL |
+| 维度             | 说明     |
+|------------------|----------|
+| dm:pageTitle     | 页面标题 |
+| dm:pagePath      | 页面URL  |
 | dm:eventAction   | 事件动作 |
 | dm:eventCategory | 事件分类 |
 | dm:eventLabel    | 事件标签 |

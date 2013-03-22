@@ -3,10 +3,10 @@ weight: 5
 layout: default
 category: sitemaster
 language: cn
-title: 站点分析报告
+title: 离线分析报告
 ---
 
-# SiteMaster报表API
+# 离线分析报告API
 
 * TOC
 {:toc}
@@ -30,7 +30,7 @@ title: 站点分析报告
 [停留时间统计数据](/doc/sitemaster/v1/cn/site_report_staytime.html)
 [浏览器统计数据](/doc/sitemaster/v1/cn/site_report_ua.html)
 
-## API 规则
+## API 说明
 
 每个接口均以filters做为查询参数。filters可提供丰富的自定义查询条件组合功能，以实现灵活和自由的查询功能。详见 [filters查询语法](#filters查询语法)
 
@@ -65,28 +65,28 @@ filters查询用法及说明如下
 
 除非特别说明，所有报表接口均支持在filters查询中使用常规指标和常规维度做为查询条件。
 
-常规维度如下
+常规维度：
 
 
-| 维度 | 说明                   |
-|------|------------------------|
-| date | 日期，格式为YYYY-MM-DD |
+| 维度     | 说明                   |
+|----------|------------------------|
+| dm:date  | 日期，格式为YYYY-MM-DD |
+| dm:month | 月                     |
+| dm:week  | 周                     |
 
 
-常规指标列表如下
+常规指标：
 
-| 字段                 | 说明             |
-|----------------------|------------------|
-| start-date           | 起始日期         |
-| end-date             | 截止日期         |
-| mt:visits            | 访次数           |
-| mt:pageviews         | 总页面访问量     |
-| mt:newVisits         | 新访问次数       |
-| mt:bounces           | 总跳出次数       |
-| mt:entrances         | 进入总次数       |
-| mt:exits             | 总退出次数       |
-| mt:uniquePageviews   | 页面唯一访问量   |
-| mt:timeOnPage        | 平均页面停留时间 |
-| mt:pageLoadTime      | 平均页面加载时间 |
-| mt:newVisitsRatio | 新访比例         |
-| mt:bounceRatio       | 跳出比例         |
+| 字段                  | 说明             |
+|-----------------------|------------------|
+| mt:visits             | 访次数           |
+| mt:pageviews          | 总页面访问量     |
+| mt:newVisits          | 新访问次数       |
+| mt:bounces            | 总跳出次数       |
+| mt:entrances          | 进入总次数       |
+| mt:exits              | 总退出次数       |
+| mt:mt:uniquePageviews | 页面唯一访问量   |
+| mt:timeOnPage         | 平均页面停留时间 |
+| mt:pageLoadTime       | 平均页面加载时间 |
+| mt:newVisitsRatio     | 新访比例         |
+| mt:bounceRatio        | 跳出比例         |

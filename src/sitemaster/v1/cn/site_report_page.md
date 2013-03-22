@@ -12,14 +12,16 @@ title: 页面维度统计数据
 * TOC
 {:toc}
 
+
+## 可用维度和指标
+
 维度
 
-| 维度            | 说明                                                              |
-|-----------------|-------------------------------------------------------------------|
+| 维度         | 说明                                                              |
+|--------------|-------------------------------------------------------------------|
 | dm:pageTitle | 页面标题                                                          |
-| dm:pagePath     | 页面URL                                                           |
-| dm:pageTitle    | 页面URL                                                           |
-| dm:pageType     | 页面类型，可选值direct(直接访问页)，exit(退出页)，landing(登录页) |
+| dm:pagePath  | 页面URL                                                           |
+| dm:pageType  | 页面类型，可选值direct(直接访问页)，exit(退出页)，landing(登录页) |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
 
@@ -50,28 +52,13 @@ title: 页面维度统计数据
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
-            dm:exits: 100,
+            mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
             mt:newVisitsRatio: 0.99,
             mt:bounceRatio: 0.1,
         },
         ...
     ]
 
-
-| 字段            | 说明             |
-|-----------------|------------------|
-| mt:visits          | 总访问次数       |
-| mt:pageviews       | 总页面访问量     |
-| mt:newVisits       | 新访问次数       |
-| mt:bounces         | 总跳出次数       |
-| mt:entrances       | 进入总次数       |
-| mt:exits           | 总退出次数       |
-| mt:uniquePageviews | 页面唯一访问量   |
-| mt:timeOnPage      | 平均页面停留时间 |
-| mt:pageLoadTime    | 平均页面加载时间 |
-| mt:newVisitsRatio  | 新访比例         |
-| mt:bounceRatio     | 跳出比例         |
