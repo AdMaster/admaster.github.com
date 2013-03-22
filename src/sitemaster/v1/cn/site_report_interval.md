@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 访问间隔维度统计数据
 ---
@@ -21,14 +21,14 @@ title: 访问间隔维度统计数据
 |-----------------------|--------------|
 | dm:daysSinceLastVisit | 访问间隔天数 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 
-##资源地址
+## 资源地址
 
     GET /sites/:site_id/reports/interval
 
-## 参数
+### 参数
 
 
 | 参数名      | 使用说明                                                     |
@@ -41,6 +41,10 @@ title: 访问间隔维度统计数据
 
 
 ### 响应
+
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

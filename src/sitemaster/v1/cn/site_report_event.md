@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 事件维度统计数据
 ---
@@ -46,6 +46,9 @@ title: 事件维度统计数据
 | max-results | 可选 integer -数据条目最大条目数(系统限制小于5000，否则异常) |
 
 ## 响应
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

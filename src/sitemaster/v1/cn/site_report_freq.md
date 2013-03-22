@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 访问频次维度统计数据
 ---
@@ -20,14 +20,14 @@ title: 访问频次维度统计数据
 |----------|----------|
 | dm:visitCount | 访问次数 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 
 ##资源地址
 
     GET /sites/:site_id/reports/freq
 
-## 请求参数
+### 请求参数
 
 | 参数名      | 使用说明                                                     |
 |-------------|--------------------------------------------------------------|
@@ -39,6 +39,8 @@ title: 访问频次维度统计数据
 
 ### 响应
 
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

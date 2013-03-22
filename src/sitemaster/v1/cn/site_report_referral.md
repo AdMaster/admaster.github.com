@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 引荐来源维度统计数据
 ---
@@ -22,7 +22,7 @@ title: 引荐来源维度统计数据
 | dm:referralHost | 引荐主机 |
 | dm:referralPath | 引荐路径 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 
 ## 资源地址
@@ -41,6 +41,9 @@ title: 引荐来源维度统计数据
 
 
 ### 响应
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

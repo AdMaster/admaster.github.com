@@ -1,7 +1,7 @@
 ---
 weight: 5
 layout: default
-category: sitemaster
+category: custom_report
 language: cn
 title: 自定义报告接口
 ---

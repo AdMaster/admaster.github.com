@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 地区维度统计数据
 ---
@@ -24,7 +24,7 @@ title: 地区维度统计数据
 | dm:country   | 国家 |
 | dm:continent | 大洲 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 ## 资源地址
 
@@ -42,6 +42,9 @@ title: 地区维度统计数据
 | max-results | 可选 integer -数据条目最大条目数(系统限制小于5000，否则异常) |
 
 ### 响应
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 页面事件维度统计数据
 ---
@@ -31,7 +31,7 @@ title: 页面事件维度统计数据
 | mt:uniqueEvents | 唯一事件数 |
 | mt:eventValue   | 事件总值   |
 
-###资源地址
+## 资源地址
 
     GET /sites/:site_id/reports/page_event
 
@@ -47,6 +47,9 @@ title: 页面事件维度统计数据
 | max-results | 可选 integer -数据条目最大条目数(系统限制小于5000，否则异常) |
 
 ### 响应
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 浏览器维度统计数据
 ---
@@ -11,6 +11,9 @@ title: 浏览器维度统计数据
 
 * TOC
 {:toc}
+
+
+## 可用维度和指标
 
 维度
 
@@ -21,11 +24,10 @@ title: 浏览器维度统计数据
 | dm:operatingSystem        | 浏览器名   |
 | dm:operatingSystemVersion | 浏览器版本 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
-## 统计结果查询
 
-###资源地址
+## 资源地址
 
     GET /sites/:site_id/reports/ua
 
@@ -42,6 +44,9 @@ title: 浏览器维度统计数据
 
 
 ### 响应
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [

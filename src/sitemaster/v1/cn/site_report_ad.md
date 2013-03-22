@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 广告维度统计数据
 ---
@@ -25,9 +25,9 @@ title: 广告维度统计数据
 | dm:keyword          | 关键词                                  |
 | dm:cookieSourceType | 来源类型，可选值view(曝光)，click(点击) |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
-###资源地址
+## 资源地址
 
     GET /sites/:site_id/reports/ad
 

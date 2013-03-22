@@ -2,7 +2,7 @@
 weight: 6
 layout: default
 category: sitemaster
-subcategory: report
+subcategory: site_report
 language: cn
 title: 访问深度维度统计数据
 ---
@@ -21,10 +21,10 @@ title: 访问深度维度统计数据
 |----------|------------------------------------|
 | dm:depth | 访问深度，如3表示深度为访问3个页面 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 
-##资源地址
+## 资源地址
 
     GET /sites/:site_id/reports/page_depth
 
@@ -39,6 +39,9 @@ title: 访问深度维度统计数据
 | max-results | 可选 integer -数据条目最大条目数(系统限制小于5000，否则异常) |
 
 ### 响应
+
+{:.prettyprint}
+    Status: 200 OK
 
 {:.prettyprint}
     [
