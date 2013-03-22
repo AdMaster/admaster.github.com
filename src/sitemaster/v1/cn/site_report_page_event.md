@@ -16,19 +16,19 @@ title: 页面事件维度统计数据
 
 | 维度    | 说明    |
 |---------|---------|
-| pageID  | 页面ID  |
-| pageURL | 页面URL |
-| action   | 事件动作 |
-| category | 事件分类 |
-| label    | 事件标签 |
+| dm:pageTitle  | 页面标题  |
+| dm:pagePath | 页面URL |
+| dm:eventAction   | 事件动作 |
+| dm:eventCategory | 事件分类 |
+| dm:eventLabel    | 事件标签 |
 
 指标
 
-| 指标         | 说明       |
-|--------------|------------|
-| totalEvents  | 事件总数   |
-| uniqueEvents | 唯一事件数 |
-| totalEvents  | 事件总值   |
+| 指标            | 说明       |
+|-----------------|------------|
+| mt:totalEvents  | 事件总数   |
+| mt:uniqueEvents | 唯一事件数 |
+| mt:eventValue   | 事件总值   |
 
 ###资源地址
 
@@ -51,19 +51,19 @@ title: 页面事件维度统计数据
 {:.prettyprint}
     [
         {
-            action: 'order',
-            category: 'click',
-            label: 'b2c',
-            totalEvents: 100,
-            uniqueEvents: 100,
+            dm:eventAction: 'order',
+            dm:eventCategory: 'click',
+            dm:eventLabel: 'b2c',
+            mt:totalEvents: 100,
+            mt:uniqueEvents: 100,
             totalValue: 1000,
         },
         ...
     ]
 
 
-| 字段         | 说明       |
-|--------------|------------|
-| totalEvents  | 事件总数   |
-| uniqueEvents | 唯一事件数 |
-| totalEvents  | 事件总值   |
+| 字段            | 说明       |
+|-----------------|------------|
+| mt:totalEvents  | 事件总数   |
+| mt:uniqueEvents | 唯一事件数 |
+| mt:eventValue   | 事件总值   |

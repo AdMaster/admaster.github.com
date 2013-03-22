@@ -13,13 +13,13 @@ title: 站点访问详情
 
 ## 获取指定站点的访问详情
 
-    GET /sites/:site_id/visits
+    GET /sites/:site_id/mt:visits
 
 **响应**
 
     Status: 200 OK
-    Link: <http://{{site.site_api_host}}/sites/xxxx/visits?page=2>; rel="next",
-          <http://{{site.site_api_host}}/sites/xxxx/visits?page=10>; rel="last"
+    Link: <http://{{site.site_api_host}}/sites/xxxx/mt:visits?page=2>; rel="next",
+          <http://{{site.site_api_host}}/sites/xxxx/mt:visits?page=10>; rel="last"
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -28,7 +28,7 @@ title: 站点访问详情
       {
           "id": '2323fwfs',
           "startTime": "2012-12-21 12:12:02",
-          "stayTime": "1230",
+          "dm:stayTime": "1230",
           "pageDepth": 5,
           "visitorType": "new",
           "visitCount" : 2,
@@ -37,7 +37,7 @@ title: 站点访问详情
           "campaign": 10234,
           "placement" 200019232,
           "medium": 1345,
-          "keyword": 0,
+          "dm:keyword": 0,
           "creative": 0,
           "cookieSourceType": "view",
           "cookieCampaign": 10269,
@@ -54,10 +54,10 @@ title: 站点访问详情
           "mobileDeviceModel": "(not set)",
           "mobileDeviceInfo": "(not set)",
           "mobileInputSelector": "normal",
-          "continent": "亚洲",
-          "country": "中国",
-          "province": "北京",
-          "city": "北京",
+          "dm:continent": "亚洲",
+          "dm:country": "中国",
+          "dm:province": "北京",
+          "dm:city": "北京",
           "latitude": 114.21324,
           "longitude": 42.12312,
           "flashVersion": 11.1,
@@ -102,13 +102,13 @@ title: 站点访问详情
 
 ## 获取指定站点的页面浏览详情
 
-    GET /sites/:site_id/pageviews
+    GET /sites/:site_id/mt:pageviews
 
 **响应**
 
     Status: 200 OK
-    Link: <http://{{site.site_api_host}}/sites/xxxx/pageviews?page=2>; rel="next",
-          <http://{{site.site_api_host}}/sites/xxxx/pageviews?page=10>; rel="last"
+    Link: <http://{{site.site_api_host}}/sites/xxxx/mt:pageviews?page=2>; rel="next",
+          <http://{{site.site_api_host}}/sites/xxxx/mt:pageviews?page=10>; rel="last"
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
@@ -118,11 +118,11 @@ title: 站点访问详情
           "id": "12312",
           "visitId": "1232323",
           "pageId": "123123",
-          "pageTitle": "欢迎来到admaster",
+          "dm:pageTitle": "欢迎来到admaster",
           "pagePath": "/weclome",
           "created_at": "2012-12-21 15:03:37",
-          "pageLoadTime": 0,
-          "stayTime": 123,
+          "mt:pageLoadTime": 0,
+          "dm:stayTime": 123,
           "referralUrl": "http://www.admaster.com.cn/",
           "clickNum": 20
       }
@@ -172,8 +172,8 @@ title: 站点访问详情
           "visitId": "123123",
           "created_at": "2012-12-21 15:16:12",
           "category": "首页",
-          "action": "登陆",
-          "label": "(not set)",
+          "dm:eventAction": "登陆",
+          "dm:eventLabel": "(not set)",
           "value": 120
       }
     ]
@@ -208,20 +208,20 @@ title: 站点访问详情
 ---|---|---|---
 ==|等于|%3D%3D|filters=mt:timeOnPage%3D%3D10，返回页面停留时间等于10秒的结果
 !=|不等于|!%3D|filters=mt:timeOnPage!%3D10,返回页面停留时间不等于10秒的结果
-\>|大于|%3E|filters=ga:timeOnPage%3E10，返回页面停留时间大于10秒的结果
-<|小于|%3C|filters=ga:timeOnPage%3C10，返回页面停留时间小于10秒的结果
-\>=|大于等于|%3E%3D|filters=ga:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果
-<=|小于等于|%3C%3|filters=ga:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果  
-=@|包含子串|%3D@|filters=ga:city%3D@York，返回城市名中包含 York 字符的统计指标数据
-!@|不包含子串|!@|filters=ga:city!@York，返回城市名中不包含 York 字符的统计指标数据
-=~|和后面语法匹配|%3D~|filters=ga:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据
-!~|和后面语法不匹配|!~|filters=ga:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据  
+\>|大于|%3E|filters=ga:mt:timeOnPage%3E10，返回页面停留时间大于10秒的结果
+<|小于|%3C|filters=ga:mt:timeOnPage%3C10，返回页面停留时间小于10秒的结果
+\>=|大于等于|%3E%3D|filters=ga:mt:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果
+<=|小于等于|%3C%3|filters=ga:mt:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果  
+=@|包含子串|%3D@|filters=ga:dm:city%3D@York，返回城市名中包含 York 字符的统计指标数据
+!@|不包含子串|!@|filters=ga:dm:city!@York，返回城市名中不包含 York 字符的统计指标数据
+=~|和后面语法匹配|%3D~|filters=ga:dm:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据
+!~|和后面语法不匹配|!~|filters=ga:dm:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据  
 
 ###过滤器语法
  
 
 ##segment 说明
-visits 接口可以根据 pageviews 或者 events 的filters 进行过滤
-pageviews 接口可以根据 event 的filters 进行过滤
+mt:visits 接口可以根据 mt:pageviews 或者 events 的filters 进行过滤
+mt:pageviews 接口可以根据 event 的filters 进行过滤
 
 

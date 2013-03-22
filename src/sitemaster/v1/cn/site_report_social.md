@@ -16,8 +16,8 @@ title: 社会化维度统计数据
 
 | 维度   | 说明           |
 |--------|----------------|
-| domain | 社会化网站域名 |
-| uid    | 用户ID         |
+| dm:domain | 社会化网站域名 |
+| dm:uid    | 用户ID         |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
 
@@ -44,20 +44,20 @@ title: 社会化维度统计数据
 {:.prettyprint}
     [
         {
-            domain: 'facebook.com',
-            uid: 111,
-            visits: 100,
-            pageviews: 100,
-            newVisits: 100,
-            bounces: 100,
-            entrances: 100,
+            dm:domain: 'facebook.com',
+            dm:uid: 111,
+            mt:visits: 100,
+            mt:pageviews: 100,
+            mt:newVisits: 100,
+            mt:bounces: 100,
+            mt:entrances: 100,
             uniquePageViews: 100,
-            timeOnPage: 100,
-            exists: 100,
-            pageLoadTime: 100,
+            mt:timeOnPage: 100,
+            dm:exits: 100,
+            mt:pageLoadTime: 100,
             pageLoadSample: 100,
-            newVisitsRatio: 0.99,
-            bounceRatio: 0.1,
+            mt:newVisitsRatio: 0.99,
+            mt:bounceRatio: 0.1,
         },
         ...
     ]
@@ -65,16 +65,16 @@ title: 社会化维度统计数据
 
 | 字段            | 说明             |
 |-----------------|------------------|
-| domain          | 社会化网站域名   |
-| uid             | 用户ID           |
-| visits          | 总访次           |
-| pageviews       | 总页面访问量     |
-| newVisits       | 新访问次数       |
-| bounces         | 总跳出次数       |
-| entrances       | 进入总次数       |
-| exits           | 总退出次数       |
-| uniquePageviews | 页面唯一访问量   |
-| timeOnPage      | 平均页面停留时间 |
-| pageLoadTime    | 平均页面加载时间 |
-| newVisitsRatio  | 新访比例         |
-| bounceRatio     | 跳出比例         |
+| dm:domain          | 社会化网站域名   |
+| dm:uid             | 用户ID           |
+| mt:visits          | 总访次           |
+| mt:pageviews       | 总页面访问量     |
+| mt:newVisits       | 新访问次数       |
+| mt:bounces         | 总跳出次数       |
+| mt:entrances       | 进入总次数       |
+| mt:exits           | 总退出次数       |
+| mt:uniquePageviews | 页面唯一访问量   |
+| mt:timeOnPage      | 平均页面停留时间 |
+| mt:pageLoadTime    | 平均页面加载时间 |
+| mt:newVisitsRatio  | 新访比例         |
+| mt:bounceRatio     | 跳出比例         |

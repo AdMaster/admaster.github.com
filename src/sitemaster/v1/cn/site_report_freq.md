@@ -16,7 +16,7 @@ title: 访问频次维度统计数据
 
 | 维度      | 说明       |
 |-----------|------------|
-| times     | 访问次数   |
+| dm:times     | 访问次数   |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
 
@@ -41,19 +41,19 @@ title: 访问频次维度统计数据
 {:.prettyprint}
     [
         {
-            times: 3
-            visits: 100,
-            pageviews: 100,
-            newVisits: 100,
-            bounces: 100,
-            entrances: 100,
+            dm:times: 3
+            mt:visits: 100,
+            mt:pageviews: 100,
+            mt:newVisits: 100,
+            mt:bounces: 100,
+            mt:entrances: 100,
             uniquePageViews: 100,
-            timeOnPage: 100,
-            exists: 100,
-            pageLoadTime: 100,
+            mt:timeOnPage: 100,
+            exits: 100,
+            mt:pageLoadTime: 100,
             pageLoadSample: 100,
-            newVisitsRatio: 0.99,
-            bounceRatio: 0.1,
+            mt:newVisitsRatio: 0.99,
+            mt:bounceRatio: 0.1,
         },
         ...
     ]
