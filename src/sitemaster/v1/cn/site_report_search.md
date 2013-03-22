@@ -48,8 +48,8 @@ title: 搜索维度统计数据
 {:.prettyprint}
     [
         {
-            dm:referralHost: 'google.com',
-            dm:referralPath: '/q?kw=adf',
+            dm:domain: 'google.com',
+            dm:keyword: 'iPhone',
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
