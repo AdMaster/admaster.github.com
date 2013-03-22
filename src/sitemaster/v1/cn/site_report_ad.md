@@ -17,7 +17,7 @@ title: 广告维度统计数据
 | 维度         | 说明   |
 |--------------|--------|
 | dm:campaign  | 活动   |
-| dm:media     | 媒体   |
+| dm:medium     | 媒体   |
 | dm:placement | 广告位 |
 | dm:creative  | 创意   |
 | dm:keyword   | 关键词 |
@@ -67,7 +67,7 @@ title: 广告维度统计数据
 | 字段                 | 说明             |
 |----------------------|------------------|
 | dm:campaign          | 活动             |
-| dm:media             | 媒体             |
+| dm:medium             | 媒体             |
 | dm:placement         | 广告位           |
 | dm:creative          | 创意             |
 | dm:keyword           | 着急词           |
