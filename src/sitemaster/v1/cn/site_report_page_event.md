@@ -19,8 +19,6 @@ title: 页面事件维度统计数据
 
 | 维度             | 说明     |
 |------------------|----------|
-| dm:pageTitle     | 页面标题 |
-| dm:pagePath      | 页面URL  |
 | dm:eventAction   | 事件动作 |
 | dm:eventCategory | 事件分类 |
 | dm:eventLabel    | 事件标签 |
@@ -50,7 +48,6 @@ title: 页面事件维度统计数据
 
 ### 响应
 
-
 {:.prettyprint}
     [
         {
@@ -63,10 +60,3 @@ title: 页面事件维度统计数据
         },
         ...
     ]
-
-
-| 字段            | 说明       |
-|-----------------|------------|
-| mt:totalEvents  | 事件总数   |
-| mt:uniqueEvents | 唯一事件数 |
-| mt:eventValue   | 事件总值   |

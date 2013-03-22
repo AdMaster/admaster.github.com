@@ -50,29 +50,12 @@ title: 停留时间维度统计数据
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
             mt:newVisitsRatio: 0.99,
             mt:bounceRatio: 0.1,
         },
         ...
     ]
-
-
-| 字段                 | 说明             |
-|----------------------|------------------|
-| dm:stayTime             | 停留时间         |
-| mt:visits            | 总访次           |
-| mt:pageviews         | 总页面访问量     |
-| mt:newVisits         | 新访问次数       |
-| mt:bounces           | 总跳出次数       |
-| mt:entrances         | 进入总次数       |
-| mt:exits             | 总退出次数       |
-| mt:mt:uniquePageviews   | 页面唯一访问量   |
-| mt:timeOnPage        | 平均页面停留时间 |
-| mt:pageLoadTime      | 平均页面加载时间 |
-| mt:newVisitsRatio | 新访比例         |
-| mt:bounceRatio       | 跳出比例         |

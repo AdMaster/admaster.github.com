@@ -65,22 +65,3 @@ title: 地区维度统计数据
         },
         ...
     ]
-
-
-| 字段                 | 说明             |
-|----------------------|------------------|
-| dm:city                 | 城市             |
-| dm:province             | 省份             |
-| dm:country              | 国家             |
-| dm:continent            | 大洲             |
-| mt:visits            | 总访问次数       |
-| mt:pageviews         | 总页面访问量     |
-| mt:newVisits         | 新访问次数       |
-| mt:bounces           | 总跳出次数       |
-| mt:entrances         | 进入总次数       |
-| mt:exits             | 总退出次数       |
-| mt:mt:uniquePageviews   | 页面唯一访问量   |
-| mt:timeOnPage        | 平均页面停留时间 |
-| mt:pageLoadTime      | 平均页面加载时间 |
-| mt:newVisitsRatio | 新访比例         |
-| mt:bounceRatio       | 跳出比例         |

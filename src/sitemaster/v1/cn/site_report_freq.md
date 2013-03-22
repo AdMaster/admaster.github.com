@@ -12,14 +12,13 @@ title: 访问频次维度统计数据
 * TOC
 {:toc}
 
-
 ## 可用维度和指标
 
 维度
 
-| 维度      | 说明       |
-|-----------|------------|
-| dm:times     | 访问次数   |
+| 维度     | 说明     |
+|----------|----------|
+| dm:times | 访问次数 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
 
@@ -50,11 +49,10 @@ title: 访问频次维度统计数据
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
-            exits: 100,
+            mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
             mt:newVisitsRatio: 0.99,
             mt:bounceRatio: 0.1,
         },

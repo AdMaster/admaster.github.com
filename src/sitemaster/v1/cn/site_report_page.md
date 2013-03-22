@@ -1,4 +1,4 @@
-[[---]]
+---
 weight: 6
 layout: default
 category: sitemaster
@@ -39,14 +39,14 @@ title: 页面维度统计数据
 | start-index | 可选 integer -数据开始条目序号                               |
 | max-results | 可选 integer -数据条目最大条目数(系统限制小于5000，否则异常) |
 
-
 ### 响应
 
 
 {:.prettyprint}
     [
         {
-            dm:pageType: 'direct'
+            dm:pageTitle: 'Test',
+            dm:pagePath: '/test',
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
