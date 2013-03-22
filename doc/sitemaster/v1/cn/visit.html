@@ -55,14 +55,14 @@
 
 <h2 id="section-1">获取指定站点的访问详情</h2>
 
-<pre><code>GET /sites/:site_id/visits
+<pre><code>GET /sites/:site_id/mt:visits
 </code></pre>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/visits?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/visits?page=10&gt;; rel="last"
+Link: &lt;http://site.admasterapi.com/sites/xxxx/mt:visits?page=2&gt;; rel="next",
+      &lt;http://site.admasterapi.com/sites/xxxx/mt:visits?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -71,7 +71,7 @@ X-RateLimit-Remaining: 4999
   {
       "id": '2323fwfs',
       "startTime": "2012-12-21 12:12:02",
-      "stayTime": "1230",
+      "dm:stayTime": "1230",
       "pageDepth": 5,
       "visitorType": "new",
       "visitCount" : 2,
@@ -80,7 +80,7 @@ X-RateLimit-Remaining: 4999
       "campaign": 10234,
       "placement" 200019232,
       "medium": 1345,
-      "keyword": 0,
+      "dm:keyword": 0,
       "creative": 0,
       "cookieSourceType": "view",
       "cookieCampaign": 10269,
@@ -97,10 +97,10 @@ X-RateLimit-Remaining: 4999
       "mobileDeviceModel": "(not set)",
       "mobileDeviceInfo": "(not set)",
       "mobileInputSelector": "normal",
-      "continent": "亚洲",
-      "country": "中国",
-      "province": "北京",
-      "city": "北京",
+      "dm:continent": "亚洲",
+      "dm:country": "中国",
+      "dm:province": "北京",
+      "dm:city": "北京",
       "latitude": 114.21324,
       "longitude": 42.12312,
       "flashVersion": 11.1,
@@ -139,14 +139,14 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="section-2">获取指定站点的页面浏览详情</h2>
 
-<pre><code>GET /sites/:site_id/pageviews
+<pre><code>GET /sites/:site_id/mt:pageviews
 </code></pre>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/pageviews?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/pageviews?page=10&gt;; rel="last"
+Link: &lt;http://site.admasterapi.com/sites/xxxx/mt:pageviews?page=2&gt;; rel="next",
+      &lt;http://site.admasterapi.com/sites/xxxx/mt:pageviews?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -156,11 +156,11 @@ X-RateLimit-Remaining: 4999
       "id": "12312",
       "visitId": "1232323",
       "pageId": "123123",
-      "pageTitle": "欢迎来到admaster",
+      "dm:pageTitle": "欢迎来到admaster",
       "pagePath": "/weclome",
       "created_at": "2012-12-21 15:03:37",
-      "pageLoadTime": 0,
-      "stayTime": 123,
+      "mt:pageLoadTime": 0,
+      "dm:stayTime": 123,
       "referralUrl": "http://www.admaster.com.cn/",
       "clickNum": 20
   }
@@ -206,8 +206,8 @@ X-RateLimit-Remaining: 4999
       "visitId": "123123",
       "created_at": "2012-12-21 15:16:12",
       "category": "首页",
-      "action": "登陆",
-      "label": "(not set)",
+      "dm:eventAction": "登陆",
+      "dm:eventLabel": "(not set)",
       "value": 120
   }
 ]
@@ -261,49 +261,49 @@ X-RateLimit-Remaining: 4999
       <td>&gt;</td>
       <td>大于</td>
       <td>%3E</td>
-      <td>filters=ga:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
+      <td>filters=ga:mt:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
     </tr>
     <tr>
       <td>&lt;</td>
       <td>小于</td>
       <td>%3C</td>
-      <td>filters=ga:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
+      <td>filters=ga:mt:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
     </tr>
     <tr>
       <td>&gt;=</td>
       <td>大于等于</td>
       <td>%3E%3D</td>
-      <td>filters=ga:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
+      <td>filters=ga:mt:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
     </tr>
     <tr>
       <td>&lt;=</td>
       <td>小于等于</td>
       <td>%3C%3</td>
-      <td>filters=ga:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
+      <td>filters=ga:mt:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
     </tr>
     <tr>
       <td>=@</td>
       <td>包含子串</td>
       <td>%3D@</td>
-      <td>filters=ga:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
+      <td>filters=ga:dm:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
     </tr>
     <tr>
       <td>!@</td>
       <td>不包含子串</td>
       <td>!@</td>
-      <td>filters=ga:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
+      <td>filters=ga:dm:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
     </tr>
     <tr>
       <td>=~</td>
       <td>和后面语法匹配</td>
       <td>%3D~</td>
-      <td>filters=ga:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
+      <td>filters=ga:dm:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
     </tr>
     <tr>
       <td>!~</td>
       <td>和后面语法不匹配</td>
       <td>!~</td>
-      <td>filters=ga:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
+      <td>filters=ga:dm:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
     </tr>
   </tbody>
 </table>
@@ -311,8 +311,8 @@ X-RateLimit-Remaining: 4999
 <h3 id="section-5">过滤器语法</h3>
 
 <h2 id="segment-">segment 说明</h2>
-<p>visits 接口可以根据 pageviews 或者 events 的filters 进行过滤
-pageviews 接口可以根据 event 的filters 进行过滤</p>
+<p>mt:visits 接口可以根据 mt:pageviews 或者 events 的filters 进行过滤
+mt:pageviews 接口可以根据 event 的filters 进行过滤</p>
 
 
       </div>
@@ -321,14 +321,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
       <div class="js-toggle-list sidebar-module expandable">
         <ul>
         
-          
-          
-            
-          
-          
-          
-            
-          
           
           
             
@@ -356,8 +348,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -365,24 +355,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -408,7 +380,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
+          
+            
+          
           
           
             
@@ -435,6 +409,258 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
           
           
         
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/sitemaster/v1/cn/custom_report.html">自定义报告接口</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
           
           
             
@@ -455,9 +681,35 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/site_report.html">站点分析报告</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_report.html">标准数据接口</a>
                 </h3>
                 <ul class="js-guides">
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_ad.html">广告维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_browser.html">浏览器维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_event.html">事件维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_freq.html">访问频次维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_interval.html">访问间隔维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page.html">页面维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_depth.html">访问深度维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_event.html">页面事件维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_referral.html">引荐来源维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_region.html">地区维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_search.html">搜索维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_social.html">社会化维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_staytime.html">停留时间维度统计数据</a></li>
                   
                 </ul>
               </li>
@@ -466,15 +718,49 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
           
           
             
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/custom_report.html">自定义报告接口</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
@@ -536,8 +822,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -562,33 +846,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -640,8 +900,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -666,33 +924,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -744,8 +978,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -770,33 +1002,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -848,8 +1056,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -874,33 +1080,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -952,8 +1134,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -978,33 +1158,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1056,8 +1212,6 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
@@ -1082,33 +1236,9 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
             
           
           
-        
-          
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1135,6 +1265,1462 @@ pageviews 接口可以根据 event 的filters 进行过滤</p>
           
           
         
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
           
             

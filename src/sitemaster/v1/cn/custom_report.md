@@ -1,7 +1,7 @@
 ---
 weight: 5
 layout: default
-category: sitemaster
+category: custom_report
 language: cn
 title: 自定义报告接口
 ---
@@ -28,7 +28,7 @@ title: 自定义报告接口
           name: '这是一自定义报告',
           dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
-          filters: 'md:city==北京;mt:visits>1000',
+          filters: 'dm:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
           created_at: "2012-12-12 16:00:08",//添加时间
       }
@@ -64,7 +64,7 @@ title: 自定义报告接口
           name: '这是一自定义报告',
           dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
-          filters: 'md:city==北京;mt:visits>1000',
+          filters: 'dm:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
     }
 
@@ -80,7 +80,7 @@ title: 自定义报告接口
           name: '这是一自定义报告',
           dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
-          filters: 'md:city==北京;mt:visits>1000',
+          filters: 'dm:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
           created_at: "2012-12-12 16:00:08",//添加时间
     }
@@ -114,7 +114,7 @@ title: 自定义报告接口
           name: '这是一自定义报告',
           dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
-          filters: 'md:city==北京;mt:visits>1000',
+          filters: 'dm:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
     }
 
@@ -130,7 +130,7 @@ title: 自定义报告接口
           name: '这是一自定义报告',
           dimensions: 'dm:date,dm:city',
           metrics: 'mt:visits,mt:visitors,mt:pageviews',
-          filters: 'md:city==北京;mt:visits>1000',
+          filters: 'dm:city==北京;mt:visits>1000',
           sort: '-mt:pageviews',
           created_at: "2012-12-12 16:00:08",//添加时间
     }
