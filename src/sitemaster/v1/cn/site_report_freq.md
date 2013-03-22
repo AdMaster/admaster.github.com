@@ -18,9 +18,9 @@ title: 访问频次维度统计数据
 
 | 维度     | 说明     |
 |----------|----------|
-| dm:times | 访问次数 |
+| dm:visitCount | 访问次数 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 
 ##资源地址
@@ -43,7 +43,7 @@ title: 访问频次维度统计数据
 {:.prettyprint}
     [
         {
-            dm:times: 3
+            dm:visitCount: 3
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,

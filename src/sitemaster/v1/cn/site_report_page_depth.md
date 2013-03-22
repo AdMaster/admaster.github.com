@@ -21,7 +21,7 @@ title: 访问深度维度统计数据
 |----------|------------------------------------|
 | dm:depth | 访问深度，如3表示深度为访问3个页面 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 
 ##资源地址

@@ -21,7 +21,7 @@ title: 停留时间维度统计数据
 |----------|----------|
 | dm:stayTime | 停留时间 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 
 ##资源地址

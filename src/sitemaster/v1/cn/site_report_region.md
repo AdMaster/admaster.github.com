@@ -17,14 +17,14 @@ title: 地区维度统计数据
 
 维度
 
-| 维度      | 说明 |
-|-----------|------|
+| 维度         | 说明 |
+|--------------|------|
 | dm:city      | 城市 |
 | dm:province  | 省份 |
 | dm:country   | 国家 |
 | dm:continent | 大洲 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 ## 资源地址
 
@@ -55,7 +55,7 @@ title: 地区维度统计数据
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,

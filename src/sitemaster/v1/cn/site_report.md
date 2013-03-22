@@ -13,22 +13,7 @@ title: 离线分析报告
 
 ## 概述
 
-本API主要提供以不同维度查询指定站点页面访问信息的能力。本API需要权限认证。本API数据源为非实时数据源，帮数据具有一定延时，具体延时依项目而定。
-
-## API 目录
-
-[地区维度统计数据](/doc/sitemaster/v1/cn/site_report_region.html)
-[广告维度统计数据](/doc/sitemaster/v1/cn/site_report_ad.html)
-[事件维度统计数据](/doc/sitemaster/v1/cn/site_report_event.html)
-[访问频次统计数据](/doc/sitemaster/v1/cn/site_report_freq.html)
-[页面统计数据](/doc/sitemaster/v1/cn/site_report_page.html)
-[访问深度统计数据](/doc/sitemaster/v1/cn/site_report_page_dm:depth.html)
-[页面事件统计数据](/doc/sitemaster/v1/cn/site_report_page_event.html)
-[流量来源统计数据](/doc/sitemaster/v1/cn/site_report_referral.html)
-[搜索引擎统计数据](/doc/sitemaster/v1/cn/site_report_search.html)
-[社交媒体统计数据](/doc/sitemaster/v1/cn/site_report_social.html)
-[停留时间统计数据](/doc/sitemaster/v1/cn/site_report_staytime.html)
-[浏览器统计数据](/doc/sitemaster/v1/cn/site_report_ua.html)
+本API主要提供离线分析数据获取功能，为非实时数据源，数据具有一定延时。
 
 ## API 说明
 
@@ -39,11 +24,11 @@ title: 离线分析报告
 filters查询用法及说明如下
 
 
-| 用法                                                                       | 说明                                                                                                  |
-|----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| start-date==2012-1-1                                                        | 指定start-date查询条件“等于”2012-1-1                                                                   |
-| start-date==2012-1-1;end-date==2013-1-1                                     | 指定start-date“等于”2012-1-1，“且”end-date“等于”2013-1-1。该条件指定查询2012-1-1至2013-1-1间的统计数据 |
-| source_dm:domain==google.com,source_dm:domain==baidu.com,source_dm:domain=apple.com | 指定来源域名为google.com“或 ”baidu.com“或”apple.com                                                   |
+| 用法                                                           | 说明                                                                                                   |
+|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| start-date==2012-1-1                                           | 指定start-date查询条件“等于”2012-1-1                                                                   |
+| start-date==2012-1-1;end-date==2013-1-1                        | 指定start-date“等于”2012-1-1，“且”end-date“等于”2013-1-1。该条件指定查询2012-1-1至2013-1-1间的统计数据 |
+| dm:domain==google.com,dm:domain==baidu.com,dm:domain=apple.com | 指定来源域名为google.com“或 ”baidu.com“或”apple.com                                                    |
 
 ### 查询语法
 
@@ -77,16 +62,31 @@ filters查询用法及说明如下
 
 常规指标：
 
-| 字段                  | 说明             |
-|-----------------------|------------------|
-| mt:visits             | 访次数           |
-| mt:pageviews          | 总页面访问量     |
-| mt:newVisits          | 新访问次数       |
-| mt:bounces            | 总跳出次数       |
-| mt:entrances          | 进入总次数       |
-| mt:exits              | 总退出次数       |
-| mt:mt:uniquePageviews | 页面唯一访问量   |
-| mt:timeOnPage         | 平均页面停留时间 |
-| mt:pageLoadTime       | 平均页面加载时间 |
-| mt:newVisitsRatio     | 新访比例         |
-| mt:bounceRatio        | 跳出比例         |
+| 字段               | 说明             |
+|--------------------|------------------|
+| mt:visits          | 访次数           |
+| mt:pageviews       | 总页面访问量     |
+| mt:newVisits       | 新访问次数       |
+| mt:bounces         | 总跳出次数       |
+| mt:entrances       | 进入总次数       |
+| mt:exits           | 总退出次数       |
+| mt:uniquePageviews | 页面唯一访问量   |
+| mt:timeOnPage      | 平均页面停留时间 |
+| mt:pageLoadTime    | 平均页面加载时间 |
+| mt:newVisitsRatio  | 新访比例         |
+| mt:bounceRatio     | 跳出比例         |
+
+## API 目录
+
+[地区维度统计数据](/doc/sitemaster/v1/cn/site_report_region.html)
+[广告维度统计数据](/doc/sitemaster/v1/cn/site_report_ad.html)
+[事件维度统计数据](/doc/sitemaster/v1/cn/site_report_event.html)
+[访问频次统计数据](/doc/sitemaster/v1/cn/site_report_freq.html)
+[页面统计数据](/doc/sitemaster/v1/cn/site_report_page.html)
+[访问深度统计数据](/doc/sitemaster/v1/cn/site_report_page_depth.html)
+[页面事件统计数据](/doc/sitemaster/v1/cn/site_report_page_event.html)
+[流量来源统计数据](/doc/sitemaster/v1/cn/site_report_referral.html)
+[搜索引擎统计数据](/doc/sitemaster/v1/cn/site_report_search.html)
+[社交媒体统计数据](/doc/sitemaster/v1/cn/site_report_social.html)
+[停留时间统计数据](/doc/sitemaster/v1/cn/site_report_staytime.html)
+[浏览器统计数据](/doc/sitemaster/v1/cn/site_report_browser.html)

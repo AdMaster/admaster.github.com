@@ -4,32 +4,30 @@ layout: default
 category: sitemaster
 subcategory: report
 language: cn
-title: 广告维度统计数据
+title: 浏览器维度统计数据
 ---
 
-# 广告维度统计数据
+# 浏览器维度统计数据
 
 * TOC
 {:toc}
 
-## 可用维度和指标
-
 维度
 
-| 维度                | 说明                                    |
-|---------------------|-----------------------------------------|
-| dm:campaign         | 活动                                    |
-| dm:medium           | 媒体                                    |
-| dm:placement        | 广告位                                  |
-| dm:creative         | 创意                                    |
-| dm:keyword          | 关键词                                  |
-| dm:cookieSourceType | 来源类型，可选值view(曝光)，click(点击) |
+| 维度                      | 说明       |
+|---------------------------|------------|
+| dm:browser                | 浏览器名   |
+| dm:browserVersion         | 浏览器版本 |
+| dm:operatingSystem        | 浏览器名   |
+| dm:operatingSystemVersion | 浏览器版本 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
+## 统计结果查询
+
 ###资源地址
 
-    GET /sites/:site_id/reports/ad
+    GET /sites/:site_id/reports/ua
 
 ### 参数
 
@@ -42,24 +40,25 @@ title: 广告维度统计数据
 | start-index | 可选 integer -数据开始条目序号                               |
 | max-results | 可选 integer -数据条目最大条目数(系统限制小于5000，否则异常) |
 
+
 ### 响应
 
 {:.prettyprint}
     [
         {
-            ...
-            dm:placement: 'ad3',
-            dm:creative: 'intel',
+            dm:browser: 'Chrome',
+            dm:browserVersion: '1.0.0',
+            dm:operatingSystem: 'Mac OSX',
+            dm:operatingSystemVersion: '10.8.4',
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
             mt:newVisitsRatio: 0.99,
             mt:bounceRatio: 0.1,
         },

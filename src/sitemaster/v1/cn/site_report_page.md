@@ -23,7 +23,7 @@ title: 页面维度统计数据
 | dm:pagePath  | 页面URL                                                           |
 | dm:pageType  | 页面类型，可选值direct(直接访问页)，exit(退出页)，landing(登录页) |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 ##资源地址
 

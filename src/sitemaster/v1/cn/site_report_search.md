@@ -22,7 +22,7 @@ title: 搜索维度统计数据
 | dm:domain  | 搜索引擎域名 |
 | dm:keyword | 搜索关键词   |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 
 ##资源地址

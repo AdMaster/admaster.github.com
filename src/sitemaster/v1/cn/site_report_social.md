@@ -22,7 +22,7 @@ title: 社会化维度统计数据
 | dm:domain | 社会化网站域名 |
 | dm:uid    | 用户ID         |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 
 ##资源地址

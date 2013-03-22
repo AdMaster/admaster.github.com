@@ -21,7 +21,7 @@ title: 访问间隔维度统计数据
 |-----------------------|--------------|
 | dm:daysSinceLastVisit | 访问间隔天数 |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标)
+指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#常规指标和维度)
 
 
 ##资源地址
