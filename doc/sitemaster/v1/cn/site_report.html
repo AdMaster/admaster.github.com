@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>站点分析报告 - sitemaster - AdMaster API 文档中心</title>
+  <title>标准数据接口 - sitemaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,482 +40,55 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">站点分析报告</h1>
+        <h1 id="section">标准数据接口</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取指定站点的报告</a></li>
-  <li><a href="#dimensions">dimensions</a></li>
-  <li><a href="#metrics-">metrics 说明</a></li>
-  <li><a href="#filters-">filters 说明</a>    <ul>
-      <li><a href="#section-5">过滤器语法</a></li>
-      <li><a href="#section-6">组合过滤器</a></li>
+  <li><a href="#section-1">概述</a></li>
+  <li><a href="#api-">API 说明</a></li>
+  <li><a href="#filters">filters查询语法</a>    <ul>
+      <li><a href="#section-2">查询语法</a></li>
+      <li><a href="#section-3">常规指标和维度</a></li>
     </ul>
   </li>
-  <li><a href="#segment-">segment 说明</a></li>
+  <li><a href="#api--1">API 目录</a></li>
 </ul>
 
-<h2 id="section-1">获取指定站点的报告</h2>
+<h2 id="section-1">概述</h2>
 
-<pre><code>GET /sites/:site_id/analytics
-</code></pre>
+<p>本API主要提供离线分析数据获取功能，为非实时数据源，数据具有一定延时。</p>
 
-<p><strong>响应</strong></p>
+<h2 id="api-">API 说明</h2>
 
-<pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/analytics?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/analytics?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
+<p>每个接口均以filters做为查询参数。filters可提供丰富的自定义查询条件组合功能，以实现灵活和自由的查询功能。详见 <a href="#filters">filters查询语法</a></p>
 
-<pre class="prettyprint"><code>[
-  {
-      "dm:date": "2012-12-12",
-      "mt:visits": 30898,
-      "mt:pageviews": 69239,
-      "mt:visitors": 20123
-  }
-]
-</code></pre>
+<h2 id="filters">filters查询语法</h2>
 
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>start-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 开始日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>end-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 结束日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>metrics</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 指标，多个用逗号隔开，指标有那些可以参考页面底部指标列表</dd>
-  <dt><code>dimensions</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 维度，多个用逗号开个，最多支持3个维度 参考页面底部维度列表</dd>
-  <dt><code>filters</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 过滤条件，可以对指标或者维度过滤，具体的过滤规则查看页面底部filter的说明</dd>
-  <dt><code>segment</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 高级细分，设置对访次的细分过滤，具体查看页面底部segment的说明</dd>
-  <dt><code>start-index</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据开始条目序号</dd>
-  <dt><code>max-results</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据条目最大条目数(系统限制小于5000，否则异常)</dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 排序方式，默认不排序格式</dd>
-</dl>
-
-<h2 id="dimensions">dimensions</h2>
+<p>filters查询用法及说明如下</p>
 
 <table>
   <thead>
     <tr>
-      <th>名称</th>
-      <th>类型</th>
-      <th>级别</th>
+      <th>用法</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>dm:visitorType</td>
-      <td>Visitor</td>
-      <td>visit-dm</td>
-      <td>访问者类型(新访或回访，值为“new”或者“return”)</td>
+      <td>start-date==2012-1-1</td>
+      <td>指定start-date查询条件“等于”2012-1-1</td>
     </tr>
     <tr>
-      <td>dm:visitCount</td>
-      <td>Visitor</td>
-      <td>visit-dm</td>
-      <td>第几次访问，大于0的自然数</td>
+      <td>start-date==2012-1-1;end-date==2013-1-1</td>
+      <td>指定start-date“等于”2012-1-1，“且”end-date“等于”2013-1-1。<br />该条件指定查询2012-1-1至2013-1-1间的统计数据</td>
     </tr>
     <tr>
-      <td>dm:daysSinceLastVisit</td>
-      <td>Visitor</td>
-      <td>visit-dm</td>
-      <td>距离上次访问的天数</td>
-    </tr>
-    <tr>
-      <td>dm:referralPath</td>
-      <td>Traffic Sources </td>
-      <td>visit-dm</td>
-      <td>引荐路径</td>
-    </tr>
-    <tr>
-      <td>dm:campaign</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>项目，smt_cp</td>
-    </tr>
-    <tr>
-      <td>dm:placement</td>
-      <td>Traffic Sources</td>
-      <td>visit-dm</td>
-      <td>广告位,smt_pl</td>
-    </tr>
-    <tr>
-      <td>dm:medium</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>媒体，smt_md</td>
-    </tr>
-    <tr>
-      <td>dm:keyword</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>关键字，smt_kw</td>
-    </tr>
-    <tr>
-      <td>dm:creative</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>创意，smt_ct</td>
-    </tr>
-    <tr>
-      <td>dm:cookieSourceType</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>来源类型，<code>点击引导</code> 或 <code>曝光引导</code>或<code>(not set)</code></td>
-    </tr>
-    <tr>
-      <td>dm:cookieCampaign</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>项目，通过 cookie 获取</td>
-    </tr>
-    <tr>
-      <td>dm:cookiePlacement</td>
-      <td>Traffic Sources</td>
-      <td>visit-dm</td>
-      <td>广告位,通过 cookie 获取</td>
-    </tr>
-    <tr>
-      <td>dm:cookieMedium</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>媒体，通过 cookie 获取</td>
-    </tr>
-    <tr>
-      <td>dm:cookieKeyword</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>关键字，通过 cookie 获取</td>
-    </tr>
-    <tr>
-      <td>dm:cookieCreative</td>
-      <td>Traffic Sources</td>
-      <td> visit-dm</td>
-      <td>创意，通过 cookie 获取</td>
-    </tr>
-    <tr>
-      <td>dm:browser</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>浏览器（<a href="https://github.com/AdMaster/SiteMaster/wiki/siteBrowse">字典</a>）</td>
-    </tr>
-    <tr>
-      <td>dm:browserVersion</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>浏览器版本（<a href="https://github.com/AdMaster/SiteMaster/wiki/siteBrowse">字典</a>）</td>
-    </tr>
-    <tr>
-      <td>dm:operatingSystem</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>操作系统（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:operatingSystemVersion</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>操作系统版本（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:isMobile</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>是否是移动设备(Yes or No)</td>
-    </tr>
-    <tr>
-      <td>dm:mobileDeviceBranding</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>移动设备品牌，如：三星，htc(字典)</td>
-    </tr>
-    <tr>
-      <td>dm:mobileDeviceModel</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>移动设备型号，如ipad1，ipad2（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:mobileDeviceInfo</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>品牌+型号</td>
-    </tr>
-    <tr>
-      <td>dm:mobileInputSelector</td>
-      <td>Platform / Device</td>
-      <td>visit-dm</td>
-      <td>输入方式，值为 “touchscreen” 或者 “(not set)”</td>
-    </tr>
-    <tr>
-      <td>dm:continent</td>
-      <td>Geo / Network</td>
-      <td>visit-dm</td>
-      <td>大洲（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:country</td>
-      <td>Geo / Network</td>
-      <td>visit-dm</td>
-      <td>国家（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:province</td>
-      <td>Geo / Network</td>
-      <td>visit-dm</td>
-      <td>省份（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:city</td>
-      <td>Geo / Network</td>
-      <td>visit-dm</td>
-      <td>城市（字典）</td>
-    </tr>
-    <tr>
-      <td>dm:latitude</td>
-      <td>Geo / Network</td>
-      <td>visit-dm</td>
-      <td>纬度</td>
-    </tr>
-    <tr>
-      <td>dm:longitude</td>
-      <td>Geo / Network</td>
-      <td>visit-dm</td>
-      <td>经度</td>
-    </tr>
-    <tr>
-      <td>dm:flashVersion</td>
-      <td>System</td>
-      <td>visit-dm</td>
-      <td>flash版本（采集到的原始数据）</td>
-    </tr>
-    <tr>
-      <td>dm:javaEnabled</td>
-      <td>System</td>
-      <td>visit-dm</td>
-      <td>是否支持java（Yes or No）</td>
-    </tr>
-    <tr>
-      <td>dm:language</td>
-      <td>System</td>
-      <td>visit-dm</td>
-      <td>语言</td>
-    </tr>
-    <tr>
-      <td>dm:screenColors</td>
-      <td>System</td>
-      <td>visit-dm</td>
-      <td>屏幕颜色</td>
-    </tr>
-    <tr>
-      <td>dm:screenResolution</td>
-      <td>System</td>
-      <td>visit-dm</td>
-      <td>屏幕分辨率</td>
-    </tr>
-    <tr>
-      <td>dm:landingPagePath</td>
-      <td>Page Tracking</td>
-      <td>visit-dm</td>
-      <td>登陆页路径</td>
-    </tr>
-    <tr>
-      <td>:exitPagePath</td>
-      <td>Page Tracking</td>
-      <td>visit-dm</td>
-      <td>退出页路径</td>
-    </tr>
-    <tr>
-      <td>dm:date</td>
-      <td>Time </td>
-      <td>time-dm</td>
-      <td>日期</td>
-    </tr>
-    <tr>
-      <td>dm:month</td>
-      <td>Time </td>
-      <td>time-dm</td>
-      <td>月份</td>
-    </tr>
-    <tr>
-      <td>dm:week</td>
-      <td>Time </td>
-      <td>time-dm</td>
-      <td>周</td>
-    </tr>
-    <tr>
-      <td>dm:hour</td>
-      <td>Time </td>
-      <td>time-dm</td>
-      <td>时</td>
-    </tr>
-    <tr>
-      <td>dm:host</td>
-      <td>Page Tracking</td>
-      <td>page-dm</td>
-      <td>主机名(带端口号)</td>
-    </tr>
-    <tr>
-      <td>dm:pagePath</td>
-      <td>Page Tracking</td>
-      <td>page-dm</td>
-      <td>页面路径</td>
-    </tr>
-    <tr>
-      <td>dm:pageTitle</td>
-      <td>Page Tracking</td>
-      <td>page-dm</td>
-      <td>页面标题</td>
-    </tr>
-    <tr>
-      <td>dm:eventCategory</td>
-      <td>Event Tracking </td>
-      <td> </td>
-      <td>事件分类</td>
-    </tr>
-    <tr>
-      <td>dm:eventAction</td>
-      <td>Event Tracking </td>
-      <td> </td>
-      <td>事件动作</td>
-    </tr>
-    <tr>
-      <td>dm:eventLabel</td>
-      <td>Event Tracking </td>
-      <td> </td>
-      <td>事件标签</td>
-    </tr>
-    <tr>
-      <td>dm:adcookie</td>
-      <td>Traffic Sources</td>
-      <td>visit-dm</td>
-      <td>admcookie id</td>
+      <td>dm:domain==google.com,dm:domain==baidu.com</td>
+      <td>指定来源域名为google.com“或 ”baidu.com“或”apple.com</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="metrics-">metrics 说明</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>名称</th>
-      <th>类型</th>
-      <th>级别</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>mt:visitors</td>
-      <td>Visitor</td>
-      <td>raw-mt</td>
-      <td>通过第一方cookie 统计的访问者</td>
-    </tr>
-    <tr>
-      <td>mt:newVisits</td>
-      <td>Visitor</td>
-      <td>raw-mt</td>
-      <td>新访者</td>
-    </tr>
-    <tr>
-      <td>mt:visits</td>
-      <td>Session</td>
-      <td>raw-mt</td>
-      <td>访问次数</td>
-    </tr>
-    <tr>
-      <td>mt:bounces</td>
-      <td>Session</td>
-      <td>raw-mt</td>
-      <td>跳出次数</td>
-    </tr>
-    <tr>
-      <td>mt:entrances</td>
-      <td>Page Tracking</td>
-      <td>raw-mt</td>
-      <td>进入次数</td>
-    </tr>
-    <tr>
-      <td>mt:pageviews</td>
-      <td>Page Tracking</td>
-      <td>raw-mt</td>
-      <td>浏览量</td>
-    </tr>
-    <tr>
-      <td>mt:uniquePageviews</td>
-      <td>Page Tracking</td>
-      <td>raw-mt</td>
-      <td>唯一浏览量</td>
-    </tr>
-    <tr>
-      <td>mt:timeOnPage</td>
-      <td>Page Tracking</td>
-      <td>raw-mt</td>
-      <td>页面停留时间</td>
-    </tr>
-    <tr>
-      <td>mt:exits</td>
-      <td>Page Tracking</td>
-      <td>raw-mt</td>
-      <td>退出次数</td>
-    </tr>
-    <tr>
-      <td>mt:pageLoadTime</td>
-      <td>Site Speed</td>
-      <td>raw-mt</td>
-      <td>页面加载时间（所有样本加载时间总和）</td>
-    </tr>
-    <tr>
-      <td>mt:pageLoadSample</td>
-      <td>Site Speed</td>
-      <td>raw-mt</td>
-      <td>页面加载样本数量</td>
-    </tr>
-    <tr>
-      <td>mt:totalEvents</td>
-      <td>Event Tracking </td>
-      <td>raw-mt</td>
-      <td>事件总数</td>
-    </tr>
-    <tr>
-      <td>mt:uniqueEvents</td>
-      <td>Event Tracking </td>
-      <td>raw-mt</td>
-      <td>唯一身份事件数</td>
-    </tr>
-    <tr>
-      <td>mt:eventValue</td>
-      <td>Event Tracking </td>
-      <td>raw-mt</td>
-      <td>事件价值</td>
-    </tr>
-    <tr>
-      <td>mt:advisitors</td>
-      <td>Visitor</td>
-      <td>raw-mt</td>
-      <td>通过第三方admcookie 统计的访问者</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="filters-">filters 说明</h2>
-
-<h4 id="section-2">过滤器操作符</h4>
-
-<p>针对维度和指标分别有6个过滤器操作符，操作符必须被URL编码。  </p>
-
-<h4 id="section-3">指标操作符</h4>
+<h3 id="section-2">查询语法</h3>
 
 <table>
   <thead>
@@ -543,106 +116,155 @@ X-RateLimit-Remaining: 4999
       <td>&gt;</td>
       <td>大于</td>
       <td>%3E</td>
-      <td>filters=ga:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
+      <td>filters=mt:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
     </tr>
     <tr>
       <td>&lt;</td>
       <td>小于</td>
       <td>%3C</td>
-      <td>filters=ga:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
+      <td>filters=mt:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
     </tr>
     <tr>
       <td>&gt;=</td>
       <td>大于等于</td>
       <td>%3E%3D</td>
-      <td>filters=ga:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
+      <td>filters=mt:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
     </tr>
     <tr>
       <td>&lt;=</td>
       <td>小于等于</td>
       <td>%3C%3</td>
-      <td>filters=ga:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="section-4">维度过滤器</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>操作符</th>
-      <th>描述</th>
-      <th>URL编码格式</th>
-      <th>举例</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>==</td>
-      <td>完全匹配</td>
-      <td>%3D%3D</td>
-      <td>filters=ga:city%3D%3DIrvine，返回城市为Irvine的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>!=</td>
-      <td>不匹配</td>
-      <td>!%3D</td>
-      <td>filters=ga:city!%3DIrvine，返回城市不为Irvine的统计指标数据</td>
+      <td>filters=mt:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
     </tr>
     <tr>
       <td>=@</td>
       <td>包含子串</td>
       <td>%3D@</td>
-      <td>filters=ga:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
+      <td>filters=dm:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
     </tr>
     <tr>
       <td>!@</td>
       <td>不包含子串</td>
       <td>!@</td>
-      <td>filters=ga:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
+      <td>filters=dm:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
     </tr>
     <tr>
       <td>=~</td>
       <td>和后面语法匹配</td>
       <td>%3D~</td>
-      <td>filters=ga:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
+      <td>filters=dm:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
     </tr>
     <tr>
       <td>!~</td>
       <td>和后面语法不匹配</td>
       <td>!~</td>
-      <td>filters=ga:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
+      <td>filters=dm:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="section-5">过滤器语法</h3>
+<h3 id="section-3">常规指标和维度</h3>
 
-<h3 id="section-6">组合过滤器</h3>
-<p>过滤器可以用 OR 或 AND 进行逻辑组合，语句部分的长度上限为128字符。<br />
-####OR
-“或操作”用逗号(,)表示，优先级高于与操作。<br />
-例：如下表示国家为 United States 或 Canada：</p>
+<p>除非特别说明，所有报表接口均支持在filters查询中使用常规指标和常规维度做为查询条件。</p>
 
-<pre><code>ga:country==United%20States,ga:country==Canada
-</code></pre>
+<p>常规维度：</p>
 
-<p>如下表示在 Windows 或 Mac 操作系统下的 Firefox 用户:</p>
+<table>
+  <thead>
+    <tr>
+      <th>维度</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dm:date</td>
+      <td>日期，格式为YYYY-MM-DD</td>
+    </tr>
+    <tr>
+      <td>dm:month</td>
+      <td>月</td>
+    </tr>
+    <tr>
+      <td>dm:week</td>
+      <td>周</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code>ga:browser==Firefox;ga:operatingSystem==Windows,ga:  
-</code></pre>
+<p>常规指标：</p>
 
-<h4 id="and">AND</h4>
-<p>“与操作”用分号(;)表示，可用于在同一表达中组合维度和指标。<br />
-例：如下表示国家为 United States，同时访次大于5： </p>
+<table>
+  <thead>
+    <tr>
+      <th>字段</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mt:visits</td>
+      <td>访次数</td>
+    </tr>
+    <tr>
+      <td>mt:pageviews</td>
+      <td>总页面访问量</td>
+    </tr>
+    <tr>
+      <td>mt:newVisits</td>
+      <td>新访问次数</td>
+    </tr>
+    <tr>
+      <td>mt:bounces</td>
+      <td>总跳出次数</td>
+    </tr>
+    <tr>
+      <td>mt:entrances</td>
+      <td>进入总次数</td>
+    </tr>
+    <tr>
+      <td>mt:exits</td>
+      <td>总退出次数</td>
+    </tr>
+    <tr>
+      <td>mt:uniquePageviews</td>
+      <td>页面唯一访问量</td>
+    </tr>
+    <tr>
+      <td>mt:timeOnPage</td>
+      <td>平均页面停留时间</td>
+    </tr>
+    <tr>
+      <td>mt:pageLoadTime</td>
+      <td>平均页面加载时间</td>
+    </tr>
+    <tr>
+      <td>mt:newVisitsRate</td>
+      <td>新访比例</td>
+    </tr>
+    <tr>
+      <td>mt:bounceRate</td>
+      <td>跳出比例</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code>ga:country==United%20States;ga:visits&gt;5 如下表示国家为 United States ，同时语言不以 'en'开头:
-</code></pre>
+<h2 id="api--1">API 目录</h2>
 
-<h2 id="segment-">segment 说明</h2>
-<p>高级细分功能暂不提供</p>
-
+<ul>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_region.html">地区维度统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_ad.html">广告维度统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_event.html">事件维度统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_freq.html">访问频次统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_page.html">页面统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_page_depth.html">访问深度统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_page_event.html">页面事件统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_referral.html">流量来源统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_search.html">搜索引擎统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_social.html">社交媒体统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_staytime.html">停留时间统计数据</a></li>
+  <li><a href="/doc/sitemaster/v1/cn/site_report_browser.html">浏览器统计数据</a></li>
+</ul>
 
       </div>
       
@@ -650,14 +272,6 @@ X-RateLimit-Remaining: 4999
       <div class="js-toggle-list sidebar-module expandable">
         <ul>
         
-          
-          
-            
-          
-          
-          
-            
-          
           
           
             
@@ -685,6 +299,82 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -711,6 +401,74 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -737,6 +495,74 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -763,7 +589,93 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/sitemaster/v1/cn/custom_report.html">自定义报告接口</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
           
           
             
@@ -784,9 +696,43 @@ X-RateLimit-Remaining: 4999
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/sitemaster/v1/cn/site_report.html">站点分析报告</a>
+                  <a class="active" href="/doc/sitemaster/v1/cn/site_report.html">标准数据接口</a>
                 </h3>
                 <ul class="js-guides">
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_ad.html">广告维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_browser.html">浏览器维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_event.html">事件维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_freq.html">访问频次维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_integration.html">整合报告数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_interval.html">访问间隔维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page.html">页面维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_depth.html">访问深度维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_direct.html">直接访问统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_event.html">页面事件维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_exit.html">退出页统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_landing.html">landing页统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_referral.html">引荐来源维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_region.html">地区维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_search.html">搜索维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_social.html">社会化维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_staytime.html">停留时间维度统计数据</a></li>
                   
                 </ul>
               </li>
@@ -795,15 +741,65 @@ X-RateLimit-Remaining: 4999
           
           
             
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/custom_report.html">自定义报告接口</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                </ul>
-              </li>
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
@@ -865,8 +861,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -874,24 +868,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -917,8 +893,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -930,20 +904,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -995,8 +955,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -1004,24 +962,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1047,8 +987,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -1060,20 +998,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1125,8 +1049,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -1134,24 +1056,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1177,8 +1081,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -1190,20 +1092,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1255,8 +1143,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -1264,24 +1150,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1307,8 +1175,6 @@ X-RateLimit-Remaining: 4999
             
           
           
-        
-          
           
             
           
@@ -1320,20 +1186,6 @@ X-RateLimit-Remaining: 4999
           
             
           
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-        
           
           
             
@@ -1385,6 +1237,74 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -1411,6 +1331,74 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -1437,6 +1425,74 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -1463,7 +1519,1647 @@ X-RateLimit-Remaining: 4999
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
           
           
             

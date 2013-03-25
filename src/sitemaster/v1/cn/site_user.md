@@ -148,7 +148,7 @@ title: 站点用户
         id: xxx
         email: "email@admaster.com.cn"
         username: "your name"
-        uuid: "xxxxxxxxxxxxxxxxxxxxx"
+        udm:uid: "xxxxxxxxxxxxxxxxxxxxx"
     }
 
 ## 字段说明
