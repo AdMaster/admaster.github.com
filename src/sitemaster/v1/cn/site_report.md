@@ -73,8 +73,8 @@ filters查询用法及说明如下
 | mt:uniquePageviews | 页面唯一访问量   |
 | mt:timeOnPage      | 平均页面停留时间 |
 | mt:pageLoadTime    | 平均页面加载时间 |
-| mt:newVisitsRatio  | 新访比例         |
-| mt:bounceRatio     | 跳出比例         |
+| mt:newVisitsRate  | 新访比例         |
+| mt:bounceRate     | 跳出比例         |
 
 ## API 目录
 

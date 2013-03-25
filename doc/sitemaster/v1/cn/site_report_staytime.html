@@ -64,7 +64,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>dm:stayTime</td>
+      <td>mt:visitDuration</td>
       <td>停留时间</td>
     </tr>
   </tbody>
@@ -74,7 +74,7 @@
 
 <h2 id="section-2">资源地址</h2>
 
-<pre><code>GET /sites/:site_id/reports/staytime
+<pre><code>GET /sites/:site_id/reports/visit_duration
 </code></pre>
 
 <h3 id="section-3">参数</h3>
@@ -117,7 +117,7 @@
 
 <pre class="prettyprint"><code>[
     {
-        dm:stayTime: 22
+        mt:visitDuration: 22
         mt:visits: 100,
         mt:pageviews: 100,
         mt:newVisits: 100,
@@ -127,8 +127,8 @@
         mt:timeOnPage: 100,
         mt:exits: 100,
         mt:pageLoadTime: 100,
-        mt:newVisitsRatio: 0.99,
-        mt:bounceRatio: 0.1,
+        mt:newVisitsRate: 0.99,
+        mt:bounceRate: 0.1,
     },
     ...
 ]

@@ -19,8 +19,8 @@ title: 社会化维度统计数据
 
 | 维度      | 说明           |
 |-----------|----------------|
-| dm:domain | 社会化网站域名 |
-| dm:uid    | 用户ID         |
+| dm:medium | 社会化网站域名 |
+| dm:keyword    | 用户ID         |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
@@ -51,8 +51,8 @@ title: 社会化维度统计数据
 {:.prettyprint}
     [
         {
-            dm:domain: 'facebook.com',
-            dm:uid: 111,
+            dm:medium: 'facebook.com',
+            dm:keyword: 111,
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
@@ -63,8 +63,8 @@ title: 社会化维度统计数据
             mt:exits: 100,
             mt:pageLoadTime: 100,
             pageLoadSample: 100,
-            mt:newVisitsRatio: 0.99,
-            mt:bounceRatio: 0.1,
+            mt:newVisitsRate: 0.99,
+            mt:bounceRate: 0.1,
         },
         ...
     ]

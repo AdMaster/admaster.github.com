@@ -19,7 +19,7 @@ title: 搜索维度统计数据
 
 | 维度       | 说明         |
 |------------|--------------|
-| dm:domain  | 搜索引擎域名 |
+| dm:medium  | 搜索引擎域名 |
 | dm:keyword | 搜索关键词   |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
@@ -48,7 +48,7 @@ title: 搜索维度统计数据
 {:.prettyprint}
     [
         {
-            dm:domain: 'google.com',
+            dm:medium: 'google.com',
             dm:keyword: 'iPhone',
             mt:visits: 100,
             mt:pageviews: 100,
@@ -59,8 +59,8 @@ title: 搜索维度统计数据
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            mt:newVisitsRatio: 0.99,
-            mt:bounceRatio: 0.1,
+            mt:newVisitsRate: 0.99,
+            mt:bounceRate: 0.1,
         },
         ...
     ]

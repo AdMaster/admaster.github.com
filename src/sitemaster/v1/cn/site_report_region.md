@@ -63,8 +63,8 @@ title: 地区维度统计数据
             mt:exits: 100,
             mt:pageLoadTime: 100,
             pageLoadSample: 100,
-            mt:newVisitsRatio: 0.99,
-            mt:bounceRatio: 0.1,
+            mt:newVisitsRate: 0.99,
+            mt:bounceRate: 0.1,
         },
         ...
     ]

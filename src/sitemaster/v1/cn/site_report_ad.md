@@ -18,7 +18,7 @@ title: 广告维度统计数据
 
 | 维度                | 说明                                    |
 |---------------------|-----------------------------------------|
-| dm:campaign         | 活动                                    |
+| dm:campaign         | 项目                                    |
 | dm:medium           | 媒体                                    |
 | dm:placement        | 广告位                                  |
 | dm:creative         | 创意                                    |
@@ -54,13 +54,13 @@ title: 广告维度统计数据
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
-            mt:newVisitsRatio: 0.99,
-            mt:bounceRatio: 0.1,
+            mt:pageLoadSample: 100,
+            mt:percentNewVisits: 0.99,
+            mt:bounceRate: 0.1,
         },
         ...
     ]

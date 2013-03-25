@@ -19,10 +19,10 @@ title: 浏览器维度统计数据
 
 | 维度                      | 说明       |
 |---------------------------|------------|
-| dm:browser                | 浏览器名   |
+| dm:browser                | 浏览器名称  |
 | dm:browserVersion         | 浏览器版本 |
-| dm:operatingSystem        | 浏览器名   |
-| dm:operatingSystemVersion | 浏览器版本 |
+| dm:operatingSystem        | 操作系统名称  |
+| dm:operatingSystemVersion | 操作系统版本 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
@@ -64,8 +64,8 @@ title: 浏览器维度统计数据
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            mt:newVisitsRatio: 0.99,
-            mt:bounceRatio: 0.1,
+            mt:newVisitsRate: 0.99,
+            mt:bounceRate: 0.1,
         },
         ...
     ]
