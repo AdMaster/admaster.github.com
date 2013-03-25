@@ -18,7 +18,7 @@ title: 访问频次维度统计数据
 
 | 维度     | 说明     |
 |----------|----------|
-| dm:visitCount | 访问次数 |
+| dm:visitCount | 第几次访问 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
@@ -55,8 +55,8 @@ title: 访问频次维度统计数据
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            mt:newVisitsRatio: 0.99,
-            mt:bounceRatio: 0.1,
+            mt:newVisitsRate: 0.99,
+            mt:bounceRate: 0.1,
         },
         ...
     ]

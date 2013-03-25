@@ -18,7 +18,7 @@ title: 广告维度统计数据
 
 | 维度                | 说明                                    |
 |---------------------|-----------------------------------------|
-| dm:campaign         | 活动                                    |
+| dm:campaign         | 项目                                    |
 | dm:medium           | 媒体                                    |
 | dm:placement        | 广告位                                  |
 | dm:creative         | 创意                                    |
@@ -44,7 +44,7 @@ title: 广告维度统计数据
 
 ### 响应
 
-    {:.prettyprint}
+{:.prettyprint}
     [
         {
             ...
