@@ -19,14 +19,14 @@ title: 停留时间维度统计数据
 
 | 维度        | 说明     |
 |-------------|----------|
-| dm:stayTime | 停留时间 |
+| mt:visitDuration | 停留时间 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/staytime
+    GET /sites/:site_id/reports/visit_duration
 
 ### 参数
 
@@ -47,7 +47,7 @@ title: 停留时间维度统计数据
 {:.prettyprint}
     [
         {
-            dm:stayTime: 22
+            mt:visitDuration: 22
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
