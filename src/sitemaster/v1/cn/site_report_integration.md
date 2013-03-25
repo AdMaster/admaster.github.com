@@ -4,10 +4,10 @@ layout: default
 category: sitemaster
 subcategory: site_report
 language: cn
-title: 广告维度统计数据
+title: 整合报告数据
 ---
 
-# 广告维度统计数据
+# 整合报告数据
 
 * TOC
 {:toc}
@@ -23,12 +23,13 @@ title: 广告维度统计数据
 | dm:placement        | 广告位                                  |
 | dm:creative         | 创意                                    |
 | dm:keyword          | 关键词                                  |
+| dm:cookieSourceType | 来源类型，可选值view(曝光)，click(点击) |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/ad
+    GET /sites/:site_id/reports/integration
 
 ### 参数
 

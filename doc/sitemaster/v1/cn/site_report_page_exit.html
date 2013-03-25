@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>地区维度统计数据 - sitemaster - AdMaster API 文档中心</title>
+  <title>退出页统计数据 - sitemaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,12 +40,12 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">地区维度统计数据</h1>
+        <h1 id="section">退出页统计数据</h1>
 
 <ul id="markdown-toc">
   <li><a href="#section-1">可用维度和指标</a></li>
   <li><a href="#section-2">资源地址</a>    <ul>
-      <li><a href="#section-3">请求参数</a></li>
+      <li><a href="#section-3">参数</a></li>
       <li><a href="#section-4">响应</a></li>
     </ul>
   </li>
@@ -64,20 +64,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>dm:city</td>
-      <td>城市</td>
+      <td>dm:pageTitle</td>
+      <td>页面标题</td>
     </tr>
     <tr>
-      <td>dm:province</td>
-      <td>省份</td>
-    </tr>
-    <tr>
-      <td>dm:country</td>
-      <td>国家</td>
-    </tr>
-    <tr>
-      <td>dm:continent</td>
-      <td>大洲</td>
+      <td>dm:pagePath</td>
+      <td>页面URL</td>
     </tr>
   </tbody>
 </table>
@@ -86,10 +78,10 @@
 
 <h2 id="section-2">资源地址</h2>
 
-<pre><code>GET /sites/:site_id/reports/region
+<pre><code>GET /sites/:site_id/reports/page/exit
 </code></pre>
 
-<h3 id="section-3">请求参数</h3>
+<h3 id="section-3">参数</h3>
 
 <table>
   <thead>
@@ -129,10 +121,8 @@
 
 <pre class="prettyprint"><code>[
     {
-        dm:city: '北京',
-        dm:province: '北京',
-        dm:country: '中国',
-        dm:continent: '亚洲',
+        dm:pageTitle: 'Test',
+        dm:pagePath: '/test',
         mt:visits: 100,
         mt:pageviews: 100,
         mt:newVisits: 100,
@@ -142,13 +132,13 @@
         mt:timeOnPage: 100,
         mt:exits: 100,
         mt:pageLoadTime: 100,
-        pageLoadSample: 100,
         mt:newVisitsRatio: 0.99,
         mt:bounceRatio: 0.1,
     },
     ...
 ]
 </code></pre>
+
 
       </div>
       

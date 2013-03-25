@@ -4,34 +4,31 @@ layout: default
 category: sitemaster
 subcategory: site_report
 language: cn
-title: 广告维度统计数据
+title: 退出页统计数据
 ---
 
-# 广告维度统计数据
+# 退出页统计数据
 
 * TOC
 {:toc}
+
 
 ## 可用维度和指标
 
 维度
 
-| 维度                | 说明                                    |
-|---------------------|-----------------------------------------|
-| dm:campaign         | 活动                                    |
-| dm:medium           | 媒体                                    |
-| dm:placement        | 广告位                                  |
-| dm:creative         | 创意                                    |
-| dm:keyword          | 关键词                                  |
+| 维度         | 说明                                                              |
+|--------------|-------------------------------------------------------------------|
+| dm:pageTitle | 页面标题                                                          |
+| dm:pagePath  | 页面URL                                                           |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/ad
+    GET /sites/:site_id/reports/page/exit
 
 ### 参数
-
 
 | 参数名      | 使用说明                                                     |
 |-------------|--------------------------------------------------------------|
@@ -43,24 +40,27 @@ title: 广告维度统计数据
 
 ### 响应
 
+
+{:.prettyprint}
+    Status: 200 OK
+
 {:.prettyprint}
     [
         {
-            ...
-            dm:placement: 'ad3',
-            dm:creative: 'intel',
+            dm:pageTitle: 'Test',
+            dm:pagePath: '/test',
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
             mt:newVisitsRatio: 0.99,
             mt:bounceRatio: 0.1,
         },
         ...
     ]
+
