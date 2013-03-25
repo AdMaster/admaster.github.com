@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>站点用户 - sitemaster - AdMaster API 文档中心</title>
+  <title>landing页统计数据 - sitemaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,206 +40,104 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">站点用户</h1>
+        <h1 id="landing">landing页统计数据</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取指定站点下的用户</a></li>
-  <li><a href="#section-2">获取指定用户</a></li>
-  <li><a href="#section-3">修改用户信息</a></li>
-  <li><a href="#section-4">添加站点用户</a></li>
-  <li><a href="#section-5">删除用户</a></li>
-  <li><a href="#section-6">获取当前用户信息</a></li>
-  <li><a href="#section-7">字段说明</a></li>
+  <li><a href="#section">可用维度和指标</a></li>
+  <li><a href="#section-1">资源地址</a>    <ul>
+      <li><a href="#section-2">参数</a></li>
+      <li><a href="#section-3">响应</a></li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="section-1">获取指定站点下的用户</h2>
+<h2 id="section">可用维度和指标</h2>
 
-<pre><code>GET /sites/:site_id/users
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/users?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/users?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-      id: 245
-      email: "zhaoxiongfei@admaster.com.cn",
-      username: "zhaoxiongfei",
-      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
-      created_at: "2012-12-12 16:00:08",//添加时间
-  }
-]
-</code></pre>
-
-<h2 id="section-2">获取指定用户</h2>
-
-<pre><code>GET /sites/users/:id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-      id: 245
-      email: "zhaoxiongfei@admaster.com.cn",
-      username: "zhaoxiongfei",
-      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
-      created_at: "2012-12-12 16:00:08",//添加时间
-}
-</code></pre>
-
-<h2 id="section-3">修改用户信息</h2>
-
-<pre><code>PATCH /sites/users/:id
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>role</code></dt>
-  <dd><em>必选</em> <strong>enum</strong> - 用户角色 <code>admin</code> <code>user</code> </dd>
-</dl>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>{
-    "role": "admin", //用户角色
-}
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-      id: 245
-      email: "zhaoxiongfei@admaster.com.cn",
-      username: "zhaoxiongfei",
-      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
-      created_at: "2012-12-12 16:00:08",//添加时间
-}
-</code></pre>
-
-<h2 id="section-4">添加站点用户</h2>
-
-<pre><code>POST /sites/:site_id/users
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>email</code></dt>
-  <dd><em>必选</em> <strong>email</strong> - 用户email地址</dd>
-  <dt><code>role</code></dt>
-  <dd><em>必选</em> <strong>enum</strong> - 用户角色 <code>admin</code> <code>user</code> </dd>
-</dl>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>{
-    "email": "zhaoxiongfei@admaster.com.cn",//用户email地址
-    "role": "admin", //用户角色
-}
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 201 Created
-Location: http://site.admasterapi.com/site/xxxxx
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-      id: 245
-      email: "zhaoxiongfei@admaster.com.cn",
-      username: "zhaoxiongfei",
-      role: "admin",//用户角色 `founder` 创始人 `admin` 管理员 `user` 普通用户
-      created_at: "2012-12-12 16:00:08",//添加时间
-}
-</code></pre>
-
-<h2 id="section-5">删除用户</h2>
-
-<pre><code>DELETE /sites/users/:id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-6">获取当前用户信息</h2>
-
-<pre><code>GET /user
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>{
-    id: xxx
-    email: "email@admaster.com.cn"
-    username: "your name"
-    udm:uid: "xxxxxxxxxxxxxxxxxxxxx"
-}
-</code></pre>
-
-<h2 id="section-7">字段说明</h2>
+<p>维度</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>维度</th>
+      <th>说明</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>返回值字段</td>
-      <td>字段角色</td>
-      <td>字段说明</td>
+      <td>dm:pageTitle</td>
+      <td>页面标题</td>
     </tr>
     <tr>
-      <td>id</td>
-      <td>integer</td>
-      <td>用户 ID</td>
-    </tr>
-    <tr>
-      <td>email</td>
-      <td>email</td>
-      <td>用户email地址</td>
-    </tr>
-    <tr>
-      <td>username</td>
-      <td>string</td>
-      <td>用户名</td>
-    </tr>
-    <tr>
-      <td>role</td>
-      <td>enum</td>
-      <td>用户角色 <code>founder</code> <code>admin</code> <code>user</code></td>
-    </tr>
-    <tr>
-      <td>created_at</td>
-      <td>date</td>
-      <td>创建时间</td>
+      <td>dm:pagePath</td>
+      <td>页面URL</td>
     </tr>
   </tbody>
 </table>
+
+<p>指标: <a href="/doc/sitemaster/v1/cn/site_report.html#section-2">常规指标</a></p>
+
+<h2 id="section-1">资源地址</h2>
+
+<pre><code>GET /sites/:site_id/reports/page/landing
+</code></pre>
+
+<h3 id="section-2">参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数名</th>
+      <th>使用说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>filters</td>
+      <td>可使用维度和指标任意组合做为查询条件</td>
+    </tr>
+    <tr>
+      <td>dimensions</td>
+      <td>维度，多个用逗号开个，最多支持3个维度</td>
+    </tr>
+    <tr>
+      <td>sort</td>
+      <td>指定排序字段，可使用任意指标为排序字段，默认为自然排序</td>
+    </tr>
+    <tr>
+      <td>start-index</td>
+      <td>可选 integer -数据开始条目序号</td>
+    </tr>
+    <tr>
+      <td>max-results</td>
+      <td>可选 integer -数据条目最大条目数(系统限制小于5000，否则异常)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-3">响应</h3>
+
+<pre class="prettyprint"><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>[
+    {
+        dm:pageTitle: 'Test',
+        dm:pagePath: '/test',
+        mt:visits: 100,
+        mt:pageviews: 100,
+        mt:newVisits: 100,
+        mt:bounces: 100,
+        mt:entrances: 100,
+        mt:uniquePageViews: 100,
+        mt:timeOnPage: 100,
+        mt:exits: 100,
+        mt:pageLoadTime: 100,
+        mt:newVisitsRatio: 0.99,
+        mt:bounceRatio: 0.1,
+    },
+    ...
+]
+</code></pre>
 
 
       </div>
@@ -788,7 +686,7 @@ X-RateLimit-Remaining: 4999
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/sitemaster/v1/cn/site_user.html">站点用户</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_user.html">站点用户</a>
                 </h3>
                 <ul class="js-guides">
                   

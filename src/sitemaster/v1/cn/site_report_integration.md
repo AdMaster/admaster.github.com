@@ -4,10 +4,10 @@ layout: default
 category: sitemaster
 subcategory: site_report
 language: cn
-title: 广告维度统计数据
+title: 整合报告数据
 ---
 
-# 广告维度统计数据
+# 整合报告数据
 
 * TOC
 {:toc}
@@ -18,17 +18,18 @@ title: 广告维度统计数据
 
 | 维度                | 说明                                    |
 |---------------------|-----------------------------------------|
-| dm:campaign         | 项目                                    |
+| dm:campaign         | 活动                                    |
 | dm:medium           | 媒体                                    |
 | dm:placement        | 广告位                                  |
 | dm:creative         | 创意                                    |
 | dm:keyword          | 关键词                                  |
+| dm:cookieSourceType | 来源类型，可选值view(曝光)，click(点击) |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/ad
+    GET /sites/:site_id/reports/integration
 
 ### 参数
 
@@ -53,12 +54,14 @@ title: 广告维度统计数据
             mt:pageviews: 100,
             mt:newVisits: 100,
             mt:bounces: 100,
-            mt:uniquePageViews: 100,
-            mt:visitDuration: 100,
+            mt:entrances: 100,
+            uniquePageViews: 100,
+            mt:timeOnPage: 100,
+            mt:exits: 100,
             mt:pageLoadTime: 100,
-            mt:pageLoadSample: 100,
-            mt:percentNewVisits: 0.99,
-            mt:bounceRate: 0.1,
+            pageLoadSample: 100,
+            mt:newVisitsRatio: 0.99,
+            mt:bounceRatio: 0.1,
         },
         ...
     ]
