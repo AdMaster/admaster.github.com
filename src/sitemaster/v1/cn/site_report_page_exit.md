@@ -26,7 +26,7 @@ title: 退出页统计数据
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/page/exit
+    GET /sites/:site_id/reports/exit_page
 
 ### 参数
 

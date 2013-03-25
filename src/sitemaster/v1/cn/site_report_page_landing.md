@@ -26,7 +26,7 @@ title: landing页统计数据
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/page/landing
+    GET /sites/:site_id/reports/landing_page
 
 ### 参数
 
