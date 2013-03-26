@@ -17,10 +17,11 @@ title: 直接访问统计数据
 
 维度
 
-| 维度         | 说明                                                              |
-|--------------|-------------------------------------------------------------------|
-| dm:pageTitle | 页面标题                                                          |
-| dm:pagePath  | 页面URL                                                           |
+| 维度         | 说明     |
+|--------------|----------|
+| dm:host      | 主机     |
+| dm:pageTitle | 页面标题 |
+| dm:pagePath  | 页面URL  |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
@@ -47,6 +48,7 @@ title: 直接访问统计数据
 {:.prettyprint}
     [
         {
+            dm:host: 'http://google.com'
             dm:pageTitle: 'Test',
             dm:pagePath: '/test',
             mt:visits: 100,

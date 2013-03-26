@@ -17,13 +17,24 @@ title: 页面维度统计数据
 
 维度
 
-| 维度         | 说明                                                              |
-|--------------|-------------------------------------------------------------------|
-| dm:pageTitle | 页面标题                                                          |
-| dm:pagePath  | 页面URL                                                           |
-| dm:pageType  | 页面类型，可选值direct(直接访问页)，exit(退出页)，landing(登录页) |
+| 维度         | 说明     |
+|--------------|----------|
+| dm:host      | 主机     |
+| dm:pageTitle | 页面标题 |
+| dm:pagePath  | 页面URL  |
 
-指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
+指标
+
+| 指标               | 说明               |
+|--------------------|--------------------|
+| mt:pageviews       | PV页面浏览量       |
+| mt:bounces         | 跳出次数           |
+| mt:entrances       | 进入次数           |
+| mt:timeOnPage      | 平均停留时间       |
+| mt:exits           | 退出次数           |
+| mt:pageLoadTime    | 平均加载时间       |
+| mt:pageLoadSample  | 页面加载时间样本数 |
+| mt:uniquePageViews | 平均唯一页面浏览量 |
 
 ## 资源地址
 
@@ -48,19 +59,17 @@ title: 页面维度统计数据
 {:.prettyprint}
     [
         {
+            dm:host: 'http://google.com',
             dm:pageTitle: 'Test',
             dm:pagePath: '/test',
-            mt:visits: 100,
-            mt:pageviews: 100,
-            mt:newVisits: 100,
-            mt:bounces: 100,
-            mt:entrances: 100,
-            mt:uniquePageViews: 100,
-            mt:timeOnPage: 100,
-            mt:exits: 100,
-            mt:pageLoadTime: 100,
-            mt:newVisitsRate: 0.99,
-            mt:bounceRate: 0.1,
+            mt:pageviews: 100
+            mt:bounces: 100
+            mt:entrances: 100
+            mt:uniquePageViews: 100
+            mt:timeOnPage: 100
+            mt:exits: 100
+            mt:pageLoadTime: 100
+            mt:pageLoadSample: 100
         },
         ...
     ]
