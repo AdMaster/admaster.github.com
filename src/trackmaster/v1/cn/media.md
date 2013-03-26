@@ -300,13 +300,13 @@ title: 媒体
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-      {
+      [{
         "id": 1314,//网络媒体 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10092/medias/1314",
         "name": "新浪",//网络媒体名称
         "logo": "http://www.trackmaster.com.cn/data/mediaIcon/sina.ico",
         "created_at": "2012-09-06T20:39:23Z",
-      }
+      }]
 
 
 ## 获取指定项目下指定媒体属性
