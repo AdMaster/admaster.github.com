@@ -26,7 +26,7 @@ title: 直接访问统计数据
 
 ## 资源地址
 
-    GET /sites/:site_id/reports/page/direct
+    GET /sites/:site_id/reports/direct_page
 
 ### 参数
 
