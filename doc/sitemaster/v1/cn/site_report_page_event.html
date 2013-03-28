@@ -75,6 +75,18 @@
       <td>dm:eventLabel</td>
       <td>事件标签</td>
     </tr>
+    <tr>
+      <td>dm:host</td>
+      <td>主机</td>
+    </tr>
+    <tr>
+      <td>dm:pageTitle</td>
+      <td>页面标题</td>
+    </tr>
+    <tr>
+      <td>dm:pagePath</td>
+      <td>页面路径</td>
+    </tr>
   </tbody>
 </table>
 
@@ -148,12 +160,13 @@
 
 <pre class="prettyprint"><code>[
     {
+        dm:pageID: '191228127'
         dm:eventAction: 'order',
         dm:eventCategory: 'click',
         dm:eventLabel: 'b2c',
         mt:totalEvents: 100,
         mt:uniqueEvents: 100,
-        totalValue: 1000,
+        mt:totalValue: 1000,
     },
     ...
 ]
