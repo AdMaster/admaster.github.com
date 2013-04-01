@@ -64,6 +64,10 @@
   </thead>
   <tbody>
     <tr>
+      <td>dm:host</td>
+      <td>主机</td>
+    </tr>
+    <tr>
       <td>dm:pageTitle</td>
       <td>页面标题</td>
     </tr>
@@ -78,7 +82,7 @@
 
 <h2 id="section-2">资源地址</h2>
 
-<pre><code>GET /sites/:site_id/reports/page/exit
+<pre><code>GET /sites/:site_id/reports/exit_page
 </code></pre>
 
 <h3 id="section-3">参数</h3>
@@ -121,6 +125,7 @@
 
 <pre class="prettyprint"><code>[
     {
+        dm:host: 'http://google.com'
         dm:pageTitle: 'Test',
         dm:pagePath: '/test',
         mt:visits: 100,

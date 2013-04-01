@@ -17,12 +17,17 @@ title: 浏览器维度统计数据
 
 维度
 
-| 维度                      | 说明       |
-|---------------------------|------------|
-| dm:browser                | 浏览器名称  |
-| dm:browserVersion         | 浏览器版本 |
-| dm:operatingSystem        | 操作系统名称  |
-| dm:operatingSystemVersion | 操作系统版本 |
+| 维度                      | 说明             |
+|---------------------------|------------------|
+| dm:browser                | 浏览器名称       |
+| dm:browserVersion         | 浏览器版本       |
+| dm:operatingSystem        | 操作系统名称     |
+| dm:operatingSystemVersion | 操作系统版本     |
+| dm:isMobile               | 是否移动设备     |
+| dm:wifiEnabled            | 是否启用Wifi     |
+| dm:mobileDeviceBranding   | 移动设备品牌     |
+| dm:mobileDeviceModel      | 移动设备型号     |
+| dm:mobileInputSelector    | 移动设备输入方式 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
