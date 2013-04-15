@@ -155,6 +155,7 @@ title: 媒体报告
 `time`
 : _必选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
 
+
   * `hourly` 获取小时数据
   * `daily` 获取日数据
   * `weekly` 获取周数据
@@ -163,11 +164,11 @@ title: 媒体报告
 `dims`
 : _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开
 
+  * `time` 按时间维度聚合、结果会显示具体的时间列 
   * `placement` 按广告位维度聚合
   * `keyword` 按关键字维度聚合
   * `creative` 按创意维度聚合
-  * `geo` 按地域维度聚合
-  * `time` 按时间维度聚合    
+  * `geo` 按地域维度聚合  
 
 
 `placement_id`

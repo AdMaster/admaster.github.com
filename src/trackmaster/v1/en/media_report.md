@@ -167,11 +167,12 @@ It is connected with `start_time` and `end_time`.
 `dims`
 : _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time.
 
+  * `time`- The result will contains date messages.  
   * `placement` 
   * `keyword` 
   * `creative` 
   * `geo` 
-  * `time`     
+   
 
 
 `placement_id`
@@ -271,10 +272,4 @@ Not all combinations can be queried together. Only certain combinations can be u
 |time=hourly&dims=placement,creative 
 |time=hourly&dims=placement,geo
 |time=hourly&dims=placement,keyword
-|time=monthly
-|time=monthly&dims=placement
-|time=monthly&dims=placement,keyword
-|time=weekly
-|time=weekly&dims=placement
-|time=weekly&dims=placement,keyword 
 
