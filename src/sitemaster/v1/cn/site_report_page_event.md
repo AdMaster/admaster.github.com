@@ -22,6 +22,9 @@ title: 页面事件维度统计数据
 | dm:eventAction   | 事件动作 |
 | dm:eventCategory | 事件分类 |
 | dm:eventLabel    | 事件标签 |
+| dm:host          | 主机     |
+| dm:pageTitle     | 页面标题 |
+| dm:pagePath      | 页面路径 |
 
 指标
 
@@ -54,12 +57,13 @@ title: 页面事件维度统计数据
 {:.prettyprint}
     [
         {
+            dm:pageID: '191228127'
             dm:eventAction: 'order',
             dm:eventCategory: 'click',
             dm:eventLabel: 'b2c',
             mt:totalEvents: 100,
             mt:uniqueEvents: 100,
-            totalValue: 1000,
+            mt:totalValue: 1000,
         },
         ...
     ]

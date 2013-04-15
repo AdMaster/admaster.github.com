@@ -17,9 +17,9 @@ title: 访问深度维度统计数据
 
 维度
 
-| 维度     | 说明                               |
-|----------|------------------------------------|
-| dm:depth | 访问深度，如3表示深度为访问3个页面 |
+| 维度         | 说明                               |
+|--------------|------------------------------------|
+| dm:pageDepth | 访问深度，如3表示深度为访问3个页面 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
@@ -52,13 +52,11 @@ title: 访问深度维度统计数据
             mt:newVisits: 100,
             mt:bounces: 100,
             mt:entrances: 100,
-            uniquePageViews: 100,
+            mt:uniquePageViews: 100,
             mt:timeOnPage: 100,
             mt:exits: 100,
             mt:pageLoadTime: 100,
-            pageLoadSample: 100,
-            mt:newVisitsRate: 0.99,
-            mt:bounceRate: 0.1,
+            mt:pageLoadSample: 100,
         },
         ...
     ]
