@@ -115,8 +115,10 @@ title: 数据银行事件分析
         name: "测试名称", //测试名称
         dimensions: "dm:date,dm:province",//维度
         metrics: "mt:visits,mt:pageviews",//指标
-        filters: "dm:date>=2012-09-12;dm:date<=2012-12-12",//过滤条件
-        segment: "dm:eventCategory==tag1",//访问细查
+        filters: "isMobile==yes",//过滤条件
+        segment: "dm:eventCategory==tag1",//高级细分
         sort: "-mt:pageviews",//排序
         created_at: "2012-08-08 10:54:21"//站点添加时间
+        start-date:"2012-08-07",//查询起始时间
+        end-date:"2012-08-07"//查询终止时间
     }

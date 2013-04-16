@@ -31,15 +31,15 @@ title: 获取任务列表
 
 {:.prettyprint}
     {
-        id: "xxxxx", //数据银行查询id
+        [id: "xxxxx", //数据银行查询id
         url: "http://{{site.site_api_host}}/databank/:id",//资源地址
         status: "ready",
-        name: "测试名称", //测试名称
+        name: "测试名称", //任务名称
         dimensions: "dm:date,dm:province",//维度
         metrics: "mt:visits,mt:pageviews",//指标
-        filters: "dm:date>=2012-09-12;dm:date<=2012-12-12",//过滤条件
+        filters: "",//过滤条件
         segment: "dm:eventCategory==tag1",//高级细分
         sort: "-mt:pageviews",//排序    
-        start-date:"2013-04-02"
-        end-date:"2013-04-16"
+        start-date:"2012-08-07",//查询起始时间
+        end-date:"2012-08-07"//查询终止时间]
     }
