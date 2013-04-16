@@ -53,7 +53,7 @@
 
 <h2 id="section-1">接口</h2>
 
-<pre><code>POST /sites/:site_id/databank/visit
+<pre><code>POST /sites/:site_id/databanks
 </code></pre>
 
 <h3 id="section-2">请求参数</h3>
@@ -77,8 +77,10 @@ X-RateLimit-Remaining: 4999
     dimensions: "dm:date,dm:province",//维度
     metrics: "mt:visits,mt:pageviews",//指标
     filters: "dm:date&gt;=2012-09-12;dm:date&lt;=2012-12-12",//过滤条件
-    segment: "dm:eventCategory==tag1",//访问细查
-    sort: "-mt:pageviews",//排序        
+    segment: "dm:eventCategory==tag1",//高级细分
+    sort: "-mt:pageviews",//排序    
+    start-date:"2013-04-02"
+    end-date:"2013-04-16"
 }
 </code></pre>
 

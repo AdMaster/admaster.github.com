@@ -1,5 +1,5 @@
 ---
-weight: 5
+weight: 1
 layout: default
 category: sitemaster
 subcategory: site_databank
@@ -14,7 +14,7 @@ title: 获取任务列表
 
 ## 接口
 
-    POST /sites/:site_id/databank/visit
+    POST /sites/:site_id/databanks
 
 ### 请求参数
 
@@ -38,6 +38,8 @@ title: 获取任务列表
         dimensions: "dm:date,dm:province",//维度
         metrics: "mt:visits,mt:pageviews",//指标
         filters: "dm:date>=2012-09-12;dm:date<=2012-12-12",//过滤条件
-        segment: "dm:eventCategory==tag1",//访问细查
-        sort: "-mt:pageviews",//排序        
+        segment: "dm:eventCategory==tag1",//高级细分
+        sort: "-mt:pageviews",//排序    
+        start-date:"2013-04-02"
+        end-date:"2013-04-16"
     }
