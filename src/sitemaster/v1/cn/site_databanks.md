@@ -1,7 +1,8 @@
 ---
 weight: 5
 layout: default
-category: site_databank
+category: sitemaster
+subcategory: site_databank
 language: cn
 title: 获取任务列表
 ---
