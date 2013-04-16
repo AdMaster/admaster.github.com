@@ -1,0 +1,249 @@
+<!doctype html>
+
+<!-- 
+320 and Up boilerplate extension
+Author: Andy Clarke (http://about.me/malarkey)
+Author: Keith Clark (http://twitter.com/keithclarkcouk)
+Version: 2
+URL: http://stuffandnonsense.co.uk/projects/320andup/
+License: http://creativecommons.org/licenses/MIT/
+-->
+
+<!--[if IEMobile 7]><html class="no-js iem7 oldie"><![endif]-->
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+            <meta charset="utf-8">
+
+            <title>雅诗兰黛开启修护先肌！</title>
+            <meta name="description" content="">
+            <meta name="author" content="">
+
+            <!-- http://t.co/dKP3o1e -->
+            <meta name="HandheldFriendly" content="True">
+            <meta name="MobileOptimized" content="320">
+            <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+
+            <!-- For all browsers -->
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/layout.css">
+
+            <script src="js/pinyinData.js"></script>
+            <script src="js/pinyinEngine.js"></script>
+
+            <script type="text/javascript">
+
+                if (/(iPhone|android|iPod)/i.test(navigator.userAgent)) {
+
+                }else{
+                    window.location.href = "http://e.weibo.com/1793598474/app_1571456209";
+                }
+
+            </script>
+
+            <script type="text/javascript">
+  var _smq = _smq || [];
+  _smq.push(['_setAccount', '7D6F8A5B', new Date()]);
+  _smq.push(['_setDirectoryIndex', 'index.html']);
+  _smq.push(['_setClickTimeOut', 200]);
+  _smq.push(['pageview']);
+
+  (function() {
+  var sm = document.createElement('script'); sm.type = 'text/javascript'; sm.async = true;
+  sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/sm.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sm, s);
+  })();
+</script>
+
+<script type=""text/javascript"">
+
+var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-530472-21']);
+
+  _gaq.push(['t2._setAccount', 'UA-37190934-1']);
+
+  _gaq.push(['_trackPageview']);
+
+  _gaq.push(['t2._trackPageview']);
+
+    (function() {
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? ' https://ssl' : ' http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+
+</script>
+
+            <!--[if (lt IE 9) & (!IEMobile)]>
+            <script src="js/libs/selectivizr-min.js"></script>
+            <![endif]-->
+
+            <!-- JavaScript -->
+            <script src="js/libs/modernizr-2.0.6.min.js"></script>
+
+            <!-- For everything else -->
+            <link rel="shortcut icon" href="/favicon.ico">
+
+            <!--iOS. Delete if not required -->
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+            <link rel="apple-touch-startup-image" href="img/splash.png">
+
+            <!--Microsoft. Delete if not required -->
+            <meta http-equiv="cleartype" content="on">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <!--[if lt IE 7 ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
+
+            <!-- http://t.co/y1jPVnT -->
+            <link rel="canonical" href="/">
+            
+            <script type="text/javascript">
+        var path = "http://track.mobile1.com.cn/tracknew/advTract/tractEventJsonP.action?";
+        var trackScript;
+        function track(cId, eventId, url) {
+            trackScript = null;
+            trackScript = document.createElement("script");
+            var src = path +"cid=" + cId + "&eventid=" + eventId;
+            trackScript.type = "text/javascript";
+            trackScript.src = src;
+            document.getElementsByTagName("head")[0].appendChild(trackScript);
+            if (url != undefined && url != null && url != "") {
+                //console.log(url)
+                function redirection() {
+                    location.href = url;
+                }
+                setTimeout(redirection, 500);
+                
+            }
+        }
+        function eventcallback(result) {
+            document.getElementsByTagName("head")[0].removeChild(trackScript);
+        }
+        
+        
+        var directionEvnet = function(){
+			var url = "https://api.weibo.com/oauth2/authorize?client_id=1571456209&redirect_uri=http%3A%2F%2Fwww.el-lady.com.cn%2Fanr2013%2Fwap%2Fcallback.php&response_type=code";
+			track (1,4005,url);
+		}
+
+</script>
+
+            
+            
+        </head>
+
+    <body class="clearfix">
+        
+        <header id="header" role="banner">
+            <h1><a href="leading.php"><img src="images/logo.jpg" /></a></h1>
+            <ul id="nav" class="clearfix">
+	        	<li><a onclick="_smq.push(['custom', '导航栏', '首页']); _gaq.push(['_trackEvent','mararnnav','mararnnav1',,,false]);" id="navMenu01" class="active" href="index.php">首页</a></li>
+	        	<li><a onclick="_smq.push(['custom', '导航栏', '达人分享']); _gaq.push(['_trackEvent','mararnnav','mararnnav3',,,false]);" id="navMenu02" href="share.html">达人分享</a></li>
+	        	<li><a onclick="_smq.push(['custom', '导航栏', 'ANR修护系列']); _gaq.push(['_trackEvent','mararnnav','mararnnav4',,,false]);" id="navMenu03" href="product.html">ANR修护系列</a></li>
+	        	<li><a onclick="_smq.push(['custom', '导航栏', '活动规则']); _gaq.push(['_trackEvent','mararnnav','mararnnav5',,,false]);" id="navMenu04" href="rule.html">活动规则</a></li>
+	        </ul>
+        </header>
+        
+        <div id="main">
+
+            <!-- change -->
+
+            <div id="middle">
+                <img src="images/index_img_01.jpg" />
+                <div class="relative">
+                	<img src="images/index_img_02.jpg" />
+                	<a onclick="_smq.push(['custom', '首页', '立即开启']); _gaq.push(['_trackEvent','mararngame','mararnbegin',,,false]); directionEvnet(); return false;" href="javascript:void(0)" id="ljkq"><img src="images/ljkq.jpg" /></a>
+                </div>
+                <!---->
+            </div>
+            
+        </div>
+        
+        <footer id="footer" role="contentinfo" class="clearfix">
+            <img src="images/footer.jpg" />
+        </footer>
+        
+        <!-- Google Code for Remarketing tag -->
+
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+
+<script type="text/javascript">
+
+/* <![CDATA[ */
+
+var google_conversion_id = 993351119;
+
+var google_conversion_label = "DYsECPHCnAQQz6vV2QM";
+
+var google_custom_params = window.google_tag_params;
+
+var google_remarketing_only = true;
+
+/* ]]> */
+
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+
+</script>
+
+<noscript>
+
+<div style="display:inline;">
+
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/993351119/?value=0&amp;label=DYsECPHCnAQQz6vV2QM&amp;guid=ON&amp;script=0"/>
+
+</div>
+
+<!-- Google Code for Visits Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 993351119;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "nyDdCKmVnwQQz6vV2QM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/993351119/?value=0&amp;label=nyDdCKmVnwQQz6vV2QM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+</noscript>
+        
+        <!-- Scripts -->
+        <script src="js/libs/jquery-1.6.2.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/mylibs/helper.js"></script>
+        <!--[if (lt IE 9) & (!IEMobile)]>
+        <script src="js/libs/imgsizer.js"></script>
+        <![endif]-->
+
+        <script>
+            // iOS scale bug fix
+            MBP.scaleFix();
+
+            // Respond.js
+            yepnope({
+                test : Modernizr.mq('(only all)'),
+                nope : ['js/libs/respond.min.js']
+            });
+        </script>
+    </body>
+</html>

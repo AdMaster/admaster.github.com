@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>数据银行数据分析接口 - sitemaster - AdMaster API 文档中心</title>
+  <title>获取任务列表 - sitemaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,166 +40,47 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">数据银行数据分析接口</h1>
+        <h1 id="section">获取任务列表</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">概述</a></li>
-  <li><a href="#api-">API 说明</a></li>
-  <li><a href="#filters">filters查询语法</a>    <ul>
-      <li><a href="#section-2">查询语法</a></li>
-      <li><a href="#section-3">常规指标和维度</a></li>
+  <li><a href="#section-1">接口</a>    <ul>
+      <li><a href="#section-2">请求参数</a></li>
+      <li><a href="#section-3">请求参数</a></li>
+      <li><a href="#section-4">响应</a></li>
     </ul>
   </li>
-  <li><a href="#api--1">API 目录</a></li>
 </ul>
 
-<h2 id="section-1">概述</h2>
+<h2 id="section-1">接口</h2>
 
-<p>本API主要提供离线分析数据获取功能，为非实时数据源，数据具有一定延时。</p>
+<pre><code>POST /sites/:site_id/databank/visit
+</code></pre>
 
-<h2 id="api-">API 说明</h2>
+<h3 id="section-2">请求参数</h3>
 
-<p>每个接口均以filters做为查询参数。filters可提供丰富的自定义查询条件组合功能，以实现灵活和自由的查询功能。详见 <a href="#filters">filters查询语法</a></p>
+<h3 id="section-3">请求参数</h3>
+<p>无</p>
 
-<h2 id="filters">filters查询语法</h2>
+<h3 id="section-4">响应</h3>
 
-<p>filters查询用法及说明如下</p>
+<pre><code>Status: 201 Created
+Location: http://site.admasterapi.com/databank/:id
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
-<table>
-  <thead>
-    <tr>
-      <th>用法</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>dm:domain==google.com,dm:domain==baidu.com</td>
-      <td>指定来源域名为google.com“或 ”baidu.com“或”apple.com</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="section-2">查询语法</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>操作符</th>
-      <th>描述</th>
-      <th>URL编码格式</th>
-      <th>举例</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>==</td>
-      <td>等于</td>
-      <td>%3D%3D</td>
-      <td>filters=mt:timeOnPage%3D%3D10，返回页面停留时间等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>!=</td>
-      <td>不等于</td>
-      <td>!%3D</td>
-      <td>filters=mt:timeOnPage!%3D10,返回页面停留时间不等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&gt;</td>
-      <td>大于</td>
-      <td>%3E</td>
-      <td>filters=mt:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&lt;</td>
-      <td>小于</td>
-      <td>%3C</td>
-      <td>filters=mt:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&gt;=</td>
-      <td>大于等于</td>
-      <td>%3E%3D</td>
-      <td>filters=mt:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&lt;=</td>
-      <td>小于等于</td>
-      <td>%3C%3</td>
-      <td>filters=mt:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>=@</td>
-      <td>包含子串</td>
-      <td>%3D@</td>
-      <td>filters=dm:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>!@</td>
-      <td>不包含子串</td>
-      <td>!@</td>
-      <td>filters=dm:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>=~</td>
-      <td>和后面语法匹配</td>
-      <td>%3D~</td>
-      <td>filters=dm:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>!~</td>
-      <td>和后面语法不匹配</td>
-      <td>!~</td>
-      <td>filters=dm:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="section-3">常规指标和维度</h3>
-
-<p>除非特别说明，所有报表接口均支持在filters查询中使用常规指标和常规维度做为查询条件。</p>
-
-<p>常规维度：</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>维度</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>dm:date</td>
-      <td>日期，格式为YYYY-MM-DD</td>
-    </tr>
-    <tr>
-      <td>dm:month</td>
-      <td>月</td>
-    </tr>
-    <tr>
-      <td>dm:week</td>
-      <td>周</td>
-    </tr>
-    <tr>
-      <td>dm:dayOfWeek</td>
-      <td>一周中的第几天，如0表示周日，1表示周一</td>
-    </tr>
-    <tr>
-      <td>dm:year</td>
-      <td>年</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="api--1">API 目录</h2>
-
-<ul>
-  <li><a href="/doc/sitemaster/v1/cn/site_databank_visit.html">数据银行访次分析</a></li>
-  <li><a href="/doc/sitemaster/v1/cn/site_databank_pageview.html">数据银行页面浏览分析</a></li>
-  <li><a href="/doc/sitemaster/v1/cn/site_databank_event.html">数据银行事件触发分析</a></li>
-  <li><a href="/doc/sitemaster/v1/cn/site_databank_result.html">数据银行结果查看</a></li>
-</ul>
+<pre class="prettyprint"><code>{
+    id: "xxxxx", //数据银行查询id
+    url: "http://site.admasterapi.com/databank/:id",//资源地址
+    status: "ready",
+    name: "测试名称", //测试名称
+    dimensions: "dm:date,dm:province",//维度
+    metrics: "mt:visits,mt:pageviews",//指标
+    filters: "dm:date&gt;=2012-09-12;dm:date&lt;=2012-12-12",//过滤条件
+    segment: "dm:eventCategory==tag1",//访问细查
+    sort: "-mt:pageviews",//排序        
+}
+</code></pre>
 
       </div>
       
@@ -697,7 +578,7 @@
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/sitemaster/v1/cn/site_databank.html">数据银行数据分析接口</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_databank.html">数据银行数据分析接口</a>
                 </h3>
                 <ul class="js-guides">
                   
@@ -735,7 +616,7 @@
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/site_databanks.html">获取任务列表</a>
+                  <a class="active" href="/doc/sitemaster/v1/cn/site_databanks.html">获取任务列表</a>
                 </h3>
                 <ul class="js-guides">
                   
