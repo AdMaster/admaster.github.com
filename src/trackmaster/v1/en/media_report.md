@@ -140,10 +140,9 @@ title: Publisher Report
 {:.prettyprint}
     [
       {
-        "date_hour": 2012061015,
+        "date": 130423,
         "pubid": "IYK_IMloxnwepMEqlx",
-        "city": "北京",
-        "geoid": 110000,
+        "geoid": 1100000000,
         "impression": 12039423,
         "click": 43432,
       }

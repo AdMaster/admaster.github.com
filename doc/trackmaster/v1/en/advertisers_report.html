@@ -70,12 +70,12 @@
   <dd><em>Optional</em> <strong>string</strong> - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time. 
 
     <ul>
+      <li><code>time</code> - The result will contains date messages.</li>
       <li><code>media</code>    </li>
       <li><code>placement</code> </li>
       <li><code>keyword</code> </li>
       <li><code>creative</code> </li>
       <li><code>geo</code> </li>
-      <li><code>time</code> </li>
     </ul>
   </dd>
 </dl>
@@ -318,30 +318,6 @@ Not all combinations can be queried together. Only certain combinations can be u
     </tr>
     <tr>
       <td>time=hourly&amp;dims=media,placement,keyword</td>
-    </tr>
-    <tr>
-      <td>time=monthly</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=media</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=media,placement</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=media,placement,keyword</td>
-    </tr>
-    <tr>
-      <td>time=weekly</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=media</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=media,placement</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=media,placement,keyword</td>
     </tr>
   </tbody>
 </table>

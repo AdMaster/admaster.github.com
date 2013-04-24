@@ -191,10 +191,9 @@ X-RateLimit-Remaining: 4999
 </dl>
 
 <pre class="prettyprint"><code>  {
-    "date_hour": 2012061015,
+    "date": 130423,
     "pubid": "IYK_IMloxnwepMEqlx",
-    "city": "北京",
-    "geoid": 110000,
+    "geoid": 1100000000,
     "impression": 12039423,
     "click": 43432,
   }
@@ -222,11 +221,11 @@ X-RateLimit-Remaining: 4999
   <dd><em>可选</em> <strong>string</strong> - 数据聚合维度,多个选项之间用<code>,</code>分开
 
     <ul>
+      <li><code>time</code> 按时间维度聚合、结果会显示具体的时间列 </li>
       <li><code>placement</code> 按广告位维度聚合</li>
       <li><code>keyword</code> 按关键字维度聚合</li>
       <li><code>creative</code> 按创意维度聚合</li>
-      <li><code>geo</code> 按地域维度聚合</li>
-      <li><code>time</code> 按时间维度聚合    </li>
+      <li><code>geo</code> 按地域维度聚合  </li>
     </ul>
   </dd>
   <dt><code>placement_id</code></dt>
@@ -435,30 +434,6 @@ Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;;
     <tr>
       <td>time=hourly&amp;dims=placement,keyword</td>
       <td>粒度为小时，指定媒体指定项目分广告位分关键字数据</td>
-    </tr>
-    <tr>
-      <td>time=monthly</td>
-      <td>粒度为月，指定媒体指定项目数据</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=placement</td>
-      <td>粒度为月，指定媒体指定项目分广告位数据</td>
-    </tr>
-    <tr>
-      <td>time=monthly&amp;dims=placement,keyword</td>
-      <td>粒度为月，指定媒体指定项目分广告位分关键字数据</td>
-    </tr>
-    <tr>
-      <td>time=weekly</td>
-      <td>粒度为周，指定媒体指定项目数据</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=placement</td>
-      <td>粒度为周，指定媒体指定项目分广告位数据</td>
-    </tr>
-    <tr>
-      <td>time=weekly&amp;dims=placement,keyword</td>
-      <td>粒度为周，指定媒体指定项目分广告位分关键字数据</td>
     </tr>
   </tbody>
 </table>
