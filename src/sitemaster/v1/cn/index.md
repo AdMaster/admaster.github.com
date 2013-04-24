@@ -21,7 +21,7 @@ API 部分包括管理 API 和报告 API，管理 API 包括
 报告 API 包括
 
 1. [报告API](site_report.html)
-2. [自定义报告 API](custom_report.html)
+2. [数据银行 API](site_databank.html)
 3. [访问详情 API](visit.html)
 
 所有的 API 请求都需通过 OAuth2.0 认证，详情请参见 [OpenMaster 详细文档](http://dev.admaster.com.cn/doc/openmaster/v1/cn/index.html)
