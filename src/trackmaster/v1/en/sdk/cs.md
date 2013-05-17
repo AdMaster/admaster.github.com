@@ -112,7 +112,7 @@ title: C# SDK
         + ",\"grant_type\":" + grant_type
         + ",\"email\":" +email
         + ",\"password\":" +password+"}";
-    TrackmasterClient client = new TrackmasterClient("testopen.admasterapi.com");
+    TrackmasterClient client = new TrackmasterClient("open.admaster.com.cn");
     HttpWebResponse response = client.Post("/oauth/access_token", json);
     String data = client.ResultData(response);
 
