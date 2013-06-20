@@ -62,7 +62,7 @@ title: Spot
 **Request**
 
 `units`
-: _Required_ **integer** - Perchase Unites
+: _Required_ **float** - Perchase Unites
 
 `creative_id`
 : _Optional_ **integer** - Creative ID
@@ -84,7 +84,7 @@ title: Spot
 : _Required_ **date** - The date which units need changing. A string of the format: "YYYY-MM-DD". 
 
 `units`
-: _Required_ **integer** - Perchase Unites
+: _Required_ **float** - Perchase Unites
 
 `creative_id`
 : _Optional_ **integer** - Creative ID

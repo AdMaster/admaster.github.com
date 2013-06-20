@@ -98,9 +98,10 @@ The access token allows you to make requests to the API on a behalf of a user.
 
 {:.prettyprint}
     {
-      "id": 98,
-      "email": "hello@admaster.com.cn",
-      "username": "hello"
+  	"email": "hello@admaster.com.cn",
+  	"username": "hello",
+  	"uuid": "higklmn",
+  	"client_id": "abcdefg"
     }
 
 

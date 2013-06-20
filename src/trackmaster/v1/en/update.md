@@ -19,6 +19,11 @@ title: Update
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
+    <tr>
+    <td>2013-06-20</td>
+    <td>Units contain decimals. Converts units value to a float data type.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/spot.html">More Information</a></td>
+  </tr>
+
   <tr>
     <td>2013-03-08</td>
     <td>Add 'channel_id' and 'channel_name' to placement list and placement information.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/placement.html">More Information</a></td>
