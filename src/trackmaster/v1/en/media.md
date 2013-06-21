@@ -18,6 +18,9 @@ title: Media
 
 **Parameters**
 
+`name`
+: _Optional_ **string** - System Media Name
+
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
 

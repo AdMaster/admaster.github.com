@@ -18,6 +18,9 @@ title: Advertiser
 
 **Parameters**
 
+`name`
+: _Optional_ **string** - Advertiser Name
+
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
 
