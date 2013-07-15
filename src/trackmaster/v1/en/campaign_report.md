@@ -162,7 +162,7 @@ Not all combinations can be queried together. Only certain combinations can be u
 |time=hourly&dims=media,placement 
 |time=hourly&dims=media,placement,creative 
 |time=hourly&dims=media,placement,geo
-|time=hourly&dims=media,placement,keyword
+
 
 
 **Example**

@@ -281,7 +281,7 @@ time=hourly&dims=geo|粒度为小时，指定媒体指定项目分地域数据
 time=hourly&dims=placement|粒度为小时，指定媒体指定项目分广告位数据
 time=hourly&dims=placement,creative |粒度为小时，指定媒体指定项目分广告位分创意数据
 time=hourly&dims=placement,geo|粒度为小时，指定媒体指定项目分广告位分地域数据
-time=hourly&dims=placement,keyword|粒度为小时，指定媒体指定项目分广告位分关键字数据
+
 
 
 **示例**

@@ -270,5 +270,5 @@ Not all combinations can be queried together. Only certain combinations can be u
 |time=hourly&dims=placement
 |time=hourly&dims=placement,creative 
 |time=hourly&dims=placement,geo
-|time=hourly&dims=placement,keyword
+
 
