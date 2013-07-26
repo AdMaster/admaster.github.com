@@ -47,15 +47,15 @@
   <li><a href="#get-details-of-the-given-system-media">Get details of the given system media</a></li>
   <li><a href="#list-media-of-the-given-network">List media of the given network</a></li>
   <li><a href="#get-details-of-the-given-system-media-id-in-the-authorized-network">Get details of the given system media ID in the authorized network</a></li>
-  <li><a href="#add-a-media-to-the-given-network">Add a media to the given network</a></li>
+  <li><a href="#add-media-to-the-given-network">Add media to the given network</a></li>
   <li><a href="#get-details-of-the-given-network-media-id">Get details of the given network media ID</a></li>
   <li><a href="#delete-media-of-the-given-network">Delete media of the given network</a></li>
   <li><a href="#modify-details-of-media-in-the-given-network">Modify details of media in the given network</a></li>
   <li><a href="#list-media-of-the-given-campaign">List media of the given campaign</a></li>
   <li><a href="#get-details-of-the-given-media-in-the-authorized-campaign">Get details of the given media in the authorized campaign</a></li>
-  <li><a href="#match-a-media-in-the-given-campaign">Match a media in the given campaign</a></li>
-  <li><a href="#add-a-media-to-the-given-campaign">Add a media to the given campaign</a></li>
-  <li><a href="#delete-a-media-in-the-given-campaign">Delete a media in the given campaign</a></li>
+  <li><a href="#match-media-in-the-given-campaign">Match media in the given campaign</a></li>
+  <li><a href="#add-media-to-the-given-campaign">Add media to the given campaign</a></li>
+  <li><a href="#delete-media-in-the-given-campaign">Delete media in the given campaign</a></li>
 </ul>
 
 <h2 id="list-system-media">List system media</h2>
@@ -233,7 +233,7 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<h2 id="add-a-media-to-the-given-network">Add a media to the given network</h2>
+<h2 id="add-media-to-the-given-network">Add media to the given network</h2>
 
 <pre><code>POST /networks/:network_id/medias
 </code></pre>
@@ -398,7 +398,7 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<h2 id="match-a-media-in-the-given-campaign">Match a media in the given campaign</h2>
+<h2 id="match-media-in-the-given-campaign">Match media in the given campaign</h2>
 
 <pre><code>GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 </code></pre>
@@ -419,7 +419,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="add-a-media-to-the-given-campaign">Add a media to the given campaign</h2>
+<h2 id="add-media-to-the-given-campaign">Add media to the given campaign</h2>
 
 <pre><code>PUT /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 </code></pre>
@@ -434,7 +434,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="delete-a-media-in-the-given-campaign">Delete a media in the given campaign</h2>
+<h2 id="delete-media-in-the-given-campaign">Delete media in the given campaign</h2>
 
 <pre><code>DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 </code></pre>

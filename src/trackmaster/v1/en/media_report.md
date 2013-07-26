@@ -148,7 +148,7 @@ title: Publisher Report
       }
     ]
 
-## Get campaign report of the given media
+## Get campaign report of the given medium
 
     GET /medias/:media_id/campaigns/:campaign_id/reports
 

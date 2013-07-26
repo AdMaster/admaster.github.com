@@ -174,7 +174,7 @@ title: Media
     }
 
 
-## Add a media to the given network
+## Add media to the given network
 
     POST /networks/:network_id/medias
 
@@ -330,7 +330,7 @@ When the media which you want to delete has campaigns, it can not be deleted.
         "created_at": "2012-09-06T20:39:23Z"
     }
 
-## Match a media in the given campaign
+## Match media in the given campaign
 
     GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
@@ -349,7 +349,7 @@ No Match
     X-RateLimit-Remaining: 4999
 
 
-## Add a media to the given campaign
+## Add media to the given campaign
 
     PUT /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
@@ -363,7 +363,7 @@ If the status of media is disabled, you can not add this media to campaign.
     X-RateLimit-Remaining: 4999
 
 
-## Delete a media in the given campaign
+## Delete media in the given campaign
 
     DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
