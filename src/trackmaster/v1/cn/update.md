@@ -18,6 +18,10 @@ title: 更新
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
+  <tr>
+    <td>2013-08-06</td>
+    <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
+  </tr>
     <tr>
     <td>2013-06-20</td>
     <td>更改购买量的数据类型为float，点位的购买量支持录入小数。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/spot.html">查看详细</a></td>
@@ -116,6 +120,10 @@ title: 更新
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
+    <tr>
+    <td>2013-08-06</td>
+    <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/media_report.html#section-5">查看详细</a></td>
+  </tr>
   <tr>
     <td>2013-03-08</td>
     <td>广告位信息补充为同时显示频道名称和频道 ID。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html">查看详细</a></td>
@@ -169,6 +177,10 @@ title: 更新
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+      <tr>
+    <td>2013-08-06</td>
+    <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/advertisers_report.html#section-1">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-03-08</td>

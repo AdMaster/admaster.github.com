@@ -117,10 +117,8 @@ title: 项目报告
         "time": "2012-08-03",//此处 `time` 格式与参数 `start_time`、`end_time` 一致，例如当参数`time`为 daily，则此处时间为从 `start_time` 到 `end_time` 分天时间.
         "imp": 90,//曝光数
         "uimp": 60,//独立曝光数
-        "ipuimp": 56,//独立曝光 IP 数
         "clk": 30,//点击数
         "uclk": 23,//独立点击数
-        "ipuclk": 27//独立点击 IP 数
       }
     ]
 
@@ -130,10 +128,8 @@ title: 项目报告
 返回值字段 | 字段类型     | 字段说明
 imp      | integer     | 曝光
 uimp     | integer     | 独立曝光
-ipuimp   | integer     | IP独立曝光
 clk      | integer     | 点击
 uclk     | integer     | 独立点击
-ipuclk   | integer     | IP独立点击
 
 **获取数据组合说明**
 
@@ -175,8 +171,6 @@ time=hourly&dims=media,placement,geo|粒度为小时，项目分媒体分广告�
             "uimp": 3,
             "clk": 7,
             "uclk": 7,
-            "ipuimp": 3,
-            "ipuclk": 4
         },
         {
             "campaign_id": 10116,
@@ -194,8 +188,6 @@ time=hourly&dims=media,placement,geo|粒度为小时，项目分媒体分广告�
             "uimp": 27,
             "clk": 72,
             "uclk": 39,
-            "ipuimp": 27,
-            "ipuclk": 24
         }
     ]
 

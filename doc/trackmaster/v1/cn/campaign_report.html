@@ -171,10 +171,8 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
     "time": "2012-08-03",//此处 `time` 格式与参数 `start_time`、`end_time` 一致，例如当参数`time`为 daily，则此处时间为从 `start_time` 到 `end_time` 分天时间.
     "imp": 90,//曝光数
     "uimp": 60,//独立曝光数
-    "ipuimp": 56,//独立曝光 IP 数
     "clk": 30,//点击数
     "uclk": 23,//独立点击数
-    "ipuclk": 27//独立点击 IP 数
   }
 ]
 </code></pre>
@@ -199,11 +197,6 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>独立曝光</td>
     </tr>
     <tr>
-      <td>ipuimp</td>
-      <td>integer</td>
-      <td>IP独立曝光</td>
-    </tr>
-    <tr>
       <td>clk</td>
       <td>integer</td>
       <td>点击</td>
@@ -212,11 +205,6 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>uclk</td>
       <td>integer</td>
       <td>独立点击</td>
-    </tr>
-    <tr>
-      <td>ipuclk</td>
-      <td>integer</td>
-      <td>IP独立点击</td>
     </tr>
   </tbody>
 </table>
@@ -322,8 +310,6 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
         "uimp": 3,
         "clk": 7,
         "uclk": 7,
-        "ipuimp": 3,
-        "ipuclk": 4
     },
     {
         "campaign_id": 10116,
@@ -341,8 +327,6 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
         "uimp": 27,
         "clk": 72,
         "uclk": 39,
-        "ipuimp": 27,
-        "ipuclk": 24
     }
 ]
 </code></pre>
