@@ -60,6 +60,8 @@ title: 点位
 
     PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:online_date
 
+注意：online_date必须在项目起止时间范围内
+
 **请求**
 
 `units`
@@ -77,6 +79,8 @@ title: 点位
 ## 批量修改广告位下的点位
 
     POST /networks/advertisers/campaigns/placements/:placement_id/spots
+
+注意：online_date必须在项目起止时间范围内
 
 **请求**
 

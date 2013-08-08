@@ -91,7 +91,6 @@ It is connected with `start_time` and `end_time`.
   * `hourly` Get hourly unique data.
   * `daily` Get daily unique data.
   * `weekly` Get weekly unique data.
-  * `monthly` Get monthly unique data.
 
 `dims`
 : _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ','. Example : media , placement, time. 
@@ -100,7 +99,7 @@ It is connected with `start_time` and `end_time`.
   *  `placement` 
   *  `keyword` 
   *  `creative` 
-  *  `geo` 
+  *  `province` 
   *  `time` 
 
 When using dimensions in a feed request, be aware of the following constraints:
@@ -129,8 +128,7 @@ When using dimensions in a feed request, be aware of the following constraints:
 time | start_time   | description
 hourly   | YYYY-MM-DDThh:mmZ   | 2012-11-06T01:57Z
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2005-W01
-monthly  | YYYY-MM     | 2005-01
+weekly   | YYYY-Www     | 2012-W01
 
 `end_time`
 : _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
@@ -138,8 +136,8 @@ monthly  | YYYY-MM     | 2005-01
 time | end_time   | description
 hourly   | YYYY-MM-DDThh:mmZ   | 2012-11-06T01:57Z
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2005-W01
-monthly  | YYYY-MM     | 2005-01
+weekly   | YYYY-Www     | 2012-W01
+
 
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
@@ -172,10 +170,8 @@ monthly  | YYYY-MM     | 2005-01
         "time": "2012-08-03",//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
         "imp": 90,//Impression
         "uimp": 60,//Unique Impression
-        "ipuimp": 56,//Unique Impression IP
         "clk": 30,//Click
         "uclk": 23,//Unique Click
-        "ipuclk": 22//Unique Click IP
       }
     ]
 

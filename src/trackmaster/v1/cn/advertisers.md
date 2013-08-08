@@ -87,7 +87,6 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
   * `hourly` 获取小时数据
   * `daily` 获取日数据
   * `weekly` 获取周数据
-  * `monthly` 获取月数据
 
 `dims`
 : _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开
@@ -96,7 +95,7 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
   * `placement` 按广告位维度聚合
   * `keyword` 按关键字维度聚合
   * `creative` 按创意维度聚合
-  * `geo` 按地域维度聚合
+  * `province` 按省级地域维度聚合
   * `time` 按时间维度聚合    
 
 `network_media_id`
@@ -124,7 +123,6 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 
   * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `end_time`
 : _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。  
@@ -134,9 +132,8 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 
   * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
 
-  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。
+  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2012-W01，表示选择 2012 年的第一周。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `sort`
 : _可选_ **string** - 列表排序以什么排序

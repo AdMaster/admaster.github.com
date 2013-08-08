@@ -236,7 +236,7 @@ If the status of media is disabled, you can not add this media to network.
 
 ## Delete media of the given network
 
-    DELETE /networks/medias/:id
+    DELETE /networks/medias/:network_media_id
 
 When the media which you want to delete has campaigns, it can not be deleted.
 
@@ -250,7 +250,7 @@ When the media which you want to delete has campaigns, it can not be deleted.
 
 ## Modify details of media in the given network
 
-    PATCH /networks/:network_id/medias/:media_id
+    PATCH /networks/medias/:media_id
 
 **Request**
 

@@ -12,7 +12,7 @@ title: TrackMaster™ 文档首页
 
 ## 重要通知：##
 * 由于业务需求，去除按 IP 去重的所有相关指标
-* 获取报告的维度选择中按地域维度聚合（geo）也会进行变更，具体变更字段会在文档中进行更改
+* 获取报告的维度选择中按地域维度聚合（geo）将geo变更为province，原维度选择会并行一段时间，请按照文档更换成新名称
 * 以上两部分变更会在[更新](http://dev.admaster.com.cn/doc/trackmaster/v1/cn/update.html)中说明
 
 

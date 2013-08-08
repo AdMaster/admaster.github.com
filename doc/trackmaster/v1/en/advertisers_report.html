@@ -63,7 +63,6 @@
       <li><code>hourly</code> Get hourly unique data.</li>
       <li><code>daily</code> Get daily unique data.</li>
       <li><code>weekly</code> Get weekly unique data.</li>
-      <li><code>monthly</code> Get monthly unique data.</li>
     </ul>
   </dd>
   <dt><code>dims</code></dt>
@@ -75,7 +74,7 @@
       <li><code>placement</code> </li>
       <li><code>keyword</code> </li>
       <li><code>creative</code> </li>
-      <li><code>geo</code> </li>
+      <li><code>provinve</code> </li>
     </ul>
   </dd>
 </dl>
@@ -122,12 +121,7 @@
     <tr>
       <td>weekly</td>
       <td>YYYY-Www</td>
-      <td>2005-W01</td>
-    </tr>
-    <tr>
-      <td>monthly</td>
-      <td>YYYY-MM</td>
-      <td>2005-01</td>
+      <td>2012-W01</td>
     </tr>
   </tbody>
 </table>
@@ -157,12 +151,7 @@
     <tr>
       <td>weekly</td>
       <td>YYYY-Www</td>
-      <td>2005-W01</td>
-    </tr>
-    <tr>
-      <td>monthly</td>
-      <td>YYYY-MM</td>
-      <td>2005-01</td>
+      <td>2012-W01</td>
     </tr>
   </tbody>
 </table>
@@ -202,10 +191,8 @@
     "time": "2012-08-03",//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
     "imp": 90,//Impression
     "uimp": 60,//Unique Impression
-    "ipuimp": 56,//Unique Impression IP
     "clk": 30,//Click
     "uclk": 23,//Unique Click
-    "ipuclk": 22//Unique Click IP
   }
 </code></pre>
 
@@ -229,11 +216,6 @@
       <td>Unique Impression</td>
     </tr>
     <tr>
-      <td>ipuimp</td>
-      <td>integer</td>
-      <td>Unique Impression IP</td>
-    </tr>
-    <tr>
       <td>clk</td>
       <td>integer</td>
       <td>Click</td>
@@ -242,11 +224,6 @@
       <td>uclk</td>
       <td>integer</td>
       <td>Unique Click</td>
-    </tr>
-    <tr>
-      <td>ipuclk</td>
-      <td>integer</td>
-      <td>Unique Click IP</td>
     </tr>
   </tbody>
 </table>
@@ -263,7 +240,7 @@ Not all combinations can be queried together. Only certain combinations can be u
       <td>time=daily</td>
     </tr>
     <tr>
-      <td>time=daily&amp;dims=geo</td>
+      <td>time=daily&amp;dims=province</td>
     </tr>
     <tr>
       <td>time=daily&amp;dims=creative</td>
@@ -272,7 +249,7 @@ Not all combinations can be queried together. Only certain combinations can be u
       <td>time=daily&amp;dims=media</td>
     </tr>
     <tr>
-      <td>time=daily&amp;dims=media,geo</td>
+      <td>time=daily&amp;dims=media,province</td>
     </tr>
     <tr>
       <td>time=daily&amp;dims=media,creative</td>
@@ -281,7 +258,7 @@ Not all combinations can be queried together. Only certain combinations can be u
       <td>time=daily&amp;dims=media,placement</td>
     </tr>
     <tr>
-      <td>time=daily&amp;dims=media,placement,geo</td>
+      <td>time=daily&amp;dims=media,placement,province</td>
     </tr>
     <tr>
       <td>time=daily&amp;dims=media,placement,creative</td>
@@ -296,7 +273,7 @@ Not all combinations can be queried together. Only certain combinations can be u
       <td>time=hourly&amp;dims=creative</td>
     </tr>
     <tr>
-      <td>time=hourly&amp;dims=geo</td>
+      <td>time=hourly&amp;dims=province</td>
     </tr>
     <tr>
       <td>time=hourly&amp;dims=media</td>
@@ -305,7 +282,7 @@ Not all combinations can be queried together. Only certain combinations can be u
       <td>time=hourly&amp;dims=media,creative</td>
     </tr>
     <tr>
-      <td>time=hourly&amp;dims=media,geo</td>
+      <td>time=hourly&amp;dims=media,province</td>
     </tr>
     <tr>
       <td>time=hourly&amp;dims=media,placement</td>
@@ -314,7 +291,7 @@ Not all combinations can be queried together. Only certain combinations can be u
       <td>time=hourly&amp;dims=media,placement,creative</td>
     </tr>
     <tr>
-      <td>time=hourly&amp;dims=media,placement,geo</td>
+      <td>time=hourly&amp;dims=media,placement,province</td>
     </tr>
   </tbody>
 </table>
@@ -331,8 +308,6 @@ Not all combinations can be queried together. Only certain combinations can be u
         "uimp": 3,
         "clk": 7,
         "uclk": 7,
-        "ipuimp": 3,
-        "ipuclk": 4
     },
     {
         "campaign_id": 10116,
@@ -350,8 +325,6 @@ Not all combinations can be queried together. Only certain combinations can be u
         "uimp": 27,
         "clk": 72,
         "uclk": 39,
-        "ipuimp": 27,
-        "ipuclk": 24
     }
 ]
 </code></pre>

@@ -18,6 +18,9 @@ title: 更新
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
+    <tr>
+    <td>2013-08-07</td>
+    <td>变更项目报告中维度（dims）选择地域（geo）名称为province。原geo并行一段时间后<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
   <tr>
     <td>2013-08-06</td>
     <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>

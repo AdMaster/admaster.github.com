@@ -61,7 +61,6 @@
       <li><code>hourly</code> 获取小时数据</li>
       <li><code>daily</code> 获取日数据</li>
       <li><code>weekly</code> 获取周数据</li>
-      <li><code>monthly</code> 获取月数据</li>
     </ul>
   </dd>
   <dt><code>dims</code></dt>
@@ -73,7 +72,7 @@
       <li><code>placement</code> 按广告位维度聚合</li>
       <li><code>keyword</code> 按关键字维度聚合</li>
       <li><code>creative</code> 按创意维度聚合</li>
-      <li><code>geo</code> 按地域维度聚合</li>
+      <li><code>province</code> 按省级地域维度聚合</li>
     </ul>
   </dd>
   <dt><code>network_media_id</code></dt>
@@ -100,9 +99,6 @@
       <li>
         <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01。</p>
       </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
-      </li>
     </ul>
   </dd>
   <dt><code>end_time</code></dt>
@@ -118,9 +114,6 @@
       </li>
       <li>
         <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>月</code>，时间格式 YYYY-MM。例 2005-01。</p>
       </li>
     </ul>
   </dd>
@@ -228,16 +221,16 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>粒度为天，项目分创意数据</td>
     </tr>
     <tr>
-      <td>time=daily&amp;dims=geo</td>
-      <td>粒度为天，项目分地域数据</td>
+      <td>time=daily&amp;dims=province</td>
+      <td>粒度为天，项目分省级地域数据</td>
     </tr>
     <tr>
       <td>time=daily&amp;dims=media</td>
       <td>粒度为天，项目分媒体数据</td>
     </tr>
     <tr>
-      <td>time=daily&amp;dims=media,geo</td>
-      <td>粒度为天，项目分媒体分地域数据</td>
+      <td>time=daily&amp;dims=media,province</td>
+      <td>粒度为天，项目分媒体分省级地域数据</td>
     </tr>
     <tr>
       <td>time=daily&amp;dims=media,creative</td>
@@ -252,8 +245,8 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>粒度为天，项目分媒体分广告位分创意数据</td>
     </tr>
     <tr>
-      <td>time=daily&amp;dims=media,placement,geo</td>
-      <td>粒度为天，项目分媒体分广告位分地域数据</td>
+      <td>time=daily&amp;dims=media,placement,province</td>
+      <td>粒度为天，项目分媒体分广告位分省级地域数据</td>
     </tr>
     <tr>
       <td>time=daily&amp;dims=media,placement,keyword</td>
@@ -268,8 +261,8 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>粒度为小时，项目分创意数据</td>
     </tr>
     <tr>
-      <td>time=hourly&amp;dims=geo</td>
-      <td>粒度为小时，项目分地域数据</td>
+      <td>time=hourly&amp;dims=province</td>
+      <td>粒度为小时，项目分省级地域数据</td>
     </tr>
     <tr>
       <td>time=hourly&amp;dims=media</td>
@@ -280,8 +273,8 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>粒度为小时，项目分媒体分创意数据</td>
     </tr>
     <tr>
-      <td>time=hourly&amp;dims=media,geo</td>
-      <td>粒度为小时，项目分媒体分地域数据</td>
+      <td>time=hourly&amp;dims=media,province</td>
+      <td>粒度为小时，项目分媒体分省级地域数据</td>
     </tr>
     <tr>
       <td>time=hourly&amp;dims=media,placement</td>
@@ -292,8 +285,8 @@ Link: &lt;http://track.admasterapi.com/campaigns/12/reports?page=2&gt;; rel="nex
       <td>粒度为小时，项目分媒体分广告位分创意数据</td>
     </tr>
     <tr>
-      <td>time=hourly&amp;dims=media,placement,geo</td>
-      <td>粒度为小时，项目分媒体分广告位分地域数据</td>
+      <td>time=hourly&amp;dims=media,placement,province</td>
+      <td>粒度为小时，项目分媒体分广告位分省级地域数据</td>
     </tr>
   </tbody>
 </table>

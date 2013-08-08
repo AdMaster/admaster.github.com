@@ -300,7 +300,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="section-6">删除指定工作网络下的媒体</h2>
 
-<pre><code>DELETE /networks/medias/:id
+<pre><code>DELETE /networks/medias/:network_media_id
 </code></pre>
 
 <p><strong>响应</strong></p>
@@ -313,7 +313,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="section-7">修改指定工作网络下指定媒体属性</h2>
 
-<pre><code>PATCH /networks/:network_id/medias/:network_media_id
+<pre><code>PATCH /networks/medias/:network_media_id
 </code></pre>
 
 <p><strong>请求</strong></p>

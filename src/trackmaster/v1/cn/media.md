@@ -240,7 +240,7 @@ title: 媒体
 
 ## 删除指定工作网络下的媒体
 
-    DELETE /networks/medias/:id
+    DELETE /networks/medias/:network_media_id
 
 **响应**
 
@@ -252,7 +252,7 @@ title: 媒体
 
 ## 修改指定工作网络下指定媒体属性
 
-    PATCH /networks/:network_id/medias/:network_media_id
+    PATCH /networks/medias/:network_media_id
 
 **请求**
 

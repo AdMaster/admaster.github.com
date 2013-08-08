@@ -26,7 +26,6 @@ title: 广告主报告
   * `hourly` 获取小时数据
   * `daily` 获取日数据
   * `weekly` 获取周数据
-  * `monthly` 获取月数据
 
 `dims`
 : _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开。
@@ -36,7 +35,7 @@ title: 广告主报告
   * `placement` 按广告位维度聚合
   * `keyword` 按关键字维度聚合
   * `creative` 按创意维度聚合
-  * `geo` 按地域维度聚合
+  * `province` 按省级地域维度聚合
 
 
 `network_media_id`
@@ -64,7 +63,6 @@ title: 广告主报告
 
   * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `end_time`
 : _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。
@@ -76,7 +74,6 @@ title: 广告主报告
 
   * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `sort`
 : _可选_ **string** - 列表排序以什么排序，结合参数`direction`使用。
@@ -140,23 +137,23 @@ uclk     | integer     | 独立点击
 组合|说明
 time=daily  |粒度为天，项目数据
 time=daily&dims=creative|粒度为天，项目分创意数据
-time=daily&dims=geo|粒度为天，项目分地域数据
+time=daily&dims=province|粒度为天，项目分省级地域数据
 time=daily&dims=media|粒度为天，项目分媒体数据
-time=daily&dims=media,geo|粒度为天，项目分媒体分地域数据
+time=daily&dims=media,province|粒度为天，项目分媒体分省级地域数据
 time=daily&dims=media,creative |粒度为天，项目分媒体分创意数据
 time=daily&dims=media,placement|粒度为天，项目分媒体分广告位数据
 time=daily&dims=media,placement,creative |粒度为天，项目分媒体分广告位分创意数据
-time=daily&dims=media,placement,geo|粒度为天，项目分媒体分广告位分地域数据
+time=daily&dims=media,placement,province|粒度为天，项目分媒体分广告位分省级地域数据
 time=daily&dims=media,placement,keyword|粒度为天，项目分媒体分广告位分关键字数据
 time=hourly|粒度为小时，项目数据
 time=hourly&dims=creative|粒度为小时，项目分创意数据
-time=hourly&dims=geo |粒度为小时，项目分地域数据
+time=hourly&dims=province |粒度为小时，项目分省级地域数据
 time=hourly&dims=media |粒度为小时，项目分媒体数据
 time=hourly&dims=media,creative |粒度为小时，项目分媒体分创意数据
-time=hourly&dims=media,geo|粒度为小时，项目分媒体分地域数据
+time=hourly&dims=media,province|粒度为小时，项目分媒体分省级地域数据
 time=hourly&dims=media,placement|粒度为小时，项目分媒体分广告位数据
 time=hourly&dims=media,placement,creative |粒度为小时，项目分媒体分广告位分创意数据
-time=hourly&dims=media,placement,geo|粒度为小时，项目分媒体分广告位分地域数据
+time=hourly&dims=media,placement,province|粒度为小时，项目分媒体分广告位分省级地域数据
 
 
 

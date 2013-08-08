@@ -299,7 +299,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="delete-media-of-the-given-network">Delete media of the given network</h2>
 
-<pre><code>DELETE /networks/medias/:id
+<pre><code>DELETE /networks/medias/:network_media_id
 </code></pre>
 
 <p>When the media which you want to delete has campaigns, it can not be deleted.</p>
@@ -314,7 +314,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="modify-details-of-media-in-the-given-network">Modify details of media in the given network</h2>
 
-<pre><code>PATCH /networks/:network_id/medias/:media_id
+<pre><code>PATCH /networks/medias/:media_id
 </code></pre>
 
 <p><strong>Request</strong></p>
