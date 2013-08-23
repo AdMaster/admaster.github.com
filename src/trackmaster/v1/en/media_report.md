@@ -189,7 +189,7 @@ It is connected with `start_time` and `end_time`.
 : _Optional_ **hour** - Listing campaigns which beginning time date earlier than `start_date`. The format of `start_time` is connected with `time`.The parament  `start_time` is formatted according to the ISO 8601 standard.
 
 time | start_time   | description
-hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:57:10+08:00
+hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
 weekly   | YYYY-Www     | 2012-W01
 
@@ -198,7 +198,7 @@ weekly   | YYYY-Www     | 2012-W01
 : _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
 
 time | end_time   | description
-hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:57:10+08:00
+hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
 weekly   | YYYY-Www     | 2012-W01
 
