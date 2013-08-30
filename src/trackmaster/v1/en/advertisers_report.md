@@ -26,7 +26,7 @@ title: Advertiser Report
 
   * `hourly` Get hourly unique data.
   * `daily` Get daily unique data.
-  * `weekly` Get weekly unique data.
+
 
 `dims`
 : _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ','. Example : media , placement, time. 
@@ -65,7 +65,7 @@ When using dimensions in a feed request, be aware of the following constraints:
 time | start_time   | description
 hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2012-W01
+
 
 `end_time`
 : _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
@@ -73,7 +73,7 @@ weekly   | YYYY-Www     | 2012-W01
 time | end_time   | description
 hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2012-W01
+
 
 
 `sort`

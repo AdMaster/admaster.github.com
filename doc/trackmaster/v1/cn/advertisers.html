@@ -128,7 +128,6 @@
     <ul>
       <li><code>hourly</code> 获取小时数据</li>
       <li><code>daily</code> 获取日数据</li>
-      <li><code>weekly</code> 获取周数据</li>
     </ul>
   </dd>
   <dt><code>dims</code></dt>
@@ -159,13 +158,10 @@
 
     <ul>
       <li>
-        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。</p>
+        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。</p>
       </li>
       <li>
         <p>当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2005-W01。</p>
       </li>
     </ul>
   </dd>
@@ -175,13 +171,10 @@
 
     <ul>
       <li>
-        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。</p>
+        <p>当参数 <code>time</code> 选择 <code>小时</code>，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm+08:00。</p>
       </li>
       <li>
         <p>当参数 <code>time</code> 选择 <code>天</code>，时间格式 YYYY-MM-DD。例 2012-11-06。</p>
-      </li>
-      <li>
-        <p>当参数 <code>time</code> 选择 <code>周</code>，时间格式 YYYY-Www。例 2012-W01，表示选择 2012 年的第一周。</p>
       </li>
     </ul>
   </dd>

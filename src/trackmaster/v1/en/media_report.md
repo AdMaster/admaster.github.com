@@ -160,7 +160,6 @@ It is connected with `start_time` and `end_time`.
 
   * `hourly` Get hourly unique data
   * `daily` Get daily unique data.
-  * `weekly` Get weekly unique data.
 
 `dims`
 : _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time.
@@ -191,7 +190,6 @@ It is connected with `start_time` and `end_time`.
 time | start_time   | description
 hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2012-W01
 
 
 `end_time`
@@ -200,7 +198,6 @@ weekly   | YYYY-Www     | 2012-W01
 time | end_time   | description
 hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2012-W01
 
 
 `sort`
