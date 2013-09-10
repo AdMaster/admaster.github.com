@@ -46,7 +46,6 @@ title: 广告维度统计数据
 {:.prettyprint}
     [
         {
-            ...
             dm:placement: 'ad3',//广告位
             dm:creative: 'intel',//创意
             mt:visits: 100, // 访问次数
@@ -58,6 +57,7 @@ title: 广告维度统计数据
             mt:pageLoadTime: 100,//页面加载时间
             mt:pageLoadSample: 100,//页面加载时间样本
             mt:dailyVisitors  //天独立 UV
+            ...
         },
         ...
     ]
