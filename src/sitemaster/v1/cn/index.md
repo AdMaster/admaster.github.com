@@ -13,7 +13,7 @@ SiteMaster 的流程逻辑如下图：
 
 ![image](sitemaster-logic.png)
 
-API 部分包括管理 API 和报告 API，管理 API 包括
+API 部分包括管理 API 和报告 API，管理 API 包括包括包括:
 
 1. [站点管理 API](site.html)
 2. [用户管理 API](site_user.html)
