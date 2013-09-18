@@ -26,6 +26,12 @@ title: 广告维度统计数据
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
+除常规指标以外，广告维度数据会返回 `目标` 相关的数据，以 mt:goal\_(n)\_completions、 mt:goal\_(1)\_visits 的名称返回（n 为 1 - 10）。
+
+mt:goal\_(n)\_completions 为指定目标的完成次数，mt:goal\_(1)\_visits 为指定目标完成的访问数。
+
+目标需要再 SiteMaster 的后台进行设定，可以为完成指定事件和到达指定页面两种类型，具体设置请参照 SiteMaster 的帮助中心。
+
 ## 资源地址
 
     GET /sites/:site_id/reports/ad
@@ -59,6 +65,12 @@ title: 广告维度统计数据
             mt:pageLoadTime: 100,//页面加载时间
             mt:pageLoadSample: 100,//页面加载时间样本
             mt:dailyVisitors  //天独立 UV
+            mt:goal_1_completions: "12" //目标 1 的完成次数
+            mt:goal_1_visits: "10"      //目标 1 的完成的访问数
+            mt:goal_2_completions: "120" //目标 2 的完成次数
+            mt:goal_2_visits: "112"      //目标 2 的完成的访问数
+            mt:goal_3_completions: "0" //目标 3 的完成次数
+            mt:goal_3_visits: "0"      //目标 3 的完成的访问数
             ...
         },
         ...

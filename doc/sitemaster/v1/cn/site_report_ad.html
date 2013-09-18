@@ -88,6 +88,12 @@
 
 <p>指标: <a href="/doc/sitemaster/v1/cn/site_report.html#section-2">常规指标</a></p>
 
+<p>除常规指标以外，广告维度数据会返回 <code>目标</code> 相关的数据，以 mt:goal_(n)_completions、 mt:goal_(1)_visits 的名称返回（n 为 1 - 10）。</p>
+
+<p>mt:goal_(n)_completions 为指定目标的完成次数，mt:goal_(1)_visits 为指定目标完成的访问数。</p>
+
+<p>目标需要再 SiteMaster 的后台进行设定，可以为完成指定事件和到达指定页面两种类型，具体设置请参照 SiteMaster 的帮助中心。</p>
+
 <h2 id="section-2">资源地址</h2>
 
 <pre><code>GET /sites/:site_id/reports/ad
@@ -149,6 +155,12 @@
         mt:pageLoadTime: 100,//页面加载时间
         mt:pageLoadSample: 100,//页面加载时间样本
         mt:dailyVisitors  //天独立 UV
+        mt:goal_1_completions: "12" //目标 1 的完成次数
+        mt:goal_1_visits: "10"      //目标 1 的完成的访问数
+        mt:goal_2_completions: "120" //目标 2 的完成次数
+        mt:goal_2_visits: "112"      //目标 2 的完成的访问数
+        mt:goal_3_completions: "0" //目标 3 的完成次数
+        mt:goal_3_visits: "0"      //目标 3 的完成的访问数
         ...
     },
     ...
@@ -161,70 +173,6 @@
       <div class="js-toggle-list sidebar-module expandable">
         <ul>
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
           
           
             
@@ -296,6 +244,70 @@
             
           
           
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
         
           
           
@@ -675,62 +687,6 @@
           
           
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-              <li class="js-topic">
-                <h3>
-                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/site_report.html">标准数据接口</a>
-                </h3>
-                <ul class="js-guides">
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_event.html">事件维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page.html">页面维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_referral.html">引荐来源维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_freq.html">访问频次维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_social.html">社会化维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_exit.html">退出页统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_event.html">页面事件维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_staytime.html">停留时间维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_depth.html">访问深度维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_integration.html">整合报告数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_region.html">地区维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_search.html">搜索维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_direct.html">直接访问统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_interval.html">访问间隔维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_ad.html">广告维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_browser.html">浏览器维度统计数据</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_landing.html">landing页统计数据</a></li>
-                  
-                </ul>
-              </li>
-            
-          
           
           
             
@@ -752,6 +708,54 @@
           
           
             
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_databank.html">数据银行数据分析接口</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_event.html">数据银行事件分析</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_page.html">数据银行页面浏览分析</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_result.html">数据银行分析结果查看</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_visit.html">数据银行访次分析</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databanks.html">获取任务列表</a></li>
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
           
           
           
@@ -763,12 +767,58 @@
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/visit.html">站点访问详情</a>
+                  <a  href="/doc/sitemaster/v1/cn/site_report.html">标准数据接口</a>
                 </h3>
                 <ul class="js-guides">
                   
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_ad.html">广告维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_browser.html">浏览器维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_event.html">事件维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_freq.html">访问频次维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_integration.html">整合报告数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_interval.html">访问间隔维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page.html">页面维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_depth.html">访问深度维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_direct.html">直接访问统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_event.html">页面事件维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_exit.html">退出页统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_page_landing.html">landing页统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_referral.html">引荐来源维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_region.html">地区维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_search.html">搜索维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_social.html">社会化维度统计数据</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_report_staytime.html">停留时间维度统计数据</a></li>
+                  
                 </ul>
               </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
@@ -844,56 +894,18 @@
           
           
             
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a  href="/doc/sitemaster/v1/cn/site_databank.html">数据银行数据分析接口</a>
+                  <a  href="/doc/sitemaster/v1/cn/visit.html">站点访问详情</a>
                 </h3>
                 <ul class="js-guides">
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_page.html">数据银行页面浏览分析</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_result.html">数据银行分析结果查看</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databanks.html">获取任务列表</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_event.html">数据银行事件分析</a></li>
-                  
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_databank_visit.html">数据银行访次分析</a></li>
                   
                 </ul>
               </li>
             
           
           
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
         
           
           
@@ -1021,50 +1033,6 @@
           
           
         
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
-          
-          
-            
-          
           
           
             
@@ -1107,12 +1075,56 @@
                 </h3>
                 <ul class="js-guides">
                   
-                  <li style=""><a href="/doc/sitemaster/v1/cn/site_js_pageview.html">虚拟页面</a></li>
-                  
                   <li style=""><a href="/doc/sitemaster/v1/cn/site_js_event.html">自定义事件</a></li>
+                  
+                  <li style=""><a href="/doc/sitemaster/v1/cn/site_js_pageview.html">虚拟页面</a></li>
                   
                 </ul>
               </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
             
           
           
