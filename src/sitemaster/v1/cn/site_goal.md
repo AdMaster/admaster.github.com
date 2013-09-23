@@ -14,7 +14,7 @@ title: 站点目标设置
 
 ## 获取指定站点的目标
 
-    GET /sites/:ID/goals
+    GET /sites/:site_id/goals
 
 **响应**
 
@@ -41,7 +41,7 @@ title: 站点目标设置
 
 ## 获取指定站点下某个目标信息
 
-    GET /sites/:ID/goals/:ID
+    GET /sites/:site_id/goals/:goals_id
 
 **响应**
 
