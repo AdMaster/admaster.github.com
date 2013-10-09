@@ -148,7 +148,7 @@ title: 媒体报告
 
 	Status: 200 OK
 	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
-      	<http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
+      	  <http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
 **参数**
 
 `pub_id`
