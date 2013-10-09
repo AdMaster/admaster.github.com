@@ -20,7 +20,8 @@ title: 更新
   </tr>
     <tr>
     <td>2013-08-07</td>
-    <td>变更项目报告中维度（dims）选择地域（geo）名称为province。原geo并行一段时间后<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
+    <td>变更项目报告中维度（dims）选择地域（geo）名称为province。原geo并行一段时间。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
+  </tr>
   <tr>
     <td>2013-08-06</td>
     <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
@@ -116,6 +117,7 @@ title: 更新
   </tr>
 </table> 
 
+
 ## 媒体接口/文档更新    
 
 <table width="560" border="0" bordercolor="#000000">
@@ -176,6 +178,7 @@ title: 更新
 	<td>获取地域信息时对应英文名称。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_territory.html">查看详细</a></td>
   </tr>
 </table>    
+
 
 
 ## 广告主接口/文档更新    
