@@ -138,6 +138,44 @@ title: 媒体报告
         "impression": 12039423,
         "click": 43432,
       }
+      
+
+## 获取IES报告(新接口)
+
+	GET /medias/:id/ies_reports
+
+**响应**
+
+	Status: 200 OK
+	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
+      	<http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
+**参数**
+
+`pub_id`
+: _可选_ **string** - pub_id 指定后只获取该 pub_id 的数据
+
+`date`
+: _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08, 不指定则获取前一天的数据
+
+`page`
+: _可选_ **integer** - 显示页码
+
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page` 显示 30 条之后的数据。
+
+`per_page`
+: _可选_ **integer** - 分页数量，默认每页 30 条
+
+返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
+
+{:.prettyprint}
+	[{
+  	"id": 30,
+  	"media_id":100,
+  	"geo_id": 1100000000,  		
+  	"pub_id": "PUB_IMloxn12345",
+  	"imp": 12039423,
+  	"clk": 43432
+	}]
 
 ## 获取指定媒体项目报告列表
 
