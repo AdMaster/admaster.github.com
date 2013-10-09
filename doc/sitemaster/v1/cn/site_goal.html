@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>站点访问详情 - sitemaster - AdMaster API 文档中心</title>
+  <title>站点目标设置 - sitemaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,280 +40,70 @@
 
     <div id="wrapper">
       <div class="content">
-        <h1 id="section">站点访问详情</h1>
+        <h1 id="section">站点目标</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#section-1">获取指定站点的访问详情</a></li>
-  <li><a href="#section-2">获取指定站点的页面浏览详情</a></li>
-  <li><a href="#section-3">获取指定站点的事件详情</a></li>
-  <li><a href="#filters-">filters 说明</a>    <ul>
-      <li><a href="#section-5">过滤器语法</a></li>
-    </ul>
-  </li>
-  <li><a href="#segment-">segment 说明</a></li>
+  <li><a href="#section-1">获取指定站点的目标</a></li>
+  <li><a href="#section-2">获取指定站点下某个目标信息</a></li>
+  <li><a href="#section-3">修改指定目标</a></li>
 </ul>
 
-<h2 id="section-1">获取指定站点的访问详情</h2>
+<h2 id="section-1">获取指定站点的目标</h2>
 
-<pre><code>GET /sites/:site_id/mt:visits
+<pre><code>GET /sites/:site_id/goals
 </code></pre>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/mt:visits?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/mt:visits?page=10&gt;; rel="last"
+Link: &lt;http://site.admasterapi.com/sites/123456/goals?page=2&gt;; rel="next",
+      &lt;http://site.admasterapi.com/sites/123456/goals?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>[
   {
-      "id": '2323fwfs',
-      "startTime": "2012-12-21 12:12:02",
-      "dm:stayTime": "1230",
-      "pageDepth": 5,
-      "visitorType": "new",
-      "visitCount" : 2,
-      "daysSinceLastVisit": 1,
-      "referralPath": "/home",
-      "campaign": 10234,
-      "placement" 200019232,
-      "medium": 1345,
-      "dm:keyword": 0,
-      "creative": 0,
-      "cookieSourceType": "view",
-      "cookieCampaign": 10269,
-      "cookiePlacement": 200011234,
-      "cookieMedium": 1239,
-      "cookieKeyword": 12,
-      "cookieCreative": 0,
-      "browser": "Chrome",
-      "browserVersion": "21.11.2.3",
-      "operatingSystem": "mac lion",
-      "operatingSystemVersion": "10.6",
-      "isMobile": "no",
-      "mobileDeviceBranding": "(not set)",
-      "mobileDeviceModel": "(not set)",
-      "mobileDeviceInfo": "(not set)",
-      "mobileInputSelector": "normal",
-      "dm:continent": "亚洲",
-      "dm:country": "中国",
-      "dm:province": "北京",
-      "dm:city": "北京",
-      "latitude": 114.21324,
-      "longitude": 42.12312,
-      "flashVersion": 11.1,
-      "javaEnabled": "yes",
-      "language": "zh_cn",
-      "screenColors": "32bit",
-      "screenResolution": "1440*900",
-      "landingPagePath": "/index",
-      "exitPagePath": "/about",
-      "date": "2012-12-21",
-      "month": 12,
-      "week": 45,
-      "hour": 15
+		"id":"1",           // 目标 ID,值为 1-10
+		"name":"",          // 设定的目标名称
+		"type":"",          // 类型
+		"status":"disabled",// 是否开启
+		"condition":"",     // 条件
+		"createdAt":"",     // 创建时间
+		"updatedAt":""      // 最近修改时间
   }
+  ...
 ]
 </code></pre>
 
-<p><strong>参数</strong></p>
+<h2 id="section-2">获取指定站点下某个目标信息</h2>
 
-<dl>
-  <dt><code>start-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 开始日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>end-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 结束日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>filters</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 过滤条件，可以对指标或者维度过滤，具体的过滤规则查看页面底部filter的说明</dd>
-  <dt><code>segment</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 高级细分，设置对访次的细分过滤，具体查看页面底部segment的说明</dd>
-  <dt><code>start-index</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据开始条目序号</dd>
-  <dt><code>max-results</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据条目最大条目数(系统限制小于5000，否则异常)</dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式，默认不排序格式</dd>
-</dl>
-
-<h2 id="section-2">获取指定站点的页面浏览详情</h2>
-
-<pre><code>GET /sites/:site_id/mt:pageviews
+<pre><code>GET /sites/:site_id/goals/:goals_id
 </code></pre>
 
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/mt:pageviews?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/mt:pageviews?page=10&gt;; rel="last"
+Link: &lt;http://site.admasterapi.com/sites/123456/goals/1&gt;; rel="next",
+      &lt;http://site.admasterapi.com/sites/123456/goals/1&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
-      "id": "12312",
-      "visitId": "1232323",
-      "pageId": "123123",
-      "dm:pageTitle": "欢迎来到admaster",
-      "pagePath": "/weclome",
-      "created_at": "2012-12-21 15:03:37",
-      "mt:pageLoadTime": 0,
-      "dm:stayTime": 123,
-      "referralUrl": "http://www.admaster.com.cn/",
-      "clickNum": 20
+<pre class="prettyprint"><code>{
+		"id":"1",           // 目标 ID,值为 1-10
+		"name":"",          // 设定的目标名称
+		"type":"",          // 类型
+		"status":"disabled",// 是否开启
+		"condition":"",     // 条件
+		"createdAt":"",     // 创建时间
+		"updatedAt":""      // 最近修改时间
   }
-]
 </code></pre>
 
-<p><strong>参数</strong></p>
+<h2 id="section-3">修改指定目标</h2>
 
-<dl>
-  <dt><code>start-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 开始日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>end-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 结束日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>filters</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 过滤条件，可以对指标或者维度过滤，具体的过滤规则查看页面底部filter的说明</dd>
-  <dt><code>segment</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 高级细分，设置对访次的细分过滤，具体查看页面底部segment的说明</dd>
-  <dt><code>start-index</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据开始条目序号</dd>
-  <dt><code>max-results</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据条目最大条目数(系统限制小于5000，否则异常)</dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式，默认不排序格式</dd>
-</dl>
-
-<h2 id="section-3">获取指定站点的事件详情</h2>
-
-<pre><code>GET /sites/:site_id/events
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxx/events?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites/xxxx/events?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<pre class="prettyprint"><code>[
-  {
-      "pageviewId": "123123",
-      "visitId": "123123",
-      "created_at": "2012-12-21 15:16:12",
-      "category": "首页",
-      "dm:eventAction": "登陆",
-      "dm:eventLabel": "(not set)",
-      "value": 120
-  }
-]
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>start-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 开始日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>end-date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 结束日期 格式 YYYY-mm-dd 例如: 2012-12-12</dd>
-  <dt><code>filters</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 过滤条件，可以对指标或者维度过滤，具体的过滤规则查看页面底部filter的说明</dd>
-  <dt><code>start-index</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据开始条目序号</dd>
-  <dt><code>max-results</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -数据条目最大条目数(系统限制小于5000，否则异常)</dd>
-  <dt><code>sort</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 排序方式，默认不排序格式
-## dimensions</dd>
-</dl>
-
-<h2 id="filters-">filters 说明</h2>
-
-<h4 id="section-4">过滤器操作符</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>操作符</th>
-      <th>描述</th>
-      <th>URL编码格式</th>
-      <th>举例</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>==</td>
-      <td>等于</td>
-      <td>%3D%3D</td>
-      <td>filters=mt:timeOnPage%3D%3D10，返回页面停留时间等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>!=</td>
-      <td>不等于</td>
-      <td>!%3D</td>
-      <td>filters=mt:timeOnPage!%3D10,返回页面停留时间不等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&gt;</td>
-      <td>大于</td>
-      <td>%3E</td>
-      <td>filters=ga:mt:timeOnPage%3E10，返回页面停留时间大于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&lt;</td>
-      <td>小于</td>
-      <td>%3C</td>
-      <td>filters=ga:mt:timeOnPage%3C10，返回页面停留时间小于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&gt;=</td>
-      <td>大于等于</td>
-      <td>%3E%3D</td>
-      <td>filters=ga:mt:timeOnPage%3E%3D10，返回页面停留时间大于等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>&lt;=</td>
-      <td>小于等于</td>
-      <td>%3C%3</td>
-      <td>filters=ga:mt:timeOnPage%3C%3D10，返回页面停留时间小于等于10秒的结果</td>
-    </tr>
-    <tr>
-      <td>=@</td>
-      <td>包含子串</td>
-      <td>%3D@</td>
-      <td>filters=ga:dm:city%3D@York，返回城市名中包含 York 字符的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>!@</td>
-      <td>不包含子串</td>
-      <td>!@</td>
-      <td>filters=ga:dm:city!@York，返回城市名中不包含 York 字符的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>=~</td>
-      <td>和后面语法匹配</td>
-      <td>%3D~</td>
-      <td>filters=ga:dm:city%3D~%5ENew.* ，返回城市名以 New 开头的统计指标数据</td>
-    </tr>
-    <tr>
-      <td>!~</td>
-      <td>和后面语法不匹配</td>
-      <td>!~</td>
-      <td>filters=ga:dm:city!~%5ENew.* ，返回城市名不以 New 开头的统计指标数据</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="section-5">过滤器语法</h3>
-
-<h2 id="segment-">segment 说明</h2>
-<p>mt:visits 接口可以根据 mt:pageviews 或者 events 的filters 进行过滤
-mt:pageviews 接口可以根据 event 的filters 进行过滤</p>
-
+<p>敬请期待。</p>
 
       </div>
       
@@ -1067,7 +857,7 @@ mt:pageviews 接口可以根据 event 的filters 进行过滤</p>
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/sitemaster/v1/cn/visit.html">站点访问详情</a>
+                  <a  href="/doc/sitemaster/v1/cn/visit.html">站点访问详情</a>
                 </h3>
                 <ul class="js-guides">
                   
