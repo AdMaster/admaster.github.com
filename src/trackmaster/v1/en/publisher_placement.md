@@ -18,14 +18,14 @@ title: Placement
 
 **Parameters**
 
-`media_id`
-: _Required_ **integer** - Media ID   
+`campaign_id`
+: _Optional_ **integer** - Campaign ID   
 
-	If the input is a part of placement name, it will search the placement.
 
 `name`
 : _Optional_ **string** - Placement Name
 
+	If the input is a part of placement name, it will search the placement.
 
 `page`
 : _Optional_ **integer** - the start index  

@@ -18,8 +18,8 @@ title: 广告位
 
 **参数**
 
-`media_id`
-: _必选_ **integer** - 系统媒体 ID
+`campaign_id`
+: _可选_ **integer** - 项目 ID
 
 `name`
 : _可选_ **string** - 广告位名称，支持模糊搜索
