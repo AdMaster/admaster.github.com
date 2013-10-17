@@ -127,7 +127,7 @@ title: 更新
   </tr>
           <tr>
     <td>2013-10-17</td>
-    <td>支持通过监测代码获取相关参数，此参数可以用于获取媒体报告接口。<a href="http://dev.admaster.com.cn/doc/doc/trackmaster/v1/cn/media_report.html#section-5">查看详细</a></td>
+    <td>支持通过监测代码获取相关参数，此参数可以用于获取媒体报告接口。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/media_report.html#section-5">查看详细</a></td>
   </tr>
 
         <tr>
