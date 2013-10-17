@@ -109,44 +109,67 @@ title: Publisher Report
     X-RateLimit-Remaining: 4999
 
 
-## Get iab data 
 
-    GET /medias/:id/ies
+## Get IES report
+
+	GET /medias/:id/ies_reports
 
 **Response**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/ies?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/ies?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+	Status: 200 OK
+	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
+      	  <http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
 
 **Parameters**
 
-`pubid`
-: _Optional_ **string** 
-
+`pub_id`
+: _Optional_ **string** - pub_id 
 
 `date`
-: _Optional_ **date** - Date of the form YYYY-MM-DD
-
-	If not supplied, the date is yesterday. The parament `date` is formatted according to the ISO 8601 standard.
-
+: _Optional_ **date** - YYYY-MM-DD
 `page`
 : _Optional_ **integer** - the start index
-       
-	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) The results in one page are 500.
+
+	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
+
+`per_page`
+: _Optional_ **integer** - the max-results
+
+	You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.
 
 {:.prettyprint}
-    [
-      {
-        "date": 130423,
-        "pubid": "IYK_IMloxnwepMEqlx",
-        "geoid": 1100000000,
-        "impression": 12039423,
-        "click": 43432,
-      }
-    ]
+	[{
+  	"id": 30,
+  	"media_id":100,
+  	"geo_id": 1100000000,  		
+  	"pub_id": "PUB_IMloxn12345",
+  	"imp": 12039423,
+  	"clk": 43432
+	}]
+
+
+
+## Get parameters from code
+
+    GET /medias/:id/code_params
+
+**Parameters**
+
+`code`
+: _Required_ **string** - Code
+
+
+
+{:.prettyprint}
+	{
+  	"campaign_id": "100",
+  	"placement_id":"100",
+  	"creative_id":"0"
+	}
+
+
+
+
 
 ## Get campaign report of the given medium
 

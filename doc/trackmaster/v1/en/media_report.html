@@ -47,7 +47,8 @@
   <li><a href="#get-daily-report-of-the-given-campaign">Get daily report of the given campaign</a></li>
   <li><a href="#get-daily-report-of-the-given-code">Get daily report of the given code</a></li>
   <li><a href="#get-campaign-report-of-the-given-code">Get campaign report of the given code</a></li>
-  <li><a href="#get-iab-data">Get iab data</a></li>
+  <li><a href="#get-ies-report">Get IES report</a></li>
+  <li><a href="#get-parameters-from-code">Get parameters from code</a></li>
   <li><a href="#get-campaign-report-of-the-given-medium">Get campaign report of the given medium</a></li>
 </ul>
 
@@ -161,46 +162,64 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="get-iab-data">Get iab data</h2>
+<h2 id="get-ies-report">Get IES report</h2>
 
-<pre><code>GET /medias/:id/ies
+<pre><code>GET /medias/:id/ies_reports
 </code></pre>
 
 <p><strong>Response</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/medias/1/ies?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/medias/1/ies?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+Link: &lt;http://track.admasterapi.com/medias/1/ies_reports?page=2&gt;; rel="next",
+  	  &lt;http://track.admasterapi.com/medias/1/ies_reports?page=10&gt;; rel="last"
 </code></pre>
 
 <p><strong>Parameters</strong></p>
 
 <dl>
-  <dt><code>pubid</code></dt>
-  <dd><em>Optional</em> <strong>string</strong> </dd>
+  <dt><code>pub_id</code></dt>
+  <dd><em>Optional</em> <strong>string</strong> - pub_id </dd>
   <dt><code>date</code></dt>
-  <dd><em>Optional</em> <strong>date</strong> - Date of the form YYYY-MM-DD
-
-    <p>If not supplied, the date is yesterday. The parament <code>date</code> is formatted according to the ISO 8601 standard.</p>
-  </dd>
-  <dt><code>page</code></dt>
+  <dd><em>Optional</em> <strong>date</strong> - YYYY-MM-DD
+<code>page</code></dd>
   <dd><em>Optional</em> <strong>integer</strong> - the start index
 
-    <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) The results in one page are 500.</p>
+    <p>If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.</p>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>Optional</em> <strong>integer</strong> - the max-results
+
+    <p>You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.</p>
   </dd>
 </dl>
 
-<pre class="prettyprint"><code>[
-  {
-    "date": 130423,
-    "pubid": "IYK_IMloxnwepMEqlx",
-    "geoid": 1100000000,
-    "impression": 12039423,
-    "click": 43432,
-  }
-]
+<pre class="prettyprint"><code>[{
+  	"id": 30,
+  	"media_id":100,
+  	"geo_id": 1100000000,  		
+  	"pub_id": "PUB_IMloxn12345",
+  	"imp": 12039423,
+  	"clk": 43432
+}]
+</code></pre>
+
+<h2 id="get-parameters-from-code">Get parameters from code</h2>
+
+<pre><code>GET /medias/:id/code_params
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<dl>
+  <dt><code>code</code></dt>
+  <dd><em>Required</em> <strong>string</strong> - Code</dd>
+</dl>
+
+<pre class="prettyprint"><code>{
+  	"campaign_id": "100",
+  	"placement_id":"100",
+  	"creative_id":"0"
+}
 </code></pre>
 
 <h2 id="get-campaign-report-of-the-given-medium">Get campaign report of the given medium</h2>

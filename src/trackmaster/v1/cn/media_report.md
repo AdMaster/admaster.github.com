@@ -186,7 +186,7 @@ title: 媒体报告
 
 **参数**
 
-`code_params`
+`code`
 : _必选_ **string** - 监测代码
 
 
