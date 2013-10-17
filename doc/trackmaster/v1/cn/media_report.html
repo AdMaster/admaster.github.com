@@ -49,7 +49,8 @@
   <li><a href="#section-4">获取指定监测代码下的项目报告</a></li>
   <li><a href="#iab-">媒体用户获取 iab 数据（此接口即将变更）</a></li>
   <li><a href="#ies">获取IES报告(新接口)</a></li>
-  <li><a href="#section-5">获取指定媒体项目报告列表</a></li>
+  <li><a href="#section-5">获取指定监测代码下的相关参数</a></li>
+  <li><a href="#section-6">获取指定媒体项目报告列表</a></li>
 </ul>
 
 <h2 id="section-1">获取指定媒体下的项目</h2>
@@ -201,8 +202,10 @@ X-RateLimit-Remaining: 4999
 
 <pre><code>Status: 200 OK
 Link: &lt;http://track.admasterapi.com/medias/1/ies_reports?page=2&gt;; rel="next",
-  	  &lt;http://track.admasterapi.com/medias/1/ies_reports?page=10&gt;; rel="last" **参数**
+  	  &lt;http://track.admasterapi.com/medias/1/ies_reports?page=10&gt;; rel="last"
 </code></pre>
+
+<p><strong>参数</strong></p>
 
 <dl>
   <dt><code>pub_id</code></dt>
@@ -232,7 +235,26 @@ Link: &lt;http://track.admasterapi.com/medias/1/ies_reports?page=2&gt;; rel="nex
 }]
 </code></pre>
 
-<h2 id="section-5">获取指定媒体项目报告列表</h2>
+<h2 id="section-5">获取指定监测代码下的相关参数</h2>
+
+<pre><code>GET /medias/:id/code_params
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>code_params</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 监测代码</dd>
+</dl>
+
+<pre class="prettyprint"><code>{
+  	"campaign_id": "100",
+  	"placement_id":"100",
+"creative_id":"0"
+}
+</code></pre>
+
+<h2 id="section-6">获取指定媒体项目报告列表</h2>
 
 <pre><code>GET /medias/:media_id/campaigns/:campaign_id/reports
 </code></pre>

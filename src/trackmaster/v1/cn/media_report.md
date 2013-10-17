@@ -149,6 +149,7 @@ title: 媒体报告
 	Status: 200 OK
 	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
       	  <http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
+
 **参数**
 
 `pub_id`
@@ -176,6 +177,28 @@ title: 媒体报告
   	"imp": 12039423,
   	"clk": 43432
 	}]
+
+
+
+## 获取指定监测代码下的相关参数
+
+    GET /medias/:id/code_params
+
+**参数**
+
+`code_params`
+: _必选_ **string** - 监测代码
+
+
+
+{:.prettyprint}
+	{
+  	"campaign_id": "100",
+  	"placement_id":"100",
+    "creative_id":"0"
+	}
+
+
 
 ## 获取指定媒体项目报告列表
 

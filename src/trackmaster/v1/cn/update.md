@@ -125,6 +125,11 @@ title: 更新
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
+          <tr>
+    <td>2013-10-17</td>
+    <td>支持通过监测代码获取相关参数，此参数可以用于获取媒体报告接口。<a href="http://dev.admaster.com.cn/doc/doc/trackmaster/v1/cn/media_report.html#section-5">查看详细</a></td>
+  </tr>
+
         <tr>
     <td>2013-10-09</td>
     <td>支持通过项目ID直接获取该项目下的广告位列表。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html#section-1">查看详细</a></td>
