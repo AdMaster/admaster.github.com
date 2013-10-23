@@ -1,10 +1,10 @@
 ---
-weight: 6
+weight: 7
 layout: default
 category: sitemaster
 subcategory: site_report
 language: cn
-title: 访问频次维度统计数据
+title: 分小时概览数据
 ---
 
 # 访问频次维度统计数据
@@ -18,14 +18,14 @@ title: 访问频次维度统计数据
 
 | 维度     | 说明     |
 |----------|----------|
-| dm:visitCount | 第几次访问 |
+| dm:hour | 小时 |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
 
 ##资源地址
 
-    GET /sites/:site_id/reports/visitor
+    GET /sites/:site_id/reports/hourly_summary
 
 ### 请求参数
 
@@ -47,7 +47,7 @@ title: 访问频次维度统计数据
 {:.prettyprint}
     [
         {
-            dm:visitCount: 3
+            dm:hour: 00
             mt:visits: 100,
             mt:pageviews: 100,
             mt:newVisits: 100,
