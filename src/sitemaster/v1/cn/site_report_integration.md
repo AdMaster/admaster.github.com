@@ -18,11 +18,9 @@ title: 整合报告数据
 
 | 维度                | 说明                                    |
 |---------------------|-----------------------------------------|
-| dm:campaign         | 活动                                    |
-| dm:medium           | 媒体                                    |
-| dm:placement        | 广告位                                  |
-| dm:creative         | 创意                                    |
-| dm:keyword          | 关键词                                  |
+| dm:cookieCampaign         | 项目                                    |
+| dm:cookieMedium           | 媒体                                    |
+| dm:cookiePlacement        | 广告位                                  |
 | dm:cookieSourceType | 来源类型，可选值view(曝光)，click(点击) |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
