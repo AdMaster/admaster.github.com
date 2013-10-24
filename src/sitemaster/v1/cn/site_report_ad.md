@@ -21,8 +21,6 @@ title: 广告维度统计数据
 | dm:campaign         | 项目                                    |
 | dm:medium           | 媒体                                    |
 | dm:placement        | 广告位                                  |
-| dm:creative         | 创意                                    |
-| dm:keyword          | 关键词                                  |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
