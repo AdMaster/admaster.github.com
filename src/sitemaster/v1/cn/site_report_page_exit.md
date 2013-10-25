@@ -20,8 +20,8 @@ title: 退出页统计数据
 | 维度         | 说明     |
 |--------------|----------|
 | dm:host      | 主机     |
-| dm:pageTitle | 页面标题 |
-| dm:pagePath  | 页面URL  |
+| dm:exitPageTitle | 退出标题 |
+| dm:exitPageURL  | 退出页URL  |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 

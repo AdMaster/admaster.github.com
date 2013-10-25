@@ -19,8 +19,8 @@ title: landing页统计数据
 
 | 维度         | 说明                                                              |
 |--------------|-------------------------------------------------------------------|
-| dm:pageTitle | 页面标题                                                          |
-| dm:pagePath  | 页面URL                                                           |
+| dm:landingPageTitle | 登陆页标题                                                          |
+| dm:landingPageURL  | 登陆页URL                                                           |
 
 指标: [常规指标](/doc/sitemaster/v1/cn/site_report.html#section-2)
 
