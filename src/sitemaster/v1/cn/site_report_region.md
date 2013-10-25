@@ -1,13 +1,13 @@
 ---
-weight: 6
+weight: 2
 layout: default
 category: sitemaster
 subcategory: site_report
 language: cn
-title: 地区维度统计数据
+title: 地理信息
 ---
 
-# 地区维度统计数据
+# 地理信息
 
 * TOC
 {:toc}

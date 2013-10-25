@@ -1,13 +1,13 @@
 ---
-weight: 7
+weight: 20
 layout: default
 category: sitemaster
 subcategory: site_report
 language: cn
-title: 分小时概览数据
+title: 分时概览
 ---
 
-# 分小时概览数据
+# 分时概览
 
 * TOC
 {:toc}
