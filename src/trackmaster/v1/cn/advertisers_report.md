@@ -20,11 +20,11 @@ title: 广告主报告
 **参数**
 
 `time`
-: _必选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
+: _可选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
 
 
   * `hourly` 获取小时数据
-  * `daily` 获取日数据
+  * `daily` 获取日数据——默认
 
 `dims`
 : _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开。
