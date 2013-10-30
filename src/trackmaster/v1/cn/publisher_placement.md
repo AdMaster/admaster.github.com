@@ -61,8 +61,6 @@ title: 广告位
         "cost_type": "day"
         //购买量
         "units": 58,
-        //其他要求
-        "other_requirement": "没有什么要求",
         //创建时间
         "created_at": "2012-09-06T20:39:23Z",
         //广告位所属频道 ID
@@ -115,8 +113,6 @@ title: 广告位
         "cost_type": "day"
         //购买量
         "units": 58,
-        //其他要求
-        "other_requirement": "没有什么要求",
         //创建时间
         "created_at": "2012-09-06T20:39:23Z",
         //广告位所属频道 ID
