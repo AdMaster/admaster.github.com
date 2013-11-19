@@ -37,10 +37,10 @@ title: 媒体报告
 **参数**
 
 `start_time`
-: _可选_ **date** - 项目开始日期，例如 2012-08-01，会列出项目开始日期大于等于此设定的项目
+: _可选_ **date** - 报告开始日期，例如 2012-08-01
 
 `end_time`
-: _可选_ **date** - 项目结束日期，例如 2012-08-02，会列出项目结束日期小于等于此设定的项目
+: _可选_ **date** - 报告结束日期，例如 2012-08-02
 
 `sort`
 : _可选_ **string** - 列表排序以什么排序
@@ -105,39 +105,6 @@ title: 媒体报告
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
-
-## 媒体用户获取 iab 数据（此接口即将变更）
-
-    GET /medias/:id/ies
-
-**响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/ies?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/ies?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-**参数**
-
-`pubid`
-: _可选_ **string** - pubid 指定后只获取该 pubid 的数据
-
-`date`
-: _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取前一天的数据
-
-`page`
-: _可选_ **integer** - 显示页码，默认显示页面为“1”，每页500条
-
-
-{:.prettyprint}
-      {
-        "date": 130423,
-        "pubid": "IYK_IMloxnwepMEqlx",
-        "geoid": 1100000000,
-        "impression": 12039423,
-        "click": 43432,
-      }
       
 
 ## 获取IES报告(新接口)
@@ -236,7 +203,7 @@ title: 媒体报告
 : _可选_ **integer** - 地域 ID
 
 `start_time`
-: _可选_ **hour** - 开始时间，会列出日期大于等于此设定的项目，与参数`time`一起使用。  
+: _可选_ **hour** - 报告开始时间，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
   * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
@@ -246,7 +213,7 @@ title: 媒体报告
 
 
 `end_time`
-: _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。  
+: _可选_ **hour** - 报告结束时间，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
   * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
