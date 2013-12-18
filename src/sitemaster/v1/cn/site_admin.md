@@ -1,5 +1,5 @@
 ---
-weight: 5
+weight: 2
 layout: default
 category: sitemaster
 language: cn

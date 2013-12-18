@@ -1,7 +1,7 @@
 ---
 weight: 5
 layout: default
-category: sitemaster_hide
+category: sitemaster
 language: cn
 title: 站点
 ---
