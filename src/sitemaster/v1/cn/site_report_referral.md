@@ -1,8 +1,8 @@
 ---
 weight: 6
 layout: default
-category: sitemaster
-subcategory: site_report
+category: sitemaster_hide
+subcategory: site_report_hide
 language: cn
 title: 引荐来源维度统计数据
 ---

@@ -1,8 +1,8 @@
 ---
 weight: 6
 layout: default
-category: sitemaster
-subcategory: site_admin
+category: sitemaster_hide
+subcategory: site_admin_hide
 language: cn
 title: 站点目标设置
 ---

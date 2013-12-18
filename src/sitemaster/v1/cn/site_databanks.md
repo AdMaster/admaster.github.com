@@ -1,8 +1,8 @@
 ---
 weight: 1
 layout: default
-category: sitemaster
-subcategory: site_databank
+category: sitemaster_hide
+subcategory: site_databank_hide
 language: cn
 title: 获取任务列表
 ---

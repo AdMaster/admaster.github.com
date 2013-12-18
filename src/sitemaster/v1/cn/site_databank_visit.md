@@ -1,8 +1,8 @@
 ---
 weight: 6
 layout: default
-category: sitemaster
-subcategory: site_databank
+category: sitemaster_hide
+subcategory: site_databank_hide
 language: cn
 title: 数据银行访次分析
 ---

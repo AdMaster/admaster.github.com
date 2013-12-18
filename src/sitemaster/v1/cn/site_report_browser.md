@@ -1,8 +1,8 @@
 ---
 weight: 6
 layout: default
-category: sitemaster
-subcategory: site_report
+category: sitemaster_hide
+subcategory: site_report_hide
 language: cn
 title: 浏览器维度统计数据
 ---

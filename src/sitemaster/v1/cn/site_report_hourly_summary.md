@@ -1,8 +1,8 @@
 ---
 weight: 20
 layout: default
-category: sitemaster
-subcategory: site_report
+category: sitemaster_hide
+subcategory: site_report_hide
 language: cn
 title: 分时概览
 ---

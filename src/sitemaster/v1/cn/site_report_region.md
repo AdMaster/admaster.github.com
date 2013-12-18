@@ -1,8 +1,8 @@
 ---
 weight: 2
 layout: default
-category: sitemaster
-subcategory: site_report
+category: sitemaster_hide
+subcategory: site_report_hide
 language: cn
 title: 地理信息
 ---

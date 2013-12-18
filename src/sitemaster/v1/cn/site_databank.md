@@ -1,7 +1,7 @@
 ---
 weight: 5
 layout: default
-category: sitemaster
+category: sitemaster_hide
 language: cn
 title: 数据银行数据分析接口
 ---
