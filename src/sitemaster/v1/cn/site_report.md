@@ -76,17 +76,4 @@ filters查询用法及说明如下
 | mt:newVisitsRate  | 新访比例         |
 | mt:bounceRate     | 跳出比例         |
 
-## API 目录
 
-* [地区维度统计数据](/doc/sitemaster/v1/cn/site_report_region.html)
-* [广告维度统计数据](/doc/sitemaster/v1/cn/site_report_ad.html)
-* [事件维度统计数据](/doc/sitemaster/v1/cn/site_report_event.html)
-* [访问频次统计数据](/doc/sitemaster/v1/cn/site_report_freq.html)
-* [页面统计数据](/doc/sitemaster/v1/cn/site_report_page.html)
-* [访问深度统计数据](/doc/sitemaster/v1/cn/site_report_page_depth.html)
-* [页面事件统计数据](/doc/sitemaster/v1/cn/site_report_page_event.html)
-* [流量来源统计数据](/doc/sitemaster/v1/cn/site_report_referral.html)
-* [搜索引擎统计数据](/doc/sitemaster/v1/cn/site_report_search.html)
-* [社交媒体统计数据](/doc/sitemaster/v1/cn/site_report_social.html)
-* [停留时间统计数据](/doc/sitemaster/v1/cn/site_report_staytime.html)
-* [浏览器统计数据](/doc/sitemaster/v1/cn/site_report_browser.html)
