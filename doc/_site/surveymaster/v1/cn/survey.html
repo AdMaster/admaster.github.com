@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>问卷相关 - surveymaster - AdMaster API 文档中心</title>
+  <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/doc/assets/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/doc/assets/js/prettify.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/doc/assets/js/jquery.js" type="text/javascript"></script>
+  <script src="/doc/assets/js/documentation.js" type="text/javascript"></script>
+  <script src="/doc/assets/js/prettify.js" type="text/javascript"></script>
+  <script>
+    $(function() {
+      // make code pritty
+      window.prettyPrint && prettyPrint();
+    });
+  </script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/doc/assets/img/logo_developer.png" width="256" height="45"></a>
+          <ul class="nav">
+            <li><a href="/doc/openmaster/v1/cn/index.html">OpenMaster</a></li>
+            <li><a href="/doc/trackmaster/v1/cn/index.html">TrackMaster</a></li>
+            <li><a href="/doc/weibomaster/v1/cn/index.html">WeiboMaster</a></li>
+            <li><a href="/doc/surveymaster/v1/cn/index.html">SurveyMaster</a></li>
+            <li><a href="/doc/sitemaster/v1/cn/index.html">SiteMaster</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+        <ul id="markdown-toc">
+  <li><a href="#section">1. 获取问卷列表</a></li>
+  <li><a href="#section-1">2. 获取某个用户问卷列表</a></li>
+  <li><a href="#section-2">3. 创建问卷</a></li>
+  <li><a href="#section-3">4. 获取指定问卷详情</a></li>
+  <li><a href="#section-4">5. 修改指定问卷</a></li>
+</ul>
+
+<h2 id="section">1. 获取问卷列表</h2>
+
+<pre><code>GET /surveys
+</code></pre>
+
+<ul>
+  <li>根据当前用户权限，获取此用户可查看的问卷列表</li>
+  <li>普通用户仅查看自己建立的问卷</li>
+  <li>管理员可查看所有问卷</li>
+</ul>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 指定排序方式
+
+    <ul>
+      <li><code>created_at</code> - 建立时间</li>
+      <li><code>updated_at</code> - 最后更新时间</li>
+      <li><code>landing_count</code> - 查看问卷用户数</li>
+      <li><code>answered_count</code> - 回答问卷用户数</li>
+      <li><code>finished_count</code> - 完整回答问卷用户数</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 排序方式
+
+    <ul>
+      <li><code>asc</code> - 升序</li>
+      <li><code>desc</code> - 降序 (<em>默认</em>)</li>
+    </ul>
+  </dd>
+  <dt><code>created_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之后的问卷
+
+    <ul>
+      <li><code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+      <li><code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+    </ul>
+  </dd>
+  <dt><code>created_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之前的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>updated_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之后的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>updated_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之前的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 页数</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>[
+  {
+    "survey_id" : 112,
+    "url" : "http://api.surveymaster.com/surveys/112",
+    "logo" : "http://domain.com/img/logo.gif",
+    "title" : "伊利8月新生活",
+    "label" : "第一波",
+    "owner_id" : 123,
+    "created_at" : "2012-07-31T09:36:27Z",
+    "updated_at" : "2012-07-31T09:46:27Z",
+    "head" : "感谢您参与我们的问卷调查。",
+    "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+    "show_progressbar" : "no",
+    "show_page_number" : "yes",
+    "question_numbering" : "global",
+    "is_onepage" : "no",
+    "is_deleted" : "no",
+    "landing_count" : 50000,
+    "answered_count" : 30000,
+    "finished_count" : 5000
+  },
+  {
+    /* 另一文档数据 */
+  }
+]
+</code></pre>
+
+<h2 id="section-1">2. 获取某个用户问卷列表</h2>
+
+<pre><code>GET /users/:user_id/surveys
+</code></pre>
+
+<ul>
+  <li>仅管理员可获取指定用户的问卷列表</li>
+</ul>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 指定排序方式
+
+    <ul>
+      <li><code>id</code> - 按问卷ID排序（<em>默认</em>）</li>
+      <li><code>created_at</code> - 建立时间</li>
+      <li><code>updated_at</code> - 最后更新时间</li>
+      <li><code>landing_count</code> - 查看问卷用户数</li>
+      <li><code>answered_count</code> - 回答问卷用户数</li>
+      <li><code>finished_count</code> - 完整回答问卷用户数</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 排序方式
+
+    <ul>
+      <li><code>asc</code> - 升序</li>
+      <li><code>desc</code> - 降序 (<em>默认</em>)</li>
+    </ul>
+  </dd>
+  <dt><code>created_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之后的问卷
+
+    <ul>
+      <li><code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+      <li><code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+    </ul>
+  </dd>
+  <dt><code>created_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之前的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>updated_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之后的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>updated_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之前的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 页数</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>[
+  {
+    "survey_id" : 112,
+    "url" : "http://api.surveymaster.com/surveys/112",
+    "logo" : "http://domain.com/img/logo.gif",
+    "title" : "伊利8月新生活",
+    "label" : "第一波",
+    "owner_id" : 123,
+    "created_at" : "2012-07-31T09:36:27Z",
+    "updated_at" : "2012-07-31T09:46:27Z",
+    "head" : "感谢您参与我们的问卷调查。",
+    "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+    "show_progressbar" : "no",
+    "show_page_number" : "yes",
+    "question_numbering" : "global",
+    "is_onepage" : "no",
+    "is_deleted" : "no",
+    "landing_count" : 50000,
+    "answered_count" : 30000,
+    "finished_count" : 5000
+  },
+  {
+    /* 另一文档数据 */
+  }
+]
+</code></pre>
+
+<h2 id="section-2">3. 创建问卷</h2>
+
+<pre><code>POST /surveys
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<dl>
+  <dt><code>logo</code></dt>
+  <dd><em>可选</em> <em>String</em> - LOGO图标地址</dd>
+  <dt><code>title</code></dt>
+  <dd><em>必选</em> <em>String</em> - 问卷标题，长度范围2 - 100个字符</dd>
+  <dt><code>label</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问卷说明</dd>
+  <dt><code>head</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问卷头信息</dd>
+  <dt><code>foot</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问卷尾信息</dd>
+  <dt><code>show_progressbar</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否显示进度条</dd>
+  <dt><code>is_onepage</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否在一页显示</dd>
+  <dt><code>show_page_number</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否显示页号</dd>
+  <dt><code>question_numbering</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问题编号方式
+
+    <ul>
+      <li><code>global</code> - 全局编号方式</li>
+      <li><code>in_page</code> - 页内编号方式</li>
+    </ul>
+  </dd>
+</dl>
+
+<pre class="prettyprint"><code>{
+  "logo" : "http://domain.com/img/logo.gif",
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "head" : "首先感谢您参与我们的问卷调查。",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
+  "show_progressbar" : "no",
+  "is_onepage" : "no",
+  "show_page_number" : "yes",
+  "question_numbering" : "global",
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201 Created
+Location: http://api.surveymaster.com.cn/surveys
+</code></pre>
+
+<pre class="prettyprint"><code>{
+  "survey_id" : 112,
+  "url" : "http://api.surveymaster.com.cn/surveys/112",
+  "logo" : "http://domain.com/img/logo.gif",
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "owner_id" : 123,
+  "created_at" : "2012-07-31T09:36:27Z",
+  "updated_at" : "2012-07-31T09:46:27Z",
+  "head" : "感谢您参与我们的问卷调查。",
+  "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+  "show_progressbar" : "no",
+  "show_page_number" : "yes",
+  "question_numbering" : "global",
+  "is_onepage" : "no",
+  "is_deleted" : "no",
+  "landing_count" : 0,
+  "answered_count" : 0,
+  "finished_count" : 0
+}
+</code></pre>
+
+<h2 id="section-3">4. 获取指定问卷详情</h2>
+
+<pre><code>GET /surveys/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>{
+  "survey_id" : 112,
+  "url" : "http://api.surveymaster.com.cn/surveys/112",
+  "logo" : "http://domain.com/img/logo.gif",
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "owner_id" : 123,
+  "created_at" : "2012-07-31T09:36:27Z",
+  "updated_at" : "2012-07-31T09:46:27Z",
+  "head" : "感谢您参与我们的问卷调查。",
+  "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+  "show_progressbar" : "no",
+  "show_page_number" : "yes",
+  "question_numbering" : "global",
+  "is_onepage" : "no",
+  "is_deleted" : "no",
+  "landing_count" : 0,
+  "answered_count" : 0,
+  "finished_count" : 0
+}
+</code></pre>
+
+<h2 id="section-4">5. 修改指定问卷</h2>
+
+<pre><code>PATCH /surveys/:id
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<dl>
+  <dt><code>logo</code></dt>
+  <dd><em>可选</em> <em>String</em> - LOGO图标地址</dd>
+  <dt><code>title</code></dt>
+  <dd><em>必选</em> <em>String</em> - 问卷标题，长度范围2 - 100个字符</dd>
+  <dt><code>label</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问卷说明</dd>
+  <dt><code>head</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问卷头信息</dd>
+  <dt><code>foot</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问卷尾信息</dd>
+  <dt><code>show_progressbar</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否显示进度条</dd>
+  <dt><code>is_onepage</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否在一页显示</dd>
+  <dt><code>show_page_number</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否显示页号</dd>
+  <dt><code>question_numbering</code></dt>
+  <dd><em>可选</em> <em>String</em> - 问题编号方式
+
+    <ul>
+      <li><code>global</code> - 全局编号方式</li>
+      <li><code>in_page</code> - 页内编号方式</li>
+    </ul>
+  </dd>
+  <dt><code>is_deleted</code></dt>
+  <dd><em>可选</em> <em>String</em> - 是否删除</dd>
+</dl>
+
+<pre class="prettyprint"><code>{
+  "logo" : "http://domain.com/img/logo.gif",
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "head" : "首先感谢您参与我们的问卷调查。",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
+  "show_progressbar" : "no",
+  "is_onepage" : "no",
+  "show_page_number" : "yes",
+  "question_numbering" : "global",
+  "is_deleted" : "no"
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+</code></pre>
+
+      </div>
+      
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/index.html">SurveyMaster首页</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a class="active" href="/doc/surveymaster/v1/cn/survey.html">问卷相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/page.html">页相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/question.html">问题相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/respondent.html">答题人相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/collector.html">渠道相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/answer.html">答案相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/prelogic.html">前置逻辑相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/postlogic.html">后置逻辑相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/stats.html">统计相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/user.html">用户相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/surveymaster/v1/cn/acl.html">权限相关</a>
+                </h3>
+                <ul class="js-guides">
+                  
+                </ul>
+              </li>
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+          
+            
+          
+          
+        
+       </ul>
+      </div> <!-- /sidebar-module -->
+
+      <div class="sidebar-module">
+        <p>
+          <a href="/doc/surveymaster/v1/cn/index.html">中文 (中国)</a>
+          - <a href="/doc/surveymaster/v1/en/index.html">English</a>
+        </p>
+      </div>
+
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">
+          <div id="legal">
+              <!--<ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>-->
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+              <p>&nbsp;</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
