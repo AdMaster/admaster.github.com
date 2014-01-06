@@ -59,8 +59,8 @@
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites?page=2&gt;; rel="next",
-      &lt;http://site.admasterapi.com/sites?page=10&gt;; rel="last"
+Link: &lt;http://v1.site.admasterapi.com/sites?page=2&gt;; rel="next",
+      &lt;http://v1.site.admasterapi.com/sites?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -68,7 +68,7 @@ X-RateLimit-Remaining: 4999
 <pre class="prettyprint"><code>[
   {
       id: "xxxxx", //站点id
-      url: "http://site.admasterapi.com/sites/xxxxx",//站点接口地址
+      url: "http://v1.site.admasterapi.com/sites/xxxxx",//站点接口地址
       name: "测试站点名称", //测试站点名称
       homePage: "http://www.test.com/",//站点首页地址
       founder: "wangwei@admaster.com.cn",//站点创始人
@@ -85,15 +85,15 @@ X-RateLimit-Remaining: 4999
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 200 OK
-Link: &lt;http://site.admasterapi.com/sites/xxxxx/analytics&gt;; rel="analytics"
-      &lt;http://site.admasterapi.com/sites/xxxxx/users&gt;; rel="users"
+Link: &lt;http://v1.site.admasterapi.com/sites/xxxxx/analytics&gt;; rel="analytics"
+      &lt;http://v1.site.admasterapi.com/sites/xxxxx/users&gt;; rel="users"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
     id: "xxxxx", //站点id
-    url: "http://site.admasterapi.com/sites/xxxxx",//站点接口地址
+    url: "http://v1.site.admasterapi.com/sites/xxxxx",//站点接口地址
     name: "测试站点名称", //测试站点名称
     homePage: "http://www.test.com/",//站点首页地址
     founder: "wangwei@admaster.com.cn",//站点创始人
@@ -126,14 +126,14 @@ X-RateLimit-Remaining: 4999
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 201 Created
-Location: http://site.admasterapi.com/site/xxxxx
+Location: http://v1.site.admasterapi.com/site/xxxxx
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
     id: "xxxxx", //站点id
-    url: "http://site.admasterapi.com/sites/xxxxx",//站点接口地址
+    url: "http://v1.site.admasterapi.com/sites/xxxxx",//站点接口地址
     name: "测试站点名称", //测试站点名称
     homePage: "http://www.test.com/",//站点首页地址
     founder: "wangwei@admaster.com.cn",//站点创始人
