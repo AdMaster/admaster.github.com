@@ -31,9 +31,9 @@ title: OpenMaster文档首页
 
 ## 着手开发
 
-如果您需要进行 TrackMaster API 的相关开发工作，请进入[TrackMaster API开发文档][TrackMaster API]了解详细功能。
-如果您需要进行 TrackMaster API 的相关开发工作，请进入[SiteMaster API开发文档][SiteMaster API]了解详细功能。    
-如果您需要进行 SurveyMaster API 的相关开发工作，请进入[SurveyMaster API开发文档][SurveyMaster API]了解详细功能。
+如果您需要进行 TrackMaster API 的相关开发工作，请进入[TrackMaster API开发文档][TrackMaster API]了解详细功能。  
+如果您需要进行 SiteMaster API 的相关开发工作，请进入[SiteMaster API开发文档][SiteMaster API]了解详细功能。  
+如果您需要进行 SurveyMaster API 的相关开发工作，请进入[SurveyMaster API开发文档][SurveyMaster API]了解详细功能。  
 
 如果您是富有经验的开发者，请阅读[快速开发范例][get_started]。
 
