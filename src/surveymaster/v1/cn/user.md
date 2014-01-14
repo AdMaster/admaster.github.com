@@ -12,6 +12,26 @@ language: cn
 ## 1. 获取所有用户列表
 	GET /admin/users
 
+**参数**
+
+`sort`
+: _可选_ **String** - 指定排序方式
+
+  * `created_at` - 建立时间
+  * `expires_at` - 到期时间
+
+`direction`
+: _可选_ **String** - 排序方式
+
+  * `asc`  - 升序
+  * `desc` - 降序 (_默认_)
+
+`keyword`
+: _可选_ **String** - 排序方式
+
+  * `username`  - 根据用户名查找
+  * `email`     - 根据email查找
+
 **响应**
 
     Status: 200 OK
