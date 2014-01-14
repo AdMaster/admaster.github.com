@@ -10,24 +10,26 @@ language: cn
 {:toc}
 
 ## 1. 获取所有用户列表
-	GET /users
+	GET /admin/users
 
 **响应**
 
     Status: 200 OK
 
 {:.prettyprint}
-    [
-	    {
-		    "user_id" : 1,
-		    "url" : 'http://api.surveymaster.com.cn/users/1',
-		    "username" : 'example',
-		    "email" : 'example@admaster.com.cn',
-		    "uuid" : "a7f8d684-e4ff-11e1-af03-00188b440125",
-		    "expires_at" : 1353919645,
-		    "created_at" : 1353317459,
-	    }
-    ]
+  [
+    {
+      created_at: "2014-01-10T16:01:17+08:00",
+      email: "example@admaster.com.cn",
+      expires_at: "2014-01-14T11:08:17+08:00",
+      ip: "127.0.0.1",
+      is_admin: true,
+      login_at: "2014-01-14T10:38:50+08:00",
+      username: "example",
+      uuid: "feed0f10-9113-0130-17c7-00188b440125",
+      id: "52cfa8cde092372bf6000001"
+    }
+  ]
 
 
 ## 2. 获取当前登录用户信息
@@ -39,16 +41,20 @@ language: cn
 
 {:.prettyprint}
 	{
-		"user_id" : 1,
-		"username" : 'example',
-		"email" : 'example@admaster.com.cn',
-		"uuid" : "a7f8d684-e4ff-11e1-af03-00188b440125",
-		"expires_at" : 1353919645,
-		"created_at" : 1353317459,
+    created_at: "2014-01-10T16:01:17+08:00",
+    email: "example@admaster.com.cn",
+    expires_at: "2014-01-14T11:08:17+08:00",
+    ip: "127.0.0.1",
+    is_admin: true,
+    login_at: "2014-01-14T10:38:50+08:00",
+    username: "example",
+    uuid: "feed0f10-9113-0130-17c7-00188b440125",
+    id: "52cfa8cde092372bf6000001"
 	}
 
+
 ## 3. 获取指定用户信息
-	GET /users/:id
+	GET /admin/users/:id
 
 **响应**
 
@@ -56,28 +62,29 @@ language: cn
 
 {:.prettyprint}
 	{
-		"user_id" : 1,
-		"url" : 'http://api.surveymaster.com.cn/users/1',
-		"username" : 'example',
-		"email" : 'example@admaster.com.cn',
-		"uuid" : "a7f8d684-e4ff-11e1-af03-00188b440125",
-		"expires_at" : 1353919645,
-		"created_at" : 1353317459,
+    created_at: "2014-01-10T16:01:17+08:00",
+    email: "example@admaster.com.cn",
+    expires_at: "2014-01-14T11:08:17+08:00",
+    ip: "127.0.0.1",
+    is_admin: true,
+    login_at: "2014-01-14T10:38:50+08:00",
+    username: "example",
+    uuid: "feed0f10-9113-0130-17c7-00188b440125",
+    id: "52cfa8cde092372bf6000001"
 	}
 
 
-
 ## 4. 添加用户
-	POST /users
+	POST /admin/users
 
 **请求**
 
 {:.prettyprint}
 	{
-		"username" : 'example',
-		"email" : 'example@admaster.com.cn',
-		"uuid" : "a7f8d684-e4ff-11e1-af03-00188b440125",
-    	"access_token" : "4ca8cc1d9d6b6328401a4737904a8e367ecefad3"
+    email: "example@admaster.com.cn",
+    username: "example",
+    uuid: "feed0f10-9113-0130-17c7-00188b440125",
+    access_token: "4ca8cc1d9d6b6328401a4737904a8e367ecefad3"
 	}
 
 **响应**
@@ -87,31 +94,85 @@ language: cn
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    {
-	    "user_id" : 1,/* 用户id(自增) */
-    }
+  {
+    created_at: "2014-01-10T16:01:17+08:00",
+    email: "example@admaster.com.cn",
+    expires_at: "2014-01-14T11:08:17+08:00",
+    ip: "127.0.0.1",
+    is_admin: true,
+    login_at: "2014-01-14T10:38:50+08:00",
+    username: "example",
+    uuid: "feed0f10-9113-0130-17c7-00188b440125",
+    id: "52cfa8cde092372bf6000001"
+  }
 
-## 5. 修改指定的用户
-	PATCH /users/:id
+
+## 5. 修改指定的用户信息
+	PATCH /admin/users/:id
 
 **请求**
 
 {:.prettyprint}
 	{
-		"username" : 'example',
-		"email" : 'example@admaster.com.cn',
+    email: "example@admaster.com.cn",
+    username: "example"
 	}
 
 
 **响应**
 
-    Status: 204 No Content
+    Status: 201 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
+{:.prettyprint}
+  {
+    created_at: "2014-01-10T16:01:17+08:00",
+    email: "example@admaster.com.cn",
+    expires_at: "2014-01-14T11:08:17+08:00",
+    ip: "127.0.0.1",
+    is_admin: true,
+    login_at: "2014-01-14T10:38:50+08:00",
+    username: "example",
+    uuid: "feed0f10-9113-0130-17c7-00188b440125",
+    id: "52cfa8cde092372bf6000001"
+  }
+
+
+## 5. 修改当前登录用户信息
+  PATCH /users
+
+**请求**
+
+{:.prettyprint}
+  {
+    email: "example@admaster.com.cn",
+    username: "example"
+  }
+
+
+**响应**
+
+    Status: 201 No Content
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+  {
+    created_at: "2014-01-10T16:01:17+08:00",
+    email: "example@admaster.com.cn",
+    expires_at: "2014-01-14T11:08:17+08:00",
+    ip: "127.0.0.1",
+    is_admin: true,
+    login_at: "2014-01-14T10:38:50+08:00",
+    username: "example",
+    uuid: "feed0f10-9113-0130-17c7-00188b440125",
+    id: "52cfa8cde092372bf6000001"
+  }
+
 
 ## 6. 删除指定的用户
-	DELETE /users/:id
+	DELETE /admin/users/:id
 
 **响应**
 
