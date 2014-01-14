@@ -55,11 +55,6 @@ language: cn
       },
       track_logic: {
         _id: "52d4b09ee092371da500000c",
-        activity: {
-          _id: "52d4b09ee092371da500000f",
-          redirect: "",
-          status: false
-        },
         campaign:[],
         click: {
           _id: "52d4b09ee092371da500000e",
@@ -118,11 +113,6 @@ language: cn
     },
     track_logic: {
       _id: "52d4b09ee092371da500000c",
-      activity: {
-        _id: "52d4b09ee092371da500000f",
-        redirect: "",
-        status: false
-      },
       campaign:[],
       click: {
         _id: "52d4b09ee092371da500000e",
@@ -163,34 +153,30 @@ language: cn
     redirect: "baidu.com", // 答题结束后跳转地址
     passwd: "a4$_B8addj_09jhk"
     cross: {
-      callback: "",
-      param:[],
-      status: false
-    },
+      callback: "", // 第三方回调地址
+      param:[], // 第三方参数
+      status: false // 状态
+    },  // 第三方交互
     track_logic: {
-      activity: {
-        redirect: "",
-        status: false
-      },
-      campaign:[],
+      campaign:[], // 甄别活动
       click: {
         redirect: "",
         status: false
-      },
+      }, // 点击甄别
       exposure: {
         redirect: "",
         status: false
-      },
-      status: false
-    },
+      }, // 曝光甄别
+      status: false // 状态
+    }, // 广告甄别
     prologue: {
       content: "",
       status: false
-    },
+    }, // 开场白
     epilogue: {
       content: "",
       status: false
-    }
+    } // 结束语
   }
 
 **响应**
@@ -223,11 +209,6 @@ language: cn
     },
     track_logic: {
       _id: "52d4b09ee092371da500000c",
-      activity: {
-        _id: "52d4b09ee092371da500000f",
-        redirect: "",
-        status: false
-      },
       campaign:[],
       click: {
         _id: "52d4b09ee092371da500000e",
@@ -272,10 +253,6 @@ language: cn
       status: false
     },
     track_logic: {
-      activity: {
-        redirect: "",
-        status: false
-      },
       campaign:[],
       click: {
         redirect: "",
@@ -327,11 +304,6 @@ language: cn
     },
     track_logic: {
       _id: "52d4b09ee092371da500000c",
-      activity: {
-        _id: "52d4b09ee092371da500000f",
-        redirect: "",
-        status: false
-      },
       campaign:[],
       click: {
         _id: "52d4b09ee092371da500000e",
