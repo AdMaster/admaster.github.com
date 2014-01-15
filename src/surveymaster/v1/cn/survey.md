@@ -15,7 +15,6 @@ language: cn
 
 * 根据当前用户权限，获取此用户可查看的问卷列表
 * 普通用户仅查看自己建立的问卷
-* 管理员可查看所有问卷
 
 **参数**
 
@@ -24,9 +23,7 @@ language: cn
 
   * `created_at` - 建立时间
   * `updated_at` - 最后更新时间
-  * `landing_count` - 查看问卷用户数
-  * `answered_count` - 回答问卷用户数
-  * `finished_count` - 完整回答问卷用户数
+  * `status`     - 查看问卷状态
 
 `direction`
 : _可选_ **String** - 排序方式
@@ -45,16 +42,6 @@ language: cn
 
   * 同`created_start`
 
-`updated_start`
-: _可选_ **integer** - 指定此参数，将获取最后修改时间在此范围之后的问卷
-
-  * 同`created_start`
-
-`updated_end`
-: _可选_ **integer** - 指定此参数，将获取最后修改时间在此范围之前的问卷
-
-  * 同`created_start`
-
 `per_page`
 : _可选_ **integer** - 每页显示记录数，默认30
 
@@ -66,50 +53,41 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-    [
-      {
-        "survey_id" : 112,
-        "url" : "http://api.surveymaster.com/surveys/112",
-        "logo" : "http://domain.com/img/logo.gif",
-        "title" : "伊利8月新生活",
-        "label" : "第一波",
-        "owner_id" : 123,
-        "created_at" : "2012-07-31T09:36:27Z",
-        "updated_at" : "2012-07-31T09:46:27Z",
-        "head" : "感谢您参与我们的问卷调查。",
-        "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-        "show_progressbar" : "no",
-        "show_page_number" : "yes",
-        "question_numbering" : "global",
-        "is_onepage" : "no",
-        "is_deleted" : "no",
-        "landing_count" : 50000,
-        "answered_count" : 30000,
-        "finished_count" : 5000
-      },
-      {
-        /* 另一文档数据 */
+  [
+    {
+      answered_count: 0,
+      created_at: "2014-01-14T11:34:58+08:00",
+      deleted_at: null,
+      finished_count: 0,
+      label: "",
+      landing_count: 0,
+      qualified_count: 0,
+      title: "test",
+      updated_at: "2014-01-14T11:35:17+08:00",
+      user_id: "52cfa8cde092372bf6000001",
+      id: "52d4b062e092371da5000001",
+      logo:  {
+        _id: "52d4b062e092371da5000002",
+        status: true,
+        url: ""
       }
-    ]
+    }
+  ]
 
+## 2. 获取所有问卷列表
 
-## 2. 获取某个用户问卷列表
+    GET /admin/surveys
 
-    GET /users/:user_id/surveys
-
-* 仅管理员可获取指定用户的问卷列表
+* 仅管理员可获取所有的问卷列表
 
 **参数**
 
 `sort`
 : _可选_ **String** - 指定排序方式
 
-  * `id` - 按问卷ID排序（_默认_）
   * `created_at` - 建立时间
   * `updated_at` - 最后更新时间
-  * `landing_count` - 查看问卷用户数
-  * `answered_count` - 回答问卷用户数
-  * `finished_count` - 完整回答问卷用户数
+  * `status`     - 查看问卷状态
 
 `direction`
 : _可选_ **String** - 排序方式
@@ -128,13 +106,73 @@ language: cn
 
   * 同`created_start`
 
-`updated_start`
-: _可选_ **integer** - 指定此参数，将获取最后修改时间在此范围之后的问卷
+`per_page`
+: _可选_ **integer** - 每页显示记录数，默认30
 
-  * 同`created_start`
+`page`
+: _可选_ **integer** - 页数
 
-`updated_end`
-: _可选_ **integer** - 指定此参数，将获取最后修改时间在此范围之前的问卷
+**响应**
+
+    Status: 200 OK
+
+{:.prettyprint}
+  [
+    {
+      answered_count: 0,
+      created_at: "2014-01-14T11:34:58+08:00",
+      deleted_at: null,
+      finished_count: 0,
+      label: "",
+      head: "xxx",
+      foot: "xxx",
+      show_progressbar: true,
+      show_page_number: true,
+      question_numbering: 'global',
+      freq_control: true,
+      landing_count: 0,
+      qualified_count: 0,
+      title: "test",
+      updated_at: "2014-01-14T11:35:17+08:00",
+      user_id: "52cfa8cde092372bf6000001",
+      id: "52d4b062e092371da5000001",
+      logo:  {
+        _id: "52d4b062e092371da5000002",
+        status: true,
+        url: ""
+      }
+    }
+  ]
+
+## 3. 获取某个用户问卷列表
+
+    GET /admin/users/:user_id/surveys
+
+* 仅管理员可获取所有的问卷列表
+
+**参数**
+
+`sort`
+: _可选_ **String** - 指定排序方式
+
+  * `created_at` - 建立时间
+  * `updated_at` - 最后更新时间
+  * `status`     - 查看问卷状态
+
+`direction`
+: _可选_ **String** - 排序方式
+
+  * `asc` - 升序
+  * `desc` - 降序 (_默认_)
+
+`created_start`
+: _可选_ **integer** - 指定此参数，将获取建立时间在此范围之后的问卷
+
+  * `2012-08-03` - 符合ISO 8601格式的日期形式
+  * `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
+
+`created_end`
+: _可选_ **integer** - 指定此参数，将获取建立时间在此范围之前的问卷
 
   * 同`created_start`
 
@@ -149,41 +187,117 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-    [
-      {
-        "survey_id" : 112,
-        "url" : "http://api.surveymaster.com/surveys/112",
-        "logo" : "http://domain.com/img/logo.gif",
-        "title" : "伊利8月新生活",
-        "label" : "第一波",
-        "owner_id" : 123,
-        "created_at" : "2012-07-31T09:36:27Z",
-        "updated_at" : "2012-07-31T09:46:27Z",
-        "head" : "感谢您参与我们的问卷调查。",
-        "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-        "show_progressbar" : "no",
-        "show_page_number" : "yes",
-        "question_numbering" : "global",
-        "is_onepage" : "no",
-        "is_deleted" : "no",
-        "landing_count" : 50000,
-        "answered_count" : 30000,
-        "finished_count" : 5000
-      },
-      {
-        /* 另一文档数据 */
+  [
+    {
+      answered_count: 0,
+      created_at: "2014-01-14T11:34:58+08:00",
+      deleted_at: null,
+      finished_count: 0,
+      label: "",
+      head: "xxx",
+      foot: "xxx",
+      show_progressbar: true,
+      show_page_number: true,
+      question_numbering: 'global',
+      freq_control: true,
+      landing_count: 0,
+      qualified_count: 0,
+      title: "test",
+      updated_at: "2014-01-14T11:35:17+08:00",
+      user_id: "52cfa8cde092372bf6000001",
+      id: "52d4b062e092371da5000001",
+      logo:  {
+        _id: "52d4b062e092371da5000002",
+        status: true,
+        url: ""
       }
-    ]
+    }
+  ]
+
+## 4. 获取当前用户指定问卷
+
+    GET /surveys/:id
+
+* 根据当前用户权限，获取此用户可查看的问卷列表
+* 普通用户仅查看自己建立的问卷
+
+**参数**
+
+`sort`
+: _可选_ **String** - 指定排序方式
+
+  * `created_at` - 建立时间
+  * `updated_at` - 最后更新时间
+  * `status`     - 查看问卷状态
+
+`direction`
+: _可选_ **String** - 排序方式
+
+  * `asc` - 升序
+  * `desc` - 降序 (_默认_)
+
+`created_start`
+: _可选_ **integer** - 指定此参数，将获取建立时间在此范围之后的问卷
+
+  * `2012-08-03` - 符合ISO 8601格式的日期形式
+  * `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
+
+`created_end`
+: _可选_ **integer** - 指定此参数，将获取建立时间在此范围之前的问卷
+
+  * 同`created_start`
+
+`per_page`
+: _可选_ **integer** - 每页显示记录数，默认30
+
+`page`
+: _可选_ **integer** - 页数
+
+**响应**
+
+    Status: 200 OK
+
+{:.prettyprint}
+  {
+    answered_count: 0,
+    created_at: "2014-01-14T11:34:58+08:00",
+    deleted_at: null,
+    finished_count: 0,
+    label: "",
+    head: "xxx",
+    foot: "xxx",
+    show_progressbar: true,
+    show_page_number: true,
+    question_numbering: 'global',
+    freq_control: true,
+    landing_count: 0,
+    qualified_count: 0,
+    title: "test",
+    updated_at: "2014-01-14T11:35:17+08:00",
+    user_id: "52cfa8cde092372bf6000001",
+    id: "52d4b062e092371da5000001",
+    logo:  {
+      _id: "52d4b062e092371da5000002",
+      status: true,
+      url: ""
+    }
+  }
 
 
-## 3. 创建问卷
+## 5. 创建问卷
 
     POST /surveys
 
 **请求**
 
+`method`
+: _可选_ *String* - 复制模板/复制问卷
+: { method: 'tpl', history_id: 'tpl_id' }
+: { method: 'copy', history_id: 'survey_id' }
+
 `logo`
-: _可选_ *String* - LOGO图标地址
+: _可选_ *Hash* - LOGO相关信息
+: { logo: { status: true, url: 'xxxx'}}
 
 `title`
 : _必选_ *String* - 问卷标题，长度范围2 - 100个字符
@@ -197,100 +311,79 @@ language: cn
 `foot`
 : _可选_ *String* - 问卷尾信息
 
-`show_progressbar`
-: _可选_ *String* - 是否显示进度条
+`freq_control`
+: _可选_ *Boolean* - 是否开启频次控制
 
-`is_onepage`
-: _可选_ *String* - 是否在一页显示
+`show_progressbar`
+: _可选_ *Boolean* - 是否显示进度条
 
 `show_page_number`
-: _可选_ *String* - 是否显示页号
+: _可选_ *Boolean* - 是否显示页号
 
 `question_numbering`
 : _可选_ *String* - 问题编号方式
 
+  * `none`   - 无编号方式
   * `global` - 全局编号方式
-  * `in_page` - 页内编号方式
+  * `bypage` - 页内编号方式
 
 {:.prettyprint}
-    {
-      "logo" : "http://domain.com/img/logo.gif",
-      "title" : "伊利8月新生活",
-      "label" : "第一波",
-      "head" : "首先感谢您参与我们的问卷调查。",
-      "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
-      "show_progressbar" : "no",
-      "is_onepage" : "no",
-      "show_page_number" : "yes",
-      "question_numbering" : "global",
+  {
+    label: "abc",
+    head: "xxx",
+    foot: "xxx",
+    show_progressbar: true,
+    show_page_number: true,
+    question_numbering: 'global',
+    freq_control: true,
+    title: "test",
+    logo:  {
+      status: true,
+      url: "xxx"
     }
+  }
 
 **响应**
 
-    Status: 201 Created
-    Location: http://api.surveymaster.com.cn/surveys
+    Status: 201
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    {
-      "survey_id" : 112,
-      "url" : "http://api.surveymaster.com.cn/surveys/112",
-      "logo" : "http://domain.com/img/logo.gif",
-      "title" : "伊利8月新生活",
-      "label" : "第一波",
-      "owner_id" : 123,
-      "created_at" : "2012-07-31T09:36:27Z",
-      "updated_at" : "2012-07-31T09:46:27Z",
-      "head" : "感谢您参与我们的问卷调查。",
-      "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-      "show_progressbar" : "no",
-      "show_page_number" : "yes",
-      "question_numbering" : "global",
-      "is_onepage" : "no",
-      "is_deleted" : "no",
-      "landing_count" : 0,
-      "answered_count" : 0,
-      "finished_count" : 0
+  {
+    answered_count: 0,
+    created_at: "2014-01-14T11:34:58+08:00",
+    deleted_at: null,
+    finished_count: 0,
+    label: "",
+    head: "xxx",
+    foot: "xxx",
+    show_progressbar: true,
+    show_page_number: true,
+    question_numbering: 'global',
+    freq_control: true,
+    landing_count: 0,
+    qualified_count: 0,
+    title: "test",
+    updated_at: "2014-01-14T11:35:17+08:00",
+    user_id: "52cfa8cde092372bf6000001",
+    id: "52d4b062e092371da5000001",
+    logo:  {
+      _id: "52d4b062e092371da5000002",
+      status: true,
+      url: ""
     }
+  }
 
-
-## 4. 获取指定问卷详情
-
-    GET /surveys/:id
-
-**响应**
-
-    Status: 200 OK
-
-{:.prettyprint}
-    {
-      "survey_id" : 112,
-      "url" : "http://api.surveymaster.com.cn/surveys/112",
-      "logo" : "http://domain.com/img/logo.gif",
-      "title" : "伊利8月新生活",
-      "label" : "第一波",
-      "owner_id" : 123,
-      "created_at" : "2012-07-31T09:36:27Z",
-      "updated_at" : "2012-07-31T09:46:27Z",
-      "head" : "感谢您参与我们的问卷调查。",
-      "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-      "show_progressbar" : "no",
-      "show_page_number" : "yes",
-      "question_numbering" : "global",
-      "is_onepage" : "no",
-      "is_deleted" : "no",
-      "landing_count" : 0,
-      "answered_count" : 0,
-      "finished_count" : 0
-    }
-
-## 5. 修改指定问卷
+## 6. 修改指定问卷
 
     PATCH /surveys/:id
 
 **请求**
 
 `logo`
-: _可选_ *String* - LOGO图标地址
+: _可选_ *Hash* - LOGO相关信息
+: { logo: { status: true, url: 'xxxx'}}
 
 `title`
 : _必选_ *String* - 问卷标题，长度范围2 - 100个字符
@@ -304,38 +397,187 @@ language: cn
 `foot`
 : _可选_ *String* - 问卷尾信息
 
-`show_progressbar`
-: _可选_ *String* - 是否显示进度条
+`freq_control`
+: _可选_ *Boolean* - 是否开启频次控制
 
-`is_onepage`
-: _可选_ *String* - 是否在一页显示
+`show_progressbar`
+: _可选_ *Boolean* - 是否显示进度条
 
 `show_page_number`
-: _可选_ *String* - 是否显示页号
+: _可选_ *Boolean* - 是否显示页号
 
 `question_numbering`
 : _可选_ *String* - 问题编号方式
 
+  * `none`   - 无编号方式
   * `global` - 全局编号方式
-  * `in_page` - 页内编号方式
-
-`is_deleted`
-: _可选_ *String* - 是否删除
+  * `bypage` - 页内编号方式
 
 {:.prettyprint}
-    {
-      "logo" : "http://domain.com/img/logo.gif",
-      "title" : "伊利8月新生活",
-      "label" : "第一波",
-      "head" : "首先感谢您参与我们的问卷调查。",
-      "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
-      "show_progressbar" : "no",
-      "is_onepage" : "no",
-      "show_page_number" : "yes",
-      "question_numbering" : "global",
-      "is_deleted" : "no"
+  {
+    label: "abc",
+    head: "xxx",
+    foot: "xxx",
+    show_progressbar: true,
+    show_page_number: true,
+    question_numbering: 'global',
+    freq_control: true,
+    title: "test",
+    logo:  {
+      status: true,
+      url: "xxx"
     }
+  }
+
+**响应**
+
+    Status: 201
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+  {
+    answered_count: 0,
+    created_at: "2014-01-14T11:34:58+08:00",
+    deleted_at: null,
+    finished_count: 0,
+    label: "",
+    head: "xxx",
+    foot: "xxx",
+    show_progressbar: true,
+    show_page_number: true,
+    question_numbering: 'global',
+    freq_control: true,
+    landing_count: 0,
+    qualified_count: 0,
+    title: "test",
+    updated_at: "2014-01-14T11:35:17+08:00",
+    user_id: "52cfa8cde092372bf6000001",
+    id: "52d4b062e092371da5000001",
+    logo:  {
+      _id: "52d4b062e092371da5000002",
+      status: true,
+      url: ""
+    }
+  }
+
+## 7. 删除指定的问卷
+  DELETE /surveys/:id
 
 **响应**
 
     Status: 204 No Content
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+## 8. 获取所有问卷模板
+
+    GET /surveys/template/all
+
+{:.prettyprint}
+  {
+    answered_count: 0,
+    created_at: "2013-06-06T15:12:47+08:00",
+    deleted_at: null,
+    finished_count: 0,
+    label: "",
+    landing_count: 0,
+    qualified_count: 0,
+    title: "标准人口属性问卷",
+    updated_at: "2014-01-07T12:35:45+08:00",
+    user_id: "5159419c866106a1c9000001",
+    id: "51c00a26a4d6318cc6a79546",
+    logo: {
+      _id: "523053e3866106ee6e0000b1",
+      status: true,
+      url: ""
+    }
+  }
+
+## 9. 获取已删除的问卷
+
+    GET /admin/surveys/deleted
+
+* 仅管理员可获取所有的问卷列表
+
+**参数**
+
+`sort`
+: _可选_ **String** - 指定排序方式
+
+  * `created_at` - 建立时间
+  * `updated_at` - 最后更新时间
+  * `status`     - 查看问卷状态
+
+`direction`
+: _可选_ **String** - 排序方式
+
+  * `asc` - 升序
+  * `desc` - 降序 (_默认_)
+
+`created_start`
+: _可选_ **integer** - 指定此参数，将获取建立时间在此范围之后的问卷
+
+  * `2012-08-03` - 符合ISO 8601格式的日期形式
+  * `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
+
+`created_end`
+: _可选_ **integer** - 指定此参数，将获取建立时间在此范围之前的问卷
+
+  * 同`created_start`
+
+`per_page`
+: _可选_ **integer** - 每页显示记录数，默认30
+
+`page`
+: _可选_ **integer** - 页数
+
+**响应**
+
+    Status: 200 OK
+
+{:.prettyprint}
+  [
+    {
+      answered_count: 0,
+      created_at: "2014-01-14T11:34:58+08:00",
+      deleted_at: null,
+      finished_count: 0,
+      label: "",
+      landing_count: 0,
+      qualified_count: 0,
+      title: "test",
+      updated_at: "2014-01-14T11:35:17+08:00",
+      user_id: "52cfa8cde092372bf6000001",
+      id: "52d4b062e092371da5000001",
+      logo:  {
+        _id: "52d4b062e092371da5000002",
+        status: true,
+        url: ""
+      }
+    }
+  ]
+
+## 10. 恢复被删除的问卷
+
+    PATCH /admin/surveys/:survey_id/restore
+
+* 仅管理员可恢复问卷
+
+**响应**
+
+    Status: 201
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+## 11. 彻底删除的问卷
+
+    DELETE /admin/surveys/:survey_id/crashing
+
+* 仅管理员可彻底删除问卷
+
+**响应**
+
+    Status: 204
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
