@@ -41,66 +41,185 @@
     <div id="wrapper">
       <div class="content">
         <ul id="markdown-toc">
-  <li><a href="#section">1. 创建页</a></li>
-  <li><a href="#section-1">2. 获取指定页详情</a></li>
-  <li><a href="#section-2">3. 修改指定页</a></li>
+  <li><a href="#section">1. 获取页列表</a></li>
+  <li><a href="#section-1">2. 获取指定页前面的所有页列表</a></li>
+  <li><a href="#section-2">3. 获取指定页后面的所有页列表</a></li>
+  <li><a href="#section-3">4. 获取指定页详情</a></li>
+  <li><a href="#section-4">5. 创建页</a></li>
+  <li><a href="#section-5">6. 修改指定页</a></li>
+  <li><a href="#section-6">7. 删除指定页</a></li>
+  <li><a href="#section-7">8. 移动指定页</a></li>
+  <li><a href="#section-8">9. 在指定页进行分页</a></li>
 </ul>
 
-<h2 id="section">1. 创建页</h2>
+<h2 id="section">1. 获取页列表</h2>
+<pre><code>GET /surveys/:survey_id/pages
+</code></pre>
 
+<pre class="prettyprint"><code>[
+    {
+        "description": "",
+        "number": 1,
+        "survey_id": "52d4b062e092371da5000001",
+        "title": "",
+        "id": "52d4b066e092371da5000003"
+    }
+]
+</code></pre>
+
+<h2 id="section-1">2. 获取指定页前面的所有页列表</h2>
+<pre><code>GET /surveys/:survey_id/pages/:page_id/higher_siblings
+</code></pre>
+
+<pre class="prettyprint"><code>[
+    {
+        "description": "",
+        "number": 1,
+        "survey_id": "52d4b062e092371da5000001",
+        "title": "",
+        "id": "52d4b066e092371da5000003"
+    }
+]
+</code></pre>
+
+<h2 id="section-2">3. 获取指定页后面的所有页列表</h2>
+<pre><code>GET /surveys/:survey_id/pages/:page_id/lower_siblings
+</code></pre>
+
+<pre class="prettyprint"><code>[
+    {
+        "description": "",
+        "number": 1,
+        "survey_id": "52d4b062e092371da5000001",
+        "title": "",
+        "id": "52d4b066e092371da5000003"
+    }
+]
+</code></pre>
+
+<h2 id="section-3">4. 获取指定页详情</h2>
+<pre><code>GET /surveys/:survey_id/pages/:id
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "description": "",
+    "number": 1,
+    "survey_id": "52d4b062e092371da5000001",
+    "title": "",
+    "id": "52d4b066e092371da5000003"
+}
+</code></pre>
+
+<h2 id="section-4">5. 创建页</h2>
 <pre><code>POST /surveys/:survey_id/pages
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 201 Created
-Location: http://api.surveymaster.com.cn/surveys/123/pages
-</code></pre>
-
-<pre class="prettyprint"><code>{
-  "page_id" : 1,
-  "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
-  "survey_id" : 112,    /* 问卷ID */
-  "order_num" : 1,   /* 显示顺序 */
-  "is_deleted" : "no"
-}
-</code></pre>
-
-<h2 id="section-1">2. 获取指定页详情</h2>
-
-<pre><code>GET /surveys/pages/:id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-</code></pre>
-
-<pre class="prettyprint"><code>{
-    "page_id" : 1,
-    "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
-    "survey_id" : 112,
-    "order_num" : 1,   /* 显示顺序 */
-    "is_deleted" : "no"
-}
-</code></pre>
-
-<h2 id="section-2">3. 修改指定页</h2>
-
-<pre><code>PATCH /surveys/pages/:id
 </code></pre>
 
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
-    "order_num" : 1,   /* 显示顺序 */
-    "is_deleted" : "no"
+    "description": "xxx",
+    "title": "xxx"
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre><code>Status: 201
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "description": "",
+    "number": 1,
+    "survey_id": "52d4b062e092371da5000001",
+    "title": "",
+    "id": "52d4b066e092371da5000003"
+}
+</code></pre>
+
+<h2 id="section-5">6. 修改指定页</h2>
+<pre><code>PATCH /surveys/:survey_id/pages/:id
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+    "description": "xxx",
+    "title": "xxx"
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "description": "",
+    "number": 1,
+    "survey_id": "52d4b062e092371da5000001",
+    "title": "",
+    "id": "52d4b066e092371da5000003"
+}
+</code></pre>
+
+<h2 id="section-6">7. 删除指定页</h2>
+<pre><code>DELETE /surveys/:survey_id/pages/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204
+</code></pre>
+
+<h2 id="section-7">8. 移动指定页</h2>
+<pre><code>PATCH /surveys/:survey_id/pages/:page_id/move
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+    "position": "up/down/top/bottom/above/below",
+    "other_id": "52d4b066e092371da5000003"
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "description": "",
+    "number": 1,
+    "survey_id": "52d4b062e092371da5000001",
+    "title": "",
+    "id": "52d4b066e092371da5000003"
+}
+</code></pre>
+
+<h2 id="section-8">9. 在指定页进行分页</h2>
+<pre><code>PATCH /surveys/:survey_id/pages/:page_id/split
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+    "separate_id": "52d4b075e092371da5000004" // 需要分页的question_id
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "description": "",
+    "number": 1,
+    "survey_id": "52d4b062e092371da5000001",
+    "title": "",
+    "id": "52d4b066e092371da5000003"
+}
 </code></pre>
 
       </div>

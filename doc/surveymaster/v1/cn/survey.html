@@ -42,21 +42,25 @@
       <div class="content">
         <ul id="markdown-toc">
   <li><a href="#section">1. 获取问卷列表</a></li>
-  <li><a href="#section-1">2. 获取某个用户问卷列表</a></li>
-  <li><a href="#section-2">3. 创建问卷</a></li>
-  <li><a href="#section-3">4. 获取指定问卷详情</a></li>
-  <li><a href="#section-4">5. 修改指定问卷</a></li>
+  <li><a href="#section-1">2. 获取所有问卷列表</a></li>
+  <li><a href="#section-2">3. 获取某个用户问卷列表</a></li>
+  <li><a href="#section-3">4. 获取当前用户指定问卷</a></li>
+  <li><a href="#section-4">5. 创建问卷</a></li>
+  <li><a href="#section-5">6. 修改指定问卷</a></li>
+  <li><a href="#section-6">7. 删除指定的问卷</a></li>
+  <li><a href="#section-7">8. 获取所有问卷模板</a></li>
+  <li><a href="#section-8">9. 获取已删除的问卷</a></li>
+  <li><a href="#section-9">10. 恢复被删除的问卷</a></li>
+  <li><a href="#section-10">11. 彻底删除的问卷</a></li>
 </ul>
 
 <h2 id="section">1. 获取问卷列表</h2>
-
 <pre><code>GET /surveys
 </code></pre>
 
 <ul>
   <li>根据当前用户权限，获取此用户可查看的问卷列表</li>
   <li>普通用户仅查看自己建立的问卷</li>
-  <li>管理员可查看所有问卷</li>
 </ul>
 
 <p><strong>参数</strong></p>
@@ -68,9 +72,7 @@
     <ul>
       <li><code>created_at</code> - 建立时间</li>
       <li><code>updated_at</code> - 最后更新时间</li>
-      <li><code>landing_count</code> - 查看问卷用户数</li>
-      <li><code>answered_count</code> - 回答问卷用户数</li>
-      <li><code>finished_count</code> - 完整回答问卷用户数</li>
+      <li><code>status</code>     - 查看问卷状态</li>
     </ul>
   </dd>
   <dt><code>direction</code></dt>
@@ -96,20 +98,6 @@
       <li>同<code>created_start</code></li>
     </ul>
   </dd>
-  <dt><code>updated_start</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之后的问卷
-
-    <ul>
-      <li>同<code>created_start</code></li>
-    </ul>
-  </dd>
-  <dt><code>updated_end</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之前的问卷
-
-    <ul>
-      <li>同<code>created_start</code></li>
-    </ul>
-  </dd>
   <dt><code>per_page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
   <dt><code>page</code></dt>
@@ -122,39 +110,33 @@
 </code></pre>
 
 <pre class="prettyprint"><code>[
-  {
-    "survey_id" : 112,
-    "url" : "http://api.surveymaster.com/surveys/112",
-    "logo" : "http://domain.com/img/logo.gif",
-    "title" : "伊利8月新生活",
-    "label" : "第一波",
-    "owner_id" : 123,
-    "created_at" : "2012-07-31T09:36:27Z",
-    "updated_at" : "2012-07-31T09:46:27Z",
-    "head" : "感谢您参与我们的问卷调查。",
-    "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-    "show_progressbar" : "no",
-    "show_page_number" : "yes",
-    "question_numbering" : "global",
-    "is_onepage" : "no",
-    "is_deleted" : "no",
-    "landing_count" : 50000,
-    "answered_count" : 30000,
-    "finished_count" : 5000
-  },
-  {
-    /* 另一文档数据 */
-  }
+    {
+      "answered_count": 0,
+      "created_at": "2014-01-14T11:34:58+08:00",
+      "deleted_at": null,
+      "finished_count": 0,
+      "label": "",
+      "landing_count": 0,
+      "qualified_count": 0,
+      "title": "test",
+      "updated_at": "2014-01-14T11:35:17+08:00",
+      "user_id": "52cfa8cde092372bf6000001",
+      "id": "52d4b062e092371da5000001",
+      "logo":  {
+          "_id": "52d4b062e092371da5000002",
+          "status": true,
+          "url": ""
+      }
+    }
 ]
 </code></pre>
 
-<h2 id="section-1">2. 获取某个用户问卷列表</h2>
-
-<pre><code>GET /users/:user_id/surveys
+<h2 id="section-1">2. 获取所有问卷列表</h2>
+<pre><code>GET /admin/surveys
 </code></pre>
 
 <ul>
-  <li>仅管理员可获取指定用户的问卷列表</li>
+  <li>仅管理员可获取所有的问卷列表</li>
 </ul>
 
 <p><strong>参数</strong></p>
@@ -164,12 +146,9 @@
   <dd><em>可选</em> <strong>String</strong> - 指定排序方式
 
     <ul>
-      <li><code>id</code> - 按问卷ID排序（<em>默认</em>）</li>
       <li><code>created_at</code> - 建立时间</li>
       <li><code>updated_at</code> - 最后更新时间</li>
-      <li><code>landing_count</code> - 查看问卷用户数</li>
-      <li><code>answered_count</code> - 回答问卷用户数</li>
-      <li><code>finished_count</code> - 完整回答问卷用户数</li>
+      <li><code>status</code>     - 查看问卷状态</li>
     </ul>
   </dd>
   <dt><code>direction</code></dt>
@@ -195,15 +174,83 @@
       <li>同<code>created_start</code></li>
     </ul>
   </dd>
-  <dt><code>updated_start</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之后的问卷
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 页数</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>[
+    {
+        "answered_count": 0,
+        "created_at": "2014-01-14T11:34:58+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "test",
+        "updated_at": "2014-01-14T11:35:17+08:00",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d4b062e092371da5000001",
+        "logo":  {
+            "_id": "52d4b062e092371da5000002",
+            "status": true,
+            "url": ""
+        }
+    }
+]
+</code></pre>
+
+<h2 id="section-2">3. 获取某个用户问卷列表</h2>
+<pre><code>GET /admin/users/:user_id/surveys
+</code></pre>
+
+<ul>
+  <li>仅管理员可获取所有的问卷列表</li>
+</ul>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 指定排序方式
 
     <ul>
-      <li>同<code>created_start</code></li>
+      <li><code>created_at</code> - 建立时间</li>
+      <li><code>updated_at</code> - 最后更新时间</li>
+      <li><code>status</code>     - 查看问卷状态</li>
     </ul>
   </dd>
-  <dt><code>updated_end</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取最后修改时间在此范围之前的问卷
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 排序方式
+
+    <ul>
+      <li><code>asc</code> - 升序</li>
+      <li><code>desc</code> - 降序 (<em>默认</em>)</li>
+    </ul>
+  </dd>
+  <dt><code>created_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之后的问卷
+
+    <ul>
+      <li><code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+      <li><code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+    </ul>
+  </dd>
+  <dt><code>created_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之前的问卷
 
     <ul>
       <li>同<code>created_start</code></li>
@@ -221,42 +268,128 @@
 </code></pre>
 
 <pre class="prettyprint"><code>[
-  {
-    "survey_id" : 112,
-    "url" : "http://api.surveymaster.com/surveys/112",
-    "logo" : "http://domain.com/img/logo.gif",
-    "title" : "伊利8月新生活",
-    "label" : "第一波",
-    "owner_id" : 123,
-    "created_at" : "2012-07-31T09:36:27Z",
-    "updated_at" : "2012-07-31T09:46:27Z",
-    "head" : "感谢您参与我们的问卷调查。",
-    "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-    "show_progressbar" : "no",
-    "show_page_number" : "yes",
-    "question_numbering" : "global",
-    "is_onepage" : "no",
-    "is_deleted" : "no",
-    "landing_count" : 50000,
-    "answered_count" : 30000,
-    "finished_count" : 5000
-  },
-  {
-    /* 另一文档数据 */
-  }
+    {
+        "answered_count": 0,
+        "created_at": "2014-01-14T11:34:58+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "test",
+        "updated_at": "2014-01-14T11:35:17+08:00",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d4b062e092371da5000001",
+        "logo":  {
+            "_id": "52d4b062e092371da5000002",
+            "status": true,
+            "url": ""
+        }
+    }
 ]
 </code></pre>
 
-<h2 id="section-2">3. 创建问卷</h2>
+<h2 id="section-3">4. 获取当前用户指定问卷</h2>
+<pre><code>GET /surveys/:id
+</code></pre>
 
+<ul>
+  <li>根据当前用户权限，获取此用户可查看的问卷列表</li>
+  <li>普通用户仅查看自己建立的问卷</li>
+</ul>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 指定排序方式
+
+    <ul>
+      <li><code>created_at</code> - 建立时间</li>
+      <li><code>updated_at</code> - 最后更新时间</li>
+      <li><code>status</code>     - 查看问卷状态</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 排序方式
+
+    <ul>
+      <li><code>asc</code> - 升序</li>
+      <li><code>desc</code> - 降序 (<em>默认</em>)</li>
+    </ul>
+  </dd>
+  <dt><code>created_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之后的问卷
+
+    <ul>
+      <li><code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+      <li><code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+    </ul>
+  </dd>
+  <dt><code>created_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之前的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 页数</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "answered_count": 0,
+    "created_at": "2014-01-14T11:34:58+08:00",
+    "deleted_at": null,
+    "finished_count": 0,
+    "label": "",
+    "head": "xxx",
+    "foot": "xxx",
+    "show_progressbar": true,
+    "show_page_number": true,
+    "question_numbering": "global",
+    "freq_control": true,
+    "landing_count": 0,
+    "qualified_count": 0,
+    "title": "test",
+    "updated_at": "2014-01-14T11:35:17+08:00",
+    "user_id": "52cfa8cde092372bf6000001",
+    "id": "52d4b062e092371da5000001",
+    "logo":  {
+        "_id": "52d4b062e092371da5000002",
+        "status": true,
+        "url": ""
+    }
+}
+</code></pre>
+
+<h2 id="section-4">5. 创建问卷</h2>
 <pre><code>POST /surveys
 </code></pre>
 
 <p><strong>请求</strong></p>
 
 <dl>
+  <dt><code>method</code></dt>
+  <dd><em>可选</em> <em>String</em> - 复制模板/复制问卷</dd>
+  <dd>{ method: ‘tpl’, history_id: ‘tpl_id’ }</dd>
+  <dd>{ method: ‘copy’, history_id: ‘survey_id’ }</dd>
   <dt><code>logo</code></dt>
-  <dd><em>可选</em> <em>String</em> - LOGO图标地址</dd>
+  <dd><em>可选</em> <em>Hash</em> - LOGO相关信息</dd>
+  <dd>{ logo: { status: true, url: ‘xxxx’}}</dd>
   <dt><code>title</code></dt>
   <dd><em>必选</em> <em>String</em> - 问卷标题，长度范围2 - 100个字符</dd>
   <dt><code>label</code></dt>
@@ -265,97 +398,73 @@
   <dd><em>可选</em> <em>String</em> - 问卷头信息</dd>
   <dt><code>foot</code></dt>
   <dd><em>可选</em> <em>String</em> - 问卷尾信息</dd>
+  <dt><code>freq_control</code></dt>
+  <dd><em>可选</em> <em>Boolean</em> - 是否开启频次控制</dd>
   <dt><code>show_progressbar</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否显示进度条</dd>
-  <dt><code>is_onepage</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否在一页显示</dd>
+  <dd><em>可选</em> <em>Boolean</em> - 是否显示进度条</dd>
   <dt><code>show_page_number</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否显示页号</dd>
+  <dd><em>可选</em> <em>Boolean</em> - 是否显示页号</dd>
   <dt><code>question_numbering</code></dt>
   <dd><em>可选</em> <em>String</em> - 问题编号方式
 
     <ul>
+      <li><code>none</code>   - 无编号方式</li>
       <li><code>global</code> - 全局编号方式</li>
-      <li><code>in_page</code> - 页内编号方式</li>
+      <li><code>bypage</code> - 页内编号方式</li>
     </ul>
   </dd>
 </dl>
 
 <pre class="prettyprint"><code>{
-  "logo" : "http://domain.com/img/logo.gif",
-  "title" : "伊利8月新生活",
-  "label" : "第一波",
-  "head" : "首先感谢您参与我们的问卷调查。",
-  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
-  "show_progressbar" : "no",
-  "is_onepage" : "no",
-  "show_page_number" : "yes",
-  "question_numbering" : "global",
+    "label": "abc",
+    "head": "xxx",
+    "foot": "xxx",
+    "show_progressbar": true,
+    "show_page_number": true,
+    "question_numbering": "global",
+    "freq_control": true,
+    "title": "test",
+    "logo":  {
+        "status": true,
+        "url": "xxx"
+    }
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 201 Created
-Location: http://api.surveymaster.com.cn/surveys
+<pre><code>Status: 201
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-  "survey_id" : 112,
-  "url" : "http://api.surveymaster.com.cn/surveys/112",
-  "logo" : "http://domain.com/img/logo.gif",
-  "title" : "伊利8月新生活",
-  "label" : "第一波",
-  "owner_id" : 123,
-  "created_at" : "2012-07-31T09:36:27Z",
-  "updated_at" : "2012-07-31T09:46:27Z",
-  "head" : "感谢您参与我们的问卷调查。",
-  "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-  "show_progressbar" : "no",
-  "show_page_number" : "yes",
-  "question_numbering" : "global",
-  "is_onepage" : "no",
-  "is_deleted" : "no",
-  "landing_count" : 0,
-  "answered_count" : 0,
-  "finished_count" : 0
+    "answered_count": 0,
+    "created_at": "2014-01-14T11:34:58+08:00",
+    "deleted_at": null,
+    "finished_count": 0,
+    "label": "abc",
+    "head": "xxx",
+    "foot": "xxx",
+    "show_progressbar": true,
+    "show_page_number": true,
+    "question_numbering": "global",
+    "freq_control": true,
+    "landing_count": 0,
+    "qualified_count": 0,
+    "title": "test",
+    "updated_at": "2014-01-14T11:35:17+08:00",
+    "user_id": "52cfa8cde092372bf6000001",
+    "id": "52d4b062e092371da5000001",
+    "logo":  {
+        "_id": "52d4b062e092371da5000002",
+        "status": true,
+        "url": ""
+    }
 }
 </code></pre>
 
-<h2 id="section-3">4. 获取指定问卷详情</h2>
-
-<pre><code>GET /surveys/:id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-</code></pre>
-
-<pre class="prettyprint"><code>{
-  "survey_id" : 112,
-  "url" : "http://api.surveymaster.com.cn/surveys/112",
-  "logo" : "http://domain.com/img/logo.gif",
-  "title" : "伊利8月新生活",
-  "label" : "第一波",
-  "owner_id" : 123,
-  "created_at" : "2012-07-31T09:36:27Z",
-  "updated_at" : "2012-07-31T09:46:27Z",
-  "head" : "感谢您参与我们的问卷调查。",
-  "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-  "show_progressbar" : "no",
-  "show_page_number" : "yes",
-  "question_numbering" : "global",
-  "is_onepage" : "no",
-  "is_deleted" : "no",
-  "landing_count" : 0,
-  "answered_count" : 0,
-  "finished_count" : 0
-}
-</code></pre>
-
-<h2 id="section-4">5. 修改指定问卷</h2>
-
+<h2 id="section-5">6. 修改指定问卷</h2>
 <pre><code>PATCH /surveys/:id
 </code></pre>
 
@@ -363,7 +472,8 @@ Location: http://api.surveymaster.com.cn/surveys
 
 <dl>
   <dt><code>logo</code></dt>
-  <dd><em>可选</em> <em>String</em> - LOGO图标地址</dd>
+  <dd><em>可选</em> <em>Hash</em> - LOGO相关信息</dd>
+  <dd>{ logo: { status: true, url: ‘xxxx’}}</dd>
   <dt><code>title</code></dt>
   <dd><em>必选</em> <em>String</em> - 问卷标题，长度范围2 - 100个字符</dd>
   <dt><code>label</code></dt>
@@ -372,41 +482,217 @@ Location: http://api.surveymaster.com.cn/surveys
   <dd><em>可选</em> <em>String</em> - 问卷头信息</dd>
   <dt><code>foot</code></dt>
   <dd><em>可选</em> <em>String</em> - 问卷尾信息</dd>
+  <dt><code>freq_control</code></dt>
+  <dd><em>可选</em> <em>Boolean</em> - 是否开启频次控制</dd>
   <dt><code>show_progressbar</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否显示进度条</dd>
-  <dt><code>is_onepage</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否在一页显示</dd>
+  <dd><em>可选</em> <em>Boolean</em> - 是否显示进度条</dd>
   <dt><code>show_page_number</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否显示页号</dd>
+  <dd><em>可选</em> <em>Boolean</em> - 是否显示页号</dd>
   <dt><code>question_numbering</code></dt>
   <dd><em>可选</em> <em>String</em> - 问题编号方式
 
     <ul>
+      <li><code>none</code>   - 无编号方式</li>
       <li><code>global</code> - 全局编号方式</li>
-      <li><code>in_page</code> - 页内编号方式</li>
+      <li><code>bypage</code> - 页内编号方式</li>
     </ul>
   </dd>
-  <dt><code>is_deleted</code></dt>
-  <dd><em>可选</em> <em>String</em> - 是否删除</dd>
 </dl>
 
 <pre class="prettyprint"><code>{
-  "logo" : "http://domain.com/img/logo.gif",
-  "title" : "伊利8月新生活",
-  "label" : "第一波",
-  "head" : "首先感谢您参与我们的问卷调查。",
-  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
-  "show_progressbar" : "no",
-  "is_onepage" : "no",
-  "show_page_number" : "yes",
-  "question_numbering" : "global",
-  "is_deleted" : "no"
+    "label": "xxx",
+    "head": "xxx",
+    "foot": "xxx",
+    "show_progressbar": true,
+    "show_page_number": true,
+    "question_numbering": "global",
+    "freq_control": true,
+    "title": "test",
+    "logo":  {
+        "status": true,
+        "url": "xxx"
+    }
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
+<pre><code>Status: 201
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "answered_count": 0,
+    "created_at": "2014-01-14T11:34:58+08:00",
+    "deleted_at": null,
+    "finished_count": 0,
+    "label": "",
+    "head": "xxx",
+    "foot": "xxx",
+    "show_progressbar": true,
+    "show_page_number": true,
+    "question_numbering": "global",
+    "freq_control": true,
+    "landing_count": 0,
+    "qualified_count": 0,
+    "title": "test",
+    "updated_at": "2014-01-14T11:35:17+08:00",
+    "user_id": "52cfa8cde092372bf6000001",
+    "id": "52d4b062e092371da5000001",
+    "logo":  {
+        "_id": "52d4b062e092371da5000002",
+        "status": true,
+        "url": ""
+    }
+}
+</code></pre>
+
+<h2 id="section-6">7. 删除指定的问卷</h2>
+<pre><code>DELETE /surveys/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
 <pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="section-7">8. 获取所有问卷模板</h2>
+<pre><code>GET /surveys/template/all
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "answered_count": 0,
+    "created_at": "2013-06-06T15:12:47+08:00",
+    "deleted_at": null,
+    "finished_count": 0,
+    "label": "",
+    "landing_count": 0,
+    "qualified_count": 0,
+    "title": "标准人口属性问卷",
+    "updated_at": "2014-01-07T12:35:45+08:00",
+    "user_id": "5159419c866106a1c9000001",
+    "id": "51c00a26a4d6318cc6a79546",
+    "logo": {
+        "_id": "523053e3866106ee6e0000b1",
+        "status": true,
+        "url": ""
+    }
+}
+</code></pre>
+
+<h2 id="section-8">9. 获取已删除的问卷</h2>
+<pre><code>GET /admin/surveys/deleted
+</code></pre>
+
+<ul>
+  <li>仅管理员可获取所有的问卷列表</li>
+</ul>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 指定排序方式
+
+    <ul>
+      <li><code>created_at</code> - 建立时间</li>
+      <li><code>updated_at</code> - 最后更新时间</li>
+      <li><code>status</code>     - 查看问卷状态</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <strong>String</strong> - 排序方式
+
+    <ul>
+      <li><code>asc</code> - 升序</li>
+      <li><code>desc</code> - 降序 (<em>默认</em>)</li>
+    </ul>
+  </dd>
+  <dt><code>created_start</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之后的问卷
+
+    <ul>
+      <li><code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+      <li><code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+    </ul>
+  </dd>
+  <dt><code>created_end</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 指定此参数，将获取建立时间在此范围之前的问卷
+
+    <ul>
+      <li>同<code>created_start</code></li>
+    </ul>
+  </dd>
+  <dt><code>per_page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 页数</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+</code></pre>
+
+<pre class="prettyprint"><code>[
+    {
+        "answered_count": 0,
+        "created_at": "2014-01-14T11:34:58+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "test",
+        "updated_at": "2014-01-14T11:35:17+08:00",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d4b062e092371da5000001",
+        "logo":  {
+            "_id": "52d4b062e092371da5000002",
+            "status": true,
+            "url": ""
+        }
+    }
+]
+</code></pre>
+
+<h2 id="section-9">10. 恢复被删除的问卷</h2>
+<pre><code>PATCH /admin/surveys/:survey_id/restore
+</code></pre>
+
+<ul>
+  <li>仅管理员可恢复问卷</li>
+</ul>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="section-10">11. 彻底删除的问卷</h2>
+<pre><code>DELETE /admin/surveys/:survey_id/crashing
+</code></pre>
+
+<ul>
+  <li>仅管理员可彻底删除问卷</li>
+</ul>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
 </code></pre>
 
       </div>
