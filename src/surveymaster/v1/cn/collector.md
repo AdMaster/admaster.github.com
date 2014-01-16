@@ -147,11 +147,11 @@ language: cn
     {
         "deadline_time": null, // 结束时间
         "name": "New openlink",
-        "sample_num: 12, // 收集上限
+        "sample_num": 12, // 收集上限
         "status": true, // 状态
         "type": "openlink/edm", // 渠道类型
         "redirect": "http://baidu.com", // 答题结束后跳转地址
-        "passwd": "a4$_B8addj_09jhk"
+        "passwd": "a4$_B8addj_09jhk",
         "cross": { // 第三方交互
             "callback": "", // 第三方回调地址
             "param":[], // 第三方参数
@@ -243,11 +243,11 @@ language: cn
     {
         "deadline_time": null, // 结束时间
         "name": "New openlink",
-        "sample_num: 12, // 收集上限
+        "sample_num": 12, // 收集上限
         "status": true, // 状态
         "type": "openlink/edm", // 渠道类型
         "redirect": "http://baidu.com", // 答题结束后跳转地址
-        "passwd": "a4$_B8addj_09jhk"
+        "passwd": "a4$_B8addj_09jhk",
         "cross": { // 第三方交互
             "callback": "", // 第三方回调地址
             "param":[], // 第三方参数
