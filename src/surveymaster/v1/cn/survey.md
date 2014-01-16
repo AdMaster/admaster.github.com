@@ -54,22 +54,22 @@ language: cn
 {:.prettyprint}
     [
         {
-          "answered_count": 0,
-          "created_at": "2014-01-14T11:34:58+08:00",
-          "deleted_at": null,
-          "finished_count": 0,
-          "label": "",
-          "landing_count": 0,
-          "qualified_count": 0,
-          "title": "test",
-          "updated_at": "2014-01-14T11:35:17+08:00",
-          "user_id": "52cfa8cde092372bf6000001",
-          "id": "52d4b062e092371da5000001",
-          "logo":  {
-              "_id": "52d4b062e092371da5000002",
-              "status": true,
-              "url": ""
-          }
+            "answered_count": 0,
+            "created_at": "2014-01-14T11:34:58+08:00",
+            "deleted_at": null,
+            "finished_count": 0,
+            "label": "",
+            "landing_count": 0,
+            "qualified_count": 0,
+            "title": "test",
+            "updated_at": "2014-01-14T11:35:17+08:00",
+            "user_id": "52cfa8cde092372bf6000001",
+            "id": "52d4b062e092371da5000001",
+            "logo":  {
+                "_id": "52d4b062e092371da5000002",
+                "status": true,
+                "url": ""
+            }
         }
     ]
 
