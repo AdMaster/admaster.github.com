@@ -53,26 +53,26 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-  [
-    {
-      answered_count: 0,
-      created_at: "2014-01-14T11:34:58+08:00",
-      deleted_at: null,
-      finished_count: 0,
-      label: "",
-      landing_count: 0,
-      qualified_count: 0,
-      title: "test",
-      updated_at: "2014-01-14T11:35:17+08:00",
-      user_id: "52cfa8cde092372bf6000001",
-      id: "52d4b062e092371da5000001",
-      logo:  {
-        _id: "52d4b062e092371da5000002",
-        status: true,
-        url: ""
-      }
-    }
-  ]
+    [
+        {
+          "answered_count": 0,
+          "created_at": "2014-01-14T11:34:58+08:00",
+          "deleted_at": null,
+          "finished_count": 0,
+          "label": "",
+          "landing_count": 0,
+          "qualified_count": 0,
+          "title": "test",
+          "updated_at": "2014-01-14T11:35:17+08:00",
+          "user_id": "52cfa8cde092372bf6000001",
+          "id": "52d4b062e092371da5000001",
+          "logo":  {
+              "_id": "52d4b062e092371da5000002",
+              "status": true,
+              "url": ""
+          }
+        }
+    ]
 
 ## 2. 获取所有问卷列表
 
@@ -117,32 +117,32 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-  [
-    {
-      answered_count: 0,
-      created_at: "2014-01-14T11:34:58+08:00",
-      deleted_at: null,
-      finished_count: 0,
-      label: "",
-      head: "xxx",
-      foot: "xxx",
-      show_progressbar: true,
-      show_page_number: true,
-      question_numbering: 'global',
-      freq_control: true,
-      landing_count: 0,
-      qualified_count: 0,
-      title: "test",
-      updated_at: "2014-01-14T11:35:17+08:00",
-      user_id: "52cfa8cde092372bf6000001",
-      id: "52d4b062e092371da5000001",
-      logo:  {
-        _id: "52d4b062e092371da5000002",
-        status: true,
-        url: ""
-      }
-    }
-  ]
+    [
+        {
+            "answered_count": 0,
+            "created_at": "2014-01-14T11:34:58+08:00",
+            "deleted_at": null,
+            "finished_count": 0,
+            "label": "",
+            "head": "xxx",
+            "foot": "xxx",
+            "show_progressbar": true,
+            "show_page_number": true,
+            "question_numbering": "global",
+            "freq_control": true,
+            "landing_count": 0,
+            "qualified_count": 0,
+            "title": "test",
+            "updated_at": "2014-01-14T11:35:17+08:00",
+            "user_id": "52cfa8cde092372bf6000001",
+            "id": "52d4b062e092371da5000001",
+            "logo":  {
+                "_id": "52d4b062e092371da5000002",
+                "status": true,
+                "url": ""
+            }
+        }
+    ]
 
 ## 3. 获取某个用户问卷列表
 
@@ -187,32 +187,32 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-  [
-    {
-      answered_count: 0,
-      created_at: "2014-01-14T11:34:58+08:00",
-      deleted_at: null,
-      finished_count: 0,
-      label: "",
-      head: "xxx",
-      foot: "xxx",
-      show_progressbar: true,
-      show_page_number: true,
-      question_numbering: 'global',
-      freq_control: true,
-      landing_count: 0,
-      qualified_count: 0,
-      title: "test",
-      updated_at: "2014-01-14T11:35:17+08:00",
-      user_id: "52cfa8cde092372bf6000001",
-      id: "52d4b062e092371da5000001",
-      logo:  {
-        _id: "52d4b062e092371da5000002",
-        status: true,
-        url: ""
-      }
-    }
-  ]
+    [
+        {
+            "answered_count": 0,
+            "created_at": "2014-01-14T11:34:58+08:00",
+            "deleted_at": null,
+            "finished_count": 0,
+            "label": "",
+            "head": "xxx",
+            "foot": "xxx",
+            "show_progressbar": true,
+            "show_page_number": true,
+            "question_numbering": "global",
+            "freq_control": true,
+            "landing_count": 0,
+            "qualified_count": 0,
+            "title": "test",
+            "updated_at": "2014-01-14T11:35:17+08:00",
+            "user_id": "52cfa8cde092372bf6000001",
+            "id": "52d4b062e092371da5000001",
+            "logo":  {
+                "_id": "52d4b062e092371da5000002",
+                "status": true,
+                "url": ""
+            }
+        }
+    ]
 
 ## 4. 获取当前用户指定问卷
 
@@ -258,30 +258,31 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-  {
-    answered_count: 0,
-    created_at: "2014-01-14T11:34:58+08:00",
-    deleted_at: null,
-    finished_count: 0,
-    label: "",
-    head: "xxx",
-    foot: "xxx",
-    show_progressbar: true,
-    show_page_number: true,
-    question_numbering: 'global',
-    freq_control: true,
-    landing_count: 0,
-    qualified_count: 0,
-    title: "test",
-    updated_at: "2014-01-14T11:35:17+08:00",
-    user_id: "52cfa8cde092372bf6000001",
-    id: "52d4b062e092371da5000001",
-    logo:  {
-      _id: "52d4b062e092371da5000002",
-      status: true,
-      url: ""
+    {
+        "answered_count": 0,
+        "created_at": "2014-01-14T11:34:58+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "test",
+        "updated_at": "2014-01-14T11:35:17+08:00",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d4b062e092371da5000001",
+        "logo":  {
+            "_id": "52d4b062e092371da5000002",
+            "status": true,
+            "url": ""
+        }
     }
-  }
+
 
 
 ## 5. 创建问卷
@@ -328,20 +329,20 @@ language: cn
   * `bypage` - 页内编号方式
 
 {:.prettyprint}
-  {
-    label: "abc",
-    head: "xxx",
-    foot: "xxx",
-    show_progressbar: true,
-    show_page_number: true,
-    question_numbering: 'global',
-    freq_control: true,
-    title: "test",
-    logo:  {
-      status: true,
-      url: "xxx"
+    {
+        "label": "abc",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "title": "test",
+        "logo":  {
+            "status": true,
+            "url": "xxx"
+        }
     }
-  }
 
 **响应**
 
@@ -350,30 +351,30 @@ language: cn
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-  {
-    answered_count: 0,
-    created_at: "2014-01-14T11:34:58+08:00",
-    deleted_at: null,
-    finished_count: 0,
-    label: "",
-    head: "xxx",
-    foot: "xxx",
-    show_progressbar: true,
-    show_page_number: true,
-    question_numbering: 'global',
-    freq_control: true,
-    landing_count: 0,
-    qualified_count: 0,
-    title: "test",
-    updated_at: "2014-01-14T11:35:17+08:00",
-    user_id: "52cfa8cde092372bf6000001",
-    id: "52d4b062e092371da5000001",
-    logo:  {
-      _id: "52d4b062e092371da5000002",
-      status: true,
-      url: ""
+    {
+        "answered_count": 0,
+        "created_at": "2014-01-14T11:34:58+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "abc",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "test",
+        "updated_at": "2014-01-14T11:35:17+08:00",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d4b062e092371da5000001",
+        "logo":  {
+            "_id": "52d4b062e092371da5000002",
+            "status": true,
+            "url": ""
+        }
     }
-  }
 
 ## 6. 修改指定问卷
 
@@ -414,20 +415,20 @@ language: cn
   * `bypage` - 页内编号方式
 
 {:.prettyprint}
-  {
-    label: "abc",
-    head: "xxx",
-    foot: "xxx",
-    show_progressbar: true,
-    show_page_number: true,
-    question_numbering: 'global',
-    freq_control: true,
-    title: "test",
-    logo:  {
-      status: true,
-      url: "xxx"
+    {
+        "label": "xxx",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "title": "test",
+        "logo":  {
+            "status": true,
+            "url": "xxx"
+        }
     }
-  }
 
 **响应**
 
@@ -436,30 +437,30 @@ language: cn
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-  {
-    answered_count: 0,
-    created_at: "2014-01-14T11:34:58+08:00",
-    deleted_at: null,
-    finished_count: 0,
-    label: "",
-    head: "xxx",
-    foot: "xxx",
-    show_progressbar: true,
-    show_page_number: true,
-    question_numbering: 'global',
-    freq_control: true,
-    landing_count: 0,
-    qualified_count: 0,
-    title: "test",
-    updated_at: "2014-01-14T11:35:17+08:00",
-    user_id: "52cfa8cde092372bf6000001",
-    id: "52d4b062e092371da5000001",
-    logo:  {
-      _id: "52d4b062e092371da5000002",
-      status: true,
-      url: ""
+    {
+        "answered_count": 0,
+        "created_at": "2014-01-14T11:34:58+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "",
+        "head": "xxx",
+        "foot": "xxx",
+        "show_progressbar": true,
+        "show_page_number": true,
+        "question_numbering": "global",
+        "freq_control": true,
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "test",
+        "updated_at": "2014-01-14T11:35:17+08:00",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d4b062e092371da5000001",
+        "logo":  {
+            "_id": "52d4b062e092371da5000002",
+            "status": true,
+            "url": ""
+        }
     }
-  }
 
 ## 7. 删除指定的问卷
   DELETE /surveys/:id
@@ -475,24 +476,24 @@ language: cn
     GET /surveys/template/all
 
 {:.prettyprint}
-  {
-    answered_count: 0,
-    created_at: "2013-06-06T15:12:47+08:00",
-    deleted_at: null,
-    finished_count: 0,
-    label: "",
-    landing_count: 0,
-    qualified_count: 0,
-    title: "标准人口属性问卷",
-    updated_at: "2014-01-07T12:35:45+08:00",
-    user_id: "5159419c866106a1c9000001",
-    id: "51c00a26a4d6318cc6a79546",
-    logo: {
-      _id: "523053e3866106ee6e0000b1",
-      status: true,
-      url: ""
+    {
+        "answered_count": 0,
+        "created_at": "2013-06-06T15:12:47+08:00",
+        "deleted_at": null,
+        "finished_count": 0,
+        "label": "",
+        "landing_count": 0,
+        "qualified_count": 0,
+        "title": "标准人口属性问卷",
+        "updated_at": "2014-01-07T12:35:45+08:00",
+        "user_id": "5159419c866106a1c9000001",
+        "id": "51c00a26a4d6318cc6a79546",
+        "logo": {
+            "_id": "523053e3866106ee6e0000b1",
+            "status": true,
+            "url": ""
+        }
     }
-  }
 
 ## 9. 获取已删除的问卷
 
@@ -537,26 +538,32 @@ language: cn
     Status: 200 OK
 
 {:.prettyprint}
-  [
-    {
-      answered_count: 0,
-      created_at: "2014-01-14T11:34:58+08:00",
-      deleted_at: null,
-      finished_count: 0,
-      label: "",
-      landing_count: 0,
-      qualified_count: 0,
-      title: "test",
-      updated_at: "2014-01-14T11:35:17+08:00",
-      user_id: "52cfa8cde092372bf6000001",
-      id: "52d4b062e092371da5000001",
-      logo:  {
-        _id: "52d4b062e092371da5000002",
-        status: true,
-        url: ""
-      }
-    }
-  ]
+    [
+        {
+            "answered_count": 0,
+            "created_at": "2014-01-14T11:34:58+08:00",
+            "deleted_at": null,
+            "finished_count": 0,
+            "label": "",
+            "head": "xxx",
+            "foot": "xxx",
+            "show_progressbar": true,
+            "show_page_number": true,
+            "question_numbering": "global",
+            "freq_control": true,
+            "landing_count": 0,
+            "qualified_count": 0,
+            "title": "test",
+            "updated_at": "2014-01-14T11:35:17+08:00",
+            "user_id": "52cfa8cde092372bf6000001",
+            "id": "52d4b062e092371da5000001",
+            "logo":  {
+                "_id": "52d4b062e092371da5000002",
+                "status": true,
+                "url": ""
+            }
+        }
+    ]
 
 ## 10. 恢复被删除的问卷
 
