@@ -10,7 +10,7 @@ language: cn
 {:toc}
 
 ## 1. 获取指定问卷的渠道列表
-  GET /surveys/:survey_id/collectors
+    GET /surveys/:survey_id/collectors
 
 **响应**
 
@@ -83,7 +83,7 @@ language: cn
 
 
 ## 2. 获取指定的渠道
-  GET /surveys/:survey_id/collectors/:id
+    GET /surveys/:survey_id/collectors/:id
 
 **响应**
 
@@ -139,7 +139,7 @@ language: cn
     }
 
 ## 3. 添加渠道
-  POST /surveys/:survey_id/collectors
+    POST /surveys/:survey_id/collectors
 
 **请求**
 
@@ -235,7 +235,7 @@ language: cn
     }
 
 ## 4. 修改指定的渠道
-  PATCH /surveys/:survey_id/collectors/:id
+    PATCH /surveys/:survey_id/collectors/:id
 
 **请求**
 
@@ -332,7 +332,7 @@ language: cn
 
 
 ## 5. 删除指定的渠道
-  DELETE /surveys/:survey_id/collectors/:id
+    DELETE /surveys/:survey_id/collectors/:id
 
 **响应**
 

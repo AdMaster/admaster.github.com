@@ -10,7 +10,6 @@ language: cn
 {:toc}
 
 ## 1. 获取问卷列表
-
     GET /surveys
 
 * 根据当前用户权限，获取此用户可查看的问卷列表
@@ -75,7 +74,6 @@ language: cn
     ]
 
 ## 2. 获取所有问卷列表
-
     GET /admin/surveys
 
 * 仅管理员可获取所有的问卷列表
@@ -145,7 +143,6 @@ language: cn
     ]
 
 ## 3. 获取某个用户问卷列表
-
     GET /admin/users/:user_id/surveys
 
 * 仅管理员可获取所有的问卷列表
@@ -215,7 +212,6 @@ language: cn
     ]
 
 ## 4. 获取当前用户指定问卷
-
     GET /surveys/:id
 
 * 根据当前用户权限，获取此用户可查看的问卷列表
@@ -286,7 +282,6 @@ language: cn
 
 
 ## 5. 创建问卷
-
     POST /surveys
 
 **请求**
@@ -377,7 +372,6 @@ language: cn
     }
 
 ## 6. 修改指定问卷
-
     PATCH /surveys/:id
 
 **请求**
@@ -463,7 +457,7 @@ language: cn
     }
 
 ## 7. 删除指定的问卷
-  DELETE /surveys/:id
+    DELETE /surveys/:id
 
 **响应**
 
@@ -472,7 +466,6 @@ language: cn
     X-RateLimit-Remaining: 4999
 
 ## 8. 获取所有问卷模板
-
     GET /surveys/template/all
 
 {:.prettyprint}
@@ -496,7 +489,6 @@ language: cn
     }
 
 ## 9. 获取已删除的问卷
-
     GET /admin/surveys/deleted
 
 * 仅管理员可获取所有的问卷列表
@@ -566,7 +558,6 @@ language: cn
     ]
 
 ## 10. 恢复被删除的问卷
-
     PATCH /admin/surveys/:survey_id/restore
 
 * 仅管理员可恢复问卷
@@ -578,7 +569,6 @@ language: cn
     X-RateLimit-Remaining: 4999
 
 ## 11. 彻底删除的问卷
-
     DELETE /admin/surveys/:survey_id/crashing
 
 * 仅管理员可彻底删除问卷

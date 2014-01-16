@@ -10,7 +10,6 @@ language: cn
 {:toc}
 
 ## 1. 获取页列表
-
     GET /surveys/:survey_id/pages
 
 {:.prettyprint}
@@ -25,7 +24,6 @@ language: cn
     ]
 
 ## 2. 获取指定页前面的所有页列表
-
     GET /surveys/:survey_id/pages/:page_id/higher_siblings
 
 {:.prettyprint}
@@ -40,7 +38,6 @@ language: cn
     ]
 
 ## 3. 获取指定页后面的所有页列表
-
     GET /surveys/:survey_id/pages/:page_id/lower_siblings
 
 {:.prettyprint}
@@ -55,7 +52,6 @@ language: cn
     ]
 
 ## 4. 获取指定页详情
-
     GET /surveys/:survey_id/pages/:id
 
 {:.prettyprint}
@@ -69,7 +65,6 @@ language: cn
 
 
 ## 5. 创建页
-
     POST /surveys/:survey_id/pages
 
 **请求**
@@ -95,7 +90,6 @@ language: cn
 
 
 ## 6. 修改指定页
-
     PATCH /surveys/:survey_id/pages/:id
 
 **请求**
@@ -120,7 +114,6 @@ language: cn
     }
 
 ## 7. 删除指定页
-
     DELETE /surveys/:survey_id/pages/:id
 
 **响应**
@@ -128,7 +121,6 @@ language: cn
     Status: 204
 
 ## 8. 移动指定页
-
     PATCH /surveys/:survey_id/pages/:page_id/move
 
 **请求**
@@ -153,7 +145,6 @@ language: cn
     }
 
 ## 9. 在指定页进行分页
-
     PATCH /surveys/:survey_id/pages/:page_id/split
 
 **请求**
