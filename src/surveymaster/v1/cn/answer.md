@@ -11,65 +11,65 @@ language: cn
 
 
 ## 1. 新增答案
-	POST /surveys/collectors/:code/answers
-	Set-Cookie: admaster_cookie_id=***
+    POST /surveys/collectors/:code/answers
+    Set-Cookie: admaster_cookie_id=***
 
 **请求**
 
 {:.prettyprint}
     [
-	    {
-		    "question_id" : 1,/* 问题id */
-		    "duration" : 30,/* 答题所用时间(秒) */
-		    "value" : ["1"]/* 数组里存放选项id */
-	    },
-	    {
-		    "question_id" : 2,
-		    "duration" : 30,
-		    "value" : ["-1"],/* -1代表"其他"选项 */
-		    "other" : '篮球'
-	    },
-	    {
-		    "question_id" : 8,
-		    "duration" : 30,
-		    "value" : ["1","1.1"]
-	    },
-	    {/* 多选题 */
-		    "question_id" : 3,
-		    "duration" : 30,
-		    "value" : ["1","3"]
-	    },
-	    {
-		    "question_id" : 9,
-		    "duration" : 30,
-		    "value" : ["1","3","3.2"],
-	    },
-	    {
-		    "question_id" : 4,
-		    "duration" : 30,
-		    "value" : ["4","-1"],
-		    "other" : "红酒"
-	    },
-	    {
-		    "question_id" : 5,
-		    "duration" : 30,
-		    "value" : ["-2"]/* -2代表选中了“排他”选项 */
-	    },
-	    {
-		    "question_id" : 10,
-		    "duration" : 30,
-		    "value" : ["1","3","3.2","4.4"],
-	    },
-	    {
-		    "question_id" : 6,
-		    "duration" : 30,
-		    "value" : "单行输入"
-	    },
-	    {
-		    "question_id" : 7,
-		    "duration" : 30,
-		    "value" : "多行输入\n多行输入"
-	    }
+        {
+            "question_id" : 1,/* 问题id */
+            "duration" : 30,/* 答题所用时间(秒) */
+            "value" : ["1"]/* 数组里存放选项id */
+        },
+        {
+            "question_id" : 2,
+            "duration" : 30,
+            "value" : ["-1"],/* -1代表"其他"选项 */
+            "other" : '篮球'
+        },
+        {
+            "question_id" : 8,
+            "duration" : 30,
+            "value" : ["1","1.1"]
+        },
+        {/* 多选题 */
+            "question_id" : 3,
+            "duration" : 30,
+            "value" : ["1","3"]
+        },
+        {
+            "question_id" : 9,
+            "duration" : 30,
+            "value" : ["1","3","3.2"],
+        },
+        {
+            "question_id" : 4,
+            "duration" : 30,
+            "value" : ["4","-1"],
+            "other" : "红酒"
+        },
+        {
+            "question_id" : 5,
+            "duration" : 30,
+            "value" : ["-2"]/* -2代表选中了“排他”选项 */
+        },
+        {
+            "question_id" : 10,
+            "duration" : 30,
+            "value" : ["1","3","3.2","4.4"],
+        },
+        {
+            "question_id" : 6,
+            "duration" : 30,
+            "value" : "单行输入"
+        },
+        {
+            "question_id" : 7,
+            "duration" : 30,
+            "value" : "多行输入\n多行输入"
+        }
     ]
 
 **响应**
@@ -80,7 +80,7 @@ language: cn
 
 
 ## 2. 获取指定问卷的答案列表
-	GET /surveys/:survey_id/answers
+    GET /surveys/:survey_id/answers
 
 **参数**
 
@@ -109,21 +109,21 @@ language: cn
 
 {:.prettyprint}
     [
-	    {
-		    "answer_id" : 1,/* 答案id */
-		    "url" : 'http://api.surveymaster.com.cn/surveys/collectors/answers/1',
-		    "respondent_id" : 1,
-		    "collector_id" : 1,
-		    "collector_name" : "新浪汽车",
-		    "created_at" : 123456789,// 开始答题时间
-		    "updated_at" : 123456789,// 最后答题时间
-		    "status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
-	    }
+        {
+            "answer_id" : 1,/* 答案id */
+            "url" : 'http://api.surveymaster.com.cn/surveys/collectors/answers/1',
+            "respondent_id" : 1,
+            "collector_id" : 1,
+            "collector_name" : "新浪汽车",
+            "created_at" : 123456789,// 开始答题时间
+            "updated_at" : 123456789,// 最后答题时间
+            "status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
+        }
     ]
 
 
 ## 3. 获取指定答案的详情
-	GET /surveys/answers/:id
+    GET /surveys/answers/:id
 
 **响应**
 
@@ -131,79 +131,79 @@ language: cn
 
 {:.prettyprint}
     {
-	    "survey_id" : 1,/* 问卷id */
-	    "collector_id" : 1,/* 渠道id */
-	    "respondent_id" : 1,
-	    "collector_id" : 1,
-	    "collector_name" : "新浪汽车",
-	    "created_at" : 123456789,// 开始答题时间
-	    "status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
-	    "answers" : [
-		    {
-			    "question_id" : 1,/* 问题id */
-			    "duration" : 30,/* 答题时间 */
-			    "value" : ["1"]/* 数组里存放选项id */
-		    },
-		    {
-			    "question_id" : 2,
-			    "duration" : 30,
-			    "value" : ["-1"],/* -1代表"其他"选项 */
-			    "other" : '篮球'
-		    },
-		    {
-			    "question_id" : 8,
-			    "duration" : 30,
-			    "value" : ["1","1.1"]
-		    },
-		    {/* 多选题 */
-			    "question_id" : 3,
-			    "duration" : 30,
-			    "value" : ["1","3"]
-		    },
-		    {
-			    "question_id" : 9,
-			    "duration" : 30,
-			    "value" : ["1","3","3.1","3.3"]
-		    },
-		    {
-			    "question_id" : 4,
-			    "duration" : 30,
-			    "value" : ["4","-1"],
-			    "other" : "红酒"
-		    },
-		    {
-			    "question_id" : 5,
-			    "duration" : 30,
-			    "value" : ["-2"]/* -2代表选中了“排他”选项 */
-		    },
-		    {
-			    "question_id" : 10,
-			    "duration" : 30,
-			    "value" : ["1","3","3.1","3.3","4.4"]
-		    },
-		    {
-			    "question_id" : 6,
-			    "duration" : 30,
-			    "value" : "单行输入"
-		    },
-		    {
-			    "question_id" : 7,
-			    "duration" : 30,
-			    "value" : "多行输入\n多行输入"
-		    }
-	    ]
+        "survey_id" : 1,/* 问卷id */
+        "collector_id" : 1,/* 渠道id */
+        "respondent_id" : 1,
+        "collector_id" : 1,
+        "collector_name" : "新浪汽车",
+        "created_at" : 123456789,// 开始答题时间
+        "status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
+        "answers" : [
+            {
+                "question_id" : 1,/* 问题id */
+                "duration" : 30,/* 答题时间 */
+                "value" : ["1"]/* 数组里存放选项id */
+            },
+            {
+                "question_id" : 2,
+                "duration" : 30,
+                "value" : ["-1"],/* -1代表"其他"选项 */
+                "other" : '篮球'
+            },
+            {
+                "question_id" : 8,
+                "duration" : 30,
+                "value" : ["1","1.1"]
+            },
+            {/* 多选题 */
+                "question_id" : 3,
+                "duration" : 30,
+                "value" : ["1","3"]
+            },
+            {
+                "question_id" : 9,
+                "duration" : 30,
+                "value" : ["1","3","3.1","3.3"]
+            },
+            {
+                "question_id" : 4,
+                "duration" : 30,
+                "value" : ["4","-1"],
+                "other" : "红酒"
+            },
+            {
+                "question_id" : 5,
+                "duration" : 30,
+                "value" : ["-2"]/* -2代表选中了“排他”选项 */
+            },
+            {
+                "question_id" : 10,
+                "duration" : 30,
+                "value" : ["1","3","3.1","3.3","4.4"]
+            },
+            {
+                "question_id" : 6,
+                "duration" : 30,
+                "value" : "单行输入"
+            },
+            {
+                "question_id" : 7,
+                "duration" : 30,
+                "value" : "多行输入\n多行输入"
+            }
+        ]
     }
 
 
 ## 4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）
-	PATCH /surveys/answers/:answer_id/questions/:id
+    PATCH /surveys/answers/:answer_id/questions/:id
 
 **请求**
 
 {:.prettyprint}
     {
-	    "value" : ["-1"],/* -1代表"其他"选项 */
-	    "other" : "篮球"
+        "value" : ["-1"],/* -1代表"其他"选项 */
+        "other" : "篮球"
     }
 
 
@@ -215,7 +215,7 @@ language: cn
 
 
 ## 5. 删除指定答案
-	DELETE /surveys/answers/:id
+    DELETE /surveys/answers/:id
 
 **响应**
 
@@ -227,7 +227,7 @@ language: cn
 
 
 ## 6. 删除指定渠道的所有答案
-	DELETE /surveys/collectors/:collector_id/answers
+    DELETE /surveys/collectors/:collector_id/answers
 
 **响应**
 

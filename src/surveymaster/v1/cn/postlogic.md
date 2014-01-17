@@ -38,7 +38,7 @@ language: cn
     ]
 
 
-## 2. 获取指定的后置逻辑（页逻辑）
+## 2. 获取页的指定的后置逻辑
     GET /surveys/:survey_id/pages/:page_id/postlogics/:id
 
 **响应**
@@ -65,7 +65,7 @@ language: cn
     }
 
 
-## 3. 添加后置逻辑
+## 3. 添加页的后置逻辑
     POST /surveys/:survey_id/pages/:page_id/postlogics
 
 **请求**
@@ -104,7 +104,7 @@ language: cn
     }
 
 
-## 4. 修改指定的后置逻辑
+## 4. 修改页指定的后置逻辑
     PATCH /surveys/:survey_id/pages/:page_id/postlogics/:id
 
 **请求**
@@ -143,7 +143,7 @@ language: cn
     }
 
 
-## 5. 删除指定的后置逻辑
+## 5. 删除页指定的后置逻辑
     DELETE /surveys/:survey_id/pages/:page_id/postlogics/:id
 
 **响应**
