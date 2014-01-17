@@ -53,14 +53,15 @@
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 200 OK
+<pre><code>Status: 200
 </code></pre>
 
 <pre class="prettyprint"><code>[
     {
-	    "respondent_id" : 1,
-	    "admckid" : '1337002',
-	    "cross_uid" : '1290',
+        "admckid": "1401151956201886732",
+        "r_key": "cookie",
+        "r_value": "1401151956201886732",
+        "id": "52d8d670e092370259000009"
     }
 ]
 </code></pre>
@@ -71,12 +72,14 @@
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 200 OK
+<pre><code>Status: 200
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "admckid" : '1337002',
-    "cross_uid" : '1290',
+    "admckid": "1401151956201886732",
+    "r_key": "cookie",
+    "r_value": "1401151956201886732",
+    "id": "52d8d670e092370259000009"
 }
 </code></pre>
 
@@ -87,15 +90,23 @@
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
-    "cross_uid" : '1290',
+    "admckid" : '1290',
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre><code>Status: 201
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    "admckid": "1401151956201886732",
+    "r_key": "cookie",
+    "r_value": "1401151956201886732",
+    "id": "52d8d670e092370259000009"
+}
 </code></pre>
 
 <h2 id="section-3">4. 删除指定的答题人</h2>
@@ -104,7 +115,7 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre><code>Status: 204
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

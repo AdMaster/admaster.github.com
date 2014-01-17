@@ -46,6 +46,7 @@
   <li><a href="#section-2">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</a></li>
   <li><a href="#section-3">5. 删除指定答案</a></li>
   <li><a href="#section-4">6. 删除指定渠道的所有答案</a></li>
+  <li><a href="#section-5">7. 新增答案</a></li>
 </ul>
 
 <h2 id="section">1. 获取指定问卷的答案列表</h2>
@@ -291,6 +292,49 @@ X-RateLimit-Remaining: 4999
 <p><strong>响应</strong></p>
 
 <pre><code>Status: 204
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="section-5">7. 新增答案</h2>
+<pre><code>POST /response/:collector_id/answers
+Set-Cookie: admckid=***
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>admckid</code></dt>
+  <dd><em>可选</em> <strong>String</strong></dd>
+  <dt><code>r_key</code></dt>
+  <dd><em>可选</em> <strong>String</strong></dd>
+  <dt><code>r_value</code></dt>
+  <dd><em>可选</em> <strong>String</strong></dd>
+  <dt><code>referer</code></dt>
+  <dd><em>可选</em> <strong>String</strong></dd>
+  <dt><code>passback</code></dt>
+  <dd><em>可选</em> <strong>String</strong></dd>
+</dl>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+    "qas": [
+            {
+                "duration": 8,
+                "other": "",
+                "question_id": "52d7a76fe092377673000024",
+                "value": [
+                        "1"
+                ]
+            }
+    ]
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 201
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
