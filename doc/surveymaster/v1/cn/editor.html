@@ -41,15 +41,12 @@
     <div id="wrapper">
       <div class="content">
         <ul id="markdown-toc">
-  <li><a href="#section">1. 获取指定问卷的权限列表</a></li>
-  <li><a href="#section-1">2. 获取指定用户的权限列表</a></li>
-  <li><a href="#section-2">3. 给指定问卷添加用户权限</a></li>
-  <li><a href="#section-3">4. 修改指定的权限</a></li>
-  <li><a href="#section-4">5. 删除指定的权限</a></li>
+  <li><a href="#section">1. 获取指定问卷的编辑列表</a></li>
+  <li><a href="#section-1">2. 给指定问卷添加编辑</a></li>
 </ul>
 
-<h2 id="section">1. 获取指定问卷的权限列表</h2>
-<pre><code>GET /surveys/:survey_id/acls
+<h2 id="section">1. 获取指定问卷的编辑列表</h2>
+<pre><code>GET /surveys/:survey_id/editors
 </code></pre>
 
 <p><strong>响应</strong></p>
@@ -59,83 +56,39 @@
 
 <pre class="prettyprint"><code>[
     {
-	    "acl_id" : 1,
-	    "user_id" : 1,
-	    "permisson" : 2,
+        "role": "owner",
+        "survey_id": "52d7a76fe092377673000021",
+        "user_id": "52cfa8cde092372bf6000001",
+        "id": "52d7a76f1ab852356722adb6"
     }
 ]
 </code></pre>
 
-<h2 id="section-1">2. 获取指定用户的权限列表</h2>
-<pre><code>GET /users/:user_id/acls
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-</code></pre>
-
-<pre class="prettyprint"><code>[
-    {
-	    "acl_id" : 1,
-	    "survey_id" : 1,
-	    "permisson" : 2,
-    }
-]
-</code></pre>
-
-<h2 id="section-2">3. 给指定问卷添加用户权限</h2>
-<pre><code>POST /surveys/:survey_id/acls
+<h2 id="section-1">2. 给指定问卷添加编辑</h2>
+<pre><code>POST /surveys/:survey_id/editors
 </code></pre>
 
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
-	"user_id" : 1,
-	"permisson" : 2,
+    "role": "owner",
+    "user_id": "52cfa8cde092372bf6000001",
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 201 No Content
+<pre><code>Status: 201
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "acl_id" : 1,/* id(自增) */
+    "role": "owner",
+    "survey_id": "52d7a76fe092377673000021",
+    "user_id": "52cfa8cde092372bf6000001",
+    "id": "52d7a76f1ab852356722adb6"
 }
-</code></pre>
-
-<h2 id="section-3">4. 修改指定的权限</h2>
-<pre><code>PATCH /surveys/acls/:id
-</code></pre>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>{
-    "acl_id" : 1,
-    "permission" : 1,
-}
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-4">5. 删除指定的权限</h2>
-<pre><code>DELETE /surveys/acls/:id
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 
       </div>
@@ -391,10 +344,6 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -404,6 +353,10 @@ X-RateLimit-Remaining: 4999
                   
                 </ul>
               </li>
+            
+          
+          
+          
             
           
           
@@ -457,10 +410,6 @@ X-RateLimit-Remaining: 4999
           
           
             
-          
-          
-          
-            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -470,6 +419,10 @@ X-RateLimit-Remaining: 4999
                   
                 </ul>
               </li>
+            
+          
+          
+          
             
           
           
@@ -757,23 +710,23 @@ X-RateLimit-Remaining: 4999
           
           
             
+          
+          
+          
+            
+          
+          
+          
+            
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
-                  <a class="active" href="/doc/surveymaster/v1/cn/acl.html">权限相关</a>
+                  <a class="active" href="/doc/surveymaster/v1/cn/editor.html">权限相关</a>
                 </h3>
                 <ul class="js-guides">
                   
                 </ul>
               </li>
-            
-          
-          
-          
-            
-          
-          
-          
             
           
           
