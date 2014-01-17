@@ -247,3 +247,47 @@ language: cn
     Status: 204
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
+
+## 7. 新增答案
+    POST /response/:collector_id/answers
+    Set-Cookie: admckid=***
+
+**参数**
+
+`admckid`
+: _可选_ **String**
+
+`r_key`
+: _可选_ **String**
+
+`r_value`
+: _可选_ **String**
+
+`referer`
+: _可选_ **String**
+
+`passback`
+: _可选_ **String**
+
+
+**请求**
+
+{:.prettyprint}
+    {
+        "qas": [
+                {
+                    "duration": 8,
+                    "other": "",
+                    "question_id": "52d7a76fe092377673000024",
+                    "value": [
+                            "1"
+                    ]
+                }
+        ]
+    }
+
+**响应**
+
+    Status: 201
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999

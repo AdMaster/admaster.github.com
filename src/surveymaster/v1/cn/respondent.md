@@ -10,58 +10,68 @@ language: cn
 {:toc}
 
 ## 1. 获取答题人列表
-	GET /respondents
+    GET /respondents
 
 **响应**
 
-    Status: 200 OK
+    Status: 200
 
 {:.prettyprint}
     [
-	    {
-		    "respondent_id" : 1,
-		    "admckid" : '1337002',
-		    "cross_uid" : '1290',
-	    }
+        {
+            "admckid": "1401151956201886732",
+            "r_key": "cookie",
+            "r_value": "1401151956201886732",
+            "id": "52d8d670e092370259000009"
+        }
     ]
 
 
 ## 2. 获取指定的答题人信息
-	GET /respondents/:id
+    GET /respondents/:id
 
 **响应**
 
-    Status: 200 OK
+    Status: 200
 
 {:.prettyprint}
     {
-	    "admckid" : '1337002',
-	    "cross_uid" : '1290',
+        "admckid": "1401151956201886732",
+        "r_key": "cookie",
+        "r_value": "1401151956201886732",
+        "id": "52d8d670e092370259000009"
     }
 
 ## 3. 修改指定的答题人信息
-	PATCH /respondents/:id
+    PATCH /respondents/:id
 
 **请求**
 
 {:.prettyprint}
     {
-	    "cross_uid" : '1290',
+        "admckid" : '1290',
     }
 
 
 **响应**
 
-    Status: 204 No Content
+    Status: 201
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
+{:.prettyprint}
+    {
+        "admckid": "1401151956201886732",
+        "r_key": "cookie",
+        "r_value": "1401151956201886732",
+        "id": "52d8d670e092370259000009"
+    }
 
 ## 4. 删除指定的答题人
-	DELETE /respondents/:id
+    DELETE /respondents/:id
 
 **响应**
 
-    Status: 204 No Content
+    Status: 204
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999

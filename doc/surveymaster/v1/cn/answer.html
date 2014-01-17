@@ -41,85 +41,14 @@
     <div id="wrapper">
       <div class="content">
         <ul id="markdown-toc">
-  <li><a href="#section">1. 新增答案</a></li>
-  <li><a href="#section-1">2. 获取指定问卷的答案列表</a></li>
-  <li><a href="#section-2">3. 获取指定答案的详情</a></li>
-  <li><a href="#section-3">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</a></li>
-  <li><a href="#section-4">5. 删除指定答案</a></li>
-  <li><a href="#section-5">6. 删除指定渠道的所有答案</a></li>
+  <li><a href="#section">1. 获取指定问卷的答案列表</a></li>
+  <li><a href="#section-1">3. 获取指定答案的详情</a></li>
+  <li><a href="#section-2">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</a></li>
+  <li><a href="#section-3">5. 删除指定答案</a></li>
+  <li><a href="#section-4">6. 删除指定渠道的所有答案</a></li>
 </ul>
 
-<h2 id="section">1. 新增答案</h2>
-<pre><code>POST /surveys/collectors/:code/answers
-Set-Cookie: admaster_cookie_id=***
-</code></pre>
-
-<p><strong>请求</strong></p>
-
-<pre class="prettyprint"><code>[
-    {
-        "question_id" : 1,/* 问题id */
-        "duration" : 30,/* 答题所用时间(秒) */
-        "value" : ["1"]/* 数组里存放选项id */
-    },
-    {
-        "question_id" : 2,
-        "duration" : 30,
-        "value" : ["-1"],/* -1代表"其他"选项 */
-        "other" : '篮球'
-    },
-    {
-        "question_id" : 8,
-        "duration" : 30,
-        "value" : ["1","1.1"]
-    },
-    {/* 多选题 */
-        "question_id" : 3,
-        "duration" : 30,
-        "value" : ["1","3"]
-    },
-    {
-        "question_id" : 9,
-        "duration" : 30,
-        "value" : ["1","3","3.2"],
-    },
-    {
-        "question_id" : 4,
-        "duration" : 30,
-        "value" : ["4","-1"],
-        "other" : "红酒"
-    },
-    {
-        "question_id" : 5,
-        "duration" : 30,
-        "value" : ["-2"]/* -2代表选中了“排他”选项 */
-    },
-    {
-        "question_id" : 10,
-        "duration" : 30,
-        "value" : ["1","3","3.2","4.4"],
-    },
-    {
-        "question_id" : 6,
-        "duration" : 30,
-        "value" : "单行输入"
-    },
-    {
-        "question_id" : 7,
-        "duration" : 30,
-        "value" : "多行输入\n多行输入"
-    }
-]
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 201 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-1">2. 获取指定问卷的答案列表</h2>
+<h2 id="section">1. 获取指定问卷的答案列表</h2>
 <pre><code>GET /surveys/:survey_id/answers
 </code></pre>
 
@@ -127,18 +56,7 @@ X-RateLimit-Remaining: 4999
 
 <dl>
   <dt><code>collector_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 指定渠道id进行过滤</dd>
-  <dt><code>status</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 根据答题情况进行过滤
-
-    <ul>
-      <li><code>-1</code> - 被甄别</li>
-      <li><code>0</code> - 未答完</li>
-      <li><code>1</code> - 已答完</li>
-    </ul>
-  </dd>
-  <dt><code>respondent_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 根据答题人进行过滤</dd>
+  <dd><em>可选</em> <strong>String</strong> - 指定渠道id进行过滤</dd>
   <dt><code>per_page</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 每页显示记录数，默认30</dd>
   <dt><code>page</code></dt>
@@ -152,20 +70,87 @@ X-RateLimit-Remaining: 4999
 
 <pre class="prettyprint"><code>[
     {
-        "answer_id" : 1,/* 答案id */
-        "url" : 'http://api.surveymaster.com.cn/surveys/collectors/answers/1',
-        "respondent_id" : 1,
-        "collector_id" : 1,
-        "collector_name" : "新浪汽车",
-        "created_at" : 123456789,// 开始答题时间
-        "updated_at" : 123456789,// 最后答题时间
-        "status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
+        "collector_id": "52d8d669e092370259000001",
+        "created_at": "2014-01-17T15:06:27+08:00",
+        "respondent_id": "52d8d670e092370259000009",
+        "status": "finished",
+        "survey_id": "52d7a76fe092377673000021",
+        "updated_at": "2014-01-17T15:06:45+08:00",
+        "worth": "qualified",
+        "id": "52d8d673e09237025900000a",
+        "qas": [
+            {
+                "_id": "52d8d685e09237025900001f",
+                "duration": 3,
+                "other": "",
+                "question_id": "52d7a76fe092377673000024",
+                "value": [
+                    "0"
+                ]
+            },
+            {
+                "_id": "52d8d685e092370259000020",
+                "duration": 2,
+                "other": null,
+                "question_id": "52d7a76fe09237767300002f",
+                "value": [
+                    "2014-01-03"
+                ]
+            },
+            {
+                "_id": "52d8d685e092370259000021",
+                "duration": 3,
+                "other": null,
+                "question_id": "52d7a76fe092377673000032",
+                "value": [
+                    "safasfasfd"
+                ]
+            },
+            {
+                "_id": "52d8d685e092370259000022",
+                "duration": 4,
+                "other": null,
+                "question_id": "52d7a76fe092377673000035",
+                "value": [
+                    "0.0",
+                    "1.1",
+                    "2.2"
+                ]
+            },
+            {
+                "_id": "52d8d685e092370259000023",
+                "duration": 6,
+                "other": null,
+                "question_id": "52d7a770e092377673000038",
+                "value": [
+                    "2.2",
+                    "0.2",
+                    "0.1",
+                    "1.1"
+                ]
+            }
+        ],
+        "track_datas": [
+            {
+                "_id": "52d8d685e092370259000024",
+                "campaign_id": 12034,
+                "click": {},
+                "exposure": {
+                    "placement_id": "200140946",
+                    "creative_id": "0",
+                    "action_time": "1389942382",
+                    "times": "2",
+                    "keyword": "0"
+                },
+                "other": {}
+            }
+        ]
     }
 ]
 </code></pre>
 
-<h2 id="section-2">3. 获取指定答案的详情</h2>
-<pre><code>GET /surveys/answers/:id
+<h2 id="section-1">3. 获取指定答案的详情</h2>
+<pre><code>GET /surveys/:survey_id/answers/:id
 </code></pre>
 
 <p><strong>响应</strong></p>
@@ -174,109 +159,138 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "survey_id" : 1,/* 问卷id */
-    "collector_id" : 1,/* 渠道id */
-    "respondent_id" : 1,
-    "collector_id" : 1,
-    "collector_name" : "新浪汽车",
-    "created_at" : 123456789,// 开始答题时间
-    "status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
-    "answers" : [
+    "answered_page_ids": [
+        "52d7a76fe092377673000023",
+        "52d7a76fe09237767300002e",
+        "52d7a76fe092377673000031",
+        "52d7a76fe092377673000034",
+        "52d7a76fe092377673000037",
+        "52d7a770e09237767300003b"
+    ],
+    "city_code": "1000000000",
+    "collector_id": "52d8d669e092370259000001",
+    "created_at": "2014-01-17T15:06:27+08:00",
+    "duration": 17,
+    "ip": "127.0.0.1",
+    "passback": {},
+    "qas": [
         {
-            "question_id" : 1,/* 问题id */
-            "duration" : 30,/* 答题时间 */
-            "value" : ["1"]/* 数组里存放选项id */
+            "duration": 3,
+            "other": "",
+            "question_id": "52d7a76fe092377673000024",
+            "value": [
+                "0"
+            ]
         },
         {
-            "question_id" : 2,
-            "duration" : 30,
-            "value" : ["-1"],/* -1代表"其他"选项 */
-            "other" : '篮球'
+            "duration": 2,
+            "other": null,
+            "question_id": "52d7a76fe09237767300002f",
+            "value": [
+                "2014-01-03"
+            ]
         },
         {
-            "question_id" : 8,
-            "duration" : 30,
-            "value" : ["1","1.1"]
-        },
-        {/* 多选题 */
-            "question_id" : 3,
-            "duration" : 30,
-            "value" : ["1","3"]
+            "duration": 3,
+            "other": null,
+            "question_id": "52d7a76fe092377673000032",
+            "value": [
+                "safasfasfd"
+            ]
         },
         {
-            "question_id" : 9,
-            "duration" : 30,
-            "value" : ["1","3","3.1","3.3"]
+            "duration": 4,
+            "other": null,
+            "question_id": "52d7a76fe092377673000035",
+            "value": [
+                "0.0",
+                "1.1",
+                "2.2"
+            ]
         },
         {
-            "question_id" : 4,
-            "duration" : 30,
-            "value" : ["4","-1"],
-            "other" : "红酒"
-        },
-        {
-            "question_id" : 5,
-            "duration" : 30,
-            "value" : ["-2"]/* -2代表选中了“排他”选项 */
-        },
-        {
-            "question_id" : 10,
-            "duration" : 30,
-            "value" : ["1","3","3.1","3.3","4.4"]
-        },
-        {
-            "question_id" : 6,
-            "duration" : 30,
-            "value" : "单行输入"
-        },
-        {
-            "question_id" : 7,
-            "duration" : 30,
-            "value" : "多行输入\n多行输入"
+            "duration": 6,
+            "other": null,
+            "question_id": "52d7a770e092377673000038",
+            "value": [
+                "2.2",
+                "0.2",
+                "0.1",
+                "1.1"
+            ]
         }
-    ]
+    ],
+    "referer": null,
+    "respondent_id": "52d8d670e092370259000009",
+    "status": "finished",
+    "survey_id": "52d7a76fe092377673000021",
+    "track_datas": [
+        {
+            "campaign_id": 12034,
+            "click": {},
+            "exposure": {
+                "placement_id": "200140946",
+                "creative_id": "0",
+                "action_time": "1389942382",
+                "times": "2",
+                "keyword": "0"
+            },
+            "other": {}
+        }
+    ],
+    "updated_at": "2014-01-17T15:06:45+08:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36",
+    "worth": "qualified",
+    "id": "52d8d673e09237025900000a"
 }
 </code></pre>
 
-<h2 id="section-3">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</h2>
-<pre><code>PATCH /surveys/answers/:answer_id/questions/:id
+<h2 id="section-2">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</h2>
+<pre><code>PATCH /surveys/:survey_id/answers/:answer_id/qas/:id
 </code></pre>
 
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
-    "value" : ["-1"],/* -1代表"其他"选项 */
-    "other" : "篮球"
+    "value" : ["-1"], // -1代表"其他"选项
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre><code>Status: 201
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="section-4">5. 删除指定答案</h2>
-<pre><code>DELETE /surveys/answers/:id
+<pre class="prettyprint"><code>{
+    "duration": 3,
+    "other": "",
+    "question_id": "52d7a76fe092377673000024",
+    "value": [
+        "-1"
+    ]
+}
+</code></pre>
+
+<h2 id="section-3">5. 删除指定答案</h2>
+<pre><code>DELETE /surveys/:survey_id/answers/:id
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
-Link: http://api.surveymaster.com.cn/surveys/1/answers; rel="answers"
+<pre><code>Status: 204
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="section-5">6. 删除指定渠道的所有答案</h2>
-<pre><code>DELETE /surveys/collectors/:collector_id/answers
+<h2 id="section-4">6. 删除指定渠道的所有答案</h2>
+<pre><code>DELETE /surveys/:survey_id/collectors/:collector_id/answers
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
-Link: http://api.surveymaster.com.cn/surveys/1/answers; rel="answers"
+<pre><code>Status: 204
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
