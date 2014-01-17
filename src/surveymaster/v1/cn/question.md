@@ -17,7 +17,7 @@ language: cn
 `page_id`
 : _可选_ **String** - 指定排序方式
 
-  * `page_id` - 指定只显示该page的questions
+  * `page_id` - 指定只显示该页的问题列表
 
 **响应**
 
@@ -250,113 +250,167 @@ language: cn
         "id": "52d7a76fe092377673000024"
     }
 
-## 4. 创建问题
+## 3. 创建问题
+    POST /surveys/:survey_id/questions
 
-    POST /surveys/pages/:page_id/questions
+**参数**
+
+`page_id`
+: _必选_ **String** - 指定该页创建问题
+
+`type`
+: _必选_ **String** - 指定问题类型
+
+  * `type` - radio/checkbox/text/textarea/matrixradio/matrixcheckbox/description
+
+`position`
+: _必选_ **String** - 问题位置
+
+  * `position` - top/bottom/above/below
+
+`other_id`
+: _如果position为above/below，必选_ **String** - 上一问题id
 
 **请求**
 
 {:.prettyprint}
     {
-        "type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
-        "title" : "我是一个单选",
-        "desc" : "我是一个单选题啊单选题",
-        "options" : [/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */
-            "option_1",
-            "option_2",
-            "option_3"
+        "type": "radio",
+        "position": "top",
+        "description": "这是一个单选题",
+        "display": {
+            "perline": 1,
+            "random": false,
+            "style": "radio"
+        },
+        "is_required": true,
+        "options": [
+            "选项1",
+            "选项2",
+            "选项3"
         ],
-        "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
-        "quote_question_ids" : [1],
-        "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-            "status" : "on",/* 是否显示其他选项 */
-            "label" : "其他",/* 自定义选项名称 */
-            "input" : {/* 输入框 */
-                "status" : "on",/* 是否出现输入框 */
-                "type" : "char/number/email/url/date",
-                "min" : 1,/* 允许输入的最少字符数 */
-                "max" : 10,/* 允许输入的最多字符数 */
-                "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
-            }
+        "other": {
+            "input": {
+                "max": "100",
+                "min": "2",
+                "prompt": "请输入字符",
+                "status": true,
+                "type": "char"
+            },
+            "label": "其他选项",
+            "status": true
         },
-        "required" : {/* 必答 */
-            "status" : "on",/* 是否设为必答题 */
-            "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
-        },
-        "display" : {/* 显示相关 */
-            "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为on时，other的前端实现要与此设置保持一致) */
-            "perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
-            "random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
-        }
+        "page_id": "52d7a76fe092377673000023",
+        "quote_ids": [],
+        "skip_prompt": "必答题",
+        "title": "单选题",
     }
 
 **响应**
 
-    Status: 201 No Content
+    Status: 201
     Location: http://api.surveymaster.com.cn/surveys/1/questions
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
-	    "question_id" : 1,/* 问题id(自增) */
-	    /* 问题详情 */
+        "id" : "52d7a76fe092377673000024"
+        // 问题详情
     }
 
-## 6. 修改指定的问题
+## 4. 修改指定的问题
 
-    PATCH /surveys/pages/questions/:id
+    PATCH /surveys/:survey_id/questions/:id
 
 **请求**
 
 {:.prettyprint}
     {
-        "type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本(注意：允许改题型) */
-        "title" : "我是一个单选",
-        "desc" : "我是一个单选题啊单选题",
-        "options" : [/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */
-            "option_1",
-            "option_2",
-            "option_3"
+        "id" : "52d7a76fe092377673000024",
+        "type": "radio",
+        "description": "这是一个单选题",
+        "display": {
+            "perline": 1,
+            "random": false,
+            "style": "radio"
+        },
+        "is_required": true,
+        "options": [
+            "选项1",
+            "选项2",
+            "选项3"
         ],
-        "quote_question_ids" : [],
-        "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-            "status" : "on",/* 是否显示其他选项 */
-            "label" : "其他",/* 自定义选项名称 */
-            "input" : {/* 输入框 */
-                "status" : "on",/* 是否出现输入框 */
-                "type" : "char/number/email/url/date",
-                "min" : 1,/* 允许输入的最少字符数 */
-                "max" : 10,/* 允许输入的最多字符数 */
-                "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
-            }
+        "other": {
+            "input": {
+                "max": "100",
+                "min": "2",
+                "prompt": "请输入字符",
+                "status": true,
+                "type": "char"
+            },
+            "label": "其他选项",
+            "status": true
         },
-        "required" : {/* 必答 */
-            "status" : "on",/* 是否设为必答题 */
-            "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
-        },
-        "display" : {/* 显示相关 */
-            "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为on时，other的前端实现要与此设置保持一致) */
-            "perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
-            "random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
-        }
+        "quote_ids": [],
+        "skip_prompt": "必答题",
+        "title": "单选题",
     }
-
 
 **响应**
 
-    Status: 204 No Content
+    Status: 201
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
+{:.prettyprint}
+    {
+        "id" : "52d7a76fe092377673000024"
+        // 问题详情
+    }
 
-## 7. 删除指定的问题
+## 5. 移动指定的问题
+    PATCH /surveys/:survey_id/questions/:question_id/move
 
-    DELETE /surveys/pages/questions/:id
+**参数**
+
+`page_id`
+: _必选_ **String** - 需要移动至某页的id
+
+`position`
+: _必选_ **String** - 问题位置
+
+  * `position` - top/bottom/above/below
+
+`other_id`
+: _如果position为above/below，必选_ **String** - 上一问题id
+
+**请求**
+
+{:.prettyprint}
+    {
+        "page_id": "52d7a76fe092377673000023",
+        "position": "above",
+        "other_id": "52d7a76fe092377673000024"
+    }
+
+**响应**
+
+    Status: 201
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+{:.prettyprint}
+    {
+        "id" : "52d7a76fe092377673000024"
+        // 问题详情
+    }
+
+## 6. 删除指定的问题
+    DELETE /surveys/:survey_id/questions/:id
 
 **响应**
 
     Status: 204 No Content
-    Location: http://api.surveymaster.com.cn/surveys/pages/1/questions
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
