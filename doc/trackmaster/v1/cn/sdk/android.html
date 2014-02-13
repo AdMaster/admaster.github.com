@@ -501,6 +501,605 @@ public class MainActivity extends Activity {
 &lt;/config&gt;
 </code></pre>
 
+<table class="confluenceTable">
+		<tbody>
+			<tr>
+				<td colspan="1" class="confluenceTd">AdMaster 参数</td>
+				<td class="confluenceTd">
+					<p align="center"> <strong>参数</strong>
+					</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center"> <strong>用途描述</strong>
+					</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">
+						<strong>格式和示例</strong>
+					</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">
+						<strong>是否必</strong>
+						<strong>填</strong>
+					</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">
+						<strong>获取方法</strong>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">包含在传递的监测代码中</td>
+				<td class="confluenceTd">
+					<p>CID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>Channel Identifier，渠道的身份识别码。</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，例如“AdXX”</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">包含在传递的监测代码中</td>
+				<td class="confluenceTd">
+					<p>ADID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>Advertisement Identifier，投放的广告 ID，具备可识别性即可。在投放前由监测系统分配</p>
+				</td>
+				<td class="confluenceTd">
+					<p>数字或字符串，如“1321”</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">包含在传递的监测代码中</td>
+				<td class="confluenceTd">
+					<p>CRID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>Creative Identifier，监测系统中登记的广告素材 ID，在投放前由监测系统分配</p>
+				</td>
+				<td class="confluenceTd">
+					<p>数字或字符串，如“ABC123”</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">0a</td>
+				<td class="confluenceTd">
+					<p>OS</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的操作系统类型</p>
+				</td>
+				<td class="confluenceTd">
+					<p>0– Android</p>
+					<p>1– iOS</p>
+					<p>2– WP</p>
+					<p>3- Others</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">0c</td>
+				<td class="confluenceTd">
+					<p>IMEI</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的IMEI</p>
+				</td>
+				<td class="confluenceTd">
+					<p>取md5sum摘要</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">OS=0时，是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">n</td>
+				<td class="confluenceTd">
+					<p>MAC</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的eth0 接口的 MAC 地址（大写去除冒号分隔符），md5加密</p>
+				</td>
+				<td class="confluenceTd">
+					<p>去除分隔符":"，（保持大写）取 md5sum 摘要</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">OS=0时，MAC/MAC1至少一项必填</p>
+					<p align="center">OS=1时，</p>
+					<p align="center">MAC/MAC1/IDFA/OpenUDID至少一项必填</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">无</td>
+				<td class="confluenceTd">
+					<p>MAC1</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的eth0 接口的 MAC 地址（大写且保留冒号分隔符），md5加密</p>
+				</td>
+				<td class="confluenceTd">
+					<p>保留分隔符":"，（保持大写）取 md5sum 摘要</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">同上</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">z</td>
+				<td class="confluenceTd">
+					<p>IDFA</p>
+				</td>
+				<td class="confluenceTd">
+					<p>iOS IDFA适用于iOS6及以上</p>
+				</td>
+				<td class="confluenceTd">
+					<p>保留原始值</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">同上</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">o</td>
+				<td class="confluenceTd">
+					<p>OpenUDID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>OpenUDID，参考12节[5]</p>
+				</td>
+				<td class="confluenceTd">
+					<p>&nbsp;</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">同上</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">0d</td>
+				<td class="confluenceTd">
+					<p>AndroidID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的AndroidID，md5加密</p>
+				</td>
+				<td class="confluenceTd">
+					<p>取md5sum摘要</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">OS=0时，AndroidID / AndroidID1至少一项必填</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">无</td>
+				<td class="confluenceTd">
+					<p>AndroidID1</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的AndroidID，</p>
+				</td>
+				<td class="confluenceTd">
+					<p>保留原始值</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">同上</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">o</td>
+				<td class="confluenceTd">
+					<p>UDID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>iOS UDID，md5加密，iOS6以上禁用</p>
+				</td>
+				<td class="confluenceTd">
+					<p>取md5sum摘要</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">0g</td>
+				<td class="confluenceTd">
+					<p>ODIN</p>
+				</td>
+				<td class="confluenceTd">
+					<p>ODIN，参考12节[6]</p>
+				</td>
+				<td class="confluenceTd">
+					<p>详见API标准</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">0e</td>
+				<td class="confluenceTd">
+					<p>DUID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>Windows Phone 用户终端的DUID，md5加密</p>
+				</td>
+				<td class="confluenceTd">
+					<p>取md5sum摘要</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">OS=2时，是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">f</td>
+				<td class="confluenceTd">
+					<p>IP</p>
+				</td>
+				<td class="confluenceTd">
+					<p>媒体投放系统获取的用户终端的公网IP地址，用于比对智能路由IP差异</p>
+				</td>
+				<td class="confluenceTd">
+					<p>A.B.C.D(4段点分)，如</p>
+					<p>12.34.56.78</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">无</td>
+				<td class="confluenceTd">
+					<p>UA</p>
+				</td>
+				<td class="confluenceTd">
+					<p>数据上报用户终端设备的 User Agent</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义，如</p>
+					<p>
+						Mozilla%2F5.0(Linux%3BAndroid4.0.4%3BGT-I9220%20Build%2FIMM76D )
+					</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">t</td>
+				<td class="confluenceTd">
+					<p>TS</p>
+				</td>
+				<td class="confluenceTd">
+					<p>客户端触发监测的时间，用于计算离线监测时间</p>
+				</td>
+				<td class="confluenceTd">
+					<p>UTC时间戳，自1970年起的毫秒数</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">无</td>
+				<td class="confluenceTd">
+					<p>EVNT</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用于区分监测的事件，如：播放开始或者播放完成</p>
+				</td>
+				<td class="confluenceTd">
+					<p>英文数字下划线，如“Start”</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">
+					<p class="p1">0i</p>
+				</td>
+				<td class="confluenceTd">
+					<p>MUDS</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用于媒体自定义信息，如IES-ID或投放订单ID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">
+					<p class="p1">0h</p>
+				</td>
+				<td class="confluenceTd">
+					<p>MUID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>媒体分配的浏览者Cookie ID或 用户ID</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">输入</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">
+					<p class="p1">l</p>
+				</td>
+				<td class="confluenceTd">
+					<p>LBS</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端设备的经纬度地理坐标</p>
+				</td>
+				<td class="confluenceTd">
+					<p>
+						十进制保留6位小数，东经南纬保留负数，用字母x分割纬度与精度（先纬后经，最后精度)，如35.758134x-122.406722x100.0
+					</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">
+					<p class="p1">q</p>
+				</td>
+				<td class="confluenceTd">
+					<p>OSVS</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的操作系统版本</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">r</td>
+				<td class="confluenceTd">
+					<p>TERM</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的机型</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">w</td>
+				<td class="confluenceTd">
+					<p>WIFI</p>
+				</td>
+				<td class="confluenceTd">
+					<p>客户端触发监测时是否使用wifi</p>
+				</td>
+				<td class="confluenceTd">
+					<p>0=2/3G mode</p>
+					<p>1=wifi mode&nbsp;</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">
+					<p class="p1">0f</p>
+				</td>
+				<td class="confluenceTd">
+					<p>SCWH</p>
+				</td>
+				<td class="confluenceTd">
+					<p>用户终端的屏幕分辨率</p>
+				</td>
+				<td class="confluenceTd">
+					<p>宽 x 高，用字母x分割</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">s</td>
+				<td class="confluenceTd">
+					<p>ADWH</p>
+				</td>
+				<td class="confluenceTd">
+					<p>素材实际播放时的尺寸（考虑素材的缩放）</p>
+				</td>
+				<td class="confluenceTd">
+					<p>宽 x 高，用字母x分割</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">x</td>
+				<td class="confluenceTd">
+					<p>AKEY</p>
+				</td>
+				<td class="confluenceTd">
+					<p>媒体APP Key</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">y</td>
+				<td class="confluenceTd">
+					<p>ANAME</p>
+				</td>
+				<td class="confluenceTd">
+					<p>媒体APP Name</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">无</td>
+				<td class="confluenceTd">
+					<p>SDKVS</p>
+				</td>
+				<td class="confluenceTd">
+					<p>SDK版本</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">是</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" class="confluenceTd">
+					<p class="p1">0b</p>
+				</td>
+				<td class="confluenceTd">
+					<p>SIGN</p>
+				</td>
+				<td class="confluenceTd">
+					<p>签名串</p>
+				</td>
+				<td class="confluenceTd">
+					<p>字符串，需escape转义</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">否</p>
+				</td>
+				<td class="confluenceTd">
+					<p align="center">SDK</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
       </div>
       
     <div id="js-sidebar" class="sidebar-shell">
