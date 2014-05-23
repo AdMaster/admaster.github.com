@@ -9,6 +9,12 @@ title: Campaign Report
 
 # Campaign Report
 
+##### Important Notification：Delete ipuimp and ipuclk in all combinations and Report- Change dims=geo to dims=province.#####
+
+
+
+
+
 * TOC
 {:toc}
 
@@ -24,8 +30,6 @@ It is connected with `start_time` and `end_time`.
 
   * `hourly` Get hourly unique data.
   * `daily` Get daily unique data.
-  * `weekly` Get weekly unique data.
-  * `monthly` Get monthly unique data.
 
 `dims`
 : _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ','. Example : media , placement, time. 
@@ -35,7 +39,7 @@ It is connected with `start_time` and `end_time`.
   *  `placement` 
   *  `keyword` 
   *  `creative` 
-  *  `geo` 
+  *  `province` 
 
 
 When using dimensions in a feed request, be aware of the following constraints:
@@ -62,20 +66,17 @@ When using dimensions in a feed request, be aware of the following constraints:
 : _Optional_ **hour** - Listing campaigns which beginning time date earlier than `start_date`. The format of `start_time` is connected with `time`.The parament  `start_time` is formatted according to the ISO 8601 standard.
 
 time | start_time   | description
-hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:57:10+08:00
+hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2005-W01
-monthly  | YYYY-MM     | 2005-01
+
 
 
 `end_time`
 : _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
 
 time | end_time   | description
-hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:57:10+08:00
+hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2005-W01
-monthly  | YYYY-MM     | 2005-01
 
 
 `sort`
@@ -120,10 +121,8 @@ monthly  | YYYY-MM     | 2005-01
         "time": "2012-08-03",//The parament `time` is formatted according to the ISO 8601 standard and `start_time`.
         "imp": 90,//Impression
         "uimp": 60,//Unique Impression
-        "ipuimp": 56,//Unique Impression IP
         "clk": 30,//Click
         "uclk": 23,//Unique Click
-        "ipuclk": 22//Unique Click IP
       }
     ]
 
@@ -133,10 +132,8 @@ monthly  | YYYY-MM     | 2005-01
 Field | Type     | Description
 imp      | integer     | Impression
 uimp     | integer     | Unique Impression
-ipuimp   | integer     | Unique Impression IP
 clk      | integer     | Click
 uclk     | integer     | Unique Click
-ipuclk   | integer     | Unique Click IP
 
 **Valid Combinations Description**  
 Not all combinations can be queried together. Only certain combinations can be used together to create valid combinations. 
@@ -144,25 +141,25 @@ Not all combinations can be queried together. Only certain combinations can be u
 
 |Valid Combinations
 |time=daily
-|time=daily&dims=geo
+|time=daily&dims=province
 |time=daily&dims=creative 
 |time=daily&dims=media
-|time=daily&dims=media,geo
+|time=daily&dims=media,province
 |time=daily&dims=media,creative 
 |time=daily&dims=media,placement
-|time=daily&dims=media,placement,geo
+|time=daily&dims=media,placement,province
 |time=daily&dims=media,placement,creative 
 |time=daily&dims=media,placement,keyword 
 |time=hourly 
 |time=hourly&dims=creative 
-|time=hourly&dims=geo 
+|time=hourly&dims=province 
 |time=hourly&dims=media 
 |time=hourly&dims=media,creative 
-|time=hourly&dims=media,geo 
+|time=hourly&dims=media,province 
 |time=hourly&dims=media,placement 
 |time=hourly&dims=media,placement,creative 
-|time=hourly&dims=media,placement,geo
-|time=hourly&dims=media,placement,keyword
+|time=hourly&dims=media,placement,province
+
 
 
 **Example**
@@ -178,8 +175,6 @@ dims contain time
             "uimp": 3,
             "clk": 7,
             "uclk": 7,
-            "ipuimp": 3,
-            "ipuclk": 4
         },
         {
             "campaign_id": 10116,
@@ -197,7 +192,5 @@ dims without time
             "uimp": 27,
             "clk": 72,
             "uclk": 39,
-            "ipuimp": 27,
-            "ipuclk": 24
         }
     ]

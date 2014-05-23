@@ -86,8 +86,6 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 
   * `hourly` 获取小时数据
   * `daily` 获取日数据
-  * `weekly` 获取周数据
-  * `monthly` 获取月数据
 
 `dims`
 : _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开
@@ -96,7 +94,7 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
   * `placement` 按广告位维度聚合
   * `keyword` 按关键字维度聚合
   * `creative` 按创意维度聚合
-  * `geo` 按地域维度聚合
+  * `province` 按省级地域维度聚合
   * `time` 按时间维度聚合    
 
 `network_media_id`
@@ -118,25 +116,22 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 : _可选_ **hour** - 开始时间，会列出日期大于等于此设定的项目，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
+
+  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
 
   * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
 
-  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `end_time`
 : _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mmZ。例 2012-11-06T01:57Z。
+  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm+08:00。
 
   * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
 
-  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `sort`
 : _可选_ **string** - 列表排序以什么排序
@@ -170,10 +165,8 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
         "time": "2012-08-03",//此处 `time` 格式与参数 `start_time`、`end_time` 一致，例如当参数`time`为 daily，则此处时间为从 `start_time` 到 `end_time` 分天时间.
         "imp": 90,//曝光数
         "uimp": 60,//独立曝光数
-        "ipuimp": 56,//独立曝光 IP 数
         "clk": 30,//点击数
         "uclk": 23,//独立点击数
-        "ipuclk": 27//独立点击 IP 数
       }
     ]
 

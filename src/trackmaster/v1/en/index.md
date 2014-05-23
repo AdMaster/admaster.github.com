@@ -9,7 +9,14 @@ title: TrackMaster™ Index
 
 # {{ page.title }}
 
-TrackMaster is the leading online advertising measurement tool in China.
+
+## Important Notification##
+* Delete ipuimp and ipuclk in all combinations.
+* Report- Change dims=geo to dims=province.
+* More Information.[Update](http://dev.admaster.com.cn/doc/trackmaster/v1/en/update.html)
+
+
+### TrackMaster is an online advertising measurement tool in China. ###
 
 
 ## Main TrackMaster API Objects

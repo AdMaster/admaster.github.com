@@ -19,6 +19,14 @@ title: Update
     <td width="94"><div align="center"><strong>Time</strong></div></td>
     <td width="456"><div align="center"><strong>Description</strong></div></td>
   </tr>
+      <tr>
+    <td>2013-08-07</td>
+    <td>Report- Change dims=geo to dims=province.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/campaign_report.html">More Information</a></td>
+  </tr>
+    <tr>
+    <td>2013-08-06</td>
+    <td>Delete ipuimp and ipuclk in all combinations.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/campaign_report.html">More Information</a></td>
+  </tr>
     <tr>
     <td>2013-06-20</td>
     <td>Units contain decimals. Converts units value to a float data type.<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/en/spot.html">More Information</a></td>

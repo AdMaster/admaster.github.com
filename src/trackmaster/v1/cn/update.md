@@ -19,6 +19,14 @@ title: 更新
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
   </tr>
     <tr>
+    <td>2013-08-07</td>
+    <td>变更项目报告中维度（dims）选择地域（geo）名称为province。原geo暂时并行。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
+  </tr>
+  <tr>
+    <td>2013-08-06</td>
+    <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/campaign_report.html">查看详细</a></td>
+  </tr>
+    <tr>
     <td>2013-06-20</td>
     <td>更改购买量的数据类型为float，点位的购买量支持录入小数。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/spot.html">查看详细</a></td>
   </tr>
@@ -109,12 +117,30 @@ title: 更新
   </tr>
 </table> 
 
+
 ## 媒体接口/文档更新    
 
 <table width="560" border="0" bordercolor="#000000">
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+          <tr>
+    <td>2013-10-17</td>
+    <td>支持通过监测代码获取相关参数，此参数可以用于获取媒体报告接口。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/media_report.html#section-5">查看详细</a></td>
+  </tr>
+
+        <tr>
+    <td>2013-10-09</td>
+    <td>支持通过项目ID直接获取该项目下的广告位列表。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/publisher_placement.html#section-1">查看详细</a></td>
+  </tr>
+      <tr>
+    <td>2013-10-09</td>
+    <td>添加IES新接口，即日起新接入IES的对接方使用此新接口。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/media_report.html#ies">查看详细</a></td>
+  </tr>
+    <tr>
+    <td>2013-08-06</td>
+    <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/media_report.html#section-5">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-03-08</td>
@@ -163,12 +189,17 @@ title: 更新
 </table>    
 
 
+
 ## 广告主接口/文档更新    
 
 <table width="560" border="0" bordercolor="#000000">
   <tr>
     <td width="94"><div align="center"><strong>更新时间</strong></div></td>
     <td width="456"><div align="center"><strong>详细说明</strong></div></td>
+  </tr>
+      <tr>
+    <td>2013-08-06</td>
+    <td>由于业务需求，去除按 IP 去重的所有相关指标。<a href="http://dev.admaster.com.cn/doc/trackmaster/v1/cn/advertisers_report.html#section-1">查看详细</a></td>
   </tr>
   <tr>
     <td>2013-03-08</td>

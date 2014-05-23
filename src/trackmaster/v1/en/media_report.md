@@ -109,46 +109,69 @@ title: Publisher Report
     X-RateLimit-Remaining: 4999
 
 
-## Get iab data 
 
-    GET /medias/:id/ies
+## Get IES report
+
+	GET /medias/:id/ies_reports
 
 **Response**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/ies?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/ies?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+	Status: 200 OK
+	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
+      	  <http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
 
 **Parameters**
 
-`pubid`
-: _Optional_ **string** 
-
+`pub_id`
+: _Optional_ **string** - pub_id 
 
 `date`
-: _Optional_ **date** - Date of the form YYYY-MM-DD
-
-	If not supplied, the date is yesterday. The parament `date` is formatted according to the ISO 8601 standard.
-
+: _Optional_ **date** - YYYY-MM-DD
 `page`
 : _Optional_ **integer** - the start index
-       
+
 	If not supplied, the page is 1. (Feed pages are 1-based. That is, the first entry is entry 1, not entry 0.) Use this parameter as a pagination mechanism along with the per_page parameter for situations when totalResults exceeds 30 and you want to retrieve entries indexed at 31 and beyond.
 
-{:.prettyprint}
-    [
-      {
-        "date": 130423,
-        "pubid": "IYK_IMloxnwepMEqlx",
-        "geoid": 1100000000,
-        "impression": 12039423,
-        "click": 43432,
-      }
-    ]
+`per_page`
+: _Optional_ **integer** - the max-results
 
-## Get campaign report of the given media
+	You can use this in combination with page to retrieve a subset of elements, or use it alone to restrict the number of returned elements, starting with the first. If you do not use the per_page parameter in your query, your feed returns the default maximum of 30 entries.
+
+{:.prettyprint}
+	[{
+  	"id": 30,
+  	"media_id":100,
+  	"geo_id": 1100000000,  		
+  	"pub_id": "PUB_IMloxn12345",
+  	"imp": 12039423,
+  	"clk": 43432
+	}]
+
+
+
+## Get parameters from code
+
+    GET /medias/:id/code_params
+
+**Parameters**
+
+`code`
+: _Required_ **string** - Code
+
+
+
+{:.prettyprint}
+	{
+  	"campaign_id": "100",
+  	"placement_id":"100",
+  	"creative_id":"0"
+	}
+
+
+
+
+
+## Get campaign report of the given medium
 
     GET /medias/:media_id/campaigns/:campaign_id/reports
 
@@ -160,8 +183,6 @@ It is connected with `start_time` and `end_time`.
 
   * `hourly` Get hourly unique data
   * `daily` Get daily unique data.
-  * `weekly` Get weekly unique data.
-  * `monthly` Get monthly unique data.
 
 `dims`
 : _Optional_ **string** - The dimensions parameter defines the primary data keys for your Campaign report. Use dimensions to segment your metrics. If you want to ask for several dimensions, you should use ‘,’. Example : media , placement, time.
@@ -170,7 +191,7 @@ It is connected with `start_time` and `end_time`.
   * `placement` 
   * `keyword` 
   * `creative` 
-  * `geo` 
+  * `province` 
    
 
 
@@ -190,19 +211,17 @@ It is connected with `start_time` and `end_time`.
 : _Optional_ **hour** - Listing campaigns which beginning time date earlier than `start_date`. The format of `start_time` is connected with `time`.The parament  `start_time` is formatted according to the ISO 8601 standard.
 
 time | start_time   | description
-hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:57:10+08:00
+hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2005-W01
-monthly  | YYYY-MM     | 2005-01
+
 
 `end_time`
 : _Optional_ **hour** - Listing campaigns which final date later than `end_time`. The format of `end_time` is connected with `time`.The parament `end_time` is formatted according to the ISO 8601 standard.
 
 time | end_time   | description
-hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:57:10+08:00
+hourly   | YYYY-MM-DDThh:mm:ss+08:00   | 2012-11-06T01:00:00+08:00
 daily    | YYYY-MM-DD     | 2012-11-06
-weekly   | YYYY-Www     | 2005-W01
-monthly  | YYYY-MM     | 2005-01
+
 
 `sort`
 : _Optional_ **string** - The order to retrieve the results.
@@ -234,10 +253,8 @@ monthly  | YYYY-MM     | 2005-01
         "time": "2012-08-03",
         "imp": 9,
         "uimp": 6,
-        "ipuimp": 6,
         "clk": 3,
         "uclk": 3,
-        "ipuclk": 2
       }
     ]
 
@@ -246,10 +263,8 @@ monthly  | YYYY-MM     | 2005-01
 Field | Type     | Description
 imp      | integer     | Impression
 uimp     | integer     | Unique Impression
-ipuimp   | integer     | Unique Impression IP
 clk      | integer     | Click
 uclk     | integer     | Unique Click
-ipuclk   | integer     | Unique Click IP
 
 **Valid Combinations Description**
 
@@ -258,17 +273,17 @@ Not all combinations can be queried together. Only certain combinations can be u
 
 |Valid Combinations
 |time=daily  
-|time=daily&dims=geo
+|time=daily&dims=province
 |time=daily&dims=creative 
 |time=daily&dims=placement
-|time=daily&dims=placement,geo
+|time=daily&dims=placement,province
 |time=daily&dims=placement,keyword
 |time=daily&dims=placement,creative 
 |time=hourly
 |time=hourly&dims=creative 
-|time=hourly&dims=geo
+|time=hourly&dims=province
 |time=hourly&dims=placement
 |time=hourly&dims=placement,creative 
-|time=hourly&dims=placement,geo
-|time=hourly&dims=placement,keyword
+|time=hourly&dims=placement,province
+
 

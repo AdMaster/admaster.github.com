@@ -37,10 +37,10 @@ title: 媒体报告
 **参数**
 
 `start_time`
-: _可选_ **date** - 项目开始日期，例如 2012-08-01，会列出项目开始日期大于等于此设定的项目
+: _可选_ **date** - 报告开始日期，例如 2012-08-01
 
 `end_time`
-: _可选_ **date** - 项目结束日期，例如 2012-08-02，会列出项目结束日期小于等于此设定的项目
+: _可选_ **date** - 报告结束日期，例如 2012-08-02
 
 `sort`
 : _可选_ **string** - 列表排序以什么排序
@@ -105,45 +105,67 @@ title: 媒体报告
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
+      
 
-## 媒体用户获取 iab 数据
+## 获取IES报告(新接口)
 
-    GET /medias/:id/ies
+	GET /medias/:id/ies_reports
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/ies?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/ies?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+	Status: 200 OK
+	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
+      	  <http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
 
 **参数**
 
-`pubid`
-: _可选_ **string** - pubid 指定后只获取该 pubid 的数据
+`pub_id`
+: _可选_ **string** - pub_id 指定后只获取该 pub_id 的数据
 
 `date`
-: _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取前一天的数据
+: _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08, 不指定则获取前一天的数据
 
 `page`
 : _可选_ **integer** - 显示页码
 
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
+默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page` 显示 30 条之后的数据。
 
 `per_page`
 : _可选_ **integer** - 分页数量，默认每页 30 条
 
-	返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
+返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
 
 {:.prettyprint}
-      {
-        "date": 130423,
-        "pubid": "IYK_IMloxnwepMEqlx",
-        "geoid": 1100000000,
-        "impression": 12039423,
-        "click": 43432,
-      }
+	[{
+  	"id": 30,
+  	"media_id":100,
+  	"geo_id": 1100000000,  		
+  	"pub_id": "PUB_IMloxn12345",
+  	"imp": 12039423,
+  	"clk": 43432
+	}]
+
+
+
+## 获取指定监测代码下的相关参数
+
+    GET /medias/:id/code_params
+
+**参数**
+
+`code`
+: _必选_ **string** - 监测代码
+
+
+
+{:.prettyprint}
+	{
+  	"campaign_id": "100",
+  	"placement_id":"100",
+  	"creative_id":"0"
+	}
+
+
 
 ## 获取指定媒体项目报告列表
 
@@ -152,13 +174,11 @@ title: 媒体报告
 **参数**
 
 `time`
-: _必选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
+: _可选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
 
 
   * `hourly` 获取小时数据
-  * `daily` 获取日数据
-  * `weekly` 获取周数据
-  * `monthly` 获取月数据
+  * `daily` 获取日数据——默认
 
 `dims`
 : _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开
@@ -167,7 +187,7 @@ title: 媒体报告
   * `placement` 按广告位维度聚合
   * `keyword` 按关键字维度聚合
   * `creative` 按创意维度聚合
-  * `geo` 按地域维度聚合  
+  * `province` 按省级地域维度聚合  
 
 
 `placement_id`
@@ -183,28 +203,23 @@ title: 媒体报告
 : _可选_ **integer** - 地域 ID
 
 `start_time`
-: _可选_ **hour** - 开始时间，会列出日期大于等于此设定的项目，与参数`time`一起使用。  
+: _可选_ **hour** - 报告开始时间，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:57:10+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
+  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
 
   * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
 
-  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01。
 
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `end_time`
-: _可选_ **hour** - 结束时间，会列出日期小于等于此设定的项目，与参数`time`一起使用。  
+: _可选_ **hour** - 报告结束时间，与参数`time`一起使用。  
 采用国际标准 ISO 8601 的日期和时间显示格式。
 
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:57:10+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
+  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
 
   * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
 
-  * 当参数 `time` 选择 `周`，时间格式 YYYY-Www。例 2005-W01，表示选择 2005 年的第一周。
-
-  * 当参数 `time` 选择 `月`，时间格式 YYYY-MM。例 2005-01。
 
 `sort`
 : _可选_ **string** - 列表排序以什么排序
@@ -245,10 +260,8 @@ title: 媒体报告
         "time": "2012-08-03",
         "imp": 9,
         "uimp": 6,
-        "ipuimp": 6,
         "clk": 3,
         "uclk": 3,
-        "ipuclk": 2
       }
     ]
 
@@ -257,10 +270,8 @@ title: 媒体报告
 返回值字段 | 字段类型     | 字段说明
 imp      | integer     | 曝光
 uimp     | integer     | 独立曝光
-ipuimp   | integer     | IP独立曝光
 clk      | integer     | 点击
 uclk     | integer     | 独立点击
-ipuclk   | integer     | IP独立点击
 
 **获取数据组合说明**
 
@@ -269,19 +280,19 @@ ipuclk   | integer     | IP独立点击
 
 组合|说明
 time=daily  |粒度为天，指定媒体指定项目数据
-time=daily&dims=geo|粒度为天，指定媒体指定项目分地域数据
+time=daily&dims=province|粒度为天，指定媒体指定项目分省级地域数据
 time=daily&dims=creative |粒度为天，指定媒体指定项目分创意数据
 time=daily&dims=placement|粒度为天，指定媒体指定项目分广告位数据
-time=daily&dims=placement,geo|粒度为天，指定媒体指定项目分广告位分地域数据
+time=daily&dims=placement,province|粒度为天，指定媒体指定项目分广告位分省级地域数据
 time=daily&dims=placement,keyword|粒度为天，指定媒体指定项目分广告位分关键字数据
 time=daily&dims=placement,creative |粒度为天，指定媒体指定项目分广告位分创意数据
 time=hourly|粒度为小时，指定媒体指定项目数据
 time=hourly&dims=creative |粒度为小时，指定媒体指定项目分创意数据
-time=hourly&dims=geo|粒度为小时，指定媒体指定项目分地域数据
+time=hourly&dims=province|粒度为小时，指定媒体指定项目分省级地域数据
 time=hourly&dims=placement|粒度为小时，指定媒体指定项目分广告位数据
 time=hourly&dims=placement,creative |粒度为小时，指定媒体指定项目分广告位分创意数据
-time=hourly&dims=placement,geo|粒度为小时，指定媒体指定项目分广告位分地域数据
-time=hourly&dims=placement,keyword|粒度为小时，指定媒体指定项目分广告位分关键字数据
+time=hourly&dims=placement,province|粒度为小时，指定媒体指定项目分广告位分省级地域数据
+
 
 
 **示例**
@@ -297,8 +308,6 @@ time=hourly&dims=placement,keyword|粒度为小时，指定媒体指定项目分
             "uimp": 3,
             "clk": 7,
             "uclk": 7,
-            "ipuimp": 3,
-            "ipuclk": 4
         },
         {
             "campaign_id": 10116,
@@ -316,7 +325,5 @@ time=hourly&dims=placement,keyword|粒度为小时，指定媒体指定项目分
             "uimp": 27,
             "clk": 72,
             "uclk": 39,
-            "ipuimp": 27,
-            "ipuclk": 24
         }
     ]
