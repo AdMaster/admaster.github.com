@@ -2,6 +2,7 @@
 weight: 5
 layout: default
 category: openmaster
+language: cn
 title: 接口定义 - 通用说明
 ---
 
@@ -11,7 +12,7 @@ title: 接口定义 - 通用说明
 ## 通用参数说明
 
 `access_token`
-	oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带，具体查看[oauth 验证][apiOauth]
+	oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带
 	
 
 ## 返回状态说明
@@ -19,7 +20,7 @@ title: 接口定义 - 通用说明
 **返回状态在请求返回的头部信息**
 	
 `200 OK`
-	请求成功，只是请求成功，不代表没有逻辑错误，逻辑错误记录在 error_code, error_msg 元素中
+	请求成功
 
 `201 CREATED`
 	创建成功

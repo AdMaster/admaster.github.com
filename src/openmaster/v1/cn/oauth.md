@@ -2,6 +2,7 @@
 weight: 3
 layout: default
 category: openmaster
+language: cn
 title: OAuth 认证
 ---
 
@@ -91,10 +92,12 @@ OAuth2.0 是从2006年开始设计 OAuth 协议的下一个版本，OAuth2.0 同
 
 {:.prettyprint}
     {
-      "id": 98,
-      "email": "hello@admaster.com.cn",
-      "username": "hello"
+  	"email": "hello@admaster.com.cn",
+  	"username": "hello",
+  	"uuid": "higklmn",
+  	"client_id": "abcdefg"
     }
+
 
 
 ## 非Web应用请求流程
