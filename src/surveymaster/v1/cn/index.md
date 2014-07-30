@@ -2,8 +2,8 @@
 weight: 1
 layout: default
 category: surveymaster
-title: SurveyMaster首页
+title: 问答箱子首页
 language: cn
 ---
 
-# SurveyMaster首页
+# 首页
