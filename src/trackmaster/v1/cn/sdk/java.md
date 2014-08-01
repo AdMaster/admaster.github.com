@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: sdk
 language: cn
 title: Java SDK
+version: v1
 ---
 
 # TrackMaster API Java SDK

@@ -4,6 +4,7 @@ layout: default
 category: sitemaster
 language: cn
 title: 站点
+version: v1
 ---
 
 # 站点

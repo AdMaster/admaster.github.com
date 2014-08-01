@@ -4,6 +4,7 @@ layout: default
 category: openmaster
 language: cn
 title: OAuth 认证
+version: v1
 ---
 
 # OAuth 认证

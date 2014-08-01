@@ -4,6 +4,7 @@ layout: default
 category: openmaster
 language: cn
 title: 接口定义 - 通用说明
+version: v1
 ---
 
 # 接口定义 - 通用说明

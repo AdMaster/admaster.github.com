@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: cn
 title: 地域
+version: v1
 ---
 
 # 地域 #

@@ -4,6 +4,7 @@ layout: default
 category: trackmaster
 language: en
 title: Publisher
+version: v1
 ---
 
 

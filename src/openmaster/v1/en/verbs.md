@@ -4,6 +4,7 @@ layout: default
 category: openmaster
 language: en
 title: Protocal and Requests Instructions
+version: v1
 ---
 
 # {{ page.title }}

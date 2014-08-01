@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: sdk
 language: cn
 title: Python SDK
+version: v1
 ---
 
 # TrackMaster API Python SDK

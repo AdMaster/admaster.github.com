@@ -4,6 +4,7 @@ category: openmaster
 weight: 1
 language: cn
 title: OpenMaster文档首页
+version: v1
 ---
 
 # {{ page.title }}

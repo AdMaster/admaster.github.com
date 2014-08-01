@@ -5,6 +5,7 @@ category: sitemaster
 subcategory: site_js
 language: cn
 title: 自定义事件
+version: v1
 ---
 
 # 自定义事件

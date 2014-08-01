@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: agency
 language: en
 title: Channel
+version: v1
 ---
 
 # Channel

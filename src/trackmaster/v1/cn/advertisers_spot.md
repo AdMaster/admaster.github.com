@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: cn
 title: 点位
+version: v1
 ---
 
 # 点位

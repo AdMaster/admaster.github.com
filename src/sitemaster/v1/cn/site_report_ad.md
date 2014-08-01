@@ -5,6 +5,7 @@ category: sitemaster
 subcategory: site_report
 language: cn
 title: 广告维度统计数据
+version: v1
 ---
 
 # 广告维度统计数据

@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: agency
 language: cn
 title: 频道
+version: v1
 ---
 
 # 频道

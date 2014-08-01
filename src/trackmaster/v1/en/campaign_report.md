@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: agency
 language: en
 title: Campaign Report
+version: v1
 ---
 
 # Campaign Report

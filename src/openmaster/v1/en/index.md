@@ -4,6 +4,7 @@ category: openmaster
 weight: 1
 language: en
 title: OpenMaster Index
+version: v1
 ---
 
 # {{ page.title }}

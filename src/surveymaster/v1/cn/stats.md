@@ -4,6 +4,7 @@ layout: default
 category: surveymaster
 title: 统计相关
 language: cn
+version: v1
 ---
 
 * TOC

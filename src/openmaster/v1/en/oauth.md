@@ -4,6 +4,7 @@ layout: default
 category: openmaster
 language: en
 title: OAuth
+version: v1
 ---
 
 # OAuth

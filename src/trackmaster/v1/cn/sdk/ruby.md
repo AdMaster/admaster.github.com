@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: sdk
 language: cn
 title: Ruby SDK
+version: v1
 ---
 
 # TrackMaster API Ruby SDK

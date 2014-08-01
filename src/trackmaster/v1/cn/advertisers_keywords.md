@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: cn
 title: 关键字
+version: v1
 ---
 
 # 关键字

@@ -4,6 +4,7 @@ layout: default
 category: trackmaster
 language: cn
 title: TrackMaster™ 文档首页
+version: v1
 ---
 
 

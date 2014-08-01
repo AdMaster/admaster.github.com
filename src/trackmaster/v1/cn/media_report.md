@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: publisher
 language: cn
 title: 媒体报告
+version: v1
 ---
 
 # 媒体报告

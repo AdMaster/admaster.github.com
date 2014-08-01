@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: en
 title: Campaign
+version: v1
 ---
 
 # Campaign

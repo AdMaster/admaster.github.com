@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: sdk
 language: cn
 title: Node.js SDK
+version: v1
 ---
 
 # TrackMaster API Node.js SDK

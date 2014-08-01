@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: publisher
 language: en
 title: Publisher Report
+version: v1
 ---
 
 # Publisher Report

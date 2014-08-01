@@ -5,6 +5,7 @@ category: sitemaster
 subcategory: site_report
 language: cn
 title: 事件维度统计数据
+version: v1
 ---
 
 # 事件维度统计数据

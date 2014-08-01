@@ -5,6 +5,7 @@ category: sitemaster
 subcategory: site_js
 language: cn
 title: 虚拟页面
+version: v1
 ---
 
 # 虚拟页面

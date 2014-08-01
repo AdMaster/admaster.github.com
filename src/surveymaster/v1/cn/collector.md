@@ -4,6 +4,7 @@ layout: default
 category: surveymaster
 title: 渠道相关
 language: cn
+version: v1
 ---
 
 * TOC

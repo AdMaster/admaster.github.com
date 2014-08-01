@@ -4,6 +4,7 @@ layout: default
 category: sitemaster
 language: cn
 title: 代码部署
+version: v1
 ---
 
 # 代码部署

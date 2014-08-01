@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: en
 title: Placement
+version: v1
 ---
 
 #Placement

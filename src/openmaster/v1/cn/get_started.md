@@ -4,6 +4,7 @@ layout: default
 category: openmaster
 language: cn
 title: 快速入门
+version: v1
 ---
 
 # 快速入门

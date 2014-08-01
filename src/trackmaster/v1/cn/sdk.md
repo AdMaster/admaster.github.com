@@ -4,6 +4,7 @@ layout: default
 category: trackmaster
 language: cn
 title: SDK
+version: v1
 ---
 
 # TrackMaster API SDK

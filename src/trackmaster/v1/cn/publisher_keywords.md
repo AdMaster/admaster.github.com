@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: publisher
 language: cn
 title: 关键字
+version: v1
 ---
 
 # 关键字

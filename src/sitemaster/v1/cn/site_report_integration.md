@@ -5,6 +5,7 @@ category: sitemaster
 subcategory: site_report
 language: cn
 title: 整合报告数据
+version: v1
 ---
 
 # 整合报告数据

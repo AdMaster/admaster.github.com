@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: en
 title: Spot
+version: v1
 ---
 
 # Spot

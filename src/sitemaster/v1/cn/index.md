@@ -4,6 +4,7 @@ layout: default
 category: sitemaster
 language: cn
 title: SiteMaster 文档首页
+version: v1
 ---
 
 

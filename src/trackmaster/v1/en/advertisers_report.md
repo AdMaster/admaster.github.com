@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: en
 title: Advertiser Report
+version: v1
 ---
 
 # Advertiser Report

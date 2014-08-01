@@ -4,6 +4,7 @@ layout: default
 category: sitemaster
 language: cn
 title: 标准数据接口
+version: v1
 ---
 
 # 标准数据接口

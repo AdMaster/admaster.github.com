@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: publisher
 language: cn
 title: 广告位
+version: v1
 ---
 
 #广告位

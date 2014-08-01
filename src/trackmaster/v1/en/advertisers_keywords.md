@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: advertisers
 language: en
 title: Keyword
+version: v1
 ---
 
 # Keyword

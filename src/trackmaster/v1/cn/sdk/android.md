@@ -5,6 +5,7 @@ category: trackmaster
 subcategory: sdk
 language: cn
 title: Android SDK
+version: v1
 ---
 
 # MMA 通用 SDK 部署指南
