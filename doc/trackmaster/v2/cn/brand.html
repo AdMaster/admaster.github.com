@@ -67,11 +67,11 @@
 <p><strong>参数</strong></p>
 
 <dl>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>advertiserId</strong> - 广告主 ID</dd>
+  <dt><code>advertiserId</code></dt>
+  <dd><em>可选</em> 广告主 ID</dd>
 </dl>
 
-<p>以 GET 方式传递广告主 ID</p>
+<p>以 GET 方式传递广告主 ID，传递此参数后只返回该广告主下的品牌。</p>
 
 <p><strong>响应</strong></p>
 
@@ -80,13 +80,16 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<pre class="prettyprint"><code>[
-  {
-    "id": 30,//网络品牌 ID
-    "name": "巧乐兹",//品牌名称
-    "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
-  }
-]
+<pre class="prettyprint"><code>[{
+    "id": 999, // 资源id
+    "name":品牌 // 品牌名称
+    "networkId": 999, //关联网络ID
+    "advertiserId": 999, //关联广告主ID
+    "creatorId": 999, //创建着id
+    "isDelete": yes或者no, //是否被删除,
+    "createdAt": "2012-01-10T02:30:59Z",
+    "updatedAt": "2012-01-10T02:30:59Z"
+}]
 </code></pre>
 
 <h2 id="id-">获取指定 ID 品牌详细信息</h2>
@@ -104,7 +107,7 @@ X-RateLimit-Remaining: 4999
 <pre class="prettyprint"><code>{
     "id": 999, // 资源id
     "name":品牌 // 品牌名称
-    "networkId": 999, //关联网络用户ID
+    "networkId": 999, //关联网络ID
     "advertiserId": 999, //关联广告主ID
     "creatorId": 999, //创建着id
     "isDelete": yes或者no, //是否被删除,
@@ -139,12 +142,11 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <pre class="prettyprint"><code>{
-    "id": 30,//网络品牌 ID
-    "network_id": 11,//工作网络 ID
-    "advertiser_id": 10231,//广告主 ID
-    "name": "巧乐兹",//品牌名称
-    "url": "http://track.admasterapi.com/networks/advertisers/brands/30",
-    "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+    "name":品牌 // 品牌名称
+    "networkId": 999, //关联网络ID
+    "advertiserId": 999, //关联广告主ID
+    "creatorId": 999, //创建着id
+    "isDelete": yes或者no, //是否被删除,
 }
 </code></pre>
 
@@ -156,7 +158,14 @@ X-RateLimit-Remaining: 4999
 <p><strong>请求</strong></p>
 
 <pre class="prettyprint"><code>{
-    "name": "巧乐鸡"
+    "id": 999, // 资源id
+    "name":品牌 // 品牌名称
+    "networkId": 999, //关联网络ID
+    "advertiserId": 999, //关联广告主ID
+    "creatorId": 999, //创建着id
+    "isDelete": yes或者no, //是否被删除,
+    "createdAt": "2012-01-10T02:30:59Z",
+    "updatedAt": "2012-01-10T02:30:59Z"
 }
 </code></pre>
 

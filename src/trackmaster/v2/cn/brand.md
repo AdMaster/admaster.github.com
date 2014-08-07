@@ -20,10 +20,10 @@ version: v2
 
 **参数**
 
-`page`
-: _可选_ **advertiserId** - 广告主 ID
+`advertiserId`
+: _可选_ 广告主 ID
 
-以 GET 方式传递广告主 ID
+以 GET 方式传递广告主 ID，传递此参数后只返回该广告主下的品牌。
 
 
 **响应**
@@ -34,13 +34,16 @@ version: v2
 
 
 {:.prettyprint}
-    [
-      {
-        "id": 30,//网络品牌 ID
-        "name": "巧乐兹",//品牌名称
-        "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
-      }
-    ]
+    [{
+        "id": 999, // 资源id
+        "name":品牌 // 品牌名称
+        "networkId": 999, //关联网络ID
+        "advertiserId": 999, //关联广告主ID
+        "creatorId": 999, //创建着id
+        "isDelete": yes或者no, //是否被删除,
+        "createdAt": "2012-01-10T02:30:59Z",
+        "updatedAt": "2012-01-10T02:30:59Z"
+    }]
 
 
 ## 获取指定 ID 品牌详细信息
@@ -57,7 +60,7 @@ version: v2
     {
         "id": 999, // 资源id
         "name":品牌 // 品牌名称
-        "networkId": 999, //关联网络用户ID
+        "networkId": 999, //关联网络ID
         "advertiserId": 999, //关联广告主ID
         "creatorId": 999, //创建着id
         "isDelete": yes或者no, //是否被删除,
@@ -87,12 +90,11 @@ version: v2
 
 {:.prettyprint}
     {
-        "id": 30,//网络品牌 ID
-        "network_id": 11,//工作网络 ID
-        "advertiser_id": 10231,//广告主 ID
-        "name": "巧乐兹",//品牌名称
-        "url": "http://{{site.track_api_host}}/networks/advertisers/brands/30",
-        "created_at": "2012-09-06T20:39:23Z"//品牌创建时间
+        "name":品牌 // 品牌名称
+        "networkId": 999, //关联网络ID
+        "advertiserId": 999, //关联广告主ID
+        "creatorId": 999, //创建着id
+        "isDelete": yes或者no, //是否被删除,
     }
 
 
@@ -104,7 +106,14 @@ version: v2
 
 {:.prettyprint}
     {
-        "name": "巧乐鸡"
+        "id": 999, // 资源id
+        "name":品牌 // 品牌名称
+        "networkId": 999, //关联网络ID
+        "advertiserId": 999, //关联广告主ID
+        "creatorId": 999, //创建着id
+        "isDelete": yes或者no, //是否被删除,
+        "createdAt": "2012-01-10T02:30:59Z",
+        "updatedAt": "2012-01-10T02:30:59Z"
     }
 
 `name`

@@ -53,7 +53,10 @@
 
 <ul id="markdown-toc">
   <li><a href="#section-1">获取指定项目下的点位</a></li>
-  <li><a href="#section-2">修改指定点位</a></li>
+  <li><a href="#section-2">给某个项目添加排期</a></li>
+  <li><a href="#section-3">修改指定点位</a></li>
+  <li><a href="#section-4">获取某个排期</a></li>
+  <li><a href="#section-5">删除某个排期</a></li>
 </ul>
 
 <h2 id="section-1">获取指定项目下的点位</h2>
@@ -83,9 +86,48 @@ X-RateLimit-Remaining: 4999
 }]
 </code></pre>
 
-<h2 id="section-2">修改指定点位</h2>
+<h2 id="section-2">给某个项目添加排期</h2>
 
-<pre><code>PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:online_date
+<pre><code>POST /campaigns/:campaignId/spots
+</code></pre>
+
+<p><strong>请求</strong></p>
+
+<pre class="prettyprint"><code>{
+    campaignId: 50000,
+    date: "2014-07-22T00:00:00.000Z",
+    placementId: 1,
+    creativeId: 8,
+    num: 30,
+    creatorId: 1,
+}
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+Link: &lt;http://track.admasterapi.com/networks/advertisers/campaigns/placements/:placement_id/spots?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/networks/advertisers/campaigns/placements/:placement_id/spots?page=10&gt;; rel="last"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<pre class="prettyprint"><code>{
+    id: 14,
+    campaignId: 50000,
+    date: "2014-07-22T00:00:00.000Z",
+    placementId: 1,
+    creativeId: 8,
+    num: 30,
+    creatorId: 1,
+    createdAt: "2014-07-16T03:34:33.000Z",
+    updatedAt: "2014-07-23T06:50:43.000Z"
+}
+</code></pre>
+
+<h2 id="section-3">修改指定点位</h2>
+
+<pre><code>PUT /spots/:id
 </code></pre>
 
 <p>注意：online_date必须在项目起止时间范围内</p>
@@ -101,9 +143,57 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre class="prettyprint"><code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
+</code></pre>
+<pre><code>{
+    id: 14,
+    campaignId: 50000,
+    date: "2014-07-22T00:00:00.000Z",
+    placementId: 1,
+    creativeId: 8,
+    num: 30,
+    creatorId: 1,
+    createdAt: "2014-07-16T03:34:33.000Z",
+    updatedAt: "2014-07-23T06:50:43.000Z"
+}
+</code></pre>
+
+<h2 id="section-4">获取某个排期</h2>
+
+<pre><code>GET /spots/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre class="prettyprint"><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+<pre><code>{
+    id: 14,
+    campaignId: 50000,
+    date: "2014-07-22T00:00:00.000Z",
+    placementId: 1,
+    creativeId: 8,
+    num: 30,
+    creatorId: 1,
+    createdAt: "2014-07-16T03:34:33.000Z",
+    updatedAt: "2014-07-23T06:50:43.000Z"
+}
+</code></pre>
+
+<h2 id="section-5">删除某个排期</h2>
+
+<pre><code>DELETE /spots/:id
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999    
 </code></pre>
 
       </div>

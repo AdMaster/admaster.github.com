@@ -205,7 +205,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="section-3">添加项目</h2>
 
-<pre><code>POST /networks/:network_id/advertisers/:advertiser_id/campaigns
+<pre><code>POST /networks/:networkId/campaigns
 </code></pre>
 
 <p>注意：同广告主下项目名称不允许重名</p>
@@ -311,30 +311,6 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 项目名称，长度范围 3 - 100 个字符</dd>
-  <dt><code>network_brand_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 所属网络品牌 ID</dd>
-  <dt><code>start_date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目开始日期 YYYY-mm-dd 例如：2012-01-03</dd>
-  <dt><code>end_date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 项目结束日期 YYYY-mm-dd 例如：2012-06-23, 结束日期要大于开始日期</dd>
-  <dt><code>default_target</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 项目默认点击目标地址，例如: http://www.admaster.com.cn/</dd>
-  <dt><code>cost_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 媒体预算货币类型
-
-    <ul>
-      <li><code>None</code> 不设置媒体预算 <em>默认值</em></li>
-      <li><code>CNY</code> 人民币</li>
-      <li><code>USD</code> 美元</li>
-    </ul>
-  </dd>
-  <dt><code>target_audience</code></dt>
-  <dd><em>可选</em> <em>Object</em> - 目标受众人群</dd>
-</dl>
 
 <pre class="prettyprint"><code>{
     "age": "19-25",//目标受众人群年龄范围，例如: 16_20  16岁到20岁

@@ -55,8 +55,8 @@
   <li><a href="#section-1">获取指定项目下的广告位列表</a></li>
   <li><a href="#section-2">获取指定广告位信息</a></li>
   <li><a href="#section-3">在指定项目下添加一个广告位</a></li>
-  <li><a href="#section-4">删除指定的广告位</a></li>
-  <li><a href="#section-5">修改指定的广告位属性</a></li>
+  <li><a href="#section-4">修改指定的广告位属性</a></li>
+  <li><a href="#section-5">删除指定的广告位</a></li>
 </ul>
 
 <h2 id="section-1">获取指定项目下的广告位列表</h2>
@@ -324,22 +324,7 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<h2 id="section-4">删除指定的广告位</h2>
-
-<pre><code>DELETE /placements/:id
-</code></pre>
-
-<p>注意：当广告位下曾经获取到监测数据时，不能删除该广告位。</p>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/networks/advertisers/campaigns/10786/placements
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-5">修改指定的广告位属性</h2>
+<h2 id="section-4">修改指定的广告位属性</h2>
 
 <pre><code>PATCH /placements/:id
 </code></pre>
@@ -462,6 +447,22 @@ X-RateLimit-Remaining: 4999
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
+
+<h2 id="section-5">删除指定的广告位</h2>
+
+<pre><code>DELETE /placements/:id
+</code></pre>
+
+<p>注意：当广告位下曾经获取到监测数据时，不能删除该广告位。</p>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+Location: http://track.admasterapi.com/networks/advertisers/campaigns/10786/placements
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
 
       </div>
       

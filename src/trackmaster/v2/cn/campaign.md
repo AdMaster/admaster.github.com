@@ -150,7 +150,7 @@ version: v2
 
 ## 添加项目
 
-    POST /networks/:network_id/advertisers/:advertiser_id/campaigns
+    POST /networks/:networkId/campaigns
 
 注意：同广告主下项目名称不允许重名
 
@@ -258,31 +258,6 @@ version: v2
     PATCH /campaigns/:id
 
 **参数**
-
-`name`
-: _可选_ **string** - 项目名称，长度范围 3 - 100 个字符
-
-`network_brand_id`
-: _可选_ **integer** - 所属网络品牌 ID
-
-`start_date`
-: _可选_ **date** - 项目开始日期 YYYY-mm-dd 例如：2012-01-03
-
-`end_date`
-: _可选_ **date** - 项目结束日期 YYYY-mm-dd 例如：2012-06-23, 结束日期要大于开始日期
-
-`default_target`
-: _可选_ **string** - 项目默认点击目标地址，例如: http://www.admaster.com.cn/
-
-`cost_type`
-: _可选_ **string** - 媒体预算货币类型
-
-  * `None` 不设置媒体预算 _默认值_
-  * `CNY` 人民币
-  * `USD` 美元
-
-`target_audience`
-: _可选_ *Object* - 目标受众人群
 
 {:.prettyprint}
     {

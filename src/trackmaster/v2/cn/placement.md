@@ -274,20 +274,6 @@ version: v2
         "material_size_unit": "KB",  
     }
 
-## 删除指定的广告位
-
-    DELETE /placements/:id
-
-注意：当广告位下曾经获取到监测数据时，不能删除该广告位。
-
-**响应**
-
-    Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/placements
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-
 ## 修改指定的广告位属性
 
     PATCH /placements/:id
@@ -408,3 +394,17 @@ version: v2
     Status: 204 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
+
+## 删除指定的广告位
+
+    DELETE /placements/:id
+
+注意：当广告位下曾经获取到监测数据时，不能删除该广告位。
+
+**响应**
+
+    Status: 204 No Content
+    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/placements
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
