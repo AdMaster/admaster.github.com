@@ -1,10 +1,11 @@
 ---
-weight: 10
+weight: 8
 layout: default
 category: trackmaster
 subcategory: agency
 language: cn
 title: 点位
+version: v2
 ---
 
 # 点位
@@ -12,27 +13,9 @@ title: 点位
 * TOC
 {:toc}
 
-## 获取指定广告位下指定时间段内的点位
+## 获取指定项目下的点位
 
-    GET /networks/advertisers/campaigns/placements/:placement_id/spots
-
-**参数**
-
-`start_date`
-: _必选_ **date** - 开始日期 格式为: YYYY-MM-DD 例如: 2012-04-12
-
-`end_date`
-: _必选_ **date** - 结束日期 格式为: YYYY-MM-DD 例如: 2012-04-30
-
-`page`
-: _可选_ **integer** - 显示页码
-
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
-
-	返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
+    GET /campaigns/:id/spots
 
 **响应**
 
@@ -43,18 +26,17 @@ title: 点位
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    [
-      {
-        //广告位 ID
-        "placement_id": 200019261,
-        //排期日期
-        "online_date": "2012-04-13",
-        //创意ID
-        "creative_id": 200019827,
-        //购买量
-        "units": 23,
-      }
-    ]
+    [{
+        id: 14,
+        campaignId: 50000,
+        date: "2014-07-22T00:00:00.000Z",
+        placementId: 1,
+        creativeId: 8,
+        num: 30,
+        creatorId: 1,
+        createdAt: "2014-07-16T03:34:33.000Z",
+        updatedAt: "2014-07-23T06:50:43.000Z"
+    }]
 
 ## 修改指定点位
 
@@ -75,40 +57,3 @@ title: 点位
     Status: 204 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
-
-## 批量修改广告位下的点位
-
-    POST /networks/advertisers/campaigns/placements/:placement_id/spots
-
-注意：online_date必须在项目起止时间范围内
-
-**请求**
-
-`online_date`
-: _必选_ **date** - 需求修改点位的排期日期，格式为: YYYY-MM-DD 例如: 2012-04-12
-
-`units`
-: _必选_ **float** - 购买量，不上线可以设置为 0，支持小数录入
-
-`creative_id`
-: _可选_ **integer** - 创意 ID
-
-
-**响应**
-
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-{:.prettyprint}
-    [{
-        //需求修改点位的排期日期
-        "online_date": 2013-01-01,
-        //购买量
-        "units": 1,
-        //创意 ID
-        "creative_id": 200019827,
-      },
-     {...},
-     ...
-     {...}]

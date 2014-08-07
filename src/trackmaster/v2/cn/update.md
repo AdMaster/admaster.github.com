@@ -4,6 +4,7 @@ layout: default
 category: trackmaster
 language: cn
 title: 更新
+version: v2
 ---
 
 # 更新

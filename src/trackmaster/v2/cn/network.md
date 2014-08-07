@@ -1,5 +1,5 @@
 ---
-weight: 2
+weight: 1
 layout: default
 category: trackmaster
 subcategory: agency
@@ -15,7 +15,7 @@ title: 工作网络
 
 ## 获取当前授权用户有权操作的所有工作网络
 
-    GET /user/networks
+    GET /users/:userId/networks
 
 **响应**
 
@@ -25,20 +25,23 @@ title: 工作网络
 
 {:.prettyprint}
     [
-       {
-        "id": 1,
-        "url": "https://api.trackmaster.com.cn/networks/1",
-        "name": "测试工作网络", //别名
-        "created_at": "2012-09-06T20:39:23Z" //创建时间
-        "account": {
-            "status": "enabled", //`enabled` 可用, `disabled` 禁用, `unactive` 未激活
-            "created_at": "2012-01-10T02:30:59Z", //当前用户加入网络的时间
-            "role": {
-                "id": 1,
-                "name": "高级管理员(super admin)"
-             }
-          }
-       }
+      {
+        "id": 999, //资源id
+        "name":牛逼工作网络, //"这个是工作网络的名称",
+        "creator": zhaoxiongfei@admaster.com.cn, //"工作网络创建者的email地址",
+        "status": enabled或者disabled,// 默认值为enabled,
+        "campaigns": 999, //该工作网络下已有的项目数,
+        "campaignLimit":999, //该工作网络下已有可以创建的项目总数,
+        "users": 999, //该工作网络下已有的用户数,
+        "switchs": {"campaign":true,
+                    "user":true,
+                    "privilege":true},
+        "userLimit": 999, //该工作网络下已有可以添加的用户总数,
+        "expiredAt": 2080-09-19 00:00:00 //该工作网络的过期日期，过期后工作网络不可用,
+        "isDelete": yes或者no, //是否被删除,
+        "createdAt": "2012-01-10T02:30:59Z",
+        "updatedAt": "2012-01-10T02:30:59Z"
+      }
     ]
 
 ## 获取指定 ID 工作网络信息
@@ -53,9 +56,20 @@ title: 工作网络
     X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
-    {
-      "id": 1,
-      "url": "https://api.trackmaster.com.cn/networks/1",
-      "name": "测试工作网络",//别名
-      "created_at": "2012-09-06T20:39:23Z" //创建时间
-    }
+      {
+        "id": 999, //资源id
+        "name":牛逼工作网络, //"这个是工作网络的名称",
+        "creator": zhaoxiongfei@admaster.com.cn, //"工作网络创建者的email地址",
+        "status": enabled或者disabled,// 默认值为enabled,
+        "campaigns": 999, //该工作网络下已有的项目数,
+        "campaignLimit":999, //该工作网络下已有可以创建的项目总数,
+        "users": 999, //该工作网络下已有的用户数,
+        "switchs": {"campaign":true,
+                    "user":true,
+                    "privilege":true},
+        "userLimit": 999, //该工作网络下已有可以添加的用户总数,
+        "expiredAt": 2080-09-19 00:00:00 //该工作网络的过期日期，过期后工作网络不可用,
+        "isDelete": yes或者no, //是否被删除,
+        "createdAt": "2012-01-10T02:30:59Z",
+        "updatedAt": "2012-01-10T02:30:59Z"
+      }
