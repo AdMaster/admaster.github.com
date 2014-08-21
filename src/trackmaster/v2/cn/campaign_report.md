@@ -10,150 +10,231 @@ version: v2
 
 # 项目报告
 
-##### 通知：获取地域数据原维度geo改为province，文档中已更改，原有geo会并行一段时间，请开发者及时更改。 #####
-
-
 * TOC
 {:toc}
 
 ## 获取指定项目下有操作权限的项目报告列表
 
-    GET /campaigns/:campaign_id/reports
+    GET /campaigns/:campaign_id/reports/basics
 
 **参数**
 
-`time`
-: _可选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
+* `startDate` 开始日期或者时间
+* `endDate` 结束日期或者时间
+* `dimensions` 数据查询纬度，可以多个，多个之间用逗号分隔
+* `metrics` 数据查询指标，可以是多个，多个之间用逗号分隔
+* `filters` 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp>1000;clk>10
+* `sort` 排序方式, 降序排列的时候需要在排序方式前加减号(-)
+* `startIndex` 数据从第几条开始
+* `maxResults` 最多返回多少条结果
 
-
-  * `hourly` 获取小时数据
-  * `daily` 获取日数据——默认
-
-`dims`
-: _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开。
-
-  * `time` 按时间维度聚合、结果会显示具体的时间列
-  * `media` 按媒体维度聚合
-  * `placement` 按广告位维度聚合
-  * `keyword` 按关键字维度聚合
-  * `creative` 按创意维度聚合
-  * `province` 按省级地域维度聚合
-
-`network_media_id`
-: _可选_ **integer** - 网络媒体 ID
-
-`placement_id`
-: _可选_ **integer** - 广告位 ID
-
-`keyword_id`
-: _可选_ **integer** - 关键字 ID
-
-`creative_id`
-: _可选_ **integer** - 创意 ID
-
-`geo_id`
-: _可选_ **integer** - 地域 ID
-
-`start_time`
-: _可选_ **hour** - 报告开始时间，与参数`time`一起使用。
-采用国际标准 ISO 8601 的日期和时间显示格式。
-
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
-
-  * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
-
-
-
-`end_time`
-: _可选_ **hour** - 报告结束时间，与参数`time`一起使用。
-采用国际标准 ISO 8601 的日期和时间显示格式。
-
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
-
-  * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
-
-
-`sort`
-: _可选_ **string** - 列表排序以什么排序，结合参数`direction`使用。
-
-  * `time` - 按照时间排序
-  * `imp` - 按照曝光排序
-  * `clk` - 按照点击排序
-  * `uimp` - 按照独立曝光排序
-  * `uclk` - 按照独立点击排序
-  * `network_media_id` - 按照网络媒体 ID 排序
-  * `placement_id` - 按照广告位 ID 排序
-
-`direction`
-: _可选_ **string** - 排序方式，结合参数`sort`使用。
-
-  * `asc` 升序 (_默认_)
-  * `desc` 降序
-
-`page`
-: _可选_ **integer** - 显示页码
-
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
-
-	返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
+报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数
 
 **响应**
 
     Status: 200 OK
     Link: <http://{{site.track_api_host}}/campaigns/12/reports?page=2>; rel="next",
           <http://{{site.track_api_host}}/campaigns/12/reports?page=10>; rel="last"
+  {:.prettyprint}
+	  [{
+	  "date": "2014-07-11",
+	  "media": 1018
+	  "imp": 12133323,
+	  "clk": 7832
+		}]
 
-{:.prettyprint}
-    [
-      {
-        "campaign_id": 10185,//项目 ID
-        "network_media_id": 1484,//媒体网络 ID
-        "time": "2012-08-03",//此处 `time` 格式与参数 `start_time`、`end_time` 一致，例如当参数`time`为 daily，则此处时间为从 `start_time` 到 `end_time` 分天时间.
-        "imp": 90,//曝光数
-        "uimp": 60,//独立曝光数
-        "clk": 30,//点击数
-        "uclk": 23,//独立点击数
-      }
-    ]
+
+**可用 dimensions**
+
+* media 媒体
+* placement 广告位
+* keyword 关键词
+* creative 创意
+* province 省
+* city  市
+* os  操作系统
+* app 应用
+* network 设备网络类型
+* deviceType 设备类型
+* factory 设备生产厂商
+* model 设备机型
+* date 日期
+* hour 小时
+* week 周
+
+**维度所有可能的组合, 每行一个组合**
+
+* media
+* placement
+* creative
+* province
+* city
+* os
+* app
+* network
+* deviceType
+* factory
+* model
+* date
+* hour
+* week
+
+* media, placement
+* media, creative
+* media, province
+* media, city
+* media, os
+* media, app
+* media, network
+* media, deviceType
+* media, factory
+* media, model
+
+* placement, keyword
+* placement, creative
+* placement, province
+* placement, city
+* placement, os
+* placement, app
+* placement, network
+* placement, deviceType
+* placement, factory
+* placement, model
+
+* media, placement, keyword
+* media, placement, creative
+* media, placement, province
+* media, placement, city
+* media, placement, os
+* media, placement, app
+* media, placement, network
+* media, placement, deviceType
+* media, placement, factory
+* media, placement, model
+
+* date, media
+* date, placement
+* date, creative
+* date, province
+* date, city
+* date, os
+* date, app
+* date, network
+* date, deviceType
+* date, factory
+* date, model
+
+* date, media, placement
+* date, media, creative
+* date, media, province
+* date, media, city
+* date, media, os
+* date, media, app
+* date, media, network
+* date, media, deviceType
+* date, media, factory
+* date, media, model
+
+* date, placement, keyword
+* date, placement, creative
+* date, placement, province
+* date, placement, city
+* date, placement, os
+* date, placement, app
+* date, placement, network
+* date, placement, deviceType
+* date, placement, factory
+* date, placement, model
+
+* date, media, placement, keyword
+* date, media, placement, creative
+* date, media, placement, province
+* date, media, placement, city
+* date, media, placement, os
+* date, media, placement, app
+* date, media, placement, network
+* date, media, placement, deviceType
+* date, media, placement, factory
+* date, media, placement, model
+
+* week, media
+* week, placement
+* week, creative
+* week, province
+* week, city
+* week, os
+* week, app
+* week, network
+* week, deviceType
+* week, factory
+* week, model
+
+* week, media, placement
+* week, media, creative
+* week, media, province
+* week, media, city
+* week, media, os
+* week, media, app
+* week, media, network
+* week, media, deviceType
+* week, media, factory
+* week, media, model
+
+* week, placement, keyword
+* week, placement, creative
+* week, placement, province
+* week, placement, city
+* week, placement, os
+* week, placement, app
+* week, placement, network
+* week, placement, deviceType
+* week, placement, factory
+* week, placement, model
+
+* week, media, placement, keyword
+* week, media, placement, creative
+* week, media, placement, province
+* week, media, placement, city
+* week, media, placement, os
+* week, media, placement, app
+* week, media, placement, network
+* week, media, placement, deviceType
+* week, media, placement, factory
+* week, media, placement, model
+
+* hour, media
+* hour, placement
+* hour, creative
+* hour, province
+* hour, city
+
+* hour, placement, keyword
+* hour, placement, creative
+* hour, placement, province
+* hour, placement, city
+
+* hour, media, placement, keyword
+* hour, media, placement, creative
+* hour, media, placement, province
+* hour, media, placement, city
+
+
+
+
+**filters**
+
+* 过滤的条件必须和查询的纬度必须是可以的维度组合
+* 过滤的指标必须是已选择的指标
+
+sort 可以以某个纬度或者指标来排序
 
 
 **字段说明**
 
-返回值字段 | 字段类型     | 字段说明
-imp      | integer     | 曝光
-uimp     | integer     | 独立曝光
-clk      | integer     | 点击
-uclk     | integer     | 独立点击
-
-**获取数据组合说明**
-
-不是所有的属性都可以搭配获取数据，只有特定的组合才可以获取到相应数据。当选择了 dims=time 时，显示内容按时间分组聚合。
-
-组合|说明
-time=daily  |粒度为天，项目数据
-time=daily&dims=creative|粒度为天，项目分创意数据
-time=daily&dims=province|粒度为天，项目分省级地域数据
-time=daily&dims=media|粒度为天，项目分媒体数据
-time=daily&dims=media,province|粒度为天，项目分媒体分省级地域数据
-time=daily&dims=media,creative |粒度为天，项目分媒体分创意数据
-time=daily&dims=media,placement|粒度为天，项目分媒体分广告位数据
-time=daily&dims=media,placement,creative |粒度为天，项目分媒体分广告位分创意数据
-time=daily&dims=media,placement,province|粒度为天，项目分媒体分广告位分省级地域数据
-time=daily&dims=media,placement,keyword|粒度为天，项目分媒体分广告位分关键字数据
-time=hourly|粒度为小时，项目数据
-time=hourly&dims=creative|粒度为小时，项目分创意数据
-time=hourly&dims=province |粒度为小时，项目分省级地域数据
-time=hourly&dims=media |粒度为小时，项目分媒体数据
-time=hourly&dims=media,creative |粒度为小时，项目分媒体分创意数据
-time=hourly&dims=media,province|粒度为小时，项目分媒体分省级地域数据
-time=hourly&dims=media,placement|粒度为小时，项目分媒体分广告位数据
-time=hourly&dims=media,placement,creative |粒度为小时，项目分媒体分广告位分创意数据
-time=hourly&dims=media,placement,province|粒度为小时，项目分媒体分广告位分省级地域数据
-
-
+* imp 曝光数
+* clk 点击数
+* uimp 唯一曝光数
+* uclk 唯一点击数
 
 **示例**
 
