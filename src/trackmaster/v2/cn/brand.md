@@ -28,11 +28,6 @@ version: v2
 
 **响应**
 
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-
 {:.prettyprint}
     [{
         "id": 999, // 资源id
@@ -51,10 +46,6 @@ version: v2
     GET /brands/:id
 
 **响应**
-
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -75,18 +66,11 @@ version: v2
 **请求**
 
     {
-        "name": "巧乐兹"
+        "name": "巧乐兹" //品牌名称
+        "advertiserId": 999, //关联广告主ID
     }
 
-`name`
-: _必填_ **string** - 品牌名称
-
 **响应**
-
-    Status: 201 Created 
-    Location: http://{{site.track_api_host}}/networks/11/advertisers/10231/brands
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -106,6 +90,21 @@ version: v2
 
 {:.prettyprint}
     {
+        "name":品牌 // 品牌名称
+        "networkId": 999, //关联网络ID
+        "advertiserId": 999, //关联广告主ID
+        "creatorId": 999, //创建着id
+        "isDelete": yes或者no, //是否被删除,
+    }
+
+`name`
+: _必选_ **string** - 品牌名称
+
+
+**响应**
+
+{:.prettyprint}
+    {
         "id": 999, // 资源id
         "name":品牌 // 品牌名称
         "networkId": 999, //关联网络ID
@@ -115,16 +114,6 @@ version: v2
         "createdAt": "2012-01-10T02:30:59Z",
         "updatedAt": "2012-01-10T02:30:59Z"
     }
-
-`name`
-: _必选_ **string** - 品牌名称
-
-
-**响应**
-
-    Status: 204 No Content 
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 
 ## 删除指定品牌
@@ -136,7 +125,5 @@ version: v2
 **响应**
 
 {:.prettyprint}
-    Status: 204 No Content 
-    Location: http://{{site.track_api_host}}/networks/11/advertisers/10231/brands
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+    Status: 200 OK
+

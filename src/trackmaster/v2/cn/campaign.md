@@ -17,68 +17,7 @@ version: v2
 
     GET /networks/:networkId/campaigns
 
-**参数**
-
-`name`
-: _可选_ **string** - 项目名称，支持模糊搜索，例如：名称为 “这是一个测试项目” 搜索 “一个”即可找到该项目
-
-`network_brand_id`
-: _可选_ **integer** - 项目所属网络品牌ID
-
-`status`
-: _可选_ *Enum* - 项目状态
-
-  * `all` - 所有状态, (_默认_)
-  * `typing` - 拟稿中，当项目的属性、位置列表、点位等数据任意有值时，状态为编辑中。
-  * `testing` - 测试中，当项目的监测代码已生成并已导出，且有数据进来，状态为测试中。
-  * `kickoff` - 项目初期，项目上线的第一周为项目初期。
-  * `midterm` - 项目中期，项目初期之后到项目结束一周前，为项目中期，小于一周的项目没有项目中期。
-  * `teminal` - 项目末期，结束日期的前一周，为项目末期。小于一周的项目没有项目末期；大于一周且小于两周的项目没有项目中期，项目末期为开始日期一周后到结束的时间段。
-  * `finished` - 已结束，当前时间在结束时间之后的，为已结束状态。
-
-`start_date`
-: _可选_ **date** - 项目开始时间，会列出项目开始日期小于等于此设定的项目。时间格式 YYYY-mm-dd 例如：2012-01-03。
-
-`end_date`
-: _可选_ **date** - 项目结束时间，会列出项目结束日期大于等于此设定的项目。时间格式 YYYY-mm-dd 例如：2012-06-03。
-
-`sort`
-: _可选_ **string** - 列表排序以什么排序
-
-  * `id` - 按照项目ID排序
-  * `network_brand_id` - 按照品牌 ID 排序
-  * `name` - 按照项目名称排序
-  * `total_cost` - 按照总成本排序
-  * `media_num` - 按照媒体数排序
-  * `placement_num` - 按照广告位数排序
-  * `start_date` - 按照开始日期排序
-  * `end_date` - 按照结束日期排序
-  * `est_imp` - 按照总预计曝光排序
-  * `est_clk` - 按照总预计点击排序
-
-`direction`
-: _可选_ **string** - 排序方式
-
-  * `asc` 升序 (_默认_)
-  * `desc` 降序
-
-`page`
-: _可选_ **integer** - 显示页码
-
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
-
-	返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
-
 **响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/12/advertisers/10035/campaigns?page=2>; rel="next",
-          <http://{{site.track_api_host}}/networks/12/advertisers/10035/campaigns?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     [{
@@ -114,11 +53,6 @@ version: v2
     GET /campaigns/:id
 
 **响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/advertisers/campaigns/1/medias/attributes>; rel="nwmedias"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -156,40 +90,6 @@ version: v2
 
 **参数**
 
-`name`
-: _必选_ **string** - 项目名称，长度范围 3 - 100 个字符
-
-`network_brand_id`
-: _必选_ **integer** - 所属网络品牌 ID
-
-`start_date`
-: _必选_ **date** - 项目开始日期 YYYY-mm-dd 例如：2012-01-03
-
-`end_date`
-: _必选_ **date** - 项目结束日期 YYYY-mm-dd 例如：2012-06-23, 结束日期要大于开始日期
-
-`default_target`
-: _必选_ **string** - 项目默认点击目标地址，例如: http://www.admaster.com.cn/
-
-`cost_type`
-: _可选_ **string** - 媒体预算货币类型
-
-  * `None` 不设置媒体预算 _默认值_
-  * `CNY` 人民币
-  * `USD` 美元
-
-`target_audience`
-: _可选_ *Object* - 目标受众人群
-
-{:.prettyprint}
-    {
-        "age": "19-25",//目标受众人群年龄范围，例如: 16-20  16岁到20岁
-        "sex": ["male"]//目标受众人群性别，`male` 男, `female` 女。如需同时选择“男”和“女”，格式为"sex": ["male","female"]；如不选择性别，则不输入 sex 内容，即{ "age": "19-25"}
-    }
-
-
-**请求**
-
 {:.prettyprint}   
     {
         "name": "这个是项目名称",
@@ -221,11 +121,6 @@ version: v2
 
 
 **响应**
-
-    Status: 201 Created
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -261,14 +156,6 @@ version: v2
 
 {:.prettyprint}
     {
-        "age": "19-25",//目标受众人群年龄范围，例如: 16_20  16岁到20岁
-        "sex": ["male"]//目标受众人群性别，`male` 男, `female` 女。如需同时选择“男”和“女”，格式为"sex": ["male","female"]；如不选择性别，则不输入 sex 内容，即{ "age": "19-25"}
-    }
-
-**请求**
-
-{:.prettyprint}
-    {
         "id": 10786,//项目 ID
         "url": "http://{{site.track_api_host}}/networks/advertisers/campaigns/10786",
         "name": "测试项目",//项目名称
@@ -290,10 +177,35 @@ version: v2
     }
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+    Status: 200 OK
 
+{:.prettyprint}
+    {
+        "id": 999,
+        "name": "这个是项目名称",
+        "advertiserId": 999, // 关联广告主id
+        "agencyId": 999, // 关联代理id
+        "brandId": 999, // 关联品牌id
+        "industryId": 999, //
+        "networkId": 999, // 关联工作网络id
+        "creatorId": 999, // 创建者id
+        "trackType": 'mobile','nonmobile','mixed', //track类型，移动，非移动，混合，三选一
+        "startDate": 2014-06-25, // 项目开始日期
+        "endDate": 2014-06-25, //项目结束日期
+        "mediaIds":440,1118,40 // 项目下媒体的列表，多个用逗号隔开, 有顺序
+        "status": enabled或者disabled, //默认值为enabled
+        "costType": 'cny','usd','none', //媒介计划预算结算货币，none为不录入
+        "siteMasterId": 999, //项目关联siteMaster 站点id,多个用逗号隔开
+        "smtbStatus": 'enabled','disabled', //smtb跟踪状态,enabled为开启，disabled 为关闭
+        "defaultTarget": "www.ui168.com", //项目默认点击跳转地址
+        "isDelete":  yes或者no, //是否被删除,
+        "party_name":zhaoxiongfei, //项目甲方联系人名称
+        "party_gender":'male','female', //项目甲方联系人性别
+        "party_email"://项目甲方联系人邮箱
+        "placements":999, //项目下目前广告位总数, 每个项目下广告位总数有限制
+        "createdAt": "2012-01-10T02:30:59Z",
+        "updatedAt": "2012-01-10T02:30:59Z"
+    }
 
 
 ## 删除指定项目
@@ -304,27 +216,4 @@ version: v2
 
 **响应**
 
-    Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/12/advertisers/10035/campaigns
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-
-## 字段说明
-
-返回值字段         | 字段类型 | 字段说明
-id               | integer | 项目 ID
-url              | string  | 请求URL
-name             | string  | 项目名称
-network_brand_id | integer | 项目所属网络品牌 ID
-cost_type        | string  | 币种
-total_cost       | integer | 总花费
-start_date       | date    | 开始日期
-end_date         | date    | 结束日期
-default_target   | date    | 默认目标
-media_num        | integer | 媒体数量
-placement_num    | integer | 广告位数量
-status           | string  | 状态
-is_online        | string  | 是否在线
-created_at       | date    | 创建时间
-
+    Status: 200 OK

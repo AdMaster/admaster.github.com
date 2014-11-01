@@ -17,25 +17,7 @@ version: v2
 
     GET /campaigns/:campaignId/creatives
 
-**参数**
-
-`page`
-: _可选_ **integer** - 显示页码
-
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
-
-	返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
-
 **响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/advertisers/campaigns/123/creatives?page=2>; rel="next",
-          <http://{{site.track_api_host}}/networks/advertisers/campaigns/123/creatives?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     [{
@@ -58,10 +40,6 @@ version: v2
     GET /creatives/:id
 
 **响应**
-
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -87,26 +65,10 @@ version: v2
 
 **参数**
 
-`name`
-: _必选_ **string** - 创意名称,长度为 3 - 100 个字符
-
-`shortname`
-: _必选_ **string** - 创意短名称,长度为 2 个字节，字母数字类型
-
-
-`description`
-: _可选_ **string** - 创意描述,最大长度为 1000 个字符
-
-
-`target_url`
-: _可选_ **string** - 创意点击目标地址
-
-**请求**
-
 {:.prettyprint}
     {
-        "name": //"创意名称",
-        "shortName"://创意短名称，2个字符之内
+        "name": //必填，"创意名称",
+        "shortName"://必填，创意短名称，2个字符之内
         "targetUrl"://点击跳转地址
         "campaignId": 999, // 关联项目id
         "color": 'No1','No2','No3','No4','No5','No6','No7','No8','No9','No10','No11','No12','No13','No14','No15','No16','No17','No18','No19','No20', // 创意的吉祥色，该颜色代表着创意, 同一个项目下颜色不可以相同
@@ -116,11 +78,6 @@ version: v2
     }
 
 **响应**
-
-    Status: 201 Created
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/creatives/1
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -144,36 +101,19 @@ version: v2
 
     DELETE /creatives/:id
 
+删除创意后，创意变为默认创意，注意此时获取的监测代码会发生变化。
+
 **响应**
 
-    Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/123/creatives
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+    Status: 200 OK
 
 ## 修改指定的创意属性
 
     PATCH /creatives/:id
 
-删除创意后，创意变为默认创意，注意此时获取的监测代码会发生变化。
+
 
 **参数**
-
-`name`
-: _必选_ **string** - 创意名称 长度为 3 - 100 个字符
-
-`shortname`
-: _必选_ **string** - 创意短名称 长度为 2 个字节，字母数字类型
-
-
-`description`
-: _可选_ **string** - 创意描述 最大长度为 1000 个字符
-
-
-`target_url`
-: _可选_ **string** - 创意点击目标地址
-
-**请求**
 
 {:.prettyprint}
     {
@@ -192,7 +132,17 @@ version: v2
 
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
+{:.prettyprint}
+    {
+        "id": 999,
+        "name": //"创意名称",
+        "shortName"://创意短名称，2个字符之内
+        "targetUrl"://点击跳转地址
+        "campaignId": 999, // 关联项目id
+        "color": 'No1','No2','No3','No4','No5','No6','No7','No8','No9','No10','No11','No12','No13','No14','No15','No16','No17','No18','No19','No20', // 创意的吉祥色，该颜色代表着创意, 同一个项目下颜色不可以相同
+        "materialPath"://创意素材路径，支持swf，jpg，gif，png，flv
+        "note"://创意的说明, 200个字之内
+        "creatorId": 999, // 创建者id
+        "createdAt": "2012-01-10T02:30:59Z",
+        "updatedAt": "2012-01-10T02:30:59Z"
+    }

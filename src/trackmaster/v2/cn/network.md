@@ -19,10 +19,6 @@ title: 工作网络
 
 **响应**
 
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
 {:.prettyprint}
     [
       {
@@ -50,11 +46,6 @@ title: 工作网络
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers>; rel="advs"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
 {:.prettyprint}
       {
         "id": 999, //资源id
@@ -77,7 +68,9 @@ title: 工作网络
 ## 修改指定 ID 工作网络信息
 
     PATCH /networks/:id
+
 **请求**
+
 {:.prettyprint}
       {
         "id": 999, //资源id
@@ -100,10 +93,6 @@ title: 工作网络
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers>; rel="advs"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
     {:.prettyprint}
       {
         "id": 999, //资源id
@@ -132,8 +121,5 @@ title: 工作网络
 **响应**
 
     Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/1/advertisers>; rel="advs"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
   

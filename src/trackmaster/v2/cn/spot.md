@@ -19,12 +19,6 @@ version: v2
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/:placement_id/spots?page=2>; rel="next",
-          <http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/:placement_id/spots?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
 {:.prettyprint}
     [{
         id: 14,
@@ -56,12 +50,6 @@ version: v2
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/:placement_id/spots?page=2>; rel="next",
-          <http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/:placement_id/spots?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
 {:.prettyprint}
     {
         id: 14,
@@ -83,17 +71,21 @@ version: v2
 
 **请求**
 
-`units`
-: _必选_ **float** - 购买量，不上线可以设置为 0，支持小数录入
-
-`creative_id`
-: _可选_ **integer** - 创意 ID
+{:.prettyprint}
+    {
+    "id": 999,
+    "campaignId": 999, // 关联项目id
+    "placementId": 999, // 关联广告位id
+    "creativeId": 999, // 关联创意id
+    "date": "2014-05-10", // 对应的日期
+    "num": 888, // 购买的单位量
+    "creatorId": 999, // 创建者id
+    "createdAt": "2012-01-10T02:30:59Z",
+    "updatedAt": "2012-01-10T02:30:59Z"
+    }
 
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 {:.prettyprint}
     {
         id: 14,
@@ -113,9 +105,6 @@ version: v2
 
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 {:.prettyprint}
     {
         id: 14,
@@ -135,6 +124,4 @@ version: v2
 
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999    
+    Status: 200 OK 

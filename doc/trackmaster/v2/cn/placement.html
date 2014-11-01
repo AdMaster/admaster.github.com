@@ -64,33 +64,7 @@
 <pre><code>GET /campaigns/:campaignId/placements
 </code></pre>
 
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位名称，支持模糊搜索</dd>
-  <dt><code>network_media_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 工作网络媒体 ID</dd>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码
-
-    <p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code>显示 30 条之后的数据。</p>
-  </dd>
-  <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条
-
-    <p><code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。</p>
-  </dd>
-</dl>
-
 <p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/networks/advertisers/campaigns/123/placements?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/networks/advertisers/campaigns/123/placements?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
 
 <pre class="prettyprint"><code>[
     {
@@ -128,11 +102,6 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
 <pre class="prettyprint"><code>    {
     "id": 999,
     "name": //"这个是广告位的名称",
@@ -169,125 +138,34 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>参数</strong></p>
 
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 广告位位置名称，字符串，长度为 3 - 100个字符</dd>
-  <dt><code>network_media_id</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 广告位所属工作网络媒体 ID</dd>
-  <dt><code>page_url</code></dt>
-  <dd><em>必选</em> <strong>string</strong> - 广告所在位置 URL，例”http://www.admaster.com.cn/”</dd>
-  <dt><code>channel_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位所属媒体频道 ID</dd>
-  <dt><code>type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位所属类型
-
-    <ul>
-      <li><code>webpage</code> 网页 <em>默认值</em></li>
-      <li><code>video</code> 视频广告</li>
-      <li><code>client</code> 客户端</li>
-      <li><code>se</code> 搜索引擎</li>
-      <li><code>email</code> 邮件</li>
-      <li><code>other</code> 其他</li>
-    </ul>
-  </dd>
-  <dt><code>screen</code>:</dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位在第几屏幕</dd>
-  <dt><code>material_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料类型 
-
-    <ul>
-      <li><code>flash</code> <em>默认值</em></li>
-      <li><code>image</code></li>
-      <li><code>video</code></li>
-      <li><code>textlink</code></li>
-      <li><code>other</code> </li>
-    </ul>
-  </dd>
-  <dt><code>material_dimension</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料的显示尺寸，单位像素 格式如 400x300 宽度为 400px 高度为 300px</dd>
-  <dt><code>material_size</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -物料文件大小，单位由 material_size_unit 指定 </dd>
-  <dt><code>material_size_unit</code>  </dt>
-  <dd><em>可选</em> <strong>string</strong> -物料文件大小单位
-
-    <ul>
-      <li><code>B</code></li>
-      <li><code>KB</code><em>默认值</em></li>
-      <li><code>MB</code>    </li>
-    </ul>
-  </dd>
-  <dt><code>rotation</code></dt>
-  <dd><em>可选</em> <strong>string</strong> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，依次类推，默认: <code>1/1</code></dd>
-  <dt><code>target_url</code></dt>
-  <dd><em>可选</em> <strong>string</strong> 点击目标地址, 默认为空，继承项目的点击目标地址。请保证此参数的正确性，因为点击监测代码会按照此地址进行跳转。</dd>
-  <dt><code>payment_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 支付类型
-
-    <ul>
-      <li><code>purchase</code> 购买 <em>默认值</em></li>
-      <li><code>offering</code> 配送</li>
-      <li><code>framework</code> 框架</li>
-      <li><code>compensation</code> 补偿</li>
-      <li><code>other</code> 其他</li>
-    </ul>
-  </dd>
-  <dt><code>cost_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 单位收费类型
-
-    <ul>
-      <li><code>day</code> 天 <em>默认值</em></li>
-      <li><code>week</code> 周</li>
-      <li><code>month</code> 月</li>
-      <li><code>cpc</code> 每次点击成本</li>
-      <li><code>cpm</code> 千人展示成本</li>
-      <li><code>cpa</code> 每次行动成本</li>
-      <li><code>article</code> 文章</li>
-      <li><code>kmail</code> 千封邮件</li>
-      <li><code>other</code> 其他 </li>
-    </ul>
-  </dd>
-  <dt><code>cost_per_unit</code></dt>
-  <dd><em>可选</em> <strong>float</strong> - 单位成本</dd>
-  <dt><code>est_imp_per_unit</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 单位预估曝光数</dd>
-  <dt><code>est_clk_per_unit</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 单位预估点击</dd>
-  <dt><code>other_requirement</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 其他要求</dd>
-</dl>
-
-<p><strong>请求</strong></p>
-
 <pre class="prettyprint"><code>{
-    "name": "测试广告位",
-    "network_media_id": 1314,
-    "channel_id":1000,
-    "channel_name": "首页",
-    "type": "webpage",
-    "screen": 3,
-    "page_url":"http://www.sina.com.cn/"
-    "material_type": "flash",
-    "material_dimension": "400x300",
-    "material_size": 30,
-    "material_size_unit": "KB",    
-    "rotation" : "1/1",
-    "target_url": "http://www.admaster.com.cn/",
-    "payment_type": "purchase",
-    "cost_type": "day"
-    "cost_per_unit": 873,
-    "est_imp_per_unit": 239,
-    "est_clk_per_unit": 3,
-    "other_requirement": "没有什么要求",
+"id": 999,
+"name": //"这个是广告位的名称",
+"mediaId": 999, //"关联系统媒体id",
+"campaignId": 999, //"关联项目id",
+"channelName": //频道名称
+"trackType": 'mobile','nonmobile','mixed', // track类型，移动，非移动，混合，三选一
+"targetUrl":sdf.com, //广告位点击跳转地址
+"rollRate": 1, //轮转播放率, 1 为固定，2为 1/2轮播，以此类推
+"targetGeos":999, //地域定向投放geoIds,多个用逗号隔开
+"targetAudiences"://目标受众定向，json存放      {        "age": [15, 18], // 年龄范围        "gender": ["male", "female"] // 性别白名单      }
+"targetWords"://内容定向投放的关键词, 每行一个
+"freqCtl"://控频设置，json格式      {        "by": "whole", // 控频方式 whole, day, week, month        "range": [0, 10] // 控频范围      }
+"pasterPosition":'unset','before','middle','after', //视频贴片位置，只有type=video时才有值
+"position":'left-top','center-top','right-top','left-middle','center-middle','right-middle','left-bottom','center-bottom','right-bottom','unset', //广告位所在页面位置
+"isDynamic":tinyint(1)默认值为0 //是否是动态广告
+"materialType":'flash','image','video','txt','other', //默认值为image//物料类型
+"size":0x0 , //广告位尺寸，长x宽 单位像素
+"screen":1, //广告位在第几屏
+"costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
+"estimateImp":999, //单位预估曝光
+"estimateClk":999, //单位预估点击
+"createdAt": "2012-01-10T02:30:59Z",
+"updatedAt": "2012-01-10T02:30:59Z"
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
-
-<pre><code>Status: 201 Created
-Location: http://track.admasterapi.com/networks/advertisers/campaigns/placements/200057486
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
 
 <pre class="prettyprint"><code>{
     "id": 200057486,
@@ -331,121 +209,60 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>请求</strong></p>
 
-<dl>
-  <dt><code>name</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位位置名称，字符串，长度为 3 - 100个字符</dd>
-  <dt><code>channel_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位频道 ID</dd>
-  <dt><code>type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位所属类型
-
-    <ul>
-      <li><code>webpage</code> 网页 <em>默认值</em></li>
-      <li><code>video</code> 视频广告</li>
-      <li><code>client</code> 客户端</li>
-      <li><code>se</code> 搜索引擎</li>
-      <li><code>email</code> 邮件</li>
-      <li><code>other</code> 其他</li>
-    </ul>
-  </dd>
-  <dt><code>screen</code>:</dt>
-  <dd><em>可选</em> <strong>integer</strong> - 广告位在第几屏幕</dd>
-  <dt><code>page_url</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 广告位所在位置 URL，例”http://www.admaster.com.cn/”</dd>
-  <dt><code>material_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料类型 
-
-    <ul>
-      <li><code>flash</code> <em>默认值</em></li>
-      <li><code>image</code></li>
-      <li><code>video</code></li>
-      <li><code>textlink</code></li>
-      <li><code>other</code> </li>
-    </ul>
-  </dd>
-  <dt><code>material_dimension</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 物料的显示尺寸，单位像素 格式如 400x300 宽度为 400px 高度为 300px</dd>
-  <dt><code>material_size</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> -物料文件大小，单位由 material_size_unit 指定 </dd>
-  <dt><code>material_size_unit</code>  </dt>
-  <dd><em>可选</em> <strong>string</strong> -物料文件大小单位
-
-    <ul>
-      <li><code>B</code></li>
-      <li><code>KB</code><em>默认值</em></li>
-      <li><code>MB</code>    </li>
-    </ul>
-  </dd>
-  <dt><code>rotation</code></dt>
-  <dd><em>可选</em> <strong>string</strong> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，一次类推，默认: <code>1/1</code></dd>
-  <dt><code>target_url</code></dt>
-  <dd><em>可选</em> <strong>string</strong> 点击目标地址, 默认为空，继承项目的点击目标地址</dd>
-  <dt><code>payment_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 支付类型
-
-    <ul>
-      <li><code>purchase</code> 购买 <em>默认</em></li>
-      <li><code>offering</code> 配送</li>
-      <li><code>framework</code> 框架</li>
-      <li><code>compensation</code> 补偿</li>
-      <li><code>other</code> 其他 </li>
-    </ul>
-  </dd>
-  <dt><code>cost_type</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 单位收费类型 
-
-    <ul>
-      <li><code>day</code> 天 <em>默认</em></li>
-      <li><code>week</code> 周</li>
-      <li><code>month</code> 月</li>
-      <li><code>cpc</code> 每次点击成本</li>
-      <li><code>cpm</code> 千人展示成本</li>
-      <li><code>cpa</code> 每次行动成本</li>
-      <li><code>article</code> 文章</li>
-      <li><code>kmail</code> 千封邮件</li>
-      <li><code>other</code> 其他 </li>
-    </ul>
-  </dd>
-  <dt><code>cost_per_unit</code></dt>
-  <dd><em>可选</em> <strong>float</strong> - 单位成本</dd>
-  <dt><code>est_imp_per_unit</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 单位预估曝光数</dd>
-  <dt><code>est_clk_per_unit</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 单位预估点击</dd>
-  <dt><code>other_requirement</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - 其他要求</dd>
-</dl>
-
-<p><strong>请求</strong></p>
-
 <pre class="prettyprint"><code>{
-    "name": "测试广告位",
-    "network_media_id": 1314,
-    "channel_id":1000,
-    "channel_name": "首页",
-    "type": "webpage",
-    "screen": 3,
-    "page_url":"http://www.sina.com.cn/"
-    "material_type": "flash",
-    "material_dimension": "400x300",
-    "material_size": 30,
-    "material_size_unit": "KB",    
-    "rotation" : "1/1",
-    "target_url": "http://www.admaster.com.cn/",
-    "payment_type": "purchase",
-    "cost_type": "day"
-    "cost_per_unit": 873,
-    "est_imp_per_unit": 239,
-    "est_clk_per_unit": 3,
-    "other_requirement": "没有什么要求",
+"id": 999,
+"name": //"这个是广告位的名称",
+"mediaId": 999, //"关联系统媒体id",
+"campaignId": 999, //"关联项目id",
+"channelName": //频道名称
+"trackType": 'mobile','nonmobile','mixed', // track类型，移动，非移动，混合，三选一
+"targetUrl":sdf.com, //广告位点击跳转地址
+"rollRate": 1, //轮转播放率, 1 为固定，2为 1/2轮播，以此类推
+"targetGeos":999, //地域定向投放geoIds,多个用逗号隔开
+"targetAudiences"://目标受众定向，json存放      {        "age": [15, 18], // 年龄范围        "gender": ["male", "female"] // 性别白名单      }
+"targetWords"://内容定向投放的关键词, 每行一个
+"freqCtl"://控频设置，json格式      {        "by": "whole", // 控频方式 whole, day, week, month        "range": [0, 10] // 控频范围      }
+"pasterPosition":'unset','before','middle','after', //视频贴片位置，只有type=video时才有值
+"position":'left-top','center-top','right-top','left-middle','center-middle','right-middle','left-bottom','center-bottom','right-bottom','unset', //广告位所在页面位置
+"isDynamic":tinyint(1)默认值为0 //是否是动态广告
+"materialType":'flash','image','video','txt','other', //默认值为image//物料类型
+"size":0x0 , //广告位尺寸，长x宽 单位像素
+"screen":1, //广告位在第几屏
+"costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
+"estimateImp":999, //单位预估曝光
+"estimateClk":999, //单位预估点击
+"createdAt": "2012-01-10T02:30:59Z",
+"updatedAt": "2012-01-10T02:30:59Z"
 }
 </code></pre>
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+<pre class="prettyprint"><code>{
+"id": 999,
+"name": //"这个是广告位的名称",
+"mediaId": 999, //"关联系统媒体id",
+"campaignId": 999, //"关联项目id",
+"channelName": //频道名称
+"trackType": 'mobile','nonmobile','mixed', // track类型，移动，非移动，混合，三选一
+"targetUrl":sdf.com, //广告位点击跳转地址
+"rollRate": 1, //轮转播放率, 1 为固定，2为 1/2轮播，以此类推
+"targetGeos":999, //地域定向投放geoIds,多个用逗号隔开
+"targetAudiences"://目标受众定向，json存放      {        "age": [15, 18], // 年龄范围        "gender": ["male", "female"] // 性别白名单      }
+"targetWords"://内容定向投放的关键词, 每行一个
+"freqCtl"://控频设置，json格式      {        "by": "whole", // 控频方式 whole, day, week, month        "range": [0, 10] // 控频范围      }
+"pasterPosition":'unset','before','middle','after', //视频贴片位置，只有type=video时才有值
+"position":'left-top','center-top','right-top','left-middle','center-middle','right-middle','left-bottom','center-bottom','right-bottom','unset', //广告位所在页面位置
+"isDynamic":tinyint(1)默认值为0 //是否是动态广告
+"materialType":'flash','image','video','txt','other', //默认值为image//物料类型
+"size":0x0 , //广告位尺寸，长x宽 单位像素
+"screen":1, //广告位在第几屏
+"costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
+"estimateImp":999, //单位预估曝光
+"estimateClk":999, //单位预估点击
+"createdAt": "2012-01-10T02:30:59Z",
+"updatedAt": "2012-01-10T02:30:59Z"
+}
 </code></pre>
 
 <h2 id="section-5">删除指定的广告位</h2>
@@ -457,10 +274,7 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
-Location: http://track.admasterapi.com/networks/advertisers/campaigns/10786/placements
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+<pre><code>Status: 200 OK
 </code></pre>
 
 
@@ -654,41 +468,6 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
-                    
-                      
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                      
-                    
-                      
-                    
-                    
-                    
-                      
-                    
-                    
-                    
-                    
-                      
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                       
                     
                     
@@ -703,36 +482,16 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
+                      
+                    
+                    
+                      
                     
                     
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                      
                     
                     
                     
@@ -750,7 +509,58 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                       
+                    
+                    
+                    
+                    
                     
                     
                       
@@ -779,10 +589,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -793,25 +599,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -843,6 +631,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -868,14 +674,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -1025,10 +823,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -1039,25 +833,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -1089,6 +865,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -1114,14 +908,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -1271,10 +1057,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -1285,25 +1067,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -1335,6 +1099,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -1360,14 +1142,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -1517,10 +1291,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -1531,25 +1301,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -1581,6 +1333,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -1606,14 +1376,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -1763,10 +1525,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -1777,25 +1535,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -1827,6 +1567,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -1852,14 +1610,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -2009,10 +1759,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -2023,25 +1769,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -2073,6 +1801,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -2098,14 +1844,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -2255,10 +1993,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -2269,25 +2003,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -2319,6 +2035,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -2344,14 +2078,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -2501,10 +2227,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -2515,25 +2237,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -2565,6 +2269,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -2590,14 +2312,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -2747,10 +2461,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -2761,25 +2471,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -2811,6 +2503,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -2836,14 +2546,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -2993,10 +2695,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -3007,25 +2705,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -3057,6 +2737,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -3082,14 +2780,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -3239,10 +2929,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -3253,25 +2939,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -3303,6 +2971,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -3328,14 +3014,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -3485,10 +3163,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -3499,25 +3173,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -3549,6 +3205,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -3574,14 +3248,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -3731,10 +3397,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -3745,25 +3407,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -3795,6 +3439,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -3820,14 +3482,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -3980,7 +3634,6 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
-                    
                       
                     
                     
@@ -3993,10 +3646,7 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
-                      
-
-                  <li style=""><a href="/doc/trackmaster/v2/cn/keywords.html">关键字</a></li>
-                  
+                    
                     
                       
 
@@ -4004,8 +3654,8 @@ X-RateLimit-Remaining: 4999
                   
                     
                     
-                    
                       
+                    
                     
                     
                     
@@ -4092,12 +3742,6 @@ X-RateLimit-Remaining: 4999
                     
                     
                       
-
-                  <li style=""><a href="/doc/trackmaster/v2/cn/territory.html">地域</a></li>
-                  
-                    
-                    
-                      
                     
                     
                     
@@ -4183,10 +3827,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -4197,25 +3837,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -4247,6 +3869,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -4272,14 +3912,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -4429,10 +4061,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -4443,25 +4071,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -4493,6 +4103,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -4518,14 +4146,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -4675,10 +4295,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -4689,25 +4305,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -4739,6 +4337,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -4764,14 +4380,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -4921,10 +4529,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -4935,25 +4539,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -4985,6 +4571,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -5010,14 +4614,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -5167,10 +4763,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -5181,25 +4773,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -5231,6 +4805,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -5256,14 +4848,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -5413,10 +4997,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -5427,25 +5007,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -5477,6 +5039,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -5502,14 +5082,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -5659,10 +5231,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -5673,25 +5241,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -5723,6 +5273,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -5748,14 +5316,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -5829,41 +5389,6 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
-                    
-                      
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                      
-                    
-                      
-                    
-                    
-                    
-                      
-                    
-                    
-                    
-                    
-                      
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                       
                     
                     
@@ -5878,36 +5403,16 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
+                      
+                    
+                    
+                      
                     
                     
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                      
                     
                     
                     
@@ -5925,7 +5430,58 @@ X-RateLimit-Remaining: 4999
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                       
+                    
+                    
+                    
+                    
                     
                     
                       
@@ -6078,10 +5634,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -6092,25 +5644,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -6142,6 +5676,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -6167,14 +5719,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -6324,10 +5868,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -6338,25 +5878,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -6388,6 +5910,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -6413,14 +5953,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -6570,10 +6102,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -6584,25 +6112,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -6634,6 +6144,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -6659,14 +6187,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -6816,10 +6336,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -6830,25 +6346,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -6880,6 +6378,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -6905,14 +6421,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -7062,10 +6570,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -7076,25 +6580,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -7126,6 +6612,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -7151,14 +6655,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -7308,10 +6804,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -7322,25 +6814,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -7372,6 +6846,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -7397,14 +6889,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -7554,10 +7038,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -7568,25 +7048,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -7618,6 +7080,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -7643,14 +7123,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -7800,10 +7272,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -7814,25 +7282,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -7864,6 +7314,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -7889,14 +7357,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -8046,10 +7506,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -8060,25 +7516,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -8110,6 +7548,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -8135,14 +7591,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           
@@ -8292,10 +7740,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-            
-          
-          
-          
           
           
             
@@ -8306,25 +7750,7 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
             
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-            
-          
-          
-          
-          
           
           
           
@@ -8356,6 +7782,24 @@ X-RateLimit-Remaining: 4999
           
           
           
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
           
           
@@ -8381,14 +7825,6 @@ X-RateLimit-Remaining: 4999
           
           
           
-          
-          
-          
-          
-          
-          
-          
-            
           
           
           

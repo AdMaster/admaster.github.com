@@ -20,12 +20,6 @@ version: v2
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/advertisers?page=2>; rel="next",
-          <http://{{site.track_api_host}}/advertisers?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
 {:.prettyprint}
     [
     {
@@ -48,10 +42,6 @@ version: v2
     GET http://lib.admasterapi.com/api_v1/advertisers/:id
 
 **响应**
-
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {

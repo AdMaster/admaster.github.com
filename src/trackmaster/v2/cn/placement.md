@@ -16,33 +16,8 @@ version: v2
 ## 获取指定项目下的广告位列表
 
     GET /campaigns/:campaignId/placements
-    
-
-**参数**
-
-`name`
-: _可选_ **string** - 广告位名称，支持模糊搜索
-
-`network_media_id`
-: _可选_ **integer** - 工作网络媒体 ID
-
-`page`
-: _可选_ **integer** - 显示页码
-
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
-
-	`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
 
 **响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/networks/advertisers/campaigns/123/placements?page=2>; rel="next",
-          <http://{{site.track_api_host}}/networks/advertisers/campaigns/123/placements?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     [
@@ -80,10 +55,6 @@ version: v2
 
 **响应**
 
-    Status: 200 OK
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
 {:.prettyprint}
         {
         "id": 999,
@@ -119,125 +90,34 @@ version: v2
 
 **参数**
 
-`name`
-: _必选_ **string** - 广告位位置名称，字符串，长度为 3 - 100个字符
-
-`network_media_id`
-: _必选_ **string** - 广告位所属工作网络媒体 ID
-
-`page_url`
-: _必选_ **string** - 广告所在位置 URL，例"http://www.admaster.com.cn/"
-
-`channel_id`
-: _可选_ **integer** - 广告位所属媒体频道 ID
-
-`type`
-: _可选_ **string** - 广告位所属类型
-
-  * `webpage` 网页 _默认值_
-  * `video` 视频广告
-  * `client` 客户端
-  * `se` 搜索引擎
-  * `email` 邮件
-  * `other` 其他
-
-`screen`:
-: _可选_ **integer** - 广告位在第几屏幕
-
-
-`material_type`
-: _可选_ **string** - 物料类型 
-
-  * `flash` _默认值_
-  * `image`
-  * `video`
-  * `textlink`
-  * `other` 
-
-`material_dimension`
-: _可选_ **string** - 物料的显示尺寸，单位像素 格式如 400x300 宽度为 400px 高度为 300px
-
-`material_size`
-: _可选_ **integer** -物料文件大小，单位由 material_size_unit 指定 
- 
-`material_size_unit`  
-: _可选_ **string** -物料文件大小单位
-
-  * `B`
-  * `KB`_默认值_
-  * `MB`    
-
-`rotation`
-: _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，依次类推，默认: `1/1`
-
-`target_url`
-: _可选_ **string** 点击目标地址, 默认为空，继承项目的点击目标地址。请保证此参数的正确性，因为点击监测代码会按照此地址进行跳转。
-
-`payment_type`
-: _可选_ **string** - 支付类型
-
-  * `purchase` 购买 _默认值_
-  * `offering` 配送
-  * `framework` 框架
-  * `compensation` 补偿
-  * `other` 其他
-
-`cost_type`
-: _可选_ **string** - 单位收费类型
-
-  * `day` 天 _默认值_
-  * `week` 周
-  * `month` 月
-  * `cpc` 每次点击成本
-  * `cpm` 千人展示成本
-  * `cpa` 每次行动成本
-  * `article` 文章
-  * `kmail` 千封邮件
-  * `other` 其他 
-
-`cost_per_unit`
-: _可选_ **float** - 单位成本
-
-`est_imp_per_unit`
-: _可选_ **integer** - 单位预估曝光数
-
-`est_clk_per_unit`
-: _可选_ **integer** - 单位预估点击
-
-`other_requirement`
-: _可选_ **string** - 其他要求
-
-**请求**
-
 {:.prettyprint} 
     {
-        "name": "测试广告位",
-        "network_media_id": 1314,
-        "channel_id":1000,
-        "channel_name": "首页",
-        "type": "webpage",
-        "screen": 3,
-        "page_url":"http://www.sina.com.cn/"
-        "material_type": "flash",
-        "material_dimension": "400x300",
-        "material_size": 30,
-        "material_size_unit": "KB",    
-        "rotation" : "1/1",
-        "target_url": "http://www.admaster.com.cn/",
-        "payment_type": "purchase",
-        "cost_type": "day"
-        "cost_per_unit": 873,
-        "est_imp_per_unit": 239,
-        "est_clk_per_unit": 3,
-        "other_requirement": "没有什么要求",
+    "id": 999,
+    "name": //"这个是广告位的名称",
+    "mediaId": 999, //"关联系统媒体id",
+    "campaignId": 999, //"关联项目id",
+    "channelName": //频道名称
+    "trackType": 'mobile','nonmobile','mixed', // track类型，移动，非移动，混合，三选一
+    "targetUrl":sdf.com, //广告位点击跳转地址
+    "rollRate": 1, //轮转播放率, 1 为固定，2为 1/2轮播，以此类推
+    "targetGeos":999, //地域定向投放geoIds,多个用逗号隔开
+    "targetAudiences"://目标受众定向，json存放      {        "age": [15, 18], // 年龄范围        "gender": ["male", "female"] // 性别白名单      }
+    "targetWords"://内容定向投放的关键词, 每行一个
+    "freqCtl"://控频设置，json格式      {        "by": "whole", // 控频方式 whole, day, week, month        "range": [0, 10] // 控频范围      }
+    "pasterPosition":'unset','before','middle','after', //视频贴片位置，只有type=video时才有值
+    "position":'left-top','center-top','right-top','left-middle','center-middle','right-middle','left-bottom','center-bottom','right-bottom','unset', //广告位所在页面位置
+    "isDynamic":tinyint(1)默认值为0 //是否是动态广告
+    "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
+    "size":0x0 , //广告位尺寸，长x宽 单位像素
+    "screen":1, //广告位在第几屏
+    "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
+    "estimateImp":999, //单位预估曝光
+    "estimateClk":999, //单位预估点击
+    "createdAt": "2012-01-10T02:30:59Z",
+    "updatedAt": "2012-01-10T02:30:59Z"
     }
     
 **响应**
-
-    Status: 201 Created
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/placements/200057486
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
 {:.prettyprint}
     {
@@ -280,121 +160,62 @@ version: v2
 
 **请求**
 
-`name`
-: _可选_ **string** - 广告位位置名称，字符串，长度为 3 - 100个字符
-
-`channel_id`
-: _可选_ **integer** - 广告位频道 ID
-
-`type`
-: _可选_ **string** - 广告位所属类型
-
-  * `webpage` 网页 _默认值_
-  * `video` 视频广告
-  * `client` 客户端
-  * `se` 搜索引擎
-  * `email` 邮件
-  * `other` 其他
-
-`screen`:
-: _可选_ **integer** - 广告位在第几屏幕
-
-`page_url`
-: _可选_ **string** - 广告位所在位置 URL，例"http://www.admaster.com.cn/"
-
-`material_type`
-: _可选_ **string** - 物料类型 
-
-  * `flash` _默认值_
-  * `image`
-  * `video`
-  * `textlink`
-  * `other` 
-
-`material_dimension`
-: _可选_ **string** - 物料的显示尺寸，单位像素 格式如 400x300 宽度为 400px 高度为 300px
-
-`material_size`
-: _可选_ **integer** -物料文件大小，单位由 material_size_unit 指定 
- 
-`material_size_unit`  
-: _可选_ **string** -物料文件大小单位
-
-  * `B`
-  * `KB`_默认值_
-  * `MB`    
-
-`rotation`
-: _可选_ **string** 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推，默认: `1/1`
-
-`target_url`
-: _可选_ **string** 点击目标地址, 默认为空，继承项目的点击目标地址
-
-`payment_type`
-: _可选_ **string** - 支付类型
-
-  * `purchase` 购买 _默认_
-  * `offering` 配送
-  * `framework` 框架
-  * `compensation` 补偿
-  * `other` 其他 
-
-`cost_type`
-: _可选_ **string** - 单位收费类型 
-
-  * `day` 天 _默认_
-  * `week` 周
-  * `month` 月
-  * `cpc` 每次点击成本
-  * `cpm` 千人展示成本
-  * `cpa` 每次行动成本
-  * `article` 文章
-  * `kmail` 千封邮件
-  * `other` 其他 
-
-`cost_per_unit`
-: _可选_ **float** - 单位成本
-
-`est_imp_per_unit`
-: _可选_ **integer** - 单位预估曝光数
-
-`est_clk_per_unit`
-: _可选_ **integer** - 单位预估点击
-
-`other_requirement`
-: _可选_ **string** - 其他要求
-
-**请求**
-
 {:.prettyprint}
     {
-        "name": "测试广告位",
-        "network_media_id": 1314,
-        "channel_id":1000,
-        "channel_name": "首页",
-        "type": "webpage",
-        "screen": 3,
-        "page_url":"http://www.sina.com.cn/"
-        "material_type": "flash",
-        "material_dimension": "400x300",
-        "material_size": 30,
-        "material_size_unit": "KB",    
-        "rotation" : "1/1",
-        "target_url": "http://www.admaster.com.cn/",
-        "payment_type": "purchase",
-        "cost_type": "day"
-        "cost_per_unit": 873,
-        "est_imp_per_unit": 239,
-        "est_clk_per_unit": 3,
-        "other_requirement": "没有什么要求",
+    "id": 999,
+    "name": //"这个是广告位的名称",
+    "mediaId": 999, //"关联系统媒体id",
+    "campaignId": 999, //"关联项目id",
+    "channelName": //频道名称
+    "trackType": 'mobile','nonmobile','mixed', // track类型，移动，非移动，混合，三选一
+    "targetUrl":sdf.com, //广告位点击跳转地址
+    "rollRate": 1, //轮转播放率, 1 为固定，2为 1/2轮播，以此类推
+    "targetGeos":999, //地域定向投放geoIds,多个用逗号隔开
+    "targetAudiences"://目标受众定向，json存放      {        "age": [15, 18], // 年龄范围        "gender": ["male", "female"] // 性别白名单      }
+    "targetWords"://内容定向投放的关键词, 每行一个
+    "freqCtl"://控频设置，json格式      {        "by": "whole", // 控频方式 whole, day, week, month        "range": [0, 10] // 控频范围      }
+    "pasterPosition":'unset','before','middle','after', //视频贴片位置，只有type=video时才有值
+    "position":'left-top','center-top','right-top','left-middle','center-middle','right-middle','left-bottom','center-bottom','right-bottom','unset', //广告位所在页面位置
+    "isDynamic":tinyint(1)默认值为0 //是否是动态广告
+    "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
+    "size":0x0 , //广告位尺寸，长x宽 单位像素
+    "screen":1, //广告位在第几屏
+    "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
+    "estimateImp":999, //单位预估曝光
+    "estimateClk":999, //单位预估点击
+    "createdAt": "2012-01-10T02:30:59Z",
+    "updatedAt": "2012-01-10T02:30:59Z"
     }
 
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
+{:.prettyprint}
+    {
+    "id": 999,
+    "name": //"这个是广告位的名称",
+    "mediaId": 999, //"关联系统媒体id",
+    "campaignId": 999, //"关联项目id",
+    "channelName": //频道名称
+    "trackType": 'mobile','nonmobile','mixed', // track类型，移动，非移动，混合，三选一
+    "targetUrl":sdf.com, //广告位点击跳转地址
+    "rollRate": 1, //轮转播放率, 1 为固定，2为 1/2轮播，以此类推
+    "targetGeos":999, //地域定向投放geoIds,多个用逗号隔开
+    "targetAudiences"://目标受众定向，json存放      {        "age": [15, 18], // 年龄范围        "gender": ["male", "female"] // 性别白名单      }
+    "targetWords"://内容定向投放的关键词, 每行一个
+    "freqCtl"://控频设置，json格式      {        "by": "whole", // 控频方式 whole, day, week, month        "range": [0, 10] // 控频范围      }
+    "pasterPosition":'unset','before','middle','after', //视频贴片位置，只有type=video时才有值
+    "position":'left-top','center-top','right-top','left-middle','center-middle','right-middle','left-bottom','center-bottom','right-bottom','unset', //广告位所在页面位置
+    "isDynamic":tinyint(1)默认值为0 //是否是动态广告
+    "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
+    "size":0x0 , //广告位尺寸，长x宽 单位像素
+    "screen":1, //广告位在第几屏
+    "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
+    "estimateImp":999, //单位预估曝光
+    "estimateClk":999, //单位预估点击
+    "createdAt": "2012-01-10T02:30:59Z",
+    "updatedAt": "2012-01-10T02:30:59Z"
+    }
+    
 ## 删除指定的广告位
 
     DELETE /placements/:id
@@ -403,8 +224,5 @@ version: v2
 
 **响应**
 
-    Status: 204 No Content
-    Location: http://{{site.track_api_host}}/networks/advertisers/campaigns/10786/placements
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
+    Status: 200 OK
 
