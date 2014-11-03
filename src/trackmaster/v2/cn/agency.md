@@ -65,8 +65,8 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
 **响应**
 
 {:.prettyprint}
-[
-  {
+    [
+    {
     "id": 999, //资源id
     "name":牛逼工作网络, //"这个是工作网络的名称",
     "creator": zhaoxiongfei@admaster.com.cn, //"工作网络创建者的email地址",
@@ -82,8 +82,8 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
     "isDelete": yes或者no, //是否被删除,
     "createdAt": "2012-01-10T02:30:59Z",
     "updatedAt": "2012-01-10T02:30:59Z"
-  }
-]
+    }
+    ]
 
 
 ##第三步 获取指定工作网络下有操作权限的项目列表 ##
@@ -93,7 +93,7 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
 **响应**
 
 {:.prettyprint}
-[{
+    [{
     "id": 999,
     "name": "这个是项目名称",
     "advertiserId": 999, // 关联广告主id
@@ -118,7 +118,7 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
     "placements":999, //项目下目前广告位总数, 每个项目下广告位总数有限制
     "createdAt": "2012-01-10T02:30:59Z",
     "updatedAt": "2012-01-10T02:30:59Z"
-}]
+    }]
 
 
 # 其它信息 #
