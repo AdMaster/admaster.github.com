@@ -19,8 +19,8 @@ version: v2
 
 **参数**
 
-* `startDate` 开始日期或者时间
-* `endDate` 结束日期或者时间
+* `startDate` 必填，开始日期或者时间
+* `endDate` 必填，结束日期或者时间
 * `dimensions` 数据查询纬度，可以多个，多个之间用逗号分隔
 * `metrics` 数据查询指标，可以是多个，多个之间用逗号分隔
 * `filters` 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp>1000;clk>10
@@ -32,9 +32,6 @@ version: v2
 
 **响应**
 
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/campaigns/12/reports?page=2>; rel="next",
-          <http://{{site.track_api_host}}/campaigns/12/reports?page=10>; rel="last"
   {:.prettyprint}
 	  [{
 	  "date": "2014-07-11",
