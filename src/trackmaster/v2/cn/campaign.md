@@ -15,7 +15,7 @@ version: v2
 
 ## 获取网络下项目列表
 
-    GET /networks/:networkId/campaigns
+    GET http://m.trackmaster.com.cn/api_v2/networks/:networkId/campaigns
 
 **响应**
 
@@ -50,7 +50,7 @@ version: v2
 
 ## 获取指定项目信息
 
-    GET /campaigns/:id
+    GET http://m.trackmaster.com.cn/api_v2/campaigns/:id
 
 **响应**
 
@@ -84,7 +84,7 @@ version: v2
 
 ## 添加项目
 
-    POST /networks/:networkId/campaigns
+    POST http://m.trackmaster.com.cn/api_v2/networks/:networkId/campaigns
 
 注意：同广告主下项目名称不允许重名
 
@@ -143,7 +143,7 @@ version: v2
 
 ## 修改指定项目属性
 
-    PATCH /campaigns/:id
+    PATCH http://m.trackmaster.com.cn/api_v2/campaigns/:id
 
 注意：修改项目属性时只需 PATCH 提交需要修改的字段部分，不需要修改的字段不需要提交，所以以下参数都是可选的。
 
@@ -204,7 +204,7 @@ version: v2
 
 ## 删除指定项目
 
-    DELETE /campaigns/:id
+    DELETE http://m.trackmaster.com.cn/api_v2/campaigns/:id
 
 注意：当项目下有广告位时不允许删除项目；如需删除请先删除该项目下的广告位。
 

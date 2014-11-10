@@ -15,20 +15,20 @@ version: v2
 
 ## 获取指定项目下有操作权限的项目报告列表
 
-    GET /campaigns/:campaign_id/reports/basics
+    GET http://m.trackmaster.com.cn/api_v2/campaigns/:campaign_id/reports/basics
 
 **参数**
 
 * `startDate` 必填，开始日期或者时间
 * `endDate` 必填，结束日期或者时间
-* `dimensions` 数据查询纬度，可以多个，多个之间用逗号分隔
-* `metrics` 数据查询指标，可以是多个，多个之间用逗号分隔
+* `dimensions` 选填，数据查询纬度，可以多个，多个之间用逗号分隔
+* `metrics` 必填，数据查询指标，可以是多个，多个之间用逗号分隔
 * `filters` 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp>1000;clk>10
 * `sort` 排序方式, 降序排列的时候需要在排序方式前加减号(-)
-* `startIndex` 数据从第几条开始
-* `maxResults` 最多返回多少条结果
+* `startIndex` 数据从第几条开始，默认为 0
+* `maxResults` 最多返回多少条结果，默认为 200
 
-报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数
+报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数，如果需要控制翻页，请修改`startIndex` 和 `maxResults` 的值。
 
 **响应**
 
@@ -41,7 +41,7 @@ version: v2
 		}]
 
 
-**可用 dimensions**
+**可用 dimensions （维度）**
 
 * media 媒体
 * placement 广告位

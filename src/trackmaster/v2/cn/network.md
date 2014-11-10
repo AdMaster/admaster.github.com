@@ -15,7 +15,7 @@ title: 工作网络
 
 ## 获取当前授权用户有权操作的所有工作网络
 
-    GET /users/:userId/networks
+    GET http://m.trackmaster.com.cn/api_v2/users/:userId/networks
 
 **响应**
 
@@ -42,7 +42,7 @@ title: 工作网络
 
 ## 获取指定 ID 工作网络信息
 
-    GET /networks/:id
+    GET http://m.trackmaster.com.cn/api_v2/networks/:id
 
 **响应**
 
@@ -67,7 +67,7 @@ title: 工作网络
       
 ## 修改指定 ID 工作网络信息
 
-    PATCH /networks/:id
+    PATCH http://m.trackmaster.com.cn/api_v2/networks/:id
 
 注意：修改网络信息时只需 PATCH 提交需要修改的字段部分，不需要修改的字段不需要提交，所以以下参数都是可选的。
 
@@ -113,7 +113,7 @@ title: 工作网络
       
 ## 删除指定工作网络
 
-    GET /networks/:id
+    GET http://m.trackmaster.com.cn/api_v2/networks/:id
 
 **响应**
 

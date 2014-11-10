@@ -15,7 +15,7 @@ version: v2
 
 ## 获取指定项目下的点位
 
-    GET /campaigns/:id/spots
+    GET http://m.trackmaster.com.cn/api_v2/campaigns/:id/spots
 
 **响应**
 
@@ -34,7 +34,7 @@ version: v2
 
 ## 给某个项目添加排期
 
-    POST /campaigns/:campaignId/spots
+    POST http://m.trackmaster.com.cn/api_v2/campaigns/:campaignId/spots
 
 **请求**
 
@@ -64,7 +64,7 @@ version: v2
 
 ## 修改指定点位
 
-    PATCH /spots/:id
+    PATCH http://m.trackmaster.com.cn/api_v2/spots/:id
 
 注意：online_date必须在项目起止时间范围内，修改点位信息时只需 PATCH 提交需要修改的字段部分，不需要修改的字段不需要提交，所以以下参数都是可选的。
 
@@ -96,7 +96,7 @@ version: v2
 
 ## 获取某个排期
 
-    GET /spots/:id
+    GET http://m.trackmaster.com.cn/api_v2/spots/:id
 
 **响应**
 
@@ -115,7 +115,7 @@ version: v2
     
 ## 删除某个排期
 
-    DELETE /spots/:id
+    DELETE http://m.trackmaster.com.cn/api_v2/spots/:id
 
 **响应**
 

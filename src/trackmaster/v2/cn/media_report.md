@@ -15,7 +15,7 @@ version: v2
 
 ## 获取指定媒体下的项目
 
-    GET /medias/:media_id/campaigns
+    GET http://m.trackmaster.com.cn/api_v2/medias/:media_id/campaigns
 
 **响应**
 
@@ -33,7 +33,7 @@ version: v2
 
 ## 获取指定项目下的日报告
 
-    GET /medias/:media_id/campaigns/:campaign_id/daily_reports
+    GET http://m.trackmaster.com.cn/api_v2/medias/:media_id/campaigns/:campaign_id/daily_reports
 
 **参数**
 

@@ -15,7 +15,7 @@ version: v2
 
 ## 获取指定项目下的广告位列表
 
-    GET /campaigns/:campaignId/placements
+    GET http://m.trackmaster.com.cn/api_v2/campaigns/:campaignId/placements
 
 **响应**
 
@@ -51,7 +51,7 @@ version: v2
 
 ## 获取指定广告位信息
 
-    GET /placements/:id
+    GET http://m.trackmaster.com.cn/api_v2/placements/:id
 
 **响应**
 
@@ -84,7 +84,7 @@ version: v2
 
 ## 在指定项目下添加一个广告位
 
-    POST /campaigns/:campaignId/placements
+    POST http://m.trackmaster.com.cn/api_v2/campaigns/:campaignId/placements
 
 注意：同一个项目下广告位数目限制为 400 个
 
@@ -152,7 +152,7 @@ version: v2
 
 ## 修改指定的广告位属性
 
-    PATCH /placements/:id
+    PATCH http://m.trackmaster.com.cn/api_v2/placements/:id
 
 注意：修改广告位属性时只需 PATCH 提交需要修改的字段部分，不需要修改的字段不需要提交，所以以下参数都是可选的。
 
@@ -210,7 +210,7 @@ version: v2
     
 ## 删除指定的广告位
 
-    DELETE /placements/:id
+    DELETE http://m.trackmaster.com.cn/api_v2/placements/:id
 
 注意：当广告位下曾经获取到监测数据时，不能删除该广告位。
 

@@ -16,7 +16,7 @@ version: v2
 
 ## 获取工作网络下品牌
 
-    GET /networks/:networkId/brands
+    GET http://m.trackmaster.com.cn/api_v2/networks/:networkId/brands
 
 **参数**
 
@@ -43,7 +43,7 @@ version: v2
 
 ## 获取指定 ID 品牌详细信息
 
-    GET /brands/:id
+    GET http://m.trackmaster.com.cn/api_v2/brands/:id
 
 **响应**
 
@@ -61,7 +61,7 @@ version: v2
 
 ## 添加指定品牌到指定网络广告主下
 
-    POST /networks/:networkId/brands
+    POST http://m.trackmaster.com.cn/api_v2/networks/:networkId/brands
 
 **请求**
 
@@ -84,7 +84,7 @@ version: v2
 
 ## 修改指定品牌
 
-    PATCH /brands/:id
+    PATCH http://m.trackmaster.com.cn/api_v2/brands/:id
 
 **请求**
 
@@ -118,7 +118,7 @@ version: v2
 
 ## 删除指定品牌
 
-    DELETE /brands/:id
+    DELETE http://m.trackmaster.com.cn/api_v2/brands/:id
 
 当品牌下有关联项目时，不能删除。
 

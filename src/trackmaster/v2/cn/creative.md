@@ -15,7 +15,7 @@ version: v2
 
 ## 获取指定项目所有创意
 
-    GET /campaigns/:campaignId/creatives
+    GET http://m.trackmaster.com.cn/api_v2/campaigns/:campaignId/creatives
 
 **响应**
 
@@ -37,7 +37,7 @@ version: v2
 
 ## 获取项目下指定创意信息
 
-    GET /creatives/:id
+    GET http://m.trackmaster.com.cn/api_v2/creatives/:id
 
 **响应**
 
@@ -59,7 +59,7 @@ version: v2
 
 ## 在指定项目下添加创意
 
-    POST /campaigns/:campaignId/creatives
+    POST http://m.trackmaster.com.cn/api_v2/campaigns/:campaignId/creatives
 
 最多可以创建创意的数目为 20 个。
 
@@ -100,7 +100,7 @@ version: v2
 
 ## 修改指定的创意属性
 
-    PATCH /creatives/:id
+    PATCH http://m.trackmaster.com.cn/api_v2/creatives/:id
 
 注意：修改创意信息时只需 PATCH 提交需要修改的字段部分，不需要修改的字段不需要提交，所以以下参数都是可选的。
 
@@ -137,7 +137,7 @@ version: v2
 
 ## 删除指定的创意
 
-    DELETE /creatives/:id
+    DELETE http://m.trackmaster.com.cn/api_v2/creatives/:id
 
 删除创意后，创意变为默认创意，注意此时获取的监测代码会发生变化。
 
