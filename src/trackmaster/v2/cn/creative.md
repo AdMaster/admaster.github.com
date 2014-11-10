@@ -69,12 +69,11 @@ version: v2
     {
         "name": //必填，"创意名称",
         "shortName"://必填，创意短名称，2个字符之内
-        "targetUrl"://点击跳转地址
-        "campaignId": 999, // 关联项目id
-        "color": 'No1','No2','No3','No4','No5','No6','No7','No8','No9','No10','No11','No12','No13','No14','No15','No16','No17','No18','No19','No20', // 创意的吉祥色，该颜色代表着创意, 同一个项目下颜色不可以相同
-        "materialPath"://创意素材路径，支持swf，jpg，gif，png，flv
-        "note"://创意的说明, 200个字之内
-        "creatorId": 999, // 创建者id
+        "targetUrl"://选填，点击跳转地址
+        "campaignId": 999, // 必填，关联项目id
+        "color": 'No1','No2','No3','No4','No5','No6','No7','No8','No9','No10','No11','No12','No13','No14','No15','No16','No17','No18','No19','No20', // 选填，创意的吉祥色，该颜色代表着创意, 同一个项目下颜色不可以相同
+        "materialPath"://选填，创意素材路径，支持swf，jpg，gif，png，flv
+        "note"://选填，创意的说明, 200个字之内
     }
 
 **响应**

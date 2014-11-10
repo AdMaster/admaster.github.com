@@ -106,8 +106,8 @@ version: v2
         "costType": 'cny','usd','none', //选填，媒介计划预算结算货币，none为不录入
         "siteMasterId": 999, //选填，项目关联siteMaster 站点id,多个用逗号隔开
         "smtbStatus": 'enabled','disabled', //选填，smtb跟踪状态,enabled为开启，disabled 为关闭，默认为 disable
-        "defaultTarget": "www.ui168.com", //项目默认点击跳转地址
-        "isDelete":  yes或者no, //是否被删除,
+        "defaultTarget": "www.ui168.com", //必填，项目默认点击跳转地址
+        "isDelete":  yes或者no, //选填，是否被删除,
         "party_name":zhaoxiongfei, //选填，项目甲方联系人名称
         "party_email"://选填，项目甲方联系人邮箱
     }
