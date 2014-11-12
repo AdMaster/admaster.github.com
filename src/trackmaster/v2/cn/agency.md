@@ -60,7 +60,7 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
 
 ## 第二步 获取当前授权用户有权操作的所有工作网络 ##
 
-    GET /users/:userId/networks
+    GET http://m.trackmaster.com.cn/api_v2/users/:userId/networks
 
 **响应**
 
@@ -88,7 +88,9 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
 
 ##第三步 获取指定工作网络下有操作权限的项目列表 ##
 
-    GET /networks/:networkId/campaigns
+    GET http://m.trackmaster.com.cn/api_v2/networks/:networkId/campaigns
+
+注意，每次请求需将 `access_token` 携带在 queryString 中以验证权限。
 
 **响应**
 
