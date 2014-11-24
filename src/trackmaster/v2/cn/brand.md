@@ -36,8 +36,8 @@ version: v2
         "advertiserId": 999, //关联广告主ID
         "creatorId": 999, //创建着id
         "isDelete": yes或者no, //是否被删除,
-        "createdAt": "2012-01-10T02:30:59Z",
-        "updatedAt": "2012-01-10T02:30:59Z"
+        "createdAt": "2012-01-10T02:30:59Z",//品牌创建时间
+        "updatedAt": "2012-01-10T02:30:59Z"//最后更新时间
     }]
 
 
@@ -55,8 +55,8 @@ version: v2
         "advertiserId": 999, //关联广告主ID
         "creatorId": 999, //创建着id
         "isDelete": yes或者no, //是否被删除,
-        "createdAt": "2012-01-10T02:30:59Z",
-        "updatedAt": "2012-01-10T02:30:59Z"
+        "createdAt": "2012-01-10T02:30:59Z",//品牌创建时间
+        "updatedAt": "2012-01-10T02:30:59Z"//最后更新时间
     }
 
 ## 添加指定品牌到指定网络广告主下
@@ -66,8 +66,8 @@ version: v2
 **请求**
 
     {
-        "name": "巧乐兹" //品牌名称
-        "advertiserId": 999, //关联广告主ID
+        "name": "巧乐兹" //必填，品牌名称
+        "advertiserId": 999, //必填，关联广告主ID
     }
 
 **响应**
@@ -77,7 +77,7 @@ version: v2
         "name":品牌 // 品牌名称
         "networkId": 999, //关联网络ID
         "advertiserId": 999, //关联广告主ID
-        "creatorId": 999, //创建着id
+        "creatorId": 999, //创建者id
         "isDelete": yes或者no, //是否被删除,
     }
 
@@ -85,15 +85,15 @@ version: v2
 ## 修改指定品牌
 
     PATCH http://m.trackmaster.com.cn/api_v2/brands/:id
+    
+注意：修改品牌时只需 PATCH 提交需要修改的字段部分，不需要修改的字段不需要提交，所以以下参数都是可选的。    
 
 **请求**
 
 {:.prettyprint}
     {
         "name":品牌 // 品牌名称
-        "networkId": 999, //关联网络ID
         "advertiserId": 999, //关联广告主ID
-        "creatorId": 999, //创建着id
         "isDelete": yes或者no, //是否被删除,
     }
 
