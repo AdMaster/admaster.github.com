@@ -31,32 +31,24 @@ version: v2
       }
     
 
-## 获取指定项目下的日报告
+## 获取指定项目下的报告
 
     GET http://m.trackmaster.com.cn/api_v2/medias/:media_id/campaigns/:campaign_id/daily_reports
 
 **参数**
 
-`start_time`
-: _可选_ **date** - 报告开始日期，例如 2012-08-01
+**参数**
 
-`end_time`
-: _可选_ **date** - 报告结束日期，例如 2012-08-02
+* `startDate` 必填，开始日期或者时间
+* `endDate` 必填，结束日期或者时间
+* `dimensions` 选填，数据查询纬度，可以多个，多个之间用逗号分隔
+* `metrics` 必填，数据查询指标，可以是多个，多个之间用逗号分隔
+* `filters` 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp>1000;clk>10
+* `sort` 排序方式, 降序排列的时候需要在排序方式前加减号(-)
+* `startIndex` 数据从第几条开始，默认为 0
+* `maxResults` 最多返回多少条结果，默认为 1000
 
-`sort`
-: _可选_ **string** - 列表排序以什么排序
-
-  * `time` - 按照时间排序
-  * `imp` - 按照曝光排序
-  * `clk` - 按照点击排序
-  * `uimp` - 按照独立曝光排序
-  * `uclk` - 按照独立点击排序
-
-`direction`
-: _可选_ **string** - 排序方式
-
-  * `asc` 升序 (_默认_)
-  * `desc` 降序
+报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数，如果需要控制翻页，请修改`startIndex` 和 `maxResults` 的值。
 
 **响应**
 
@@ -71,52 +63,11 @@ version: v2
         "clk": 20, //点击
         "uclk": 10, //独立点击
       }
-
-
-## 获取指定监测代码下的项目日报告
-
-    GET /medias/campaigns/daily_reports/codes
-
-**参数**
-
-`code`
-: _必选_ **string** - 项目监测代码
-
-**响应**
-
-    Status: 204 No Content
-    Location: http://{{site.track_api_host}}/medias/1308/campaigns/10256/daily_reports
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-
-## 获取指定监测代码下的项目报告
-
-    GET /medias/campaigns/reports/codes
-
-**参数**
-
-`code`
-: _必选_ **string** - 项目监测代码
-
-**响应**
-
-    Status: 204 No Content
-    Location: http://{{site.track_api_host}}/medias/1308/campaigns/10256/reports
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
       
 
 ## 获取IES报告(新接口)
 
 	GET /medias/:id/ies_reports
-
-**响应**
-
-	Status: 200 OK
-	Link: <http://{{site.track_api_host}}/medias/1/ies_reports?page=2>; rel="next",
-      	  <http://{{site.track_api_host}}/medias/1/ies_reports?page=10>; rel="last"
 
 **参数**
 
@@ -146,125 +97,6 @@ version: v2
   	"clk": 43432
 	}]
 
-
-
-## 获取指定监测代码下的相关参数
-
-    GET /medias/:id/code_params
-
-**参数**
-
-`code`
-: _必选_ **string** - 监测代码
-
-
-
-{:.prettyprint}
-	{
-  	"campaign_id": "100",
-  	"placement_id":"100",
-  	"creative_id":"0"
-	}
-
-
-
-## 获取指定媒体项目报告列表
-
-    GET /medias/:media_id/campaigns/:campaign_id/reports
-
-**参数**
-
-`time`
-: _可选_ **string** - 数据时间类型,与参数 `start_time` 和 `end_time` 共同使用。
-
-
-  * `hourly` 获取小时数据
-  * `daily` 获取日数据——默认
-
-`dims`
-: _可选_ **string** - 数据聚合维度,多个选项之间用`,`分开
-
-  * `time` 按时间维度聚合、结果会显示具体的时间列 
-  * `placement` 按广告位维度聚合
-  * `keyword` 按关键字维度聚合
-  * `creative` 按创意维度聚合
-  * `province` 按省级地域维度聚合  
-
-
-`placement_id`
-: _可选_ **integer** - 广告位 ID
-
-`keyword_id`
-: _可选_ **integer** - 关键字 ID
-
-`creative_id`
-: _可选_ **integer** - 创意 ID
-
-`geo_id`
-: _可选_ **integer** - 地域 ID
-
-`start_time`
-: _可选_ **hour** - 报告开始时间，与参数`time`一起使用。  
-采用国际标准 ISO 8601 的日期和时间显示格式。
-
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
-
-  * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
-
-
-
-`end_time`
-: _可选_ **hour** - 报告结束时间，与参数`time`一起使用。  
-采用国际标准 ISO 8601 的日期和时间显示格式。
-
-  * 当参数 `time` 选择 `小时`，时间格式 YYYY-MM-DDThh:mm:ss+08:00。例 2012-11-06T01:00:00+08:00。仅支持北京时间的时区表示，输出格式同样为 YYYY-MM-DDThh:mm:ss+08:00。
-
-  * 当参数 `time` 选择 `天`，时间格式 YYYY-MM-DD。例 2012-11-06。
-
-
-`sort`
-: _可选_ **string** - 列表排序以什么排序
-
-  * `time` - 按照时间排序
-  * `imp` - 按照曝光排序
-  * `clk` - 按照点击排序
-  * `uimp` - 按照独立曝光排序
-  * `uclk` - 按照独立点击排序
-  * `placement_id` - 按照广告位 ID 排序
-
-`direction`
-: _可选_ **string** - 排序方式
-
-  * `asc` 升序 (_默认_)
-  * `desc` 降序
-
-`page`
-: _可选_ **integer** - 显示页码
-
-	默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page`显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
-
-	`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。
-
-**响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/campaigns/12/reports?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/campaigns/12/reports?page=10>; rel="last"
-
-{:.prettyprint}
-    [
-      {
-        "campaign_id": 10185,
-        "time": "2012-08-03",
-        "imp": 9,
-        "uimp": 6,
-        "clk": 3,
-        "uclk": 3,
-      }
-    ]
 
 **字段说明**
 

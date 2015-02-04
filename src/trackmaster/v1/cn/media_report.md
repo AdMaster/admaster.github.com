@@ -13,6 +13,10 @@ version: v1
 * TOC
 {:toc}
 
+<p style="color:red">注意：2015 年新接入的媒体 API 地址请使用以下地址</p>
+
+    http://m.trackmaster.com.cn/api_v2/
+
 ## 获取指定媒体下的项目
 
     GET /medias/:media_id/campaigns
