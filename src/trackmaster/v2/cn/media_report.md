@@ -33,9 +33,7 @@ version: v2
 
 ## 获取指定项目下的报告
 
-    GET http://m.trackmaster.com.cn/api_v2/medias/:media_id/campaigns/:campaign_id/daily_reports
-
-**参数**
+    GET http://m.trackmaster.com.cn/api_v2/medias/:media_id/campaigns/:campaign_id/reports/basics
 
 **参数**
 
@@ -67,7 +65,7 @@ version: v2
 
 ## 获取IES报告(新接口)
 
-	GET /medias/:id/ies_reports
+	GET /medias/:mediaId/reports/ies
 
 **参数**
 
