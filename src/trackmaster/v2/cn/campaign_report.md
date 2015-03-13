@@ -26,7 +26,7 @@ version: v2
 * `filters` 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp>1000;clk>10
 * `sort` 排序方式, 降序排列的时候需要在排序方式前加减号(-)
 * `startIndex` 数据从第几条开始，默认为 0
-* `maxResults` 最多返回多少条结果，默认为 1000
+* `maxResults` 最多返回多少条结果，默认为 10，最大为 5000
 
 报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数，如果需要控制翻页，请修改`startIndex` 和 `maxResults` 的值。
 
