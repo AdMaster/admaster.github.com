@@ -100,7 +100,7 @@
   <li><code>filters</code> 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp&gt;1000;clk&gt;10</li>
   <li><code>sort</code> 排序方式, 降序排列的时候需要在排序方式前加减号(-)</li>
   <li><code>startIndex</code> 数据从第几条开始，默认为 0</li>
-  <li><code>maxResults</code> 最多返回多少条结果，默认为 1000</li>
+  <li><code>maxResults</code> 最多返回多少条结果，默认为 30</li>
 </ul>
 
 <p>报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数，如果需要控制翻页，请修改<code>startIndex</code> 和 <code>maxResults</code> 的值。</p>
@@ -131,15 +131,10 @@
   <dd><em>可选</em> <strong>string</strong> - pub_id 指定后只获取该 pub_id 的数据</dd>
   <dt><code>date</code></dt>
   <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08, 不指定则获取前一天的数据</dd>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
-</dl>
-
-<p>默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。<code>page</code> 和 <code>per_page</code>一起使用，例如当返回的数据超过 30 条时，可以通过设定 <code>page</code> 显示 30 条之后的数据。</p>
-
-<dl>
-  <dt><code>per_page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 分页数量，默认每页 30 条</dd>
+  <dt><code>startIndex</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 数据从第几条开始，默认为 0</dd>
+  <dt><code>maxResults</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 最多返回多少条结果，默认为 30</dd>
 </dl>
 
 <p>返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。<code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制</p>

@@ -44,7 +44,7 @@ version: v2
 * `filters` 过滤条件，用分号(;) 分隔and逻辑，用逗号(,)分隔or逻辑filters=mediaId==1018;geoId==310021,placementId=50000012;imp>1000;clk>10
 * `sort` 排序方式, 降序排列的时候需要在排序方式前加减号(-)
 * `startIndex` 数据从第几条开始，默认为 0
-* `maxResults` 最多返回多少条结果，默认为 1000
+* `maxResults` 最多返回多少条结果，默认为 30
 
 报告结果的返回头部信息 X-Content-Record-Total 值为结果条目总数，如果需要控制翻页，请修改`startIndex` 和 `maxResults` 的值。
 
@@ -75,13 +75,11 @@ version: v2
 `date`
 : _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08, 不指定则获取前一天的数据
 
-`page`
-: _可选_ **integer** - 显示页码
+`startIndex`
+: _可选_ **integer** - 数据从第几条开始，默认为 0
 
-默认显示页码为 ‘1’，起始页为 ‘1’ 而不是 ‘0’。`page` 和 `per_page`一起使用，例如当返回的数据超过 30 条时，可以通过设定 `page` 显示 30 条之后的数据。
-
-`per_page`
-: _可选_ **integer** - 分页数量，默认每页 30 条
+`maxResults`
+: _可选_ **integer** - 最多返回多少条结果，默认为 30
 
 返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
 
