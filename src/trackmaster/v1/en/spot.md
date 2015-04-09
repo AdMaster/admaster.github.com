@@ -96,16 +96,3 @@ version: v1
     Status: 204 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
-
-{:.prettyprint}
-    [{
-        //The date which units need changing.
-        "online_date": 2013-01-01,
-        //Perchase Unites
-        "units": 1,
-        //Creative ID
-        "creative_id": 200019827,
-      },
-     {...},
-     ...
-     {...}]

@@ -100,16 +100,3 @@ version: v1
     Status: 204 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
-
-{:.prettyprint}
-    [{
-        //需求修改点位的排期日期
-        "online_date": 2013-01-01,
-        //购买量
-        "units": 1,
-        //创意 ID
-        "creative_id": 200019827,
-      },
-     {...},
-     ...
-     {...}]
