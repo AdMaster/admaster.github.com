@@ -63,7 +63,7 @@ version: v2
       }
       
 
-## 获取IES报告(新接口)
+## 获取IES报告
 
 	GET /medias/:mediaId/reports/ies
 
@@ -79,9 +79,8 @@ version: v2
 : _可选_ **integer** - 数据从第几条开始，默认为 0
 
 `maxResults`
-: _可选_ **integer** - 最多返回多少条结果，默认为 30
+: _可选_ **integer** - 最多返回多少条结果，默认为 30,最大为 5000
 
-返回数据的数目。当不指定`per_page` 时，默认最大返回 30 条数据。`per_page` 和 `page` 一起使用显示一系列数据或者单独使用限制
 
 {:.prettyprint}
 	[{

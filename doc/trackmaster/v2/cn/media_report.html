@@ -63,7 +63,7 @@
 <ul id="markdown-toc">
   <li><a href="#section-1">获取指定媒体下的项目</a></li>
   <li><a href="#section-2">获取指定项目下的报告</a></li>
-  <li><a href="#ies">获取IES报告(新接口)</a></li>
+  <li><a href="#ies">获取IES报告</a></li>
 </ul>
 
 <h2 id="section-1">获取指定媒体下的项目</h2>
@@ -119,7 +119,7 @@
   }
 </code></pre>
 
-<h2 id="ies">获取IES报告(新接口)</h2>
+<h2 id="ies">获取IES报告</h2>
 
 <pre><code>GET /medias/:mediaId/reports/ies
 </code></pre>
@@ -134,10 +134,8 @@
   <dt><code>startIndex</code></dt>
   <dd><em>可选</em> <strong>integer</strong> - 数据从第几条开始，默认为 0</dd>
   <dt><code>maxResults</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 最多返回多少条结果，默认为 30</dd>
+  <dd><em>可选</em> <strong>integer</strong> - 最多返回多少条结果，默认为 30,最大为 5000</dd>
 </dl>
-
-<p>返回数据的数目。当不指定<code>per_page</code> 时，默认最大返回 30 条数据。<code>per_page</code> 和 <code>page</code> 一起使用显示一系列数据或者单独使用限制</p>
 
 <pre class="prettyprint"><code>[{
   	"id": 30,
