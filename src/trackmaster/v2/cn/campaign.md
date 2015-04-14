@@ -29,7 +29,7 @@ version: v2
         "industryId": 999, //
         "networkId": 999, // 关联工作网络id
         "creatorId": 999, // 创建者id
-        "trackType": 'mobile','nonmobile','mixed', //track类型，移动，非移动，混合，三选一
+        "trackType": 'mobile','nonmobile' //track类型，移动，非移动，二选一
         "startDate": 2014-06-25, // 项目开始日期
         "endDate": 2014-06-25, //项目结束日期
         "mediaIds":440,1118,40 // 项目下媒体的列表，多个用逗号隔开, 有顺序
@@ -64,7 +64,7 @@ version: v2
         "industryId": 999, //
         "networkId": 999, // 关联工作网络id
         "creatorId": 999, // 创建者id
-        "trackType": 'mobile','nonmobile','mixed', //track类型，移动，非移动，混合，三选一
+        "trackType": 'mobile','nonmobile', //track类型，移动，非移动，二选一
         "startDate": 2014-06-25, // 项目开始日期
         "endDate": 2014-06-25, //项目结束日期
         "mediaIds":440,1118,40 // 项目下媒体的列表，多个用逗号隔开, 有顺序
@@ -98,7 +98,7 @@ version: v2
         "brandId": 999, // 必填，关联品牌id
         "industryId": 999, // 选填，关联行业id
         "networkId": 999, // 必填，关联工作网络id
-        "trackType": 'mobile','nonmobile','mixed', //必填，track类型，移动，非移动，混合，三选一
+        "trackType": 'mobile','nonmobile', //track类型，移动，非移动，二选一
         "startDate": 2014-06-25, // 必填，项目开始日期
         "endDate": 2014-06-25, // 必填，项目结束日期
         "mediaIds":440,1118,40 // 选填，项目下媒体的列表，多个用逗号隔开, 有顺序
@@ -183,7 +183,7 @@ version: v2
         "industryId": 999, //
         "networkId": 999, // 关联工作网络id
         "creatorId": 999, // 创建者id
-        "trackType": 'mobile','nonmobile','mixed', //track类型，移动，非移动，混合，三选一
+        "trackType": 'mobile','nonmobile', //track类型，移动，非移动，二选一
         "startDate": 2014-06-25, // 项目开始日期
         "endDate": 2014-06-25, //项目结束日期
         "mediaIds":440,1118,40 // 项目下媒体的列表，多个用逗号隔开, 有顺序
