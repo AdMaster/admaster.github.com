@@ -143,7 +143,7 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
     "industryId": 999, //
     "networkId": 999, // 关联工作网络id
     "creatorId": 999, // 创建者id
-    "trackType": 'mobile','nonmobile','mixed', //track类型，移动，非移动，混合，三选一
+    "trackType": 'mobile','nonmobile', //track类型，移动，非移动，二选一
     "startDate": 2014-06-25, // 项目开始日期
     "endDate": 2014-06-25, //项目结束日期
     "mediaIds":440,1118,40 // 项目下媒体的列表，多个用逗号隔开, 有顺序
