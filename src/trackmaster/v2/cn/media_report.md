@@ -69,8 +69,8 @@ version: v2
 
 **参数**
 
-`pub_id`
-: _可选_ **string** - pub_id 指定后只获取该 pub_id 的数据
+`pubId`
+: _可选_ **string** - pubId 指定后只获取该 pubId 的数据
 
 `date`
 : _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08, 不指定则获取前一天的数据
