@@ -85,9 +85,9 @@ version: v2
 {:.prettyprint}
 	[{
   	"id": 30,
-  	"media_id":100,
-  	"geo_id": 1100000000,  		
-  	"pub_id": "PUB_IMloxn12345",
+  	"mediaId":100,
+  	"geoId": 1100000000,  		
+  	"pubId": "PUB_IMloxn12345",
   	"imp": 12039423,
   	"clk": 43432
 	}]
