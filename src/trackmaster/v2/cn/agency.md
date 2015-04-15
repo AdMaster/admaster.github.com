@@ -60,7 +60,7 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
 
 ## 第二步 获取当前授权用户有权操作的所有工作网络 ##
 
-    GET http://m.trackmaster.com.cn/api_v2/users/:userId/networks
+    GET http://m.trackmaster.com.cn/api_v2/session
 
 **响应**
 

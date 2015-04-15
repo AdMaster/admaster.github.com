@@ -125,5 +125,5 @@ version: v2
 **响应**
 
 {:.prettyprint}
-    Status: 200 OK
+    Status: 204 OK
 
