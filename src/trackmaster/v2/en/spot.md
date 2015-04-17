@@ -4,7 +4,7 @@ layout: default
 category: trackmaster
 subcategory: agency
 language: en
-title: spot
+title: Spot
 version: v2
 ---
 

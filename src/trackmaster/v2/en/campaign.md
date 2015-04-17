@@ -4,7 +4,7 @@ layout: default
 category: trackmaster
 subcategory: agency
 language: en
-title: campaign
+title: Campaign
 version: v2
 ---
 
