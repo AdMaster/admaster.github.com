@@ -132,10 +132,10 @@ Note: Only submitted paremeters will be updated.
 
         }
     
-## Deltet spot
+## Delete a spot
 
     DELETE http://m.trackmaster.com.cn/api_v2/spots/:id
 
-**响应**
+**Response**
 
     Status: 204 OK 

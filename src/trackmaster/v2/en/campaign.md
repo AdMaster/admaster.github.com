@@ -54,7 +54,6 @@ version: v2
     "advertiserId": 999, // Advertiser ID
     "brandId": 999, // Brand ID
     "networkId": 999, // Network ID
-    "creatorId": 999, // Creator ID
     "trackType": "nonmobile", //Campaign Type,`mobile`,`nonmobile`
     "startDate": "2015-04-15T00:00:00.000Z", // Start Date
     "endDate": "2015-04-30T00:00:00.000Z", //Start Date
@@ -161,7 +160,7 @@ Note:That it will not create a new campaign, if the name has been used in the sa
     "placements":20 // The actual number of existed placements.(Maximum:500)
     }
 
-## Update campaign
+## Update a campaign
 
     PATCH http://m.trackmaster.com.cn/api_v2/campaigns/:id
 
@@ -248,7 +247,7 @@ Note: Only submitted paremeters will be updated.
     }
 
 
-## Delete campaign
+## Delete a campaign
 
     DELETE http://m.trackmaster.com.cn/api_v2/campaigns/:id
 

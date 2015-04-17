@@ -142,7 +142,7 @@ Note: Maximum number of placement to creat in the same campaign is 400.
         "estimateClk":999 //Estimate Click(per_unit)
     }
 
-## Update placement
+## Update a placement
 
     PATCH http://m.trackmaster.com.cn/api_v2/placements/:id
 

@@ -140,7 +140,6 @@ Note: For vertify permission, the `queryString` must contain `access_token`.
     "advertiserId": 999, // Advertiser ID
     "brandId": 999, // Brand ID
     "networkId": 999, // Network ID
-    "creatorId": 999, // Creator ID
     "trackType": "nonmobile", //Campaign Type,`mobile`,`nonmobile`
     "startDate": "2015-04-15T00:00:00.000Z", // Start Date
     "endDate": "2015-04-30T00:00:00.000Z", //End Date
@@ -148,18 +147,18 @@ Note: For vertify permission, the `queryString` must contain `access_token`.
     "status": "enabled"", //`enabled`,`disabled`
     "costType":"none", //Settlement currency,`cny`,`usd`,`none`
     "siteMasterId": "999", //SiteMaster ID
-    "defaultTarget": "www.ui168.com", //Default Target URL
+    "defaultTarget": "http://www.ui168.com", //Default Target URL
     "isDelete":no, //`yes`, `no`
    	"party_name":"zhaoxiongfei", //Contactor(for emergencies and other important matters)
     "party_email"://Contact email(for emergencies and other important matters)
-    "placements":20, // the actual number of existed placements(Maximum:500)
+    "placements":20 // the actual number of existed placements(Maximum:500)
     }]
 
 
 # More information #
 
-[TrackMaster Index](/doc/openmaster/v2/en/index.html)  
-[Protocal and Requests Instructions](/doc/openmaster/v2/en/verbs.html)
+[TrackMaster Index](/doc/openmaster/v1/en/index.html)  
+[Protocal and Requests Instructions](/doc/openmaster/v1/en/verbs.html)
 
 
 

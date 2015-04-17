@@ -3,7 +3,7 @@ weight: 6
 layout: default
 category: trackmaster
 subcategory: agency
-language: cn
+language: en
 title: creative
 version: v2
 ---
@@ -41,7 +41,7 @@ version: v2
         "name": // Creative Name
         "shortName"://Creative Shortname. Limite:2 characters
         "targetUrl"://Target URL
-        "campaignId": 999, // Campaign ID
+        "campaignId": 999 // Campaign ID
     }
 
 
@@ -79,12 +79,12 @@ Note:Maximum number of creative to creat is 20 in the same campaign.
         "name": // Creative Name
         "shortName"://Creative Shortname. Limite:2 characters
         "targetUrl"://Target URL
-        "campaignId": 999, // Campaign ID
+        "campaignId": 999 // Campaign ID
     }
 
 
 
-## Update creative
+## Update a creative
 
     PATCH http://m.trackmaster.com.cn/api_v2/creatives/:id
 
@@ -118,11 +118,11 @@ Note: Only submitted paremeters will be updated.
         "name": // Creative Name
         "shortName"://Creative Shortname. Limite:2 characters
         "targetUrl"://Target URL
-        "campaignId": 999, // Campaign ID
+        "campaignId": 999 // Campaign ID
     }
 
 
-## Delete creative
+## Delete a creative
 
     DELETE http://m.trackmaster.com.cn/api_v2/creatives/:id
 

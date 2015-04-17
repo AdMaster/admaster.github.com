@@ -2,7 +2,7 @@
 weight: 1
 layout: default
 category: trackmaster
-language: cn
+language: en
 title: index
 version: v2
 ---
@@ -59,4 +59,4 @@ A creative is a wrapper for one or more files representing the advertisement. Yo
 
 ## Agency ##
 
-* [代理开发指南](/doc/trackmaster/v2/en/agency.html)
+* [Agency develop guide](/doc/trackmaster/v2/en/agency.html)

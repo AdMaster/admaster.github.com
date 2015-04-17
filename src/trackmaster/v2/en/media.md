@@ -25,7 +25,7 @@ version: v2
         id: 440,
         name_cn: "腾讯网",
         status: "normal",
-        domain: "qq.com",
+        domain: "qq.com"
     }]
     
 
@@ -41,5 +41,5 @@ version: v2
         id: 440,
         name_cn: "腾讯网",
         status: "normal",
-        domain: "qq.com",
+        domain: "qq.com"
     }
