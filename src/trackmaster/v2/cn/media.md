@@ -24,16 +24,8 @@ version: v2
     [{
         id: 440,
         name_cn: "腾讯网",
-        name_en: "",
         status: "normal",
-        fullName_cn: "",
-        fullName_en: "",
-        category: "domain",
-        type: "mixed",
-        logo: "http://qq.com/favicon.ico",
-        domain: "qq.com",
-        parentId: 0,
-        tag: "时事政治"
+        domain: "qq.com"
     }]
     
 
@@ -48,14 +40,6 @@ version: v2
     {
         id: 440,
         name_cn: "腾讯网",
-        name_en: "",
         status: "normal",
-        fullName_cn: "",
-        fullName_en: "",
-        category: "domain",
-        type: "mixed",
-        logo: "http://qq.com/favicon.ico",
-        domain: "qq.com",
-        parentId: 0,
-        tag: "时事政治"
+        domain: "qq.com"
     }

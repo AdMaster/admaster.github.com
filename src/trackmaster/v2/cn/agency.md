@@ -138,11 +138,8 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
     "id": 999,
     "name": "这个是项目名称",
     "advertiserId": 999, // 关联广告主id
-    "agencyId": 999, // 关联代理id
     "brandId": 999, // 关联品牌id
-    "industryId": 999, //
     "networkId": 999, // 关联工作网络id
-    "creatorId": 999, // 创建者id
     "trackType": 'mobile','nonmobile', //track类型，移动，非移动，二选一
     "startDate": 2014-06-25, // 项目开始日期
     "endDate": 2014-06-25, //项目结束日期
@@ -150,15 +147,11 @@ TrackMaster API 结构与业务逻辑一致，请访问 [帮助中心](http://he
     "status": enabled或者disabled, //默认值为enabled
     "costType": 'cny','usd','none', //媒介计划预算结算货币，none为不录入
     "siteMasterId": 999, //项目关联siteMaster 站点id,多个用逗号隔开
-    "smtbStatus": 'enabled','disabled', //smtb跟踪状态,enabled为开启，disabled 为关闭
     "defaultTarget": "www.ui168.com", //项目默认点击跳转地址
     "isDelete":  yes或者no, //是否被删除,
     "party_name":zhaoxiongfei, //项目甲方联系人名称
-    "party_gender":'male','female', //项目甲方联系人性别
     "party_email"://项目甲方联系人邮箱
     "placements":999, //项目下目前广告位总数, 每个项目下广告位总数有限制
-    "createdAt": "2012-01-10T02:30:59Z",
-    "updatedAt": "2012-01-10T02:30:59Z"
     }]
 
 

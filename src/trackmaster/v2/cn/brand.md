@@ -34,10 +34,7 @@ version: v2
         "name":品牌 // 品牌名称
         "networkId": 999, //关联网络ID
         "advertiserId": 999, //关联广告主ID
-        "creatorId": 999, //创建着id
         "isDelete": yes或者no, //是否被删除,
-        "createdAt": "2012-01-10T02:30:59Z",//品牌创建时间
-        "updatedAt": "2012-01-10T02:30:59Z"//最后更新时间
     }]
 
 
@@ -53,10 +50,7 @@ version: v2
         "name":品牌 // 品牌名称
         "networkId": 999, //关联网络ID
         "advertiserId": 999, //关联广告主ID
-        "creatorId": 999, //创建着id
-        "isDelete": yes或者no, //是否被删除,
-        "createdAt": "2012-01-10T02:30:59Z",//品牌创建时间
-        "updatedAt": "2012-01-10T02:30:59Z"//最后更新时间
+        "isDelete": yes或者no //是否被删除,
     }
 
 ## 添加指定品牌到指定网络广告主下
@@ -94,7 +88,6 @@ version: v2
     {
         "name":品牌 // 品牌名称
         "advertiserId": 999, //关联广告主ID
-        "isDelete": yes或者no, //是否被删除,
     }
 
 `name`
@@ -109,10 +102,7 @@ version: v2
         "name":品牌 // 品牌名称
         "networkId": 999, //关联网络ID
         "advertiserId": 999, //关联广告主ID
-        "creatorId": 999, //创建着id
         "isDelete": yes或者no, //是否被删除,
-        "createdAt": "2012-01-10T02:30:59Z",
-        "updatedAt": "2012-01-10T02:30:59Z"
     }
 
 

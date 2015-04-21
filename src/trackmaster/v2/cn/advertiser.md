@@ -25,14 +25,6 @@ version: v2
     {
         id: 10032,
         name_cn: "伊利",
-        name_en: "Yili",
-        alias: "伊利",
-        fullName_cn: "内蒙古伊利实业集团股份有限公司",
-        fullName_en: "",
-        dutyNumber: "150117114124263",
-        logo: null,
-        industryId: 1,
-        status: ""
     }
     ]
 
@@ -47,14 +39,6 @@ version: v2
     {
         id: 10032,
         name_cn: "伊利",
-        name_en: "Yili",
-        alias: "伊利",
-        fullName_cn: "内蒙古伊利实业集团股份有限公司",
-        fullName_en: "",
-        dutyNumber: "150117114124263",
-        logo: null,
-        industryId: 1,
-        status: ""
     }
 
 
