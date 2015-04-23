@@ -31,7 +31,9 @@ version: v2
         "rollRate": 1, //Value:`1`,`1/2`…
         "materialType":"image", //Material Type. Value:`falsh`,`image`(default),`video`,`txt`,`other`
         "size":"0x0", //Material Size
-        "screen":1, //Which screen the placement in   		"costType":"day",//Purchase Type. Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
+        "screen":1, //Which screen the placement in
+        "cost":12, //Cost Per Unit     
+   	"costType":"day",//Purchase Type. Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
         "estimateImp":999, //Estimate Impression(per_unit)
         "estimateClk":999 //Estimate Click(per_unit)
         }
@@ -56,6 +58,7 @@ version: v2
         "materialType":"image", //Material Type. Value:`falsh`,`image`(default),`video`,`txt`,`other`
         "size":"0x0", //Material Size
         "screen":1, //Which screen the placement in   		"costType":"day",//Purchase Type. Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
+        "cost":12, //Cost Per Unit
         "estimateImp":999, //Estimate Impression(per_unit)
         "estimateClk":999 //Estimate Click(per_unit)
 
@@ -96,6 +99,9 @@ Note: Maximum number of placement to creat in the same campaign is 400.
 `screen`
 : _Optional_  Which screen the placement in
 
+`cost`
+: _Optional_  Cost Per Unit. 
+
 `costType`
 : _Optional_  Purchase Type. Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
 
@@ -104,6 +110,8 @@ Note: Maximum number of placement to creat in the same campaign is 400.
 
 `estimateClk`
 : _Optional_  Estimate Click(per_unit)
+
+
 
 
 **Request**
@@ -120,6 +128,7 @@ Note: Maximum number of placement to creat in the same campaign is 400.
         "materialType":"image", //Material Type. Value:`falsh`,`image`(default),`video`,`txt`,`other`
         "size":"0x0", //Material Size
         "screen":1, //Which screen the placement in   		"costType":"day",//Purchase Type. Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
+        "cost":12, //Cost Per Unit        
         "estimateImp":999, //Estimate Impression(per_unit)
         "estimateClk":999 //Estimate Click(per_unit)
     }
@@ -138,6 +147,7 @@ Note: Maximum number of placement to creat in the same campaign is 400.
         "materialType":"image", //Material Type. Value:`falsh`,`image`(default),`video`,`txt`,`other`
         "size":"0x0", //Material Size
         "screen":1, //Which screen the placement is in   		"costType":"day",//Purchase Type.Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
+        "cost":12, //Cost Per Unit          
         "estimateImp":999, //Estimate Impression(per_unit)
         "estimateClk":999 //Estimate Click(per_unit)
     }
@@ -175,6 +185,9 @@ Note: Only submitted paremeters will be updated.
 `costType`
 : _Optional_  Purchase Type. Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
 
+`cost`
+: _Optional_  Cost Per Unit. 
+
 `estimateImp`
 : _Optional_  Estimate Impression(per_unit)
 
@@ -193,6 +206,7 @@ Note: Only submitted paremeters will be updated.
         "materialType":"image", //Material Type. Value:`falsh`,`image`(default),`video`,`txt`,`other`
         "size":"0x0", //Material Size
         "screen":1, //Which screen the placement is in   		"costType":"day",//Purchase Type.Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
+        "cost":12, //Cost Per Unit  
         "estimateImp":999, //Estimate Impression(per_unit)
         "estimateClk":999 //Estimate Click(per_unit)
     }
@@ -211,6 +225,7 @@ Note: Only submitted paremeters will be updated.
         "materialType":"image", //Material Type. Value:`falsh`,`image`(default),`video`,`txt`,`other`
         "size":"0x0", //Material Size
         "screen":1, //Which screen the placement is in   		"costType":"day",Type.Value:`day`(default),`week`,`month`,`cpc`,`cpm`,`cpa`,`article`,`edm`,`other`
+        "cost":12, //Cost Per Unit          
         "estimateImp":999, //Estimate Impression(per_unit)
         "estimateClk":999 //Estimate Click(per_unit)
     }

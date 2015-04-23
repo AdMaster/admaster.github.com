@@ -39,6 +39,7 @@ version: v2
         "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
         "size":0x0 , //广告位尺寸，长x宽 单位像素
         "screen":1, //广告位在第几屏
+        "cost":12, //单位成本
         "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
         "estimateImp":999, //单位预估曝光
         "estimateClk":999, //单位预估点击
@@ -64,6 +65,7 @@ version: v2
         "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
         "size":0x0 , //广告位尺寸，长x宽 单位像素
         "screen":1, //广告位在第几屏
+        "cost":12, //单位成本
         "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
         "estimateImp":999, //单位预估曝光
         "estimateClk":999, //单位预估点击
@@ -88,6 +90,7 @@ version: v2
         "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
         "size":0x0 , //广告位尺寸，长x宽 单位像素
         "screen":1, //广告位在第几屏
+        "cost":12, //单位成本
         "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
         "estimateImp":999, //单位预估曝光
         "estimateClk":999, //单位预估点击
@@ -107,6 +110,7 @@ version: v2
         "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
         "size":0x0 , //广告位尺寸，长x宽 单位像素
         "screen":1, //广告位在第几屏
+        "cost":12, //单位成本        
         "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
         "estimateImp":999, //单位预估曝光
         "estimateClk":999, //单位预估点击
@@ -131,6 +135,7 @@ version: v2
         "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
         "size":0x0 , //广告位尺寸，长x宽 单位像素
         "screen":1, //广告位在第几屏
+        "cost":12, //单位成本
         "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
         "estimateImp":999, //单位预估曝光
         "estimateClk":999, //单位预估点击
@@ -150,6 +155,7 @@ version: v2
         "materialType":'flash','image','video','txt','other', //默认值为image//物料类型
         "size":0x0 , //广告位尺寸，长x宽 单位像素
         "screen":1, //广告位在第几屏
+        "cost":12, //单位成本        
         "costType":'day','week','month','cpc','cpm','cpa','article','edm','other', //默认值为day //购买类型
         "estimateImp":999, //单位预估曝光
         "estimateClk":999, //单位预估点击
