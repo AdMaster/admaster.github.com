@@ -63,7 +63,6 @@
 <ul id="markdown-toc">
   <li><a href="#get-spots-of-the-given-placement-in-a-period-of-time">Get spots of the given placement in a period of time</a></li>
   <li><a href="#modify-the-given-spot">Modify the given spot</a></li>
-  <li><a href="#bulk-modify-spots">Bulk modify spots</a></li>
 </ul>
 
 <h2 id="get-spots-of-the-given-placement-in-a-period-of-time">Get spots of the given placement in a period of time</h2>
@@ -127,33 +126,11 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>Response</strong></p>
 
-<pre><code>Status: 204 No Content
+<pre><code>Status: 200 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="bulk-modify-spots">Bulk modify spots</h2>
-
-<pre><code>POST /networks/advertisers/campaigns/placements/:placement_id/spots
-</code></pre>
-
-<p><strong>Request</strong></p>
-
-<dl>
-  <dt><code>online_date</code></dt>
-  <dd><em>Required</em> <strong>date</strong> - The date which units need changing. A string of the format: “YYYY-MM-DD”. </dd>
-  <dt><code>units</code></dt>
-  <dd><em>Required</em> <strong>float</strong> - Perchase Unites</dd>
-  <dt><code>creative_id</code></dt>
-  <dd><em>Optional</em> <strong>integer</strong> - Creative ID</dd>
-</dl>
-
-<p><strong>Response</strong></p>
-
-<pre><code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
 
       </div>
       

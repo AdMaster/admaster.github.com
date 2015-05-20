@@ -143,7 +143,7 @@ The number of keywords' URLs in a placement must not exceed 100.
 
 **Response**
 
-    Status: 204 No Content
+    Status: 200 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 

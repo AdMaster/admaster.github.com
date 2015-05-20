@@ -474,6 +474,6 @@ version: v1
 
 **响应**
 
-    Status: 204 No Content
+    Status: 200 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999

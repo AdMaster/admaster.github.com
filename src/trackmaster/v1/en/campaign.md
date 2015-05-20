@@ -285,7 +285,7 @@ Get information near the bottom of the page.
 
 **Response**
 
-    Status: 204 No Content
+    Status: 200 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 

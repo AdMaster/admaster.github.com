@@ -70,29 +70,8 @@ version: v1
 
 **Response**
 
-    Status: 204 No Content
+    Status: 200 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
 
-## Bulk modify spots
-
-    POST /networks/advertisers/campaigns/placements/:placement_id/spots
-
-**Request**
-
-`online_date`
-: _Required_ **date** - The date which units need changing. A string of the format: "YYYY-MM-DD". 
-
-`units`
-: _Required_ **float** - Perchase Unites
-
-`creative_id`
-: _Optional_ **integer** - Creative ID
-
-
-**Response**
-
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999

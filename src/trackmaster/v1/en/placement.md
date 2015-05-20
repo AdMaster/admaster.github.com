@@ -475,6 +475,6 @@ When the placement which you want to delete has impression or click data, it can
 
 **Response**
 
-    Status: 204 No Content
+    Status: 200 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999

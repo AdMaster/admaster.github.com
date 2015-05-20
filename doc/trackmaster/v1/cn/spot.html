@@ -63,7 +63,6 @@
 <ul id="markdown-toc">
   <li><a href="#section-1">获取指定广告位下指定时间段内的点位</a></li>
   <li><a href="#section-2">修改指定点位</a></li>
-  <li><a href="#section-3">批量修改广告位下的点位</a></li>
 </ul>
 
 <h2 id="section-1">获取指定广告位下指定时间段内的点位</h2>
@@ -131,32 +130,7 @@ X-RateLimit-Remaining: 4999
 
 <p><strong>响应</strong></p>
 
-<pre><code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="section-3">批量修改广告位下的点位</h2>
-
-<pre><code>POST /networks/advertisers/campaigns/placements/:placement_id/spots
-</code></pre>
-
-<p>注意：online_date必须在项目起止时间范围内</p>
-
-<p><strong>请求</strong></p>
-
-<dl>
-  <dt><code>online_date</code></dt>
-  <dd><em>必选</em> <strong>date</strong> - 需求修改点位的排期日期，格式为: YYYY-MM-DD 例如: 2012-04-12</dd>
-  <dt><code>units</code></dt>
-  <dd><em>必选</em> <strong>float</strong> - 购买量，不上线可以设置为 0，支持小数录入</dd>
-  <dt><code>creative_id</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 创意 ID</dd>
-</dl>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 204 No Content
+<pre><code>Status: 200 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

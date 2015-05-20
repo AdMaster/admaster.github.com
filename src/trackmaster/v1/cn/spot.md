@@ -73,30 +73,6 @@ version: v1
 
 **响应**
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-## 批量修改广告位下的点位
-
-    POST /networks/advertisers/campaigns/placements/:placement_id/spots
-
-注意：online_date必须在项目起止时间范围内
-
-**请求**
-
-`online_date`
-: _必选_ **date** - 需求修改点位的排期日期，格式为: YYYY-MM-DD 例如: 2012-04-12
-
-`units`
-: _必选_ **float** - 购买量，不上线可以设置为 0，支持小数录入
-
-`creative_id`
-: _可选_ **integer** - 创意 ID
-
-
-**响应**
-
-    Status: 204 No Content
+    Status: 200 No Content
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
