@@ -70,7 +70,7 @@ version: v1
 
 **Response**
 
-    Status: 200 No Content
+    Status: 204
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 

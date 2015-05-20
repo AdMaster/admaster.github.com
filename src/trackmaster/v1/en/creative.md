@@ -182,7 +182,7 @@ When the creative's data which you want to delete is "0", it can not be deleted.
 
 **Response**
 
-    Status: 200 No Content
+    Status: 200
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4999
 
