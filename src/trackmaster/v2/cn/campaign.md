@@ -139,7 +139,6 @@ version: v2
 {:.prettyprint}
     {
         "name": "这个是项目名称",
-        "advertiserId": 999, // 关联广告主id
         "agencyId": 999, // 关联代理id
         "brandId": 999, // 关联品牌id
         "industryId": 999, //
@@ -177,14 +176,3 @@ version: v2
         "party_email"://项目甲方联系人邮箱
         "placements":999 //项目下目前广告位总数, 每个项目下广告位总数有限制
     }
-
-
-## 删除指定项目
-
-    DELETE http://m.trackmaster.com.cn/api_v2/campaigns/:id
-
-注意：当项目下有广告位时不允许删除项目；如需删除请先删除该项目下的广告位。
-
-**响应**
-
-    Status: 204 OK
