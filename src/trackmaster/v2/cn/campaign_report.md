@@ -57,7 +57,6 @@ version: v2
 * model 设备机型
 * date 日期
 * hour 小时
-* week 周
 
 **维度所有可能的组合, 每行一个组合**
 
@@ -74,7 +73,6 @@ version: v2
 * model
 * date
 * hour
-* week
 
 * media, placement
 * media, creative
@@ -153,51 +151,6 @@ version: v2
 * date, media, placement, deviceType
 * date, media, placement, factory
 * date, media, placement, model
-
-* week, media
-* week, placement
-* week, creative
-* week, province
-* week, city
-* week, os
-* week, app
-* week, network
-* week, deviceType
-* week, factory
-* week, model
-
-* week, media, placement
-* week, media, creative
-* week, media, province
-* week, media, city
-* week, media, os
-* week, media, app
-* week, media, network
-* week, media, deviceType
-* week, media, factory
-* week, media, model
-
-* week, placement, keyword
-* week, placement, creative
-* week, placement, province
-* week, placement, city
-* week, placement, os
-* week, placement, app
-* week, placement, network
-* week, placement, deviceType
-* week, placement, factory
-* week, placement, model
-
-* week, media, placement, keyword
-* week, media, placement, creative
-* week, media, placement, province
-* week, media, placement, city
-* week, media, placement, os
-* week, media, placement, app
-* week, media, placement, network
-* week, media, placement, deviceType
-* week, media, placement, factory
-* week, media, placement, model
 
 * hour, media
 * hour, placement
