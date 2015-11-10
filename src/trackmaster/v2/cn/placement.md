@@ -161,13 +161,3 @@ version: v2
         "estimateClk":999, //单位预估点击
         }
     
-## 删除指定的广告位
-
-    DELETE http://m.trackmaster.com.cn/api_v2/placements/:id
-
-注意：当广告位下曾经获取到监测数据时，不能删除该广告位。
-
-**响应**
-
-    Status: 204 OK
-

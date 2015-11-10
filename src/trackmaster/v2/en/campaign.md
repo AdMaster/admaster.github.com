@@ -171,9 +171,6 @@ Note: Only submitted paremeters will be updated.
 `name`
 : _Optional_  Campaign Name
 
-`advertiserId`
-: _Optional_  Advertiser ID
-
 `brandId`
 : _Optional_  Brand ID
 
@@ -207,7 +204,6 @@ Note: Only submitted paremeters will be updated.
 {:.prettyprint}   
     {	
     	"name": "Test",//Campaign Name
-    	"advertiserId": 999, // Advertiser ID
     	"brandId": 999, // Brand ID
     	"networkId": 999, // Network ID
     	"trackType": "nonmobile", //Campaign Type.Value:`mobile`,`nonmobile`
@@ -246,14 +242,3 @@ Note: Only submitted paremeters will be updated.
     	"placements":20// The actual number of existed placements.(Maximum:500)
     }
 
-
-## Delete a campaign
-
-    DELETE http://m.trackmaster.com.cn/api_v2/campaigns/:id
-
-
-Note:That it will not delete an existed campaign, if the campaign contains placements - old placements must be deleted first.
-
-**Response**
-
-    Status: 204 OK

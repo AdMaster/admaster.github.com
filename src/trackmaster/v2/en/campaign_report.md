@@ -58,7 +58,6 @@ Header information `X-Content-Record-Total` means the number of total records.
 * model //Model:iPad mini,Samsung GALAXY Note II (N7100)
 * date 
 * hour 
-* week 
 
 **Avaliable dimensions combination**
 
@@ -77,7 +76,6 @@ Note:Not all combinations can be queried together. Only certain combination can 
 * model
 * date
 * hour
-* week
 
 * media, placement
 * media, creative
@@ -156,51 +154,6 @@ Note:Not all combinations can be queried together. Only certain combination can 
 * date, media, placement, deviceType
 * date, media, placement, factory
 * date, media, placement, model
-
-* week, media
-* week, placement
-* week, creative
-* week, province
-* week, city
-* week, os
-* week, app
-* week, network
-* week, deviceType
-* week, factory
-* week, model
-
-* week, media, placement
-* week, media, creative
-* week, media, province
-* week, media, city
-* week, media, os
-* week, media, app
-* week, media, network
-* week, media, deviceType
-* week, media, factory
-* week, media, model
-
-* week, placement, keyword
-* week, placement, creative
-* week, placement, province
-* week, placement, city
-* week, placement, os
-* week, placement, app
-* week, placement, network
-* week, placement, deviceType
-* week, placement, factory
-* week, placement, model
-
-* week, media, placement, keyword
-* week, media, placement, creative
-* week, media, placement, province
-* week, media, placement, city
-* week, media, placement, os
-* week, media, placement, app
-* week, media, placement, network
-* week, media, placement, deviceType
-* week, media, placement, factory
-* week, media, placement, model
 
 * hour, media
 * hour, placement

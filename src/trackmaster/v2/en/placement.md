@@ -230,14 +230,3 @@ Note: Only submitted paremeters will be updated.
         "estimateClk":999 //Estimate Click(per_unit)
     }
     
-## Delete a placement
-
-    DELETE http://m.trackmaster.com.cn/api_v2/placements/:id
-
-Note:That it will not delete an existed placement, if the placement has data.
-
-
-**Response**
-
-    Status: 204 OK
-
